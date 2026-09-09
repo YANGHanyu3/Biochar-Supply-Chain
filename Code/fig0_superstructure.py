@@ -160,13 +160,11 @@ def draw_content(ax):
     ax.text(4.92, 3.10, "credits", fontsize=8.2, ha="left", va="center", zorder=6)
 
     box(ax, 3.40, 0.50, 7.40, 2.20)
-    ax.text(5.40, 1.98, "Carbon credits (VM0044)", fontsize=9.5,
+    ax.text(5.40, 1.90, "Carbon credits (VM0044)", fontsize=9.5,
             fontweight="bold", ha="center", va="center", zorder=6)
-    ax.text(5.40, 1.60, r"CC $= C\cdot perm\cdot(44/12)\cdot yield$",
+    ax.text(5.40, 1.50, r"CC $= C\cdot perm\cdot(44/12)\cdot yield$",
             fontsize=8.2, ha="center", va="center", zorder=6)
-    ax.text(5.40, 1.25, "only 500 °C chars eligible", fontsize=8.2,
-            ha="center", va="center", zorder=6)
-    ax.text(5.40, 0.90, r"credit price $p^{CC}$", fontsize=8.2,
+    ax.text(5.40, 1.15, "only 500 °C chars eligible", fontsize=8.2,
             ha="center", va="center", zorder=6)
 
     box(ax, 7.80, 0.50, 11.00, 2.20)

@@ -10,8 +10,8 @@
 \subsection{Baseline facility locations and economics}
 
 Without carbon policy, the optimal network serves exactly the two
-highest-value demand segments and nothing else (Table~\ref{tab:s0}; see also
-Fig.~\ref{fig:econmarket} for the market-clearing geometry). The equilibrium
+highest-value demand segments and nothing else (Table~\ref{tab:s0};
+Fig.~\ref{fig:baseline}). The equilibrium
 quantity is 2.30~Mt of biochar per year: the H segment
 (\$800/t, 0.80~Mt) and M segment (\$500/t, 1.50~Mt) are fully served, while the
 L segment (\$250/t, 2.5~Mt) remains unserved because the marginal cost of
@@ -20,35 +20,25 @@ system surplus is \$708~M/yr in the near-term scenario and \$736~M/yr under
 mature-market supply; wet biomass consumption reaches 6.9~Mt/yr (77\% of the
 near-term potential). Corn stover is the dominant feedstock (5.9~Mt wet,
 fully utilized), supplemented by soybean straw and logging residues. The
-optimal
-facility layout concentrates plants
-in the central and southern corn belt (Fig.~\ref{fig:fcl}); the cost
-structure is shown in Fig.~\ref{fig:econmarket}.
+optimal facility layout concentrates plants
+in the central and southern corn belt, over the feedstock-availability surface
+that drives it (Fig.~\ref{fig:baseline}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.76\textwidth]{figures/fig1_facility_map.png}
-\caption{\small Optimal facility locations and scale tiers (near-term, no policy).
-Gray markers: T1 dehydration; deep-blue markers: T2 pyrolysis (300$^\circ$C);
-marker size proportional to installed scale tier. Facilities concentrate in
-the central and southern corn belt, co-locating drying and pyrolysis at
-feedstock-rich counties so that wet-biomass haulage stays short, the spatial
-signature of a supply-tight, feedstock-driven network.}
-\label{fig:fcl}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.92\textwidth]{figures/fig2_econmarket.png}
-\caption{\small System economics and market clearing (near-term). (I) Revenue
-and cost decomposition: biochar revenue (deep blue) against farmgate, OPEX,
-transport, and annualized capital costs (gray), leaving a net surplus of
-\$708~M/yr. (II) Step demand curve and equilibrium: the marginal supply curve
-crosses demand inside the \$500/t M segment, so H and M are fully served
-(0.80 and 1.50~Mt) while the \$250/t L segment and the \$30/t sink stay
-unserved; this is the demand-constrained regime that policy instruments must
-overcome.}
-\label{fig:econmarket}
+\includegraphics[width=\textwidth]{figures/fig2_baseline.png}
+\caption{\small Baseline network and market clearing (near-term, no policy).
+(I) Optimal facility locations over the feedstock-availability surface
+(counties shaded by total wet-biomass availability; circles: T1 dehydration,
+diamonds: T2 pyrolysis at 300$^\circ$C; marker size proportional to installed
+scale tier); plants concentrate in the central and southern corn belt,
+co-locating drying and pyrolysis with feedstock so that wet haulage stays
+short. (II) Revenue and cost decomposition, leaving a net surplus of
+\$708~M/yr. (III) Step demand curve and equilibrium: the marginal supply cost
+crosses demand inside the \$500/t M segment, so the H and M segments are fully
+served (0.80 and 1.50~Mt) while the \$250/t L segment and the \$30/t sink
+remain unserved, the demand-constrained regime that policy must overcome.}
+\label{fig:baseline}
 \end{figure}
 
 \begin{table}[htbp]
@@ -110,14 +100,16 @@ fails to move the optimum (cf.~\cite{benjaafar2013}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/fig4_iv_maps.png}
-\caption{\small Inherent values at each county (duals of the node mass
-balances; near-term scenario). (I) Biochar inherent value \$305--345/t: the
-marginal value of an additional biochar tonne available at a county. (II) Wet
-corn stover inherent value \$39--77/t, the most valuable biomass series; other
-wet feedstocks carry near-zero values (mean \$9/t across all wet products),
-confirming the demand-constrained regime in which marginal biomass supply is
-nearly worthless without additional biochar demand.}
+\includegraphics[width=\textwidth]{figures/fig3_inherent_values.png}
+\caption{\small Spatial inherent values (duals of the node mass balances;
+near-term). (I) Biochar inherent value, \$305--345/t: the marginal value of an
+additional biochar tonne at a county. (II) Wet corn stover inherent value,
+\$39--77/t, the most valuable biomass series; other wet feedstocks carry
+near-zero values (mean \$9/t), confirming the demand-constrained regime in
+which marginal biomass supply is nearly worthless without additional biochar
+demand. (III) County-level feedstock availability (counties sorted by total
+availability, feedstocks by abundance): corn stover dominates the supply
+surface, which is why the optimal network concentrates in the corn belt.}
 \label{fig:iv}
 \end{figure}
 
@@ -126,7 +118,7 @@ nearly worthless without additional biochar demand.}
 \subsection{Paradigm A: baseline-and-credit}
 \label{sec:policyA}
 
-Credits that scale with throughput transform the system (Fig.~\ref{fig:polA}).
+Credits that scale with throughput transform the system (Fig.~\ref{fig:policy}).
 At $p_c=\$25$/tCO$_2$e the L segment activates (0.42~Mt served) and production
 rises to 2.72~Mt; at $p_c=\$200$/tCO$_2$e the system saturates its feedstock
 potential (2.85~Mt, i.e., essentially 100\% of near-term biomass) and surplus
@@ -174,7 +166,7 @@ removal grows with mobilization.
 \subsection{Paradigm B: cap-and-trade with endogenous carbon price}
 
 The gross-emission cap sweep traces the system's marginal abatement cost curve
-(Fig.~\ref{fig:mac}). Tightening the cap from the baseline 1{,}003~kt to
+(Fig.~\ref{fig:policy}). Tightening the cap from the baseline 1{,}003~kt to
 501~kt reduces surplus from \$708~M to \$451~M/yr and biochar from 2.30 to
 1.19~Mt (mature-market: 983$\rightarrow$492~kt, \$736$\rightarrow$\$458~M).
 The finite-difference marginal abatement cost is
@@ -226,7 +218,7 @@ $p_c=\$100$ the conversion is complete in both scenarios: 2.22~Mt
 (near-term) and 2.71~Mt (mature-market), entirely 500$^\circ$C. At
 $p_c=\$200$ production is 2.25~Mt (near-term, surplus \$1{,}141~M/yr, 3.64~Mt
 of removal credits) and 4.25~Mt (mature-market, surplus \$1{,}501~M/yr,
-7.03~Mt credits), entirely 500$^\circ$C (Fig.~\ref{fig:polC}). Two features
+7.03~Mt credits), entirely 500$^\circ$C (Fig.~\ref{fig:policy}). Two features
 of this result are notable. First, the gate never subsidizes
 low-durability biochar: every credited tonne satisfies H/C$\le$0.7, and the
 credits purchase durability rather than tonnes. The near-term system's
@@ -243,7 +235,7 @@ and benchmarking under fixed facilities: with the layout fixed, gross
 emissions are pinned by the demand-constrained dispatch, the allowance budget
 is not a binding decision, and the allocation rule merely relabels a fixed
 revenue stream. Allocation design therefore matters only when facility
-investment is endogenous, an avenue for the multi-period extension. Figure~\ref{fig:polcmp} consolidates the production,
+investment is endogenous, an avenue for the multi-period extension. Figure~\ref{fig:policy} consolidates the production,
 surplus, and price responses across the three paradigms.
 
 \begin{table}[htbp]
@@ -273,7 +265,7 @@ Splitting biochar into BC300 and BC500 with the \$800/t CDR premium segment
 restricted to BC500 changes the baseline itself: the optimal no-policy network
 builds 14~T2-500$^\circ$C facilities and produces 0.80~Mt of BC500, exactly
 the premium segment, alongside 1.50~Mt of BC300
-(Fig.~\ref{fig:v2bmix}, Table~\ref{tab:v2b}); the
+(Fig.~\ref{fig:creditbasis}, Table~\ref{tab:v2b}); the
 premium market alone justifies high-temperature pyrolysis. The v2b no-policy
 surplus (\$636~M/yr near-term, \$674~M/yr mature-market) is lower than the
 pooled-baseline surplus
@@ -298,90 +290,42 @@ premium-segment floor on BC500.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.66\textwidth]{figures/fig6_policyA.png}
-\caption{\small Paradigm A (baseline-and-credit): surplus, production by demand
-segment, and credits/net GHG as functions of the credit price. Throughput-
-scaled credits move the equilibrium: the \$250/t L segment activates at
-\$25/tCO$_2$e and essentially all near-term feedstock is mobilized at
-\$200/tCO$_2$e, tripling surplus; removal crediting, not emission pricing, is
-the expansion lever.}
-\label{fig:polA}
+\includegraphics[width=\textwidth]{figures/fig4_policy.png}
+\caption{\small Policy response across paradigms A/B/C (near-term). (I) Biochar
+production and (II) system surplus against the credit price for
+baseline-and-credit (A) and the H/C-gated VM0044 credit (C2): throughput-scaled
+crediting expands the system, whereas the gated credit converts it to durable
+500$^\circ$C char without expanding tonnage. (III) Marginal abatement cost
+traced by the gross-emission cap sweep (finite differences, circles) with the
+cap's vertex dual $-\mu_{\mathrm{CAP}}$ (diamonds) and the RGGI and EU ETS
+benchmark bands; the endogenous price rises from $\approx$\$351/tCO$_2$e to
+$\approx$\$599/tCO$_2$e, above every observed allowance and voluntary-credit
+price. (IV) Technology mix under VM0044: the tiered tax leaves the dispatch
+unchanged, but the H/C$\le$0.7 gate excludes every torrefaction-like
+300$^\circ$C char and converts the system to 500$^\circ$C pyrolysis as credit
+prices rise (complete at \$100/t).}
+\label{fig:policy}
 \end{figure}
 
 \FloatBarrier
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/fig7_policyB_MAC.png}
-\caption{\small Paradigm B: (I) marginal abatement cost curve with benchmark market
-price bands (RGGI, EU ETS, VM0044/Puro); (II) surplus versus the gross emission
-cap. The endogenous carbon price starts at $\approx$ \$351--391/t CO$_2$e and rises
-to $\approx$ \$599/t, above every existing allowance and voluntary-credit
-price; gross-emission pricing is an expensive, quantity-reducing lever for
-this net-negative system.}
-\label{fig:mac}
-\end{figure}
-
-\FloatBarrier
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.72\textwidth]{figures/fig8_policyC_tech.png}
-\caption{\small Paradigm C (tiered tax + VM0044 credit): technology choice 300 vs
-500$^\circ$C (I) and surplus (II). The tiered tax leaves the dispatch unchanged, but
-VM0044 crediting, whose H/C$\le$0.7 gate excludes every torrefaction-like
-300$^\circ$C char, converts the system to 500$^\circ$C pyrolysis as credit
-prices rise: partial at \$50/t (mature-market), complete at \$100/t, and full
-conversion (2.25~Mt near-term, 4.25~Mt mature-market) at \$200/t.}
-\label{fig:polC}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/fig9_policy_compare.png}
-\caption{\small Policy comparison across paradigms A/B/C: (I) production, (II) surplus,
-(III) net GHG, (IV) endogenous versus market carbon prices. Paradigms A and C2 are
-free-facility investment responses while B and C1 are fixed-layout dispatch
-responses, and the panel axes differ by design (credit price \$/tCO$_2$e for
-A/C, cap in kt for B); the comparison is therefore of policy
-mechanisms, not of like-for-like stringency. Only
-throughput-scaled removal crediting (A) and the gated VM0044 credit (C2) expand
-the system, while the tiered tax (C1) is inert and the gross-emission cap (B)
-shrinks it at a carbon price above every real market price.}
-\label{fig:polcmp}
-\end{figure}
-
-\FloatBarrier
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/fig11_v2b_mix.png}
-\caption{\small Quality-differentiated model: BC300/BC500 technology mix under
-baseline-and-credit in both supply scenarios. Near-term, the premium segment
-keeps BC500 at exactly 0.80~Mt while expansion runs on BC300; mature-market,
-500$^\circ$C's lower yield multiplies credit revenue per tonne served and
-BC500 captures 2.74--2.81~Mt, the demand-bound crossover at
-$p_c\approx\$61$/t.}
-\label{fig:v2bmix}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.92\textwidth]{figures/fig12_credit_basis.png}
-\caption{\small The credit basis and the two-regime 300/500$^\circ$C technology
-crossover.
-(I) Carbon credit rates per tonne dry biomass under the two credit bases
-(baseline-and-credit, LCFS-style, $B-E^{+}-S$, versus VM0044,
-sequestration-based and H/C-gated) for representative feedstocks and both
-pyrolysis temperatures; note the zero VM0044 rate of every torrefaction-like
-300$^\circ$C char. (II) The 500$^\circ$C margin premium over 300$^\circ$C
-against the credit price in the two resource regimes (feedstock averages).
-Demand-bound regime (feedstock abundant): the binding resource is biochar
-demand, and 500$^\circ$C's lower yield multiplies credits per tonne served,
-with crossover at $\approx$\$61/tCO$_2$e for every segment. Supply-bound regime
-(feedstock scarce): per-dry-tonne margins rule, with crossover at
-$\approx$\$239/tCO$_2$e for the bulk segment. Shaded bands: RGGI, EU ETS,
-voluntary-market credit prices.}
+\includegraphics[width=\textwidth]{figures/fig5_credit_basis.png}
+\caption{\small Technology choice and credit basis. (I) Carbon credit rates per
+tonne dry biomass under the two credit bases (baseline-and-credit, LCFS-style,
+$B-E^{+}-S$, versus VM0044, sequestration-based and H/C-gated) for
+representative feedstocks and both pyrolysis temperatures; the VM0044 rate of
+every torrefaction-like 300$^\circ$C char is zero. (II) The 500$^\circ$C margin
+premium over 300$^\circ$C against the credit price in the two resource regimes
+(feedstock averages): in the demand-bound regime the binding resource is
+biochar demand, so 500$^\circ$C's lower yield multiplies credits per tonne
+served and the crossover is at $\approx$\$61/tCO$_2$e for every segment; in the
+supply-bound regime per-dry-tonne margins rule and the bulk (L) segment
+crosses at $\approx$\$239/tCO$_2$e. (III) Quality-differentiated model (v2b):
+BC300/BC500 mix under baseline-and-credit in both scenarios; near-term the
+premium segment keeps BC500 at 0.80~Mt while expansion runs on BC300, whereas
+mature-market BC500 captures 2.74--2.81~Mt.}
 \label{fig:creditbasis}
 \end{figure}
 
@@ -410,12 +354,29 @@ $p_c$ (\$/tCO$_2$e) & BC300 & BC500 & total & profit & BC300 & BC500 & total & p
 \label{sec:sensitivity}
 
 The baseline solution is far more sensitive to demand-side than to supply-side
-parameters (S-Figure~\ref{fig:tornado}). Demand price $\pm$20\% moves the system
+parameters (Fig.~\ref{fig:sensitivity}). Demand price $\pm$20\% moves the system
 surplus by $\pm$39\% (from \$430~M to \$986~M/yr) while leaving the quantity
 at the demand-constrained equilibrium; a 20\% reduction in demand capacity
 reduces surplus by 21\% and quantity by 20\%. In contrast, farmgate prices
 $\pm$20\% change surplus by only $\pm$9\% and transport costs $\pm$20\% by about
-$\pm$1\%; the sink price has no effect because the sink is not activated. A
+$\pm$1\%; the sink price has no effect because the sink is not activated.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig6_sensitivity.png}
+\caption{\small Sensitivity of the baseline surplus (near-term, fixed facility
+layout). (I) One-at-a-time $\pm$20\% perturbations: demand-side parameters
+dominate, farmgate and transport are minor, and the $-40\%$ feedstock-availability
+shock is the only supply-side perturbation of comparable size. (II) Joint
+demand sensitivity: system surplus over a grid of demand-price and
+demand-capacity multipliers, from \$67~M/yr at $0.6\times$ to \$1{,}406~M/yr at
+$1.4\times$; surplus responds smoothly and monotonically to both, with demand
+price the larger lever at every capacity level. The baseline $(1.0,1.0)$ cell
+reproduces the \$708~M/yr equilibrium exactly.}
+\label{fig:sensitivity}
+\end{figure}
+
+A
 40\% reduction in feedstock availability (a proxy for realistic
 field-collection losses) reduces production to 1.48~Mt and surplus by 29\% in
 the near-term scenario (from 708.3 to 505.9~M\$/yr), but only by 4\% in the

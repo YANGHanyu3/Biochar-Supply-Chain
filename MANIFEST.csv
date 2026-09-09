@@ -11,6 +11,7 @@ Code/05_policy_B.jl,11199,5a80ac35d3634337
 Code/06_policy_C.jl,20714,a2e2b8ff65f595a6
 Code/06_policy_C_v2b.jl,11555,dbf82946414b60fd
 Code/07_sensitivity_v2.jl,7560,e522b62afef1ea9b
+Code/07b_demand_grid.jl,6631,4778e6d26c2d77f5
 Code/Project.toml,574,255ce9c25b86dba1
 Code/REPRODUCE.md,5773,ce676ccdd42987ec
 Code/WI_Counties.dbf,62442,617f6818be8805e4
@@ -152,20 +153,21 @@ Code/check_syntax_all.jl,576,4dd98db2fcedac06
 Code/debug_capex.jl,4918,808bbfdb743d8262
 Code/extract_vm0044.py,1213,f2dd5b434d4ca067
 Code/fig0_deco_prototype.py,2101,44e51262750fa5a0
-Code/fig0_superstructure.py,8798,d37aa979b0d42c2b
-Code/fig10_tornado.py,2285,5ce59f2e0ea2c105
+Code/fig0_superstructure.py,8686,c0bb5a22d1935168
+Code/fig10_tornado.py,2279,3b1afe51a90f9204
 Code/fig11_v2b_mix.py,1663,002f9df3541da1ea
 Code/fig12_credit_basis.py,6603,ebcedcb789c40ed4
 Code/fig1_facility_map.py,3658,56c66cdd08199e1d
 Code/fig45_iv_maps.py,4495,4ff15e851e8f5f4e
 Code/fig9_policy_compare.py,3398,89a06a18212950b2
-Code/figstyle.py,2703,9c8b479356edbc8b
+Code/figstyle.py,2896,a8d674cfd3135c24
 Code/final_postprocess.ps1,2124,c1628fb587cecba6
 Code/fix_workbook_citations.py,4373,1c8031bbfbfb480f
 Code/generate_data_v2.py,24444,c8f27b81565882d8
 Code/generate_data_v2b.py,19084,9f17381d3c4d8cbe
 Code/license_test.jl,208,2b33487887d50cad
 Code/make_composites.py,711,7d39faa168f4d160
+Code/make_main_figures.py,16788,f275bc8cae0bf24c
 Code/make_ppt.py,6543,9a9722737a8c73e3
 Code/nass_summarize.py,1474,239163b0801f17e4
 Code/node_fips.csv,2386,47dc9e99eb8f7d61
@@ -207,13 +209,18 @@ Code/results_v2/mature-market medium/figures/fig0_superstructure.png,283373,1e19
 Code/results_v2/mature-market medium/figures/fig0_superstructure.svg,33678,0dab4c2dfd4ff5ec
 Code/results_v2/mature-market medium/figures/fig10_tornado.png,159511,9cd4802cfe0e3d41
 Code/results_v2/mature-market medium/figures/fig1_facility_map.png,408081,5be1d573aa43ebf9
+Code/results_v2/mature-market medium/figures/fig2_baseline.png,534058,938192a4993d5abe
 Code/results_v2/mature-market medium/figures/fig2_econmarket.png,296628,3b24496213073ac2
 Code/results_v2/mature-market medium/figures/fig2_economics.png,150360,a168234f415a4e12
 Code/results_v2/mature-market medium/figures/fig3_demand_curve.png,146620,ea2bb2ded62e5c0c
+Code/results_v2/mature-market medium/figures/fig3_inherent_values.png,524340,46b57b4708241793
 Code/results_v2/mature-market medium/figures/fig4_iv_biochar.png,263589,7a203ec669f17bbd
 Code/results_v2/mature-market medium/figures/fig4_iv_maps.png,461538,5374e923aeae4626
+Code/results_v2/mature-market medium/figures/fig4_policy.png,475498,5ad38c5b9a649cb3
+Code/results_v2/mature-market medium/figures/fig5_credit_basis.png,327983,b7cd38b78053d1b6
 Code/results_v2/mature-market medium/figures/fig5_iv_biomass.png,273092,7ac878af9e32bcf7
 Code/results_v2/mature-market medium/figures/fig6_policyA.png,296724,078ec93a784b8496
+Code/results_v2/mature-market medium/figures/fig6_sensitivity.png,277354,98513a0c763a9084
 Code/results_v2/mature-market medium/figures/fig7_policyB_MAC.png,281196,2f4ce258394c6220
 Code/results_v2/mature-market medium/figures/fig8_policyC_tech.png,198094,f6df243d39a1ef26
 Code/results_v2/mature-market medium/figures/fig9_policy_compare.png,493780,cb8130705c5fa3be
@@ -231,6 +238,7 @@ Code/results_v2/mature-market medium/policy_C2_extended_v2.csv,335,8a47a61976837
 Code/results_v2/mature-market medium/policy_C2_hc+0.25_v2.csv,340,d7ed078ac161aa60
 Code/results_v2/mature-market medium/policy_C2_tax_credit_v2.csv,602,7072f4585ec83d6f
 Code/results_v2/mature-market medium/policy_C3_allocation_v2.csv,371,62a11d0949e1cce6
+Code/results_v2/mature-market medium/sensitivity_grid_v2.csv,1702,7f730b677b0abfa7
 Code/results_v2/mature-market medium/sensitivity_v2.csv,1006,27c5d49ac855e20b
 Code/results_v2/mature-market medium/z_star_MIP_v2.csv,459,5f959d9572cd36bf
 Code/results_v2/near-term/LP_GHG_shadow_v2.csv,11619,9b85d2746a4d0294
@@ -249,13 +257,18 @@ Code/results_v2/near-term/figures/fig10_tornado.png,154890,81f1c66ec485fd99
 Code/results_v2/near-term/figures/fig11_v2b_mix.png,151592,b1872e244622ba36
 Code/results_v2/near-term/figures/fig12_credit_basis.png,384471,0593d93cc3945c8d
 Code/results_v2/near-term/figures/fig1_facility_map.png,473013,9d73c59f06e6e8b6
+Code/results_v2/near-term/figures/fig2_baseline.png,590515,4d6c203e328dad1c
 Code/results_v2/near-term/figures/fig2_econmarket.png,285823,68923f4bf36ee2e1
 Code/results_v2/near-term/figures/fig2_economics.png,147010,f40d79a77a90060b
 Code/results_v2/near-term/figures/fig3_demand_curve.png,141135,f062144ff7e20f93
+Code/results_v2/near-term/figures/fig3_inherent_values.png,539828,f9860a7df7c370d0
 Code/results_v2/near-term/figures/fig4_iv_biochar.png,257899,5173cbaef35dc8ab
 Code/results_v2/near-term/figures/fig4_iv_maps.png,453374,88e50f495b735786
+Code/results_v2/near-term/figures/fig4_policy.png,472327,00b2182c885ba593
+Code/results_v2/near-term/figures/fig5_credit_basis.png,327983,b7cd38b78053d1b6
 Code/results_v2/near-term/figures/fig5_iv_biomass.png,264929,a1c02e16992d8a3b
 Code/results_v2/near-term/figures/fig6_policyA.png,279392,fbd7cd628d964e3a
+Code/results_v2/near-term/figures/fig6_sensitivity.png,273321,a8da94ea4746f979
 Code/results_v2/near-term/figures/fig7_policyB_MAC.png,280952,d29edd00a2e2d458
 Code/results_v2/near-term/figures/fig8_policyC_tech.png,198410,49ebaab720b62052
 Code/results_v2/near-term/figures/fig9_crop.png,233921,8e06727af24de58e
@@ -273,6 +286,7 @@ Code/results_v2/near-term/policy_C2_extended_v2.csv,332,681e099a549e16fc
 Code/results_v2/near-term/policy_C2_hc+0.25_v2.csv,316,455fb75f5920f93e
 Code/results_v2/near-term/policy_C2_tax_credit_v2.csv,634,ecaf92741621480f
 Code/results_v2/near-term/policy_C3_allocation_v2.csv,410,edea3ca7662f9676
+Code/results_v2/near-term/sensitivity_grid_v2.csv,1851,7d706d4180fae233
 Code/results_v2/near-term/sensitivity_v2.csv,1054,eff379d82eae63d6
 Code/results_v2/near-term/z_star_MIP_v2.csv,1103,ffd8f995868ae722
 Code/results_v2_dc10/near-term/LP_duals_inherent_value_v2.csv,13687,8ab42393a97b67c6
@@ -367,13 +381,18 @@ Graph/fig10_tornado.png,154890,81f1c66ec485fd99
 Graph/fig11_v2b_mix.png,175433,91e5ad4230246640
 Graph/fig12_credit_basis.png,353367,93a6041cb85ed1cd
 Graph/fig1_facility_map.png,473013,9d73c59f06e6e8b6
+Graph/fig2_baseline.png,590515,4d6c203e328dad1c
 Graph/fig2_econmarket.png,285823,68923f4bf36ee2e1
 Graph/fig2_economics.png,150360,a168234f415a4e12
 Graph/fig3_demand_curve.png,150331,ad842556e6d103bf
+Graph/fig3_inherent_values.png,539828,f9860a7df7c370d0
 Graph/fig4_iv_biochar.png,214867,9464571ee75cc608
 Graph/fig4_iv_maps.png,453374,88e50f495b735786
+Graph/fig4_policy.png,472327,00b2182c885ba593
+Graph/fig5_credit_basis.png,327983,b7cd38b78053d1b6
 Graph/fig5_iv_biomass.png,219066,314d7f1818862788
 Graph/fig6_policyA.png,279392,fbd7cd628d964e3a
+Graph/fig6_sensitivity.png,273321,a8da94ea4746f979
 Graph/fig7_policyB_MAC.png,280952,d29edd00a2e2d458
 Graph/fig8_policyC_tech.png,198410,49ebaab720b62052
 Graph/fig9_policy_compare.png,490032,2c336cac5ff0c9e4
@@ -381,7 +400,7 @@ PPT/Biochar_Progress_mature-market_v03.pptx,2469192,9cc356f9470e8e1c
 PPT/Biochar_Progress_near-term_v03.pptx,2730342,43959eb2aa4c561b
 Paper/Overleaf_Upload_2026-09-04.zip,3065051,098bb81ff6de5a9e
 Paper/Overleaf_Upload_SINGLE_2026-09-08.zip,3582201,5fa535da438115c9
-Paper/Overleaf_Upload_SINGLE_2026-09-09.zip,3116963,fe228abbdd5c2ddf
+Paper/Overleaf_Upload_SINGLE_2026-09-09.zip,2684612,43fb35db3585dd0e
 Paper/compiled_manuscript_2026-09-09.pdf,3557399,fae2905747b5d627
 Paper/paper_draft/abstract.tex,2436,636b7eeedf9d8a63
 Paper/paper_draft/conclusion.tex,2465,0281517210a188f5
@@ -395,26 +414,32 @@ Paper/paper_draft/figures/fig10_tornado.png,154890,81f1c66ec485fd99
 Paper/paper_draft/figures/fig11_v2b_mix.png,175433,91e5ad4230246640
 Paper/paper_draft/figures/fig12_credit_basis.png,353367,93a6041cb85ed1cd
 Paper/paper_draft/figures/fig1_facility_map.png,473013,9d73c59f06e6e8b6
+Paper/paper_draft/figures/fig2_baseline.png,590515,4d6c203e328dad1c
 Paper/paper_draft/figures/fig2_econmarket.png,285823,68923f4bf36ee2e1
 Paper/paper_draft/figures/fig2_economics.png,150360,a168234f415a4e12
 Paper/paper_draft/figures/fig3_demand_curve.png,150331,ad842556e6d103bf
+Paper/paper_draft/figures/fig3_inherent_values.png,539828,f9860a7df7c370d0
 Paper/paper_draft/figures/fig4_iv_biochar.png,214867,9464571ee75cc608
 Paper/paper_draft/figures/fig4_iv_maps.png,453374,88e50f495b735786
+Paper/paper_draft/figures/fig4_policy.png,472327,00b2182c885ba593
+Paper/paper_draft/figures/fig5_credit_basis.png,327983,b7cd38b78053d1b6
 Paper/paper_draft/figures/fig5_iv_biomass.png,219066,314d7f1818862788
 Paper/paper_draft/figures/fig6_policyA.png,279392,fbd7cd628d964e3a
+Paper/paper_draft/figures/fig6_sensitivity.png,273321,a8da94ea4746f979
 Paper/paper_draft/figures/fig7_policyB_MAC.png,280952,d29edd00a2e2d458
 Paper/paper_draft/figures/fig8_policyC_tech.png,198410,49ebaab720b62052
 Paper/paper_draft/figures/fig9_policy_compare.png,490032,2c336cac5ff0c9e4
 Paper/paper_draft/introduction.tex,7098,7a217dd1d3697da2
 Paper/paper_draft/main.tex,3084,337b8b8d8d0b4897
-Paper/paper_draft/main_standalone.tex,113144,60e1b6eb06ecddb2
-Paper/paper_draft/methods.tex,23044,73110e52fde2d784
-Paper/paper_draft/references.bbl,8344,17927af514073622
-Paper/paper_draft/references.bib,11870,4611a04c4ca052ea
-Paper/paper_draft/results.tex,24022,0b1a235d53ac3055
+Paper/paper_draft/main_standalone.tex,113221,a0297975f1f4845d
+Paper/paper_draft/methods.tex,23360,014e45f940eb3e15
+Paper/paper_draft/references.bbl,8477,a89447d2540dda8f
+Paper/paper_draft/references.bib,12051,437e79019866cf26
+Paper/paper_draft/results.tex,22824,26a69026d414055f
 Paper/paper_draft/results_outline.md,7942,c25f5a89b65dd47c
-Paper/paper_draft/si.tex,30796,041e5bc75f077088
+Paper/paper_draft/si.tex,31622,355328679baed23e
 README.md,3944,22ec5baaacf36896
+REVIEW_GUIDE.md,4550,5cdf8dd35c8869d3
 References/Apoorva M. Sampat-2019-Coordination framework.pdf,3880009,b2f3cfe10774234e
 References/Jiaze Ma-2023-thermochemical upcycling of post-consumer.pdf,2834354,94f80145cc6fe211
 "References/Life Cycle Assessment of Biochar Systems_ Estimating the Energetic, Economic, and Climate Change Potential.pdf",1186299,90e23bc7b9b19efc

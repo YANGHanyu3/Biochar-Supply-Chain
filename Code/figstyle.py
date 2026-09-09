@@ -10,16 +10,21 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-# ---- group palette (deep blue / light blue / gray) ----
+# ---- group palette (v0.7: restricted to black/white/gray/blue) ----
 DEEP   = "#1F4E79"   # primary series / emphasis
-LIGHT  = "#9DC3E6"   # secondary series
-GRAY   = "#7F7F7F"   # tertiary / baselines
+MID    = "#5B9BD5"   # secondary series
+LIGHT  = "#9DC3E6"   # tertiary series
+PALE   = "#DCE9F5"   # light fill
+GRAY   = "#7F7F7F"   # neutral / baselines
 GRAY_L = "#D9D9D9"   # light gray fills / grids / zero lines
-ACCENT = "#C55A11"   # restrained orange accent (policy series only)
-GREEN  = "#548235"   # sparing use (segments/environment)
 INK    = "#262626"   # text / axes
+# legacy aliases kept so older scripts inherit the restricted palette
+ACCENT = MID
+GREEN  = DEEP
 
-SERIES = [DEEP, LIGHT, GRAY, ACCENT, GREEN]
+SERIES = [DEEP, MID, LIGHT, GRAY, GRAY_L]
+# sequential ramp for heatmaps (pale -> deep blue)
+BLUE_RAMP = ["#F2F7FB", "#DCE9F5", "#B7D3E8", "#9DC3E6", "#5B9BD5", "#2F5597", "#1F3864"]
 
 def apply(base_font_size=10.5):
     plt.rcParams.update({
