@@ -1,0 +1,42 @@
+{
+  "scenario": "near-term",
+  "feedstocks": 13,
+  "technologies": 39,
+  "products": 29,
+  "total_dry_Mt": 6.969,
+  "bc_potential_300C_Mt": 2.573,
+  "demand_segments": [
+    [
+      "H",
+      800.0,
+      0.8,
+      [
+        28
+      ]
+    ],
+    [
+      "M",
+      500.0,
+      1.5,
+      [
+        27,
+        28
+      ]
+    ],
+    [
+      "L",
+      250.0,
+      2.5,
+      [
+        27,
+        28
+      ]
+    ]
+  ],
+  "sink_price": 30.0,
+  "perm_300": 0.65,
+  "perm_500": 0.8,
+  "hc_gate": 0.7,
+  "hc_shift": 0.25,
+  "notes": "v2b: quality-differentiated BC300/BC500 products; H segment = BC500 only (CDR premium); 300C never credit-eligible (H/C 0.9-1.4), 500C eligible (H/C 0.40-0.52); see SI A.3; HC_SHIFT=+0.25"
+}

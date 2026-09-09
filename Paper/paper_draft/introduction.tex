@@ -1,0 +1,106 @@
+% =============================================================================
+% introduction.tex — Paper Introduction (draft v0.3, 2026-09-03)
+% Target: Computers & Chemical Engineering (Sampat/Tominac home journal)
+% Length target: ~1,300 words. All citations verified 2026-09-03
+% (see bib_doi_audit_report.md in 03_Data/WI_Working_Files).
+% =============================================================================
+
+\section{Introduction}
+
+Biochar, the carbon-rich solid produced by pyrolyzing biomass under oxygen-limited
+conditions, is one of the most scalable engineered carbon dioxide removal (CDR)
+pathways available today \cite{woolf2010, lehmann2021biochar}. Applying biochar to
+soils simultaneously sequesters photosynthetically fixed carbon on centennial
+timescales and delivers agronomic co-benefits, including reduced nitrous oxide
+emissions and improved water retention \cite{cayuela2014, smith2016}. Recent
+assessments estimate that biochar could remove 0.3--2 Gt CO$_2$ per year globally
+by mid-century \cite{woolf2021est}, and the 2023 Billion-Ton Report identifies
+agricultural residues and forestry wastes in the United States, more than a
+billion dry tonnes per year under mature-market scenarios, as an abundant
+feedstock base \cite{bt23}. In parallel, voluntary carbon markets have matured to
+the point where biochar-based removal credits trade at \$100--250 per tonne
+CO$_2$e under methodologies such as Verra VM0044 and Puro.earth CORC, with
+corporate buyers purchasing hundreds of thousands of tonnes annually
+\cite{cdrfyi2024, verraVM0044}.
+
+Realizing this potential requires coordinating biomass collection, drying,
+pyrolysis, biochar distribution, and soil application across hundreds of
+facilities and counties, a classical supply chain network design problem with an
+unusually strong coupling between economics and carbon accounting. Unlike
+conventional biomass-to-energy systems, a biochar system's dominant value stream
+under carbon policy is the removal credit itself, which accrues per tonne of
+stable carbon rather than per unit of energy sold. This coupling raises
+questions that existing models do not answer: ``How should carbon policies be
+formulated inside a supply chain optimization model so that they genuinely
+change facility locations, technology choices, and production volumes?'' and
+``What is the endogenous price of carbon that emerges from such a system, and
+how does it compare with observed market prices?''
+
+Three strands of literature frame these questions. First, biochar techno-economic
+and life-cycle assessments have established the unit economics of slow pyrolysis
+and the permanence accounting of biochar carbon
+\cite{roberts2010, woolf2010, nematian2021}; these studies, however, treat a
+single plant or a stylized regional average and do not optimize network structure.
+Second, biomass and negative-emission supply chain optimization has developed
+spatially explicit mixed-integer models for biochar source--sink networks
+\cite{tan2016biochar, belmonte2018}, BECCS chains \cite{negri2021}, and
+multi-product waste networks \cite{sampat2019}. The market-clearing framework of
+Sampat et al.~\cite{sampat2019} and the spatio-temporal economic analysis of
+Tominac et al.~\cite{tominac2022} are particularly relevant: they show that the
+dual variables of mass-balance constraints in an optimization model are the
+``inherent values'' of products at each location, i.e., equilibrium prices
+under perfect coordination. Third, the green supply chain literature has compared
+carbon taxes, cap-and-trade, and carbon credit policies in generic production and
+inventory networks \cite{benjaafar2013, zakeri2015, chaabane2012, elhedhli2012},
+demonstrating that a linear tax shifts the optimal solution only when emissions
+intensity varies endogenously across decisions; it is otherwise a constant
+shift of the objective.
+
+This paper addresses the gap between these strands: no existing
+study (i) embeds carbon policy inside a multi-product, price-responsive
+supply chain network for biochar in the market-clearing/dual framework, (ii)
+derives the endogenous carbon price of the system as the dual of an
+emission constraint and benchmarks it against real market prices, and (iii)
+compares three canonical policy architectures (baseline-and-credit,
+cap-and-trade, and a tiered tax with removal crediting and allowance
+allocation) on identical network, data, and demand structures. We fill this gap
+with a case study of Wisconsin, a state whose 14 million acres of farmland, 46\%
+forest cover, and dairy-dominated agriculture make it representative of the
+Midwestern biomass landscape.
+
+The contributions of this paper are threefold. First, we formulate a
+multi-product biochar supply chain network design model, with 72 county nodes,
+13 feedstocks, drying plus slow pyrolysis at two temperatures (300 and
+500~$^\circ$C), and a three-segment price-responsive biochar demand curve, in
+which facility locations are integer decisions and market clearing yields
+spatially resolved inherent values from LP duals. Second, we integrate three
+carbon policy architectures into this model: (A) a baseline-and-credit mechanism
+whose credits scale with throughput; (B) a cap-and-trade scheme in which the
+carbon price is the endogenous dual of the emission cap, tracing the
+system's marginal abatement cost curve; and (C) a tiered carbon tax combined with
+Verra VM0044-compliant removal crediting (molar H/C $\leq$ 0.7) and
+grandfathering versus benchmarking allowance allocation. Third, using DOE
+Billion-Ton 2023 (including its USFS FIA-based forestry module) and USDA NASS
+2022 Census data, we quantify how each
+policy reshapes facility location, technology selection, biochar production
+(2.25--2.85 Mt/yr across the policies studied in the near-term scenario),
+carbon removal (1.60--1.96 Mt
+CO$_2$e/yr), and system surplus (\$0.7--3.4 billion/yr), and we show that net
+emission caps alone are blind to negative emissions while removal crediting
+activates the low-price agricultural segment of demand at credit prices as low as
+\$25/tCO$_2$e.
+
+The paper is structured as follows. In Section~\ref{sec:model} we present the
+mathematical formulation, including the base network model and the three policy
+modules, together with three propositions that are proved in the
+Supplementary Information: the dual-to-MAC identity of the cap (Prop.~1), the
+demand-bound/supply-bound crossover prices that decide whether crediting
+upgrades the pyrolysis temperature (Prop.~2), and the dispatch-neutrality
+threshold of a linear emission tax in the demand-constrained regime
+(Prop.~3). Section~\ref{sec:results} reports the results: baseline facility
+locations and economics, environmental performance, the market-clearing
+inherent values, the policy responses, the quality-differentiated extension,
+and one-at-a-time sensitivities. Section~\ref{sec:discussion} discusses policy
+implications against real carbon market data, and
+Section~\ref{sec:conclusion} concludes; the Wisconsin case-study data and
+scenario design are documented in the Supplementary Information.

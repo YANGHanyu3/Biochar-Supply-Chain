@@ -1,0 +1,84 @@
+% =============================================================================
+% main.tex — Master document (v0.4 2026-09-04, Zavala-group house style)
+% Aligned with the group templates (Research Paper Template + Figure Template):
+%   * 11pt article, palatino, letterpaper 0.9in, \linespread{1.2}
+%   * equations numbered within sections
+%   * numeric citations (abbrv) + colored hyperref + fancy header
+%   * \caption{\small} figures/tables, macros \st/\R/\Rps
+% Compile: pdflatex + bibtex + pdflatex x2 (Overleaf runs automatically).
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage[letterpaper, left=0.9in, right=0.9in, top=0.9in, bottom=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{microtype}
+% allow gentle line stretching so justified text avoids overfull hboxes
+\emergencystretch=3em
+\hbadness=10000
+\vfuzz=2pt
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\linespread{1.2}
+
+\pagestyle{fancy}
+\lhead{}
+% \rhead{\url{http://zavalab.engr.wisc.edu}}  % group-style header; re-enable if required
+\rhead{}
+\setlength{\headheight}{13.6pt}
+
+% number equations within sections (group convention)
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+% house macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rps}{\mathbb{R}_+}
+\newcommand{\st}{\ \mathrm{s.t.}\ }
+\newcommand{\mini}{\mathop{\mathrm{minimize}}}
+\newcommand{\maxi}{\mathop{\mathrm{maximize}}}
+
+% theorem-style environments (proofs deferred to the SI)
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+
+\title{Designing Carbon Policy for a Biochar Supply Chain: Market Clearing, Endogenous Carbon Prices, and Technology Choice in Wisconsin}
+% Author block commented out per author request (2026-09-09): not shown until
+% final submission. Correct affiliation recorded here for easy restoration:
+%   Hanyu YANG, first-year PhD student, Department of Systems Engineering,
+%   City University of Hong Kong, Hong Kong SAR, China.
+% Uncomment the \author{...} below to display it.
+%\author{Hanyu YANG${}^{\dag}$\\
+%  {\small ${}^{\dag}$Department of Systems Engineering}\\
+%  {\small City University of Hong Kong, Hong Kong SAR, China}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{abstract}
+\input{introduction}
+\input{methods}
+\input{results}
+\input{discussion}
+\input{conclusion}
+
+\appendix
+\input{si}
+
+% Pre-built bibliography (abbrv format) — skips the BibTeX step entirely so
+% Overleaf free-plan compiles stay fast and never report undefined citations.
+% To regenerate from references.bib later: comment the \input line below and
+% uncomment the two \bibliographystyle/\bibliography lines.
+\input{references.bbl}
+%\bibliographystyle{abbrv}
+%\bibliography{references}
+
+\end{document}

@@ -1,0 +1,398 @@
+% =============================================================================
+% methods.tex — Complete Methods section (v0.3, 2026-09-03)
+% Problem statement, base network model, GHG accounting, step demand,
+% carbon policy modules A/B/C, quality-differentiated extension, solution
+% strategy. Complements Model_Formulation_WI.tex (condensed formulation).
+% =============================================================================
+
+\section{Model Formulation}
+\label{sec:model}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig0_superstructure.png}
+\caption{\small Supply chain superstructure: 13 feedstocks gathered at 72 county
+nodes, T1 dehydration, T2 slow pyrolysis at 300/500$^\circ$C, biochar, carbon
+credits, and the price-responsive step demand. Deep-blue elements mark the
+carbon-accounting layer: 500$^\circ$C chars (H/C 0.40--0.52) carry VM0044
+credits while torrefaction-like 300$^\circ$C chars (H/C 0.9--1.4) do not, and
+the three policy modules (A baseline-and-credit, B cap-and-trade, C tiered tax
++ VM0044) act on the credit and emission flows.}
+\label{fig:super}
+\end{figure}
+
+\subsection{Problem statement}
+
+We consider a regional biochar supply chain operator (a coordinating entity,
+per the market-clearing paradigm of \cite{sampat2019,ma2023}) that must decide where to
+build biomass drying and pyrolysis facilities, which feedstocks to procure from
+which counties, and how to distribute biochar to demand locations, in order to
+maximize the system-wide economic surplus (Fig.~\ref{fig:super}). The network
+consists of $n \in
+\mathcal{N}$ county nodes ($|\mathcal{N}|=72$ for Wisconsin), $f \in \mathcal{F}$
+feedstocks ($|\mathcal{F}|=13$: corn stover, soybean straw, wheat straw, oats
+straw, barley straw, switchgrass, miscanthus, poplar, willow, logging residues,
+small-diameter trees, mill residues, and other forest waste), and a two-stage
+technology superstructure: T1 dehydration followed by T2 slow pyrolysis at
+either 300 or 500~$^\circ$C. The model jointly determines (i) integer facility
+locations and scale tiers, (ii) continuous material flows, and (iii) the
+equilibrium quantities served on a price-responsive biochar demand curve. Under
+carbon policy, the operator additionally earns removal credits or faces
+emission charges, which enter the objective as described in
+Section~\ref{sec:policy}.
+
+\subsection{Base network model}
+
+The base model is a multi-product supply chain network design formulation; the
+complete statement (with sets, parameters, and the full constraint list) is
+given in the SI (Table~S5). Throughout, sets are calligraphic, decision
+variables are lowercase, parameters are Greek or barred, and $\delta_{ij}$
+denotes the great-circle distance between nodes $i$ and $j$. The operator
+maximizes the coordinated-system surplus
+\begin{subequations}
+\label{eq:base}
+\begin{align}
+\maxi_{z,x,f,\mathrm{dem},\mathrm{sup}}\quad
+\Pi & = \underbrace{\textstyle\sum_{d\in\mathcal{D}} \lambda^{\mathrm{dem}}_{d}\,\mathrm{dem}_{d}}_{\text{revenue}}
+- \underbrace{\textstyle\sum_{s\in\mathcal{S}} \lambda^{\mathrm{sup}}_{s}\,\mathrm{sup}_{s}}_{\text{farmgate}}
+- \underbrace{\textstyle\sum_{n,t} \omega_{t}\,(-x_{n,\mathrm{ref}(t),t})}_{\text{OPEX}}
+\notag\\
+&\quad - \underbrace{\textstyle\sum_{(i,j,p)\in\mathcal{A}}(\alpha^{\mathrm{var}}_{p}\delta_{ij}+\alpha^{\mathrm{fix}}_{p})f_{ijp}}_{\text{transport}}
+- \underbrace{\mathrm{AF}\textstyle\sum_{n,t,k}\kappa_{t,k}\,z_{ntk}}_{\text{annualized CAPEX}}
+\label{eq:base_obj}\\
+\st & \quad s_{np} + p_{np} + \textstyle\sum_{j:(j,n,p)\in\mathcal{A}} f_{jnp} =
+d_{np} + \textstyle\sum_{j:(n,j,p)\in\mathcal{A}} f_{njp},
+\quad (\pi_{np}) \quad n\in\mathcal{N},\ p\in\mathcal{P} \label{eq:base_balance}\\
+& \quad x_{n,p,t} = \gamma_{t,p}\,x_{n,\mathrm{ref}(t),t}, \quad n\in\mathcal{N},\ t\in\mathcal{T},\ p\in\mathcal{P} \label{eq:base_yield}\\
+& \quad -x_{n,\mathrm{ref}(t),t} \le \textstyle\sum_{k} \bar{q}_{t,k}\,z_{ntk}, \quad n\in\mathcal{N},\ t\in\mathcal{T} \label{eq:base_cap}\\
+& \quad z_{ntk}\in\{0,\dots,5\}, \quad 0\le f_{ijp}\le \bar{f}_{ijp}, \quad \mathrm{dem}_d\le\bar{d}_d, \quad \mathrm{sup}_s\le\bar{s}_s \label{eq:base_bounds},
+\end{align}
+\end{subequations}
+where $\mathcal{P}$ collects all products (wet biomass, dry biomass, biochar,
+carbon credits), $s_{np}$/$d_{np}$ aggregate the supply and demand bids at node
+$n$, and $\gamma_{t,p}$ is the fixed-yield technology transformation.
+Constraint \eqref{eq:base_obj} captures demand-side surplus from the bid stack
+minus farmgate, operating, transport, and annualized capital costs.
+Constraint \eqref{eq:base_balance} is the node mass balance for product $p$;
+its dual variable $\pi_{np}$ is the spatial inherent value of product $p$ at
+node $n$, the marginal cost of delivering one more unit of $p$ at $n$, which
+the market-clearing paradigm interprets as the equilibrium price
+\cite{sampat2019,ma2023}. Constraint \eqref{eq:base_yield} enforces the
+fixed-yield technology transformations (dehydration water removal, pyrolysis
+mass yields, credit co-production), \eqref{eq:base_cap} links throughput to the
+integer number of facilities installed at each scale tier $k$, and
+\eqref{eq:base_bounds} states integrality and the bid capacities. Transport
+radius limits (wet $\leq$150~km, dry $\leq$250~km, biochar $\leq$400~km) are
+imposed through $\bar{f}_{ijp}$, consistent with biomass-logistics cost
+estimates under which hauling low-density feedstocks becomes prohibitive
+beyond roughly 80--160~km \cite{searcy2007}. The annualization factor is
+$\mathrm{AF}=0.1175$ ($i{=}10\%$, $n{=}20$~yr); all parameter values and data
+sources are tabulated in the SI.
+
+\subsection{Greenhouse gas accounting}
+
+Three GHG components enter the policy modules, all in kg CO$_2$e/yr. Gross
+emissions $E^{+}(x)$ comprise process emissions from collection, drying, and
+pyrolysis plus transport:
+\begin{equation}
+E^{+}(x)=\sum_{n,t} e^{\mathrm{proc}}_{t}\bigl(-x_{n,\mathrm{ref}(t),t}\bigr)
++ e^{\mathrm{tr}}\sum_{(i,j,p)\in\mathcal{A}}\delta_{ij}f_{ijp},
+\end{equation}
+with $e^{\mathrm{proc}}_t$ the technology-specific process intensity per
+tonne of the technology's reference product (31--35~kg/t wet, i.e.,
+35--51~kg/t dry, for T1, 113--122~kg/t dry for T2 at 500/300$^\circ$C after
+the syngas electricity credit)
+and $e^{\mathrm{tr}}=0.0902$~kg/t-km. Carbon removal $S(x)$ is defined as a
+positive physical quantity: sequestration and N$_2$O suppression per
+tonne of biochar applied:
+\begin{equation}
+S(x)=\sum_{n,\,t\in\mathcal{T}^{\mathrm{pyr}}}
+\bigl(r^{\mathrm{seq}}_{t}+r^{\mathrm{N}_2\mathrm{O}}_{t}\bigr)\,x_{n,\mathrm{BC},t},
+\qquad
+r^{\mathrm{seq}}_{t}=\rho_t\,C_t\,\frac{44}{12}\times 10^{3}\ \text{kg/t},
+\end{equation}
+where $C_t$ is the biochar carbon content, $\rho_t$ a permanence factor
+($\rho_{300}=0.65$, $\rho_{500}=0.80$; VM0044 v1.2 Table~3, drawn from IPCC
+2019 Table~4AP.2; the 300$^\circ$C value uses the lowest tabulated band,
+350--450$^\circ$C, and the permanence of sub-350$^\circ$C chars may be lower),
+and $r^{\mathrm{N}_2\mathrm{O}}_{t}=52$~kg/t from the
+meta-analysis of Cayuela et al.~\cite{cayuela2014}. The direct atmospheric flux of the system is therefore
+\begin{equation}
+N(x)=E^{+}(x)-S(x),
+\end{equation}
+which is negative (net removal) at the baseline equilibrium. This flux
+excludes the decomposition baseline, the emissions avoided by diverting
+biomass from natural decay,
+\begin{equation}
+B(x)=\sum_{f\in\mathcal{F}} b_f \sum_{n}\bigl(-x_{n,f,\mathrm{T1}_f}\bigr),
+\qquad b_f = 0.9\,C_f^{\mathrm{dry}}\,\frac{44}{12}\times 10^{3}\ \text{kg/t dry},
+\end{equation}
+with $b_f \approx 1350$--$1650$~kg/t dry. Throughout the paper, reported
+``net GHG'' figures are the direct flux $N(x)$, not abatement relative to
+the decay counterfactual; $B(x)$ enters only the credit calculation of
+Paradigm~A below.
+
+\subsection{Price-responsive demand and market clearing}
+
+Biochar demand follows a quality-tiered step function (bid stack) at each
+county, allocated in proportion to farmland area:
+\begin{equation}
+\lambda^{\mathrm{dem}}(Q)=\begin{cases}
+\$800/\mathrm{t} & Q\le 0.8~\mathrm{Mt}\ \text{(CDR premium: BC500 only in v2b)}\\
+\$500/\mathrm{t} & 0.8<Q\le 2.3~\mathrm{Mt}\ \text{(quality ag / industrial media)}\\
+\$250/\mathrm{t} & 2.3<Q\le 4.8~\mathrm{Mt}\ \text{(bulk agricultural)}\\
+\$30/\mathrm{t}  & \text{sink (construction, filtration)}
+\end{cases}
+\end{equation}
+The step prices derive from the U.S.\ wholesale band of \$600--2{,}778/t and
+production costs of \$150--400/t (SI, demand data pack). The three soil
+segments sum to a finite aggregate capacity of $0.8+1.5+2.5 = 4.8$~Mt/yr,
+which is the ceiling on price-responsive biochar sales; the sink is unbounded
+(open capacity) and absorbs any residual at the low \$30/t bid. All three
+capacities are allocated across counties in proportion to farmland area.
+Because demand is
+price-responsive, the equilibrium quantity is endogenous; in the base model
+(v2) biochar is pooled, while the quality-differentiated extension (v2b,
+Section~\ref{sec:v2b}) splits biochar into BC300 and BC500 products with the
+CDR premium segment restricted to BC500.
+
+\subsection{Carbon policy modules}
+\label{sec:policy}
+
+\subsubsection{Paradigm A: baseline-and-credit}
+
+Credits accrue for the net emission reduction relative to the decomposition
+baseline, and because the baseline scales with throughput, the credit mechanism
+rewards capacity expansion, the property a linear tax lacks:
+\begin{equation}
+R(x)=B(x)-E^{+}(x)+S(x)\ \ge\ 0,
+\qquad \max\ \Pi+\frac{p_c}{1000}R(x),
+\qquad p_c\in\{25,50,100,150,200\}\ \mathrm{\$/tCO}_2\mathrm{e}.
+\end{equation}
+Implementation: carbon credit (CC) is a co-produced product with per-tonne-dry
+rates $\gamma_{t,28}=(b_f-e^{\mathrm{proc}}_{t}+(r^{\mathrm{seq}}_t+r^{\mathrm{N}_2\mathrm{O}}_t)\gamma_{t,\mathrm{BC}})/1000$,
+sold at the policy price $p_c$. Credits are computed in LCFS style for
+every feedstock--temperature pair, without an eligibility gate; the
+VM0044 H/C gate is applied only in Paradigm~C2, so the two paradigms differ in
+both credit basis (avoided-baseline versus sequestered-carbon) and eligibility
+(Fig.~\ref{fig:creditbasis}).
+
+\subsubsection{Paradigm B: cap-and-trade with endogenous carbon price}
+
+B1 imposes a gross-emission cap and sweeps it to trace the system's marginal
+abatement cost (MAC) curve $\Pi^{*}(\mathrm{CAP})$:
+\begin{equation}
+\max\ \Pi \quad \text{s.t.}\quad E^{+}(x)\le \mathrm{CAP},
+\qquad \mathrm{MAC}=\frac{\partial \Pi^{*}}{\partial\,\mathrm{CAP}}
+\end{equation}
+The endogenous-price interpretation is formalized as follows.
+\begin{proposition}
+\label{prop:mac_dual}
+For the fixed-layout LP \eqref{eq:base} with an added gross-emission cap
+$E^{+}(x)\le\mathrm{CAP}$, let $\mu_{\mathrm{CAP}}$ be the optimal dual
+variable of the cap constraint under Gurobi's sign convention for a $\le$
+constraint in a maximization. Then
+$\mu_{\mathrm{CAP}}=-\partial\Pi^{*}/\partial\,\mathrm{CAP}$: the reported dual
+is the negative of the marginal abatement cost, so the endogenous carbon price
+is $-\mu_{\mathrm{CAP}}$.
+\end{proposition}
+\begin{proof}
+The identity is the standard parametric-LP sensitivity theorem applied to the
+cap's right-hand side; the full argument is in the SI (Section~A.9).
+\end{proof}
+The proposition is verified numerically: the reported dual matches the
+finite-difference MAC to numerical tolerance ($-374$ vs.\ \$351--391\$/t over
+the first binding intervals in the near-term scenario). We benchmark the resulting MAC against RGGI
+(\$17--25/t) and EU ETS (\texteuro 50--90/t) allowance prices and the
+voluntary removal-credit band (\$100--250/t, VM0044/Puro). B2 replaces the
+constraint by a net-flux cap
+$E^{+}(x)-S(x)\le\mathrm{CAP}^{\mathrm{net}}$; since the system is net-negative,
+the constraint never binds, demonstrating that net caps are blind to negative
+emissions.
+
+\subsubsection{Which resource binds: demand-bound versus supply-bound regimes}
+
+Whether a policy instrument changes the technology mix is decided by
+which resource binds. Define, for each feedstock $f$, the dry-biomass
+mass yields of the 300$^\circ$C and 500$^\circ$C pyrolysis routes
+$\gamma^3_f$ and $\gamma^5_f$ ($\gamma^3_f>\gamma^5_f$), the credit rates
+$\rho^3_f, \rho^5_f$ (tCC/t dry, zero for ineligible 300$^\circ$C chars under
+VM0044), the per-tonne dry cost $\omega$ of the full chain (farmgate, OPEX,
+transport, annualized CAPEX), and a biochar market price $P$. The two
+candidate ``regimes'' correspond to which constraint is active in the
+fixed-facility LP:
+\begin{itemize}
+\item \textbf{Demand-bound} (feedstock abundant, e.g.\ mature-market): the
+supply of biochar is limited by demand, so the relevant objective margin is
+per tonne of biochar served. The 500$^\circ$C margin premium per
+served tonne is
+\begin{equation}
+\Delta^{\mathrm{dem}}_{f}(p_c)=
+\Bigl(\tfrac{\rho^5_f}{\gamma^5_f}-\tfrac{\rho^3_f}{\gamma^3_f}\Bigr)p_c
+-\omega\Bigl(\tfrac{1}{\gamma^5_f}-\tfrac{1}{\gamma^3_f}\Bigr),
+\end{equation}
+independent of the market price $P$: a lower yield multiplies credit
+revenue per tonne served.
+\item \textbf{Supply-bound} (feedstock scarce, e.g.\ near-term): the supply of
+biochar is limited by feedstock, so the relevant margin is per tonne of dry
+biomass processed. The 500$^\circ$C premium per dry tonne is
+\begin{equation}
+\Delta^{\mathrm{sup}}_{f}(p_c)=
+\bigl(\gamma^3_f-\gamma^5_f\bigr)P
+-\bigl(\rho^5_f-\rho^3_f\bigr)p_c,
+\end{equation}
+independent of the chain cost $\omega$: the yield loss is now a revenue loss
+($P$ scales it) and the credit-rate gain is compared per dry tonne.
+\end{itemize}
+\begin{proposition}
+\label{prop:regime}
+For a fixed feedstock $f$ and biochar market price $P$:
+(i) in the demand-bound regime, the 500$^\circ$C route becomes optimal at
+the unique crossing price
+\begin{equation}
+\bar{p}^{\mathrm{dem}}_f = \frac{\omega\,(1/\gamma^5_f-1/\gamma^3_f)}
+{\rho^5_f/\gamma^5_f-\rho^3_f/\gamma^3_f},
+\end{equation}
+which does not depend on $P$ and is strictly positive whenever
+$\rho^5_f/\gamma^5_f>\rho^3_f/\gamma^3_f$; and
+(ii) in the supply-bound regime, the 500$^\circ$C route becomes optimal at
+\begin{equation}
+\bar{p}^{\mathrm{sup}}_f = \frac{(\gamma^3_f-\gamma^5_f)\,P}
+{\rho^5_f-\rho^3_f},
+\end{equation}
+which is increasing in $P$ and bounded by the demand-segment price.
+Moreover, for the LCFS-style baseline-and-credit rates of Paradigm~A
+(Table~S2: feedstock averages $\bar{\gamma}^{3}=0.352$,
+$\bar{\gamma}^{5}=0.278$ t BC/t dry, $\bar{\rho}^{3}=1.771$,
+$\bar{\rho}^{5}=1.849$ tCC/t dry (the per-dry-tonne rates, whose
+$\approx 0.077$ tCC/t dry premium is the credit-rate advantage of
+500$^\circ$C)) and the pooled chain cost $\omega\approx\$130$/t dry,
+$\bar{p}^{\mathrm{dem}}\approx\$61$/tCO$_2$e for every demand segment and
+$\bar{p}^{\mathrm{sup}}\approx\$239$/tCO$_2$e at $P=\$250$/t.
+\end{proposition}
+\begin{proof}
+Equating the per-tonne margins of the two routes in each regime and solving
+for $p_c$ yields the stated crossing prices; the full argument is in the SI
+(Section~A.10).
+\end{proof} the policy--resource interaction observed in
+Section~\ref{sec:results}: baseline-and-credit never
+upgrades the technology mix in the near-term (feedstock-scarce) scenario up to
+$p_c\approx\$239$/t, whereas the mature-market (demand-bound) scenario
+switches at $p_c\approx\$61$/t for every demand segment; the quality
+tier of the premium segment ($\$800$~t$^{-1}$, BC500-only) is unaffected,
+since it is already served by 500$^\circ$C in both regimes. The proposition
+also explains why Paradigm~C2's VM0044 gate is so much more powerful than a
+flat credit price: the gate sets $\rho^3_f=0$, maximizing the numerator in
+$\bar{p}^{\mathrm{sup}}_f$, i.e.\ it prices durability rather than tonnes.
+
+\subsubsection{Paradigm C: tiered tax + VM0044 eligibility + allowance allocation}
+
+C1 taxes gross emissions on a convex piecewise-linear schedule with tiers
+calibrated inside the feasible emission range ($T_1=0.4E^{+}_0$, $T_2=0.7E^{+}_0$;
+rates \$25/50/100 and \$50/100/200 per tCO$_2$e); the flat rate set
+(25/25/25) isolates the linear-tax case. To rule out the possibility that the
+fixed-layout approximation drives the tax results, C1 is also re-solved as a
+free-facility MIP (C1-free). C2 adds Verra VM0044-compliant removal crediting,
+operationalized through the molar H/C~$\le$~0.7 eligibility gate as a proxy:
+only biochar with molar H/C~$\le$~0.7 generates credits. Measured 300$^\circ$C
+chars are torrefaction-like with H/C $\approx$0.9--1.4
+\cite{rafiq2016,ippolito2020}, so no 300$^\circ$C biochar qualifies and
+its credit rate is zero for every feedstock; 500$^\circ$C chars have H/C
+$\approx$0.40--0.52 \cite{rafiq2016,enders2012,ippolito2020} and qualify for
+all feedstocks, turning carbon crediting into a technology-selection
+instrument. Other VM0044 requirements (additionality
+demonstration, leakage accounting, monitoring and verification) are outside the
+model scope and their transaction costs are not modeled. C3 compares allowance
+allocation rules: grandfathering ($A=E^{+}_0$, fixed) versus benchmarking
+($A=\beta q$ with $\beta=E^{+}_0/q_0$), with allowance trades priced at
+$p_{\mathrm{allow}}\in\{30,80\}$~\$/tCO$_2$e.
+
+\subsubsection{Why a linear emission tax does not change a demand-constrained system}
+
+The observed null response of the tiered tax on dispatch (Section~\ref{sec:policyC})
+is not a modeling artifact but a structural property of the demand-constrained
+regime. Formally:
+\begin{proposition}
+\label{prop:taxinv}
+Let $x^{*}$ be an optimal solution of the fixed-layout LP \eqref{eq:base} and
+suppose the biochar mass-balance duals (inherent values) satisfy
+$\pi^{\mathrm{BC}}_{n} \le \lambda^{\mathrm{dem}}_{d(n)}$ for every served
+demand bid $d(n)$ and $\pi^{\mathrm{BC}}_{n} \ge
+\lambda^{\mathrm{dem}}_{d}$ for every unserved bid, both with strict
+inequalities (the marginal served bid earns a strictly positive margin and
+the next, unserved, bid is strictly unprofitable; this is the demand-constrained
+regime with a strict gap at the margin). Then for any tax rate
+$\tau \in [0, \tau_{\max})$ with
+\begin{equation}
+\tau_{\max} =
+\min_{q\in\mathcal{Q}(x^{*})}
+\frac{\lambda^{\mathrm{dem}}_{d(q)}-\pi^{\mathrm{BC}}_{n(q)}}{e^{+}_q},
+\end{equation}
+where $\mathcal{Q}(x^{*})$ is the set of biochar supply paths that are
+marginally profitable at $x^{*}$
+($\lambda^{\mathrm{dem}}_{d(q)}>\pi^{\mathrm{BC}}_{n(q)}$) and $e^{+}_q$ is
+the gross-emission rate of path $q$ (kg CO$_2$e per tonne of biochar), the
+same $x^{*}$ remains optimal in the taxed problem
+$\max\ \Pi(x)-\tau\,E^{+}(x)$; the tax reduces only surplus,
+$\Pi_{\tau}(x^{*})=\Pi(x^{*})-\tau\,E^{+}(x^{*})$, and leaves the material
+flows, technology mix, and equilibrium quantities unchanged.
+\end{proposition}
+\begin{proof}
+The tax perturbs only the objective, so the optimal basis is unchanged while
+the reduced-cost signs of the active margin paths persist; the full argument is
+in the SI (Section~A.11).
+\end{proof}
+Intuitively, the tax rescales the objective by a constant per-unit-of-activity
+penalty that is uniform across the supply paths whose activity is fixed by the
+marginal demand bid; as long as the (gross) emission intensity of those paths
+is bounded relative to their surplus, the pre-tax ordering of the bid stack is
+preserved. In our data, the marginal price gap is
+$\lambda^{\mathrm{dem}}-\pi^{\mathrm{BC}} \approx \$155$/t
+biochar (the \$500/t M bid minus the largest served-node inherent value,
+\$344.85/t) and the gross-emission intensity of the marginal supply path is
+$\approx$0.44~t CO$_2$e/t biochar (1{,}003~kt gross over 2.30~Mt served;
+T1 $31$--$35$ kg/t wet, T2 $\approx$121 kg/t dry, plus transport), so
+$\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested tier of
+\$200/t; the tax's effect within the tested range is confined to surplus
+reallocation.
+
+\subsection{Quality-differentiated extension (v2b)}
+\label{sec:v2b}
+
+The base model pools biochar into one product. The extension splits it into
+BC300 (product 27, from 300$^\circ$C pyrolysis, torrefaction-like H/C
+$\approx$0.9--1.4, credit-ineligible) and BC500
+(product 28, from 500$^\circ$C, H/C~$\approx$~0.40--0.52, credit-eligible), with
+the CDR premium demand
+segment ($\$800/t$) restricted to BC500. Yields follow the V9 technology table,
+cross-checked against \cite{roberts2010} and \cite{rafiq2016}:
+$\gamma^{\mathrm{BC300}}=0.34$--$0.38$ and $\gamma^{\mathrm{BC500}}=0.29$--$0.32$,
+with carbon contents 41--50\% and 50--61\%, respectively (the upper 500$^\circ$C
+carbon contents are conservative relative to the 62--65\% published range,
+Table~S2). This makes the
+pyrolysis temperature a genuine economic decision: 500$^\circ$C sacrifices
+yield to access the premium market and higher removal credits.
+
+\subsection{Solution strategy}
+
+Facility-location decisions are integer, so Steps 1 (MIP) and the policy sweeps
+use Gurobi 13 with a 1--3\% optimality gap, 600--1{,}800~s time limits, and
+feasibility-focused branching (MIPFocus=1) with 60~s of zero-objective
+heuristics; successive policy prices are warm-started from the previous
+facility layout. All dual-based analyses (inherent values, GHG shadow prices,
+endogenous carbon prices) are performed on LPs with the facility layout fixed
+and solved with dual simplex, so that reported duals are exact vertex
+shadow prices; interior-point (barrier) duals of the cap constraint are not
+vertex shadow prices on this LP and are not used. The GHG LP (Step 3) pins demand quantities to the
+Step-2 equilibrium, so its duals are marginal GHG values at the market
+equilibrium rather than at the GHG-minimal dispatch. The near-term scenario
+(6.97~Mt dry biomass) serves as the baseline and the mature-market medium
+scenario (13.53~Mt dry) as sensitivity. Full reproducibility scripts and data
+are provided in the SI.
+
+\begin{assumption}
+\label{ass:duality}
+Throughout our study we assume that strong duality holds for the fixed-layout
+LPs, so that all reported dual variables are unique vertex shadow prices of the
+corresponding constraints.
+\end{assumption}

@@ -1,0 +1,3 @@
+03_LP_GHG_v2 scenario=mature-market medium status=OPTIMAL
+net_ghg_kt = -1648.2 (proc 966.8, trans 16.4, seq -2631.4)
+bc_Mt = 2.300

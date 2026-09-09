@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <date>20240307</date>
+    <state>Published</state>
+    <title>Modeled Output and Other Data from Biomass from the Forested Land Base</title>
+    <authors>
+        <author>Maggie Davis</author>
+        <author>Lixia Lambert</author>
+        <author>Ryan Jacobson</author>
+        <author>Consuelo Brandeis</author>
+        <author>Jeremy Fried</author>
+        <author>Burton English</author>
+    </authors>
+    <last_editor>Maggie R. Davis</last_editor>
+    <short_description>This dataset includes ForSEAM and BioSUM model output prepared for BT23 Chapter 4, as well as USDA-FS Forest Inventory Analysis datasets used to calculate waste biomass from the forested land base.</short_description>
+    <description>This dataset supplies modeled biomass availability in the conterminous United States (CONUS) from ForSEAM (arec.tennessee.edu/research/‌beag/analysis-models/; https://github.com/EERE-Biomass/ForSEAM/) (University of Tennessee 2023). To illustrate regional variation, modeled output are provided from the Bioregional Inventory Originated Simulation Under Management (BioSum) model (biosum.info/) (USFS 2023b) in collaboration with the USDA-FS to estimate biomass availability from thinning and fuel reduction treatments, aimed at making lands more resilient to wildfire. Federal lands are again included in these forest resource analyses. Biomass from the forested land base includes (1) wood wastes in forests (subclass “Logging residues”), at mills (subclass “Forest processing waste”), and from land conversion (subclass “Other forest waste”); (2) harvests from silvicultural treatments such as thinning (subclass “Small-diameter trees”), fuel reduction (subclass “Fire reduction thinnings”), and regeneration cuts (subclass “Small-diameter trees”); and (3) purpose-grown trees on plantations (subclass “Small-diameter trees”). Trees and tree components from land conversion practices such as urban expansion into woodlands or right-of-way clearing are also a source of wood waste and are included in this dataset (subclass “Other forest waste”, resource “Forest waste human generated”). For more information, please see https://bioenergykdf.ornl.gov/document/modeled-output-and-other-data-biomass-forested-land-base</description>
+    <keywords>Feedstock Production</keywords>
+    <variables>
+        <variable>Material Class</variable>
+        <variable>SubClass</variable>
+        <variable>Resource Name</variable>
+        <variable>Diameter Class</variable>
+        <variable>Owner</variable>
+        <variable>FIPS Code</variable>
+        <variable>County</variable>
+        <variable>State</variable>
+        <variable>Sqmi</variable>
+        <variable>Scenario Name</variable>
+        <variable>Scenario Price Offered</variable>
+        <variable>Production</variable>
+        <variable>Production Unit</variable>
+        <variable>Production Energy Content</variable>
+        <variable>Energy Content Unit</variable>
+        <variable>Production Density per Sq Mile</variable>
+        <variable>Harvest Costs</variable>
+        <variable>Harvest Area</variable>
+        <variable>Harvest Area Unit</variable>
+        <variable>Lipid Based</variable>
+        <variable>Ash Percentage
+        <variable>Forest processing waste</variable>
+        <variable>Hardwood processing residues</variable>
+    </variables>
+    <publisher>Bioenergy Knowledge Discovery Framework (bioenergyKDF) Data Center</publisher>
+    <publication_date>2024-03-07</publication_date>
+    <type>Comma Separated Values (csv)</type>
+    <doi>https://doi.org/10.23720/BT2023/2281324</doi>
+    <relation>2023 Billion-Ton Report</relation>
+    <source>Chapter 4: Biomass from the Forested Land Base</source>
+    <language>English</language>
+    <rights>CC0-1.0 license</rights>
+</metadata>

@@ -1,0 +1,385 @@
+path,bytes,sha1_16
+Code/00_run_all_v2.jl,1657,4927be33c6084ba5
+Code/01_MIP_v2.jl,11486,c4a96dbfdf4c8a4a
+Code/01_MIP_v2b.jl,9235,11b9dde43c9168ae
+Code/02_LP_duals_v2.jl,7410,2b8d9059c8a10460
+Code/03_LP_GHG_v2.jl,8161,1bde1dd608333c33
+Code/04_policy_A.jl,12838,7c4e9b746bca06b7
+Code/04_policy_A_v2b.jl,10975,ce0430a35a57e0d0
+Code/05_policy_B.jl,11199,5a80ac35d3634337
+Code/06_policy_C.jl,20714,a2e2b8ff65f595a6
+Code/06_policy_C_v2b.jl,11555,dbf82946414b60fd
+Code/07_sensitivity_v2.jl,7560,e522b62afef1ea9b
+Code/Project.toml,574,255ce9c25b86dba1
+Code/REPRODUCE.md,5301,ccd375554d21fb8f
+Code/WI_Counties.dbf,62442,617f6818be8805e4
+Code/WI_Counties.prj,145,86813d76269ab91b
+Code/WI_Counties.shp,229404,53fecb0c97e2a511
+Code/WI_Counties.shx,676,63aa410dedd0e3b3
+Code/WI_Lakes.dbf,10268,6e7fe9e8ea5c522a
+Code/WI_Lakes.prj,145,86813d76269ab91b
+Code/WI_Lakes.shp,34520,7402a0838459725d
+Code/WI_Lakes.shx,124,1280ed8d25f39b34
+Code/Wisconsin_Biomass_Data.xlsx,46983,87d76096ab44bc07
+Code/_tmp_build_delivery.py,6126,015ceeacbf174f3d
+Code/analyze_wastes.py,1769,d5794d03ab30f874
+Code/biochar_data_v2/mature-market medium/alpha_matrix.csv,5024,ded3d9e06f76cc6c
+Code/biochar_data_v2/mature-market medium/demand_matrix.csv,10987,47c9a092f61fb126
+Code/biochar_data_v2/mature-market medium/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2/mature-market medium/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2/mature-market medium/product_matrix.csv,852,ab37f1fbd0432776
+Code/biochar_data_v2/mature-market medium/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2/mature-market medium/summary.json,675,07fa9ce3b4967545
+Code/biochar_data_v2/mature-market medium/supply_matrix.csv,22635,0683b6e0f1f0d5e5
+Code/biochar_data_v2/mature-market medium/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2/mature-market medium/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2/near-term/alpha_matrix.csv,5024,ded3d9e06f76cc6c
+Code/biochar_data_v2/near-term/demand_matrix.csv,10987,47c9a092f61fb126
+Code/biochar_data_v2/near-term/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2/near-term/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2/near-term/product_matrix.csv,852,ab37f1fbd0432776
+Code/biochar_data_v2/near-term/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2/near-term/summary.json,663,095d8f238a450f6f
+Code/biochar_data_v2/near-term/supply_matrix.csv,17693,9db617821f5011a0
+Code/biochar_data_v2/near-term/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2/near-term/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2_hc+0.25/mature-market medium/alpha_matrix.csv,4932,3f5acbc5541edb09
+Code/biochar_data_v2_hc+0.25/mature-market medium/demand_matrix.csv,10987,47c9a092f61fb126
+Code/biochar_data_v2_hc+0.25/mature-market medium/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2_hc+0.25/mature-market medium/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2_hc+0.25/mature-market medium/product_matrix.csv,852,ab37f1fbd0432776
+Code/biochar_data_v2_hc+0.25/mature-market medium/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2_hc+0.25/mature-market medium/summary.json,704,15aa80aa0cba96f4
+Code/biochar_data_v2_hc+0.25/mature-market medium/supply_matrix.csv,22635,0683b6e0f1f0d5e5
+Code/biochar_data_v2_hc+0.25/mature-market medium/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2_hc+0.25/mature-market medium/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2_hc+0.25/near-term/alpha_matrix.csv,4932,3f5acbc5541edb09
+Code/biochar_data_v2_hc+0.25/near-term/demand_matrix.csv,10987,47c9a092f61fb126
+Code/biochar_data_v2_hc+0.25/near-term/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2_hc+0.25/near-term/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2_hc+0.25/near-term/product_matrix.csv,852,ab37f1fbd0432776
+Code/biochar_data_v2_hc+0.25/near-term/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2_hc+0.25/near-term/summary.json,692,66ced9d303ae389d
+Code/biochar_data_v2_hc+0.25/near-term/supply_matrix.csv,17693,9db617821f5011a0
+Code/biochar_data_v2_hc+0.25/near-term/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2_hc+0.25/near-term/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2b/mature-market medium/alpha_matrix.csv,5180,405ba33d6918858b
+Code/biochar_data_v2b/mature-market medium/demand_matrix.csv,20238,c0269ced5acd970c
+Code/biochar_data_v2b/mature-market medium/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2b/mature-market medium/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2b/mature-market medium/product_matrix.csv,879,85298821d1192cc0
+Code/biochar_data_v2b/mature-market medium/segment_capacity.csv,3174,84c5c9643a9995cb
+Code/biochar_data_v2b/mature-market medium/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2b/mature-market medium/summary.json,760,b529462b8d4a8834
+Code/biochar_data_v2b/mature-market medium/supply_matrix.csv,22635,0683b6e0f1f0d5e5
+Code/biochar_data_v2b/mature-market medium/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2b/mature-market medium/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2b/near-term/alpha_matrix.csv,5180,405ba33d6918858b
+Code/biochar_data_v2b/near-term/demand_matrix.csv,20238,c0269ced5acd970c
+Code/biochar_data_v2b/near-term/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2b/near-term/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2b/near-term/product_matrix.csv,879,85298821d1192cc0
+Code/biochar_data_v2b/near-term/segment_capacity.csv,3174,84c5c9643a9995cb
+Code/biochar_data_v2b/near-term/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2b/near-term/summary.json,748,a97da0d9324734fc
+Code/biochar_data_v2b/near-term/supply_matrix.csv,17693,9db617821f5011a0
+Code/biochar_data_v2b/near-term/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2b/near-term/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2b_hc+0.25/mature-market medium/alpha_matrix.csv,5088,45d0a45ea2c5c27a
+Code/biochar_data_v2b_hc+0.25/mature-market medium/demand_matrix.csv,20238,c0269ced5acd970c
+Code/biochar_data_v2b_hc+0.25/mature-market medium/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2b_hc+0.25/mature-market medium/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2b_hc+0.25/mature-market medium/product_matrix.csv,879,85298821d1192cc0
+Code/biochar_data_v2b_hc+0.25/mature-market medium/segment_capacity.csv,3174,84c5c9643a9995cb
+Code/biochar_data_v2b_hc+0.25/mature-market medium/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2b_hc+0.25/mature-market medium/summary.json,777,f2a06f652202adc4
+Code/biochar_data_v2b_hc+0.25/mature-market medium/supply_matrix.csv,22635,0683b6e0f1f0d5e5
+Code/biochar_data_v2b_hc+0.25/mature-market medium/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2b_hc+0.25/mature-market medium/technology_names.csv,1123,b9f609b1707e0b9d
+Code/biochar_data_v2b_hc+0.25/near-term/alpha_matrix.csv,5088,45d0a45ea2c5c27a
+Code/biochar_data_v2b_hc+0.25/near-term/demand_matrix.csv,20238,c0269ced5acd970c
+Code/biochar_data_v2b_hc+0.25/near-term/ghg_factors_v2.csv,2847,edc1c0b088e9a8a6
+Code/biochar_data_v2b_hc+0.25/near-term/node_matrix.csv,2369,5adc08de73501b26
+Code/biochar_data_v2b_hc+0.25/near-term/product_matrix.csv,879,85298821d1192cc0
+Code/biochar_data_v2b_hc+0.25/near-term/segment_capacity.csv,3174,84c5c9643a9995cb
+Code/biochar_data_v2b_hc+0.25/near-term/site_matrix_MIP.csv,42861,80a34dae710e3a36
+Code/biochar_data_v2b_hc+0.25/near-term/summary.json,765,cc94e18ecab89206
+Code/biochar_data_v2b_hc+0.25/near-term/supply_matrix.csv,17693,9db617821f5011a0
+Code/biochar_data_v2b_hc+0.25/near-term/technology_matrix.csv,3460,367401b02f7dabdb
+Code/biochar_data_v2b_hc+0.25/near-term/technology_names.csv,1123,b9f609b1707e0b9d
+Code/check_potential.py,1335,d25ae0c311b63a16
+Code/check_syntax_all.jl,576,4dd98db2fcedac06
+Code/debug_capex.jl,4918,808bbfdb743d8262
+Code/extract_vm0044.py,1213,f2dd5b434d4ca067
+Code/fig0_deco_prototype.py,2101,44e51262750fa5a0
+Code/fig0_superstructure.py,8796,8523fac380a1f995
+Code/fig10_tornado.py,2285,5ce59f2e0ea2c105
+Code/fig11_v2b_mix.py,1663,002f9df3541da1ea
+Code/fig12_credit_basis.py,6603,ebcedcb789c40ed4
+Code/fig1_facility_map.py,3658,56c66cdd08199e1d
+Code/fig45_iv_maps.py,4495,4ff15e851e8f5f4e
+Code/fig9_policy_compare.py,3398,89a06a18212950b2
+Code/figstyle.py,2703,9c8b479356edbc8b
+Code/final_postprocess.ps1,2124,c1628fb587cecba6
+Code/fix_workbook_citations.py,4373,1c8031bbfbfb480f
+Code/generate_data_v2.py,23846,b1236cb68bd76c6a
+Code/generate_data_v2b.py,19084,9f17381d3c4d8cbe
+Code/license_test.jl,208,2b33487887d50cad
+Code/make_composites.py,711,7d39faa168f4d160
+Code/make_ppt.py,6543,9a9722737a8c73e3
+Code/nass_summarize.py,1474,239163b0801f17e4
+Code/node_fips.csv,2386,47dc9e99eb8f7d61
+Code/parse_check_v03.jl,329,e95e5c866525eade
+Code/patch_policyA_extended.py,1216,0b8fe01f3d9b40a5
+Code/patch_policyC_extended.py,1314,79dbaf32c35f9ec3
+Code/patch_v2b_mature.py,759,2dc677435e8e0247
+Code/post_chain2.ps1,1795,2c66130e3cd9b770
+Code/qgis_facility_map.py,4882,1d73fd08f1666a37
+Code/qgis_iv_maps.py,6221,e489f220b9d81737
+Code/requirements.txt,355,f9584f208c0fb8df
+Code/results_v2/fig0_deco_prototype.png,953352,fa9498451831964a
+Code/results_v2/fig0_layout_template.png,507920,4bb15dd23f57ff22
+Code/results_v2/fig0_superstructure.png,474281,3d82ec5a4da117e0
+Code/results_v2/fig10_tornado.png,136649,ec2b13466aa996c9
+Code/results_v2/fig11_v2b_mix.png,151592,b1872e244622ba36
+Code/results_v2/fig12_credit_basis.png,384471,0593d93cc3945c8d
+Code/results_v2/fig1_facility_map.png,272698,00d4aace6a27b60a
+Code/results_v2/fig2_econmarket.png,265719,615c5dcfbeef6a2f
+Code/results_v2/fig2_economics.png,150360,a168234f415a4e12
+Code/results_v2/fig3_demand_curve.png,150331,ad842556e6d103bf
+Code/results_v2/fig4_iv_biochar.png,214867,9464571ee75cc608
+Code/results_v2/fig4_iv_maps.png,451069,be5b3cd305e9ece6
+Code/results_v2/fig5_iv_biomass.png,219066,314d7f1818862788
+Code/results_v2/fig6_policyA.png,294850,c8f36b443d6db0d8
+Code/results_v2/fig7_policyB_MAC.png,257852,0681c5e3800fc374
+Code/results_v2/fig8_policyC_tech.png,198094,f6df243d39a1ef26
+Code/results_v2/fig9_policy_compare.png,474086,4b321c854f015c20
+Code/results_v2/mature-market medium/LP_GHG_shadow_v2.csv,10661,e10274c8a66c741d
+Code/results_v2/mature-market medium/LP_duals_inherent_value_v2.csv,13060,ce659179d1015021
+Code/results_v2/mature-market medium/S0_summary.txt,522,5f564bc2ba6f2cea
+Code/results_v2/mature-market medium/S2_summary.txt,218,26c228c63412bcae
+Code/results_v2/mature-market medium/S3_summary.txt,131,a27d8a03e9bebdc8
+Code/results_v2/mature-market medium/dem_star_v2.csv,3450,11cf7735e3ed0e80
+Code/results_v2/mature-market medium/figures/_facilities.csv,1679,63ffd71d83d28d54
+Code/results_v2/mature-market medium/figures/fig0_layout_template.png,323596,cf22ff44cd959c48
+Code/results_v2/mature-market medium/figures/fig0_superstructure.pdf,79603,1b14c4104571d294
+Code/results_v2/mature-market medium/figures/fig0_superstructure.png,282690,8dc8abd04022198d
+Code/results_v2/mature-market medium/figures/fig0_superstructure.svg,33698,16c1db44da351fcd
+Code/results_v2/mature-market medium/figures/fig10_tornado.png,159511,9cd4802cfe0e3d41
+Code/results_v2/mature-market medium/figures/fig1_facility_map.png,408081,5be1d573aa43ebf9
+Code/results_v2/mature-market medium/figures/fig2_econmarket.png,296628,3b24496213073ac2
+Code/results_v2/mature-market medium/figures/fig2_economics.png,150360,a168234f415a4e12
+Code/results_v2/mature-market medium/figures/fig3_demand_curve.png,146620,ea2bb2ded62e5c0c
+Code/results_v2/mature-market medium/figures/fig4_iv_biochar.png,263589,7a203ec669f17bbd
+Code/results_v2/mature-market medium/figures/fig4_iv_maps.png,461538,5374e923aeae4626
+Code/results_v2/mature-market medium/figures/fig5_iv_biomass.png,273092,7ac878af9e32bcf7
+Code/results_v2/mature-market medium/figures/fig6_policyA.png,296724,078ec93a784b8496
+Code/results_v2/mature-market medium/figures/fig7_policyB_MAC.png,281196,2f4ce258394c6220
+Code/results_v2/mature-market medium/figures/fig8_policyC_tech.png,198094,f6df243d39a1ef26
+Code/results_v2/mature-market medium/figures/fig9_policy_compare.png,493780,cb8130705c5fa3be
+Code/results_v2/mature-market medium/policy_A_bnc_sweep_v2.csv,1681,66fa24644ec811df
+Code/results_v2/mature-market medium/policy_A_decomp_frac0.5_v2.csv,397,ab74d25f844b32c0
+Code/results_v2/mature-market medium/policy_A_decomp_frac0.7_v2.csv,394,407b52405bb965f8
+Code/results_v2/mature-market medium/policy_A_extended_v2.csv,657,fa1e46869a2d6be0
+Code/results_v2/mature-market medium/policy_A_recert_v2.csv,395,0ca2f559304ec6ba
+Code/results_v2/mature-market medium/policy_B1_cap_sweep_MAC_v2.csv,1381,e42f4b9c119a1375
+Code/results_v2/mature-market medium/policy_B1_cap_sweep_v2.csv,1171,cbbfff15bbb3c420
+Code/results_v2/mature-market medium/policy_B2_netcap_sweep_v2.csv,385,1c3ee5b675494b1f
+Code/results_v2/mature-market medium/policy_C1_free_tax_v2.csv,361,63ca74608dd3eac8
+Code/results_v2/mature-market medium/policy_C1_tiered_tax_v2.csv,405,fce778b6e51e4d59
+Code/results_v2/mature-market medium/policy_C2_extended_v2.csv,335,8a47a61976837357
+Code/results_v2/mature-market medium/policy_C2_hc+0.25_v2.csv,340,d7ed078ac161aa60
+Code/results_v2/mature-market medium/policy_C2_tax_credit_v2.csv,602,7072f4585ec83d6f
+Code/results_v2/mature-market medium/policy_C3_allocation_v2.csv,371,62a11d0949e1cce6
+Code/results_v2/mature-market medium/sensitivity_v2.csv,1006,27c5d49ac855e20b
+Code/results_v2/mature-market medium/z_star_MIP_v2.csv,459,5f959d9572cd36bf
+Code/results_v2/near-term/LP_GHG_shadow_v2.csv,11619,9b85d2746a4d0294
+Code/results_v2/near-term/LP_duals_inherent_value_v2.csv,13629,9490342543bca7e0
+Code/results_v2/near-term/S0_summary.txt,506,5f3348202ac733d0
+Code/results_v2/near-term/S2_summary.txt,207,860e991db0365449
+Code/results_v2/near-term/S3_summary.txt,120,8b53204d2d2bbb95
+Code/results_v2/near-term/dem_star_v2.csv,3450,11cf7735e3ed0e80
+Code/results_v2/near-term/figures/_facilities.csv,4110,722bfbee34dcc85e
+Code/results_v2/near-term/figures/fig0_deco_prototype.png,953352,fa9498451831964a
+Code/results_v2/near-term/figures/fig0_layout_template.png,323596,cf22ff44cd959c48
+Code/results_v2/near-term/figures/fig0_superstructure.pdf,79604,231e27600b934952
+Code/results_v2/near-term/figures/fig0_superstructure.png,283094,3e3884f75512e1db
+Code/results_v2/near-term/figures/fig0_superstructure.svg,33698,8cafd4e1314d3f53
+Code/results_v2/near-term/figures/fig10_tornado.png,154890,81f1c66ec485fd99
+Code/results_v2/near-term/figures/fig11_v2b_mix.png,151592,b1872e244622ba36
+Code/results_v2/near-term/figures/fig12_credit_basis.png,384471,0593d93cc3945c8d
+Code/results_v2/near-term/figures/fig1_facility_map.png,473013,9d73c59f06e6e8b6
+Code/results_v2/near-term/figures/fig2_econmarket.png,285823,68923f4bf36ee2e1
+Code/results_v2/near-term/figures/fig2_economics.png,147010,f40d79a77a90060b
+Code/results_v2/near-term/figures/fig3_demand_curve.png,141135,f062144ff7e20f93
+Code/results_v2/near-term/figures/fig4_iv_biochar.png,257899,5173cbaef35dc8ab
+Code/results_v2/near-term/figures/fig4_iv_maps.png,453374,88e50f495b735786
+Code/results_v2/near-term/figures/fig5_iv_biomass.png,264929,a1c02e16992d8a3b
+Code/results_v2/near-term/figures/fig6_policyA.png,279392,fbd7cd628d964e3a
+Code/results_v2/near-term/figures/fig7_policyB_MAC.png,280952,d29edd00a2e2d458
+Code/results_v2/near-term/figures/fig8_policyC_tech.png,198410,49ebaab720b62052
+Code/results_v2/near-term/figures/fig9_crop.png,233921,8e06727af24de58e
+Code/results_v2/near-term/figures/fig9_policy_compare.png,490032,2c336cac5ff0c9e4
+Code/results_v2/near-term/policy_A_bnc_sweep_v2.csv,1664,9b418910b578c8b9
+Code/results_v2/near-term/policy_A_decomp_frac0.5_v2.csv,395,64cf26b8556ca778
+Code/results_v2/near-term/policy_A_decomp_frac0.7_v2.csv,396,2ed0784276af4b63
+Code/results_v2/near-term/policy_A_extended_v2.csv,641,be12469684fa633d
+Code/results_v2/near-term/policy_B1_cap_sweep_MAC_v2.csv,1403,5e9d8f2078bfad83
+Code/results_v2/near-term/policy_B1_cap_sweep_v2.csv,1189,b9d037bbe6cf6793
+Code/results_v2/near-term/policy_B2_netcap_sweep_v2.csv,385,5d1d91eb520aa82c
+Code/results_v2/near-term/policy_C1_free_tax_v2.csv,371,40077938895dc3de
+Code/results_v2/near-term/policy_C1_tiered_tax_v2.csv,419,e338599938695f20
+Code/results_v2/near-term/policy_C2_extended_v2.csv,332,681e099a549e16fc
+Code/results_v2/near-term/policy_C2_hc+0.25_v2.csv,316,455fb75f5920f93e
+Code/results_v2/near-term/policy_C2_tax_credit_v2.csv,634,ecaf92741621480f
+Code/results_v2/near-term/policy_C3_allocation_v2.csv,410,edea3ca7662f9676
+Code/results_v2/near-term/sensitivity_v2.csv,1054,eff379d82eae63d6
+Code/results_v2/near-term/z_star_MIP_v2.csv,1103,ffd8f995868ae722
+Code/results_v2b/fig0_deco_prototype.png,953352,fa9498451831964a
+Code/results_v2b/fig0_layout_template.png,507920,4bb15dd23f57ff22
+Code/results_v2b/fig0_superstructure.png,474281,3d82ec5a4da117e0
+Code/results_v2b/fig10_tornado.png,136649,ec2b13466aa996c9
+Code/results_v2b/fig11_v2b_mix.png,175433,91e5ad4230246640
+Code/results_v2b/fig12_credit_basis.png,353367,93a6041cb85ed1cd
+Code/results_v2b/fig1_facility_map.png,272698,00d4aace6a27b60a
+Code/results_v2b/fig2_econmarket.png,265719,615c5dcfbeef6a2f
+Code/results_v2b/fig2_economics.png,150360,a168234f415a4e12
+Code/results_v2b/fig3_demand_curve.png,150331,ad842556e6d103bf
+Code/results_v2b/fig4_iv_biochar.png,214867,9464571ee75cc608
+Code/results_v2b/fig4_iv_maps.png,451069,be5b3cd305e9ece6
+Code/results_v2b/fig5_iv_biomass.png,219066,314d7f1818862788
+Code/results_v2b/fig6_policyA.png,294850,c8f36b443d6db0d8
+Code/results_v2b/fig7_policyB_MAC.png,257852,0681c5e3800fc374
+Code/results_v2b/fig8_policyC_tech.png,198094,f6df243d39a1ef26
+Code/results_v2b/fig9_policy_compare.png,474086,4b321c854f015c20
+Code/results_v2b/mature-market medium/S0_summary.txt,306,20481e20c9c7b235
+Code/results_v2b/mature-market medium/policy_A_bnc_sweep_v2b.csv,875,861439beffbb8189
+Code/results_v2b/mature-market medium/policy_A_hcap0.5_pc0.0_v2b.csv,276,939713446a23fc5d
+Code/results_v2b/mature-market medium/policy_A_hcap1.0_pc100.0_g0.001_tl1800_pc100.0_v2b.csv,301,195e6ba6fc6f98f0
+Code/results_v2b/mature-market medium/policy_A_hcap1.0_pc200.0_g0.001_tl1800_pc200.0_v2b.csv,292,39540048b9671c40
+Code/results_v2b/mature-market medium/policy_A_hcap1.5_pc0.0_v2b.csv,269,f02e89d939019886
+Code/results_v2b/mature-market medium/policy_C2_tax_credit_v2b.csv,514,7e9e727b8ef2106f
+Code/results_v2b/mature-market medium/z_star_MIP_v2b.csv,637,b507e7a1e9baaaff
+Code/results_v2b/near-term/S0_summary.txt,299,88be284a79f587b9
+Code/results_v2b/near-term/policy_A_bnc_sweep_v2b.csv,846,939a0ff827ae7582
+Code/results_v2b/near-term/policy_A_hcap0.5_pc0.0_v2b.csv,292,bee5778ea0d565eb
+Code/results_v2b/near-term/policy_A_hcap1.0_pc0.0_v2b.csv,259,1e9fb7eb94e6bd9e
+Code/results_v2b/near-term/policy_A_hcap1.5_pc0.0_v2b.csv,279,05755f55128197bb
+Code/results_v2b/near-term/policy_C2_tax_credit_v2b.csv,542,365caaf39a6f168b
+Code/results_v2b/near-term/z_star_MIP_v2b.csv,1378,f7b2a78bd679d3da
+Code/run_v03_chain2.ps1,2168,62888a7261642654
+Code/run_v03_chain3.ps1,1538,1aaf3e8d70e35b32
+Code/run_v03_rechecks.ps1,2015,db0ddc752a3cbd97
+Code/visualize_v2.py,12001,1af7083c1f1c46e2
+Data/raw/BT23/agri_20260618/CottonGinTrash_RiceHulls_Agriculturev0.0.1.csv,1143763,44487744a52487ce
+Data/raw/BT23/agri_20260618/billionton_23_agri_download20260618-105910.csv,524667,098613652cc74374
+Data/raw/BT23/agri_20260618b/CottonGinTrash_RiceHulls_Agriculturev0.0.1.csv,1143763,44487744a52487ce
+Data/raw/BT23/agri_20260618b/billionton_23_agri_download20260618-105910.csv,524667,098613652cc74374
+Data/raw/BT23/forestry_20260618/Forestland_Metadata-API.xml,3871,33980397b74dded0
+Data/raw/BT23/forestry_20260618/Forestland_Metadata.pdf,32340,591afd390743a6da
+Data/raw/BT23/forestry_20260618/billionton_23_forestry_download20260618-105947.csv,617205,0455e6e51b749c2d
+Data/raw/BT23/forestry_20260618b/Forestland_Metadata-API.xml,3871,33980397b74dded0
+Data/raw/BT23/forestry_20260618b/Forestland_Metadata.pdf,32340,591afd390743a6da
+Data/raw/BT23/forestry_20260618b/billionton_23_forestry_download20260618-105947.csv,617205,0455e6e51b749c2d
+Data/raw/GIS_Shapefiles/2022_Gaz_counties_national.txt,647830,6ff54f68d3b483b8
+Data/raw/GIS_Shapefiles/_ne_lakes.zip,2349685,37be7f0869fd23e7
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.README.html,45753,c0fc9794ed0d5306
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.VERSION.txt,7,495a08268f226e74
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.cpg,5,663b90c899fa25a1
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.dbf,9993116,771cd9ad70ed5f27
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.prj,145,86813d76269ab91b
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.shp,2682580,2541475242fa0d53
+Data/raw/GIS_Shapefiles/_ne_lakes/ne_10m_lakes.shx,10940,2b2db31cfa29c071
+Data/raw/NASS_USDA/Barley_ACRES_HARVESTED2022.csv,10201,bd72cc3ec62c76be
+"Data/raw/NASS_USDA/CORN, GRAIN - ACRES HARVESTED2022.csv",17567,97dc7d093e8e16c7
+Data/raw/NASS_USDA/CORN_ACRES_HARVESTED2022.csv,27463,f09d910eb998b679
+Data/raw/NASS_USDA/FIADB_API_Estimates_158244978.csv,1835,e4eb1c9854d66bec
+Data/raw/NASS_USDA/NASS_2022/barley_2022.csv,46418,932cea09ec919177
+Data/raw/NASS_USDA/NASS_2022/corn_all_classes_2022.csv,187538,83063dee0dcd8be5
+Data/raw/NASS_USDA/NASS_2022/corn_grain_silage_county_2022.csv,11331,3c84278c6b66da31
+Data/raw/NASS_USDA/NASS_2022/cranberries_all_statcats_2022.csv,42401,e7a3a56811800d74
+Data/raw/NASS_USDA/NASS_2022/hay_alfalfa_2022.csv,100416,43e518d10d6172fe
+Data/raw/NASS_USDA/NASS_2022/oats_2022.csv,70365,d20096eabc282cd4
+Data/raw/NASS_USDA/NASS_2022/potatoes_2022.csv,122740,eb96d1e63ae928eb
+Data/raw/NASS_USDA/NASS_2022/soybeans_2022.csv,97346,72c3502ac28d0472
+Data/raw/NASS_USDA/NASS_2022/wheat_2022.csv,72352,fda05c14691cee69
+Data/raw/NASS_USDA/Oats_ACRES_HARVESTED2022.csv,21447,91c09e792456f911
+Data/raw/NASS_USDA/SOYBEANS_ACRES_HARVESTED2022.csv,26900,28147e5b0059d897
+Data/raw/NASS_USDA/Sorghum_ACRES_HARVESTED2022.csv,1839,c67a18654bc33e42
+Data/raw/NASS_USDA/Wheat_ACRES_HARVESTED2022.csv,12892,8db692750968ac6f
+Data/raw/Wisconsin_Biomass_Data.xlsx,46983,87d76096ab44bc07
+Data/raw/supplementary/billionton_23_wastes_download20260902.csv,586974,5e6fb1601f276b8a
+Graph/fig0_layout_template.png,507920,4bb15dd23f57ff22
+Graph/fig0_superstructure.pdf,79604,231e27600b934952
+Graph/fig0_superstructure.png,283094,3e3884f75512e1db
+Graph/fig0_superstructure.svg,33698,8cafd4e1314d3f53
+Graph/fig10_tornado.png,154890,81f1c66ec485fd99
+Graph/fig11_v2b_mix.png,175433,91e5ad4230246640
+Graph/fig12_credit_basis.png,353367,93a6041cb85ed1cd
+Graph/fig1_facility_map.png,473013,9d73c59f06e6e8b6
+Graph/fig2_econmarket.png,285823,68923f4bf36ee2e1
+Graph/fig2_economics.png,150360,a168234f415a4e12
+Graph/fig3_demand_curve.png,150331,ad842556e6d103bf
+Graph/fig4_iv_biochar.png,214867,9464571ee75cc608
+Graph/fig4_iv_maps.png,453374,88e50f495b735786
+Graph/fig5_iv_biomass.png,219066,314d7f1818862788
+Graph/fig6_policyA.png,279392,fbd7cd628d964e3a
+Graph/fig7_policyB_MAC.png,280952,d29edd00a2e2d458
+Graph/fig8_policyC_tech.png,198410,49ebaab720b62052
+Graph/fig9_policy_compare.png,490032,2c336cac5ff0c9e4
+PPT/Biochar_Progress_mature-market_v03.pptx,2469192,9cc356f9470e8e1c
+PPT/Biochar_Progress_near-term_v03.pptx,2730342,43959eb2aa4c561b
+Paper/Overleaf_Upload_2026-09-04.zip,3065051,098bb81ff6de5a9e
+Paper/Overleaf_Upload_SINGLE_2026-09-08.zip,3582201,5fa535da438115c9
+Paper/Overleaf_Upload_SINGLE_2026-09-09.zip,3115218,6aeb173e8b135c5e
+Paper/paper_draft/abstract.tex,2436,636b7eeedf9d8a63
+Paper/paper_draft/conclusion.tex,2465,0281517210a188f5
+Paper/paper_draft/discussion.tex,10973,9f7406201347031e
+Paper/paper_draft/figures/fig0_deco_prototype.png,953352,fa9498451831964a
+Paper/paper_draft/figures/fig0_layout_template.png,507920,4bb15dd23f57ff22
+Paper/paper_draft/figures/fig0_superstructure.pdf,79604,231e27600b934952
+Paper/paper_draft/figures/fig0_superstructure.png,283094,3e3884f75512e1db
+Paper/paper_draft/figures/fig0_superstructure.svg,33698,8cafd4e1314d3f53
+Paper/paper_draft/figures/fig10_tornado.png,154890,81f1c66ec485fd99
+Paper/paper_draft/figures/fig11_v2b_mix.png,175433,91e5ad4230246640
+Paper/paper_draft/figures/fig12_credit_basis.png,353367,93a6041cb85ed1cd
+Paper/paper_draft/figures/fig1_facility_map.png,473013,9d73c59f06e6e8b6
+Paper/paper_draft/figures/fig2_econmarket.png,285823,68923f4bf36ee2e1
+Paper/paper_draft/figures/fig2_economics.png,150360,a168234f415a4e12
+Paper/paper_draft/figures/fig3_demand_curve.png,150331,ad842556e6d103bf
+Paper/paper_draft/figures/fig4_iv_biochar.png,214867,9464571ee75cc608
+Paper/paper_draft/figures/fig4_iv_maps.png,453374,88e50f495b735786
+Paper/paper_draft/figures/fig5_iv_biomass.png,219066,314d7f1818862788
+Paper/paper_draft/figures/fig6_policyA.png,279392,fbd7cd628d964e3a
+Paper/paper_draft/figures/fig7_policyB_MAC.png,280952,d29edd00a2e2d458
+Paper/paper_draft/figures/fig8_policyC_tech.png,198410,49ebaab720b62052
+Paper/paper_draft/figures/fig9_policy_compare.png,490032,2c336cac5ff0c9e4
+Paper/paper_draft/introduction.tex,7098,7a217dd1d3697da2
+Paper/paper_draft/main.tex,3084,337b8b8d8d0b4897
+Paper/paper_draft/main_standalone.tex,109402,e17c2a0788e2e750
+Paper/paper_draft/methods.tex,22011,41607de164648979
+Paper/paper_draft/references.bbl,7822,e4863c4206e884a8
+Paper/paper_draft/references.bib,11003,b0f81cec6d9296f6
+Paper/paper_draft/results.tex,23894,c1d44d7bab8920f7
+Paper/paper_draft/results_outline.md,7942,c25f5a89b65dd47c
+Paper/paper_draft/si.tex,29214,4c6fc470bbab11ed
+References/Apoorva M. Sampat-2019-Coordination framework.pdf,3880009,b2f3cfe10774234e
+References/Jiaze Ma-2023-thermochemical upcycling of post-consumer.pdf,2834354,94f80145cc6fe211
+"References/Life Cycle Assessment of Biochar Systems_ Estimating the Energetic, Economic, and Climate Change Potential.pdf",1186299,90e23bc7b9b19efc
+References/Spatio-temporal economic properties of multi-product supply chains.pdf,4836348,90d4ed9ae0782077
+References/VM0044_v1.2_methodology.pdf,754504,d4db4012f6f3d3e1
+References/[R10]California-Quebec carbon Q3 auction settles above expectatio.pdf,601478,d61a2ee40faea8e0
+"References/[R10]California-Quebec carbon Q3 auction settles above expectations, fully sells out.pdf",601478,d61a2ee40faea8e0
+References/[R11]RGGI Third Program Review Significantly Strengthens GHG Targ.pdf,0,da39a3ee5e6b4b0d
+References/[R12]Treasury Establishes 45Q Carbon Capture Tax Credit Safe Harb.pdf,810333,b3844f9ab77ab392
+References/[R13]The Regional Greenhouse Gas Initiative Program Review 2025.pdf,557082,4ad3129ac52d3706
+References/[R14]CO2 Budget Trading Program General Provisions.pdf,618349,7d6e991743622bba
+References/[R1]Optimization formulations for multi-product supply chain netw.pdf,2195112,ef47100fe7ddda08
+References/[R2]Coordinated management of organic waste and derived products.pdf,5954767,39af799c154e8ccf
+References/[R3]Spatio-temporal economic properties of multi-product supply c.pdf,5319930,a17b01f81ac7e0a8
+References/[R4]Evaluating the economic and environmental benefits of deployi.pdf,3366478,a2bf24a6386bd02f
+References/[R5]Carbon pricing versus emissions trading_ A supply chain plann.pdf,758678,1f55df7cb3d2f161
+References/[R6]Emission policies and their analysis for the design of hybrid.pdf,936692,2efc946b511555cb
+References/[R7]A systematic review of green supply chain network design lite.pdf,4392972,804fa56fc9f2f5bf
+References/[R8]Equilibrium fuel supply and carbon credit pricing under marke.pdf,953303,52a412c8e7467a12
+References/[R9]The role of CO2 capture and utilization in mitigating climate.pdf,642449,5306e9e4ece7a07c

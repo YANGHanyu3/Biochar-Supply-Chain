@@ -1,0 +1,197 @@
+% ============================================================================
+% references.bbl — PRE-BUILT bibliography (abbrv format, 31 entries, sorted).
+% Generated 2026-09-08 from references.bib so that Overleaf free-plan compiles
+% skip the BibTeX step entirely (faster, no undefined-citation first pass).
+% To regenerate with bibtex later: uncomment \bibliographystyle{abbrv} and
+% \bibliography{references} in main.tex and comment the \input{references.bbl}.
+% ============================================================================
+\begin{thebibliography}{31}
+
+\bibitem{icvcm2025}
+Integrity Council for the Voluntary Carbon Market.
+\newblock ICVCM approves Biochar and Improved Forest Management methodologies.
+\newblock 2025.
+
+\bibitem{belmonte2018}
+B.~A. Belmonte, M.~F.~D. Benjamin, and R.~R. Tan.
+\newblock Bi-objective optimization of biochar-based carbon management
+  networks.
+\newblock {\em Journal of Cleaner Production} {\bf 188}, 911--920, 2018.
+
+\bibitem{benjaafar2013}
+S.~Benjaafar, Y.~Li, and M.~Daskin.
+\newblock Carbon footprint and the management of supply chains: Insights from
+  simple models.
+\newblock {\em Production and Operations Management} {\bf 22} (1), 1--18, 2013.
+
+\bibitem{cayuela2014}
+M.~L. Cayuela, L.~van Zwieten, B.~P. Singh, S.~Jeffery, A.~Roig, and
+  M.~A. Sanchez-Monedero.
+\newblock Biochar's role in mitigating soil nitrous oxide emissions: A review
+  and meta-analysis.
+\newblock {\em Agriculture, Ecosystems and Environment} {\bf 191}, 5--16, 2014.
+
+\bibitem{cdrfyi2024}
+CDR.fyi.
+\newblock 2024 Year in Review: CDR purchases by sector and method.
+\newblock 2024.
+
+\bibitem{chaabane2012}
+A.~Chaabane, A.~Ramudhin, and M.~Paquet.
+\newblock Design of sustainable supply chains under the emission trading scheme.
+\newblock {\em International Journal of Production Economics} {\bf 135} (1),
+  37--49, 2012.
+
+\bibitem{elhedhli2012}
+S.~Elhedhli and R.~Merrick.
+\newblock Green supply chain network design to reduce carbon emissions.
+\newblock {\em Transportation Research Part D: Transport and Environment}
+  {\bf 17} (5), 370--379, 2012.
+
+\bibitem{enders2012}
+A.~Enders, K.~Hanley, T.~Whitman, S.~Joseph, and J.~Lehmann.
+\newblock Characterization of biochars to evaluate recalcitrance and agronomic
+  performance.
+\newblock {\em Bioresource Technology} {\bf 114}, 644--653, 2012.
+
+\bibitem{fagernas2010}
+L.~Fagernas, J.~Brammer, C.~Wilen, M.~Lauer, and F.~Verhoeff.
+\newblock Drying of biomass for second generation synfuel production.
+\newblock {\em Biomass and Bioenergy} {\bf 34} (9), 1267--1277, 2010.
+
+\bibitem{gebreegziabher2014}
+T.~Gebreegziabher, A.~O. Oyedun, and C.~W. Hui.
+\newblock Design and optimization of biomass power plant.
+\newblock {\em Chemical Engineering Research and Design} {\bf 92} (8),
+  1412--1427, 2014.
+
+\bibitem{ippolito2020}
+J.~A. Ippolito, L.~Cui, C.~Kammann, N.~Wrage-Monnig, J.~M. Estavillo,
+  T.~Fuertes-Mendizabal, M.~L. Cayuela, G.~Sigua, J.~Novak, K.~Spokas, and
+  N.~Borchard.
+\newblock Feedstock choice, pyrolysis temperature and type influence biochar
+  characteristics: a comprehensive meta-data analysis review.
+\newblock {\em Biochar} {\bf 2}, 421--438, 2020.
+
+\bibitem{lehmann2021biochar}
+J.~Lehmann, A.~Cowie, C.~A. Masiello, et~al.
+\newblock Biochar in climate change mitigation.
+\newblock {\em Nature Geoscience} {\bf 14}, 883--892, 2021.
+
+\bibitem{ma2023}
+J.~Ma, P.~A. Tominac, H.~A. Aguirre-Villegas, et~al.
+\newblock Economic evaluation of infrastructures for thermochemical upcycling
+  of post-consumer plastic waste.
+\newblock {\em Green Chemistry} {\bf 25}, 1032--1044, 2023.
+
+\bibitem{negri2021}
+V.~Negri, A.~Galan-Martin, C.~Pozo, et~al.
+\newblock Life cycle optimization of BECCS supply chains in the European Union.
+\newblock {\em Applied Energy} {\bf 298}, 117201, 2021.
+
+\bibitem{nematian2021}
+M.~Nematian, C.~Keske, and J.~N. Ng'ombe.
+\newblock A techno-economic analysis of biochar production and the bioeconomy
+  for orchard biomass.
+\newblock {\em Waste Management} {\bf 135}, 467--477, 2021.
+
+\bibitem{rafiq2016}
+M.~K. Rafiq, R.~T. Bachmann, M.~T. Rafiq, Z.~Shang, S.~Joseph, and R.~Long.
+\newblock Influence of pyrolysis temperature on physico-chemical properties of
+  corn stover (Zea mays L.) biochar and feasibility for carbon capture and
+  energy balance.
+\newblock {\em PLOS ONE} {\bf 11} (6), e0156894, 2016.
+
+\bibitem{roberts2010}
+K.~G. Roberts, B.~A. Gloy, S.~Joseph, N.~R. Scott, and J.~Lehmann.
+\newblock Life cycle assessment of biochar systems: Estimating the energetic,
+  economic, and climate change potential.
+\newblock {\em Environmental Science and Technology} {\bf 44} (2), 827--833,
+  2010.
+
+\bibitem{sampat2019}
+A.~M. Sampat, Y.~Hu, M.~Sharara, H.~Aguirre-Villegas, G.~Ruiz-Mercado,
+  R.~A. Larson, and V.~M. Zavala.
+\newblock Coordinated management of organic waste and derived products.
+\newblock {\em Computers and Chemical Engineering} {\bf 128}, 352--363, 2019.
+
+\bibitem{searcy2007}
+E.~Searcy, P.~Flynn, E.~Ghafoori, and A.~Kumar.
+\newblock The relative cost of biomass energy transport.
+\newblock {\em Applied Biochemistry and Biotechnology} {\bf 137--140},
+  639--652, 2007.
+
+\bibitem{shabangu2014}
+S.~Shabangu, D.~Woolf, E.~M. Fisher, L.~T. Angenent, and J.~Lehmann.
+\newblock Techno-economic assessment of biomass slow pyrolysis into different
+  biochar and methanol concepts.
+\newblock {\em Fuel} {\bf 117}, 742--748, 2014.
+
+\bibitem{smith2016}
+P.~Smith, S.~J. Davis, F.~Creutzig, et~al.
+\newblock Biophysical and economic limits to negative CO2 emissions.
+\newblock {\em Nature Climate Change} {\bf 6}, 42--50, 2016.
+
+\bibitem{tan2016biochar}
+R.~R. Tan.
+\newblock A multi-period source-sink mixed integer linear programming model for
+  biochar-based carbon sequestration systems.
+\newblock {\em Sustainable Production and Consumption}, 2016.
+
+\bibitem{tominac2022}
+P.~A. Tominac, W.~Zhang, and V.~M. Zavala.
+\newblock Spatio-temporal economic properties of multi-product supply chains.
+\newblock {\em Computers and Chemical Engineering} {\bf 159}, 107666, 2022.
+
+\bibitem{bt23}
+{U.S. Department of Energy}.
+\newblock 2023 Billion-Ton Report: An Assessment of U.S. Renewable Carbon
+  Resources.
+\newblock Tech. rep., Oak Ridge National Laboratory, 2024.
+
+\bibitem{wrca2025}
+{United States Senate}.
+\newblock Wildfire Reduction and Carbon Removal Act of 2025 (S.~1842), 119th
+  Congress.
+\newblock 2025.
+
+\bibitem{verraVM0044}
+Verra.
+\newblock VM0044 Methodology for Biochar Utilization in Soil and Non-Soil
+  Applications, v1.2.
+\newblock 2024.
+
+\bibitem{wernet2016}
+G.~Wernet, C.~Bauer, B.~Steubing, J.~Reinhard, E.~Moreno-Ruiz, and
+  B.~Weidema.
+\newblock The ecoinvent database version 3 (part I): overview and methodology.
+\newblock {\em The International Journal of Life Cycle Assessment} {\bf 21},
+  1218--1230, 2016.
+
+\bibitem{woolf2010}
+D.~Woolf, J.~E. Amonette, F.~A. Street-Perrott, J.~Lehmann, and S.~Joseph.
+\newblock Sustainable biochar to mitigate global climate change.
+\newblock {\em Nature Communications} {\bf 1}, 56, 2010.
+
+\bibitem{woolf2021est}
+D.~Woolf, J.~Lehmann, S.~Ogle, et~al.
+\newblock Greenhouse Gas Inventory Model for Biochar Additions to Soil.
+\newblock {\em Environmental Science and Technology} {\bf 55} (21),
+  14795--14805, 2021.
+
+\bibitem{yue2014}
+D.~Yue, M.~Slivinsky, J.~Sumpter, and F.~You.
+\newblock Sustainable design and operation of cellulosic bioelectricity supply
+  chain networks with life cycle economic, environmental, and social
+  optimization.
+\newblock {\em Industrial and Engineering Chemistry Research} {\bf 53} (10),
+  4008--4029, 2014.
+
+\bibitem{zakeri2015}
+A.~Zakeri, F.~Dehghanian, B.~Fahimnia, and J.~Sarkis.
+\newblock Carbon pricing versus emissions trading: A supply chain planning
+  perspective.
+\newblock {\em International Journal of Production Economics} {\bf 164},
+  197--205, 2015.
+
+\end{thebibliography}

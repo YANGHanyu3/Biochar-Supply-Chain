@@ -1,0 +1,17 @@
+# Julia project environment for the biochar supply chain MILP/LP models.
+# Julia 1.12.6. Instantiate with:
+#   julia --project=. -e 'using Pkg; Pkg.instantiate()'
+# Gurobi requires a licence (the results use Gurobi 13.0.2, academic licence).
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Gurobi = "2e9cd046-0924-5485-92f1-d5272153d98b"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[compat]
+CSV = "0.10"
+DataFrames = "1.8"
+Gurobi = "1.9"
+JuMP = "1.30"
+julia = "1.12"

@@ -1,0 +1,73 @@
+n_id,County,FIPS,FIPS5
+1,Adams County,55001.0,55001
+2,Ashland County,55003.0,55003
+3,Barron County,55005.0,55005
+4,Bayfield County,55007.0,55007
+5,Brown County,55009.0,55009
+6,Buffalo County,55011.0,55011
+7,Burnett County,55013.0,55013
+8,Calumet County,55015.0,55015
+9,Chippewa County,55017.0,55017
+10,Clark County,55019.0,55019
+11,Columbia County,55021.0,55021
+12,Crawford County,55023.0,55023
+13,Dane County,55025.0,55025
+14,Dodge County,55027.0,55027
+15,Door County,55029.0,55029
+16,Douglas County,55031.0,55031
+17,Dunn County,55033.0,55033
+18,Eau Claire County,55035.0,55035
+19,Florence County,55037.0,55037
+20,Fond du Lac County,55039.0,55039
+21,Forest County,55041.0,55041
+22,Grant County,55043.0,55043
+23,Green County,55045.0,55045
+24,Green Lake County,55047.0,55047
+25,Iowa County,55049.0,55049
+26,Iron County,55051.0,55051
+27,Jackson County,55053.0,55053
+28,Jefferson County,55055.0,55055
+29,Juneau County,55057.0,55057
+30,Kenosha County,55059.0,55059
+31,Kewaunee County,55061.0,55061
+32,La Crosse County,55063.0,55063
+33,Lafayette County,55065.0,55065
+34,Langlade County,55067.0,55067
+35,Lincoln County,55069.0,55069
+36,Manitowoc County,55071.0,55071
+37,Marathon County,55073.0,55073
+38,Marinette County,55075.0,55075
+39,Marquette County,55077.0,55077
+40,Menominee County,55078.0,55078
+41,Milwaukee County,55079.0,55079
+42,Monroe County,55081.0,55081
+43,Oconto County,55083.0,55083
+44,Oneida County,55085.0,55085
+45,Outagamie County,55087.0,55087
+46,Ozaukee County,55089.0,55089
+47,Pepin County,55091.0,55091
+48,Pierce County,55093.0,55093
+49,Polk County,55095.0,55095
+50,Portage County,55097.0,55097
+51,Price County,55099.0,55099
+52,Racine County,55101.0,55101
+53,Richland County,55103.0,55103
+54,Rock County,55105.0,55105
+55,Rusk County,55107.0,55107
+56,St. Croix County,55109.0,55109
+57,Sauk County,55111.0,55111
+58,Sawyer County,55113.0,55113
+59,Shawano County,55115.0,55115
+60,Sheboygan County,55117.0,55117
+61,Taylor County,55119.0,55119
+62,Trempealeau County,55121.0,55121
+63,Vernon County,55123.0,55123
+64,Vilas County,55125.0,55125
+65,Walworth County,55127.0,55127
+66,Washburn County,55129.0,55129
+67,Washington County,55131.0,55131
+68,Waukesha County,55133.0,55133
+69,Waupaca County,55135.0,55135
+70,Waushara County,55137.0,55137
+71,Winnebago County,55139.0,55139
+72,Wood County,55141.0,55141

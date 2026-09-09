@@ -1,0 +1,3 @@
+03_LP_GHG_v2 scenario=near-term status=OPTIMAL
+net_ghg_kt = -1595.1 (proc 979.3, trans 23.5, seq -2597.9)
+bc_Mt = 2.300

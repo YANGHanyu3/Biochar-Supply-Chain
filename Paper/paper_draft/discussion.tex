@@ -1,0 +1,170 @@
+% =============================================================================
+% discussion.tex — Policy Discussion section (draft v0.3, 2026-09-03)
+% =============================================================================
+
+\section{Policy Discussion}
+\label{sec:discussion}
+
+\subsection{Why a linear carbon tax fails and what works instead}
+
+The baseline system is demand-constrained: at the equilibrium, the binding
+constraints are the biochar demand segments, not biomass availability. In this
+regime a linear tax $\tau E^{+}(x)$ on gross emissions is a near-constant shift
+of the objective (gross emissions change little across feasible dispatches), so
+the primal optimum does not move, precisely the failure mode characterized by
+\cite{benjaafar2013}. Proposition~\ref{prop:taxinv} states the boundary
+condition precisely: the tax is dispatch-neutral up to a threshold whose
+denominator is the marginal price gap divided by the path emission intensity,
+which we compute at $\approx$\$350/t CO$_2$e, above every tested rate
+(\$25--200/t) but close enough that substantially higher taxes could bite. The
+free-facility re-solve (C1-free, Section~\ref{sec:policyC})
+confirms that this null response is economic rather than an artifact of the
+fixed layout. The claim's boundary condition is equally important: it holds
+because demand binds; in a supply-constrained variant of the system
+(e.g., feedstock scarcity binding before demand) a tax would bite, and the
+statement should not be read as tax-neutrality of biochar systems in general.
+Our formulation shows that policy instruments which
+scale with throughput (baseline-and-credit) or which act as
+constraints (gross emission caps) do change the solution: credits
+activate the \$250/t bulk-agricultural demand segment at $p_c=\$25$/tCO$_2$e and
+mobilize essentially all near-term biomass at \$200/tCO$_2$e, while caps reshape
+production along the marginal abatement cost curve. The net-flux cap
+experiment completes the picture: because the system is intrinsically
+net-negative, $\mathrm{CAP}^{\mathrm{net}}$ never binds and provides zero
+incentive. Policy design for negative-emission supply chains must therefore
+explicitly value removal, not merely penalize emissions.
+
+\subsection{Endogenous carbon prices versus real markets}
+
+The endogenous marginal abatement cost traced by the gross-emission cap sweep
+is $\approx$ \$351--391/t CO$_2$e over the first binding intervals and rises to
+$\approx$ \$599/t as the cap tightens; the cap's vertex dual reproduces it
+exactly (the reported value is the negative of the marginal value under
+Gurobi's sign convention), validating the endogenous-price
+interpretation on a full supply chain network. This places the Wisconsin
+biochar
+system's gross-emission abatement above RGGI allowance prices
+(\$17--25/t), EU ETS prices (\texteuro 50--90/t), and the voluntary removal
+credit band (\$100--250/tCO$_2$e for VM0044/Puro.earth credits). Two
+implications follow. First, at any observed carbon price, a cap-and-trade
+program alone would induce little gross abatement in this system, because
+gross emissions are intrinsic to drying and pyrolysis and abating them means
+forgoing biochar sales; reaching the \$800/t-market equilibrium required no
+policy at all, but expanding to the bulk agricultural segment requires credit
+prices above roughly \$25/tCO$_2$e, well within observed voluntary-market
+prices. Second, the comparison of the system's endogenous abatement cost with
+administered market prices shows that removal crediting, not
+gross-emission pricing, is the mechanism that can profitably expand biochar
+CDR, a quantitative argument for designing negative-emission policies around
+the removal, rather than around the gross emissions, of such systems.
+
+\subsection{Correcting a common policy misattribution: 45Q}
+
+We note explicitly that the U.S.~45Q tax credit, frequently cited in biochar
+investment documents, does not apply to biochar. 45Q credits captured
+CO$_2$ streams (point-source CCS and DAC); biochar carbon is sequestration, not
+capture, and falls outside the statute. Biochar removal credits are instead
+issued under voluntary methodologies (Verra VM0044, which requires molar
+H/C~$\le$~0.7 and centennial durability, and Puro.earth CORC); VM0044 credits
+were endorsed by the ICVCM as high-integrity in 2025 \cite{icvcm2025}. The
+policy landscape is, however, in motion: legislation under consideration in the
+119th Congress (e.g., the Wildfire Reduction and Carbon Removal Act of 2025,
+S.~1842) would create a federal biochar carbon-removal incentive and reform
+45Q, which could materially change the economics quantified here
+\cite{wrca2025}. Our Paradigm C2 operationalizes the VM0044 gate with
+literature-consistent H/C values: 300$^\circ$C biochar is torrefaction-like
+(H/C $\approx$0.9--1.4) and earns no credits for any feedstock, while
+all 500$^\circ$C chars (H/C $\approx$0.40--0.52) qualify. The model responds
+by converting the system to 500$^\circ$C pyrolysis as credit prices rise: a
+partial switch already at \$50/t in the mature-market scenario, complete at
+\$100/t, and full conversion (2.25~Mt near-term, 4.25~Mt
+mature-market) at \$200/t; the conversion
+buys durability at the cost of quantity: near-term production falls slightly
+below the 2.30~Mt H+M demand target because 500$^\circ$C yields less char per
+dry tonne. The gate switches technology without ever subsidizing
+low-durability biochar, an example of
+policy detail directly reshaping technology selection.
+
+\subsection{Technology selection and quality differentiation}
+
+Two mechanisms drive pyrolysis temperature choice, and which one binds is
+itself the finding. First, when dry feedstock is scarce (near-term), per-dry-tonne
+margins rule: 300$^\circ$C dominates for the bulk (L) segment up to
+$p_c\approx\$239$/t, because its yield advantage (0.352 vs 0.278~t/t)
+outweighs the modest credit-rate premium of 500$^\circ$C biochar. Second, when
+feedstock is abundant (mature-market), the binding resource is biochar demand,
+and 500$^\circ$C's lower yield becomes an asset: each tonne of biochar
+served requires more dry tonnes, each earning credits, so 500$^\circ$C overtakes
+300$^\circ$C at $p_c\approx\$61$/t for every segment; the model switches
+$\approx$2.8~Mt of production at \$100--\$200/t (the \$100/t point from a
+dedicated 1{,}800~s re-solve at a 1.9\% gap, archived as
+\texttt{policy\_A\_recert\_v2.csv}). Third, quality-differentiated
+demand (v2b) adds a structural floor: the \$800/t premium segment is BC500-only,
+so the no-policy baseline already builds 0.80~Mt/yr of BC500 capacity, and
+varying the premium capacity moves BC500 one-for-one (0.40~Mt at half capacity,
+1.20~Mt at 1.5$\times$). The market structure (whether buyers differentiate
+biochar by durability) therefore matters as much as the carbon price, and the
+resource regime decides which margin arithmetic applies.
+
+\subsection{Implications for Wisconsin and the Midwest}
+
+The analysis yields three region-specific messages; magnitudes are calibrated
+to Wisconsin, while the mechanisms should transfer qualitatively across the
+Upper Midwest (Section~\ref{sec:limitations}). (i) Demand, not feedstock,
+is the binding constraint: Wisconsin's near-term biomass could support roughly
+double the equilibrium biochar production if the \$250/t bulk market is
+activated; policies that subsidize farmer adoption (or that value carbon at
+voluntary-market rates) expand the system more effectively than supply-side
+measures. (ii) Facility locations concentrate in the corn belt and shift with
+supply scenarios: mature-market supply lowers biochar's spatial inherent value
+from \$324 to \$275/t, flattening location rents. (iii) The dairy-dominated
+waste streams (manure, paper-mill sludge) that characterize Wisconsin are
+outside this pyrolysis-focused model but form a natural co-location layer for
+anaerobic-digestion integrated bioeconomies, an explicit direction for the
+multi-pathway extension.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+Several assumptions bound the interpretation of these results. (i)
+\emph{Market clearing.} The model solves a single coordinated system optimum
+of Sampat et al.~\cite{sampat2019}; the dual-based ``equilibrium prices'' are marginal
+values under perfect coordination, not outcomes of a decentralized Nash market,
+so magnitudes (especially policy responses) should be read as
+coordination-consistent benchmarks. (ii) \emph{Technology space.} Only slow
+pyrolysis at two temperatures (300/500$^\circ$C) is modeled; intermediate
+temperatures and competing conversion routes (gasification, hydrothermal
+carbonization) are excluded, so the technology-choice conclusions are discrete
+comparisons of two points, not a continuous design response. (iii)
+\emph{Transport radii.} Hard distance limits (150/250/400~km) approximate
+continuous logistics costs; they follow literature cost benchmarks but truncate
+the feasible region. (iv) \emph{Feedstock availability.} BT23 tonnages are
+treated as fully collectable; field-level collection losses and residue
+retention requirements are not modeled. A $-40\%$ availability sensitivity
+costs 29\% of near-term surplus (the preferred corn-stover mix is
+supply-tight) but only 4\% in the mature scenario, so the assumption matters
+mostly for near-term deployment.
+(v) \emph{GHG parameters.} The decomposition fraction (0.9), the permanence
+factors (0.65/0.80, now aligned with VM0044 v1.2 Table 3), the
+literature-based char H/C values (Table~S2; the eligibility outcome is inert
+to $\pm$0.1 H/C and the first 500$^\circ$C flip needs $+0.25$, SI Section on
+eligibility sensitivity), and the N$_2$O
+meta-analysis mean (52~kg/t) are literature defaults; the decomposition
+fraction is flagged for local calibration, and a sensitivity halving it to
+0.5 lowers the \$200/t Paradigm~A surplus by 31--35\%
+(Section~\ref{sec:sensitivity}); the
+qualitative response is robust, the surplus level is not. (vi) \emph{VM0044 proxy.} Eligibility is
+operationalized through the molar H/C gate only; additionality, leakage, and
+monitoring/verification costs are outside the model scope. (vii)
+\emph{Demand.} Demand segments are exogenous step functions calibrated to
+market evidence rather than estimated elasticities. (viii) \emph{Static
+structure.} The model is single-year with no seasonal inventory; the
+allocation-design result (C3) and facility-path dependencies point to a
+multi-period extension. (ix) \emph{Solver gaps.} Policy sweeps are reported at
+0.5--4.7\% MIP optimality gaps (Table~S3); the points with the largest gaps are
+re-solved with 1{,}800~s time limits; free-facility responses (Paradigms A, C1-free, C2)
+will be re-solved to tighter gaps on high-performance infrastructure for the
+final version. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
+verbatim to other Midwest states (feedstock mix, demand, and dairy waste
+streams differ); the qualitative policy mechanisms are the transferable
+findings.

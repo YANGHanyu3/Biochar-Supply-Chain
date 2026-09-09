@@ -1,0 +1,8 @@
+01_MIP_v2 scenario=mature-market medium status=OPTIMAL
+objective_M = 735.74
+wet_Mt = 6.597
+bc_Mt = 2.300 (ag 2.300, sink 0.000)
+net_ghg_Mt = -1.648
+nT1 = 29, nT2_300 = 18, nT2_500 = 0
+revenue_M=1390.0 farm_M=329.3 opex_M=220.9 trans_M=23.7 capex_M=80.4
+feedstock_wet_kt = Corn_Stover=4792.4, Soybean_Straw=-0.0, Wheat_Straw=-0.0, Oats_Straw=-0.0, Barley_Straw=-0.0, Switchgrass=-0.0, Miscanthus=1804.7, Poplar=-0.0, Willow=-0.0, Logging_Residues=-0.0, SmallDiameter_Trees=-0.0, Mill_Residues=-0.0, Other_Forest_Waste=-0.0

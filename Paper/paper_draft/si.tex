@@ -1,0 +1,522 @@
+% =============================================================================
+% si.tex — Supplementary Information (draft v0.3, 2026-09-03)
+% Data description, parameter tables, solver settings, demand data pack
+% (v0.3: SI tables renumbered S1..S4; Table S1/S2/S3 bodies added 2026-09-03)
+% (v0.4 2026-09-04: SI figures renumbered S-Figure; tornado moved here per Ma-style)
+% =============================================================================
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0}
+
+\section{Data sources and processing}
+
+\subsection{Biomass availability}
+
+County-level feedstock availability (dry tonnes/yr) comes from the DOE 2023
+Billion-Ton Report (BT23) county-level downloads
+(\texttt{bioenergykdf.ornl.gov}), agricultural and forestry modules; the BT23
+forestry module draws on USFS Forest Inventory and Analysis (FIA) data, which
+is therefore the underlying forestry source cited in the main text. The
+baseline uses the \emph{near-term} scenario; the \emph{mature-market medium}
+scenario serves as sensitivity. The BT23 corn stover series is constructed
+from grain-corn production via a 1:1 stover-to-grain ratio and is therefore
+\emph{exclusive of silage corn acreage by construction} (silage is absent from
+the POLYSYS crop list; the 2022 Census of Agriculture reports 0.81~M acres of
+corn silage versus 3.23~M acres of grain corn harvested (20.1\% of corn
+acreage), so erroneously including silage would inflate stover by roughly
+25\%; the county-level grain/silage split is archived for a silage-inclusive
+sensitivity). The download field \texttt{price\_offered} is the
+farmgate bid threshold (2022 USD per dry short ton, ash-inclusive, excluding
+transport); the near-term scenario represents approximately 2030 conditions
+with residues only and a \$70/dry-ton price ceiling. The tonnages are
+theoretical availability: field-level collection losses, residue-retention
+requirements, and landowner participation are not modeled (a $-40\%$
+availability sensitivity is reported in the main text). Feedstock mapping: corn
+stover, miscanthus, switchgrass, willow, and poplar map directly from the
+agricultural download; logging residues aggregate the five BT23 logging-residue
+classes (hardwood lowland/upland, mixedwood, softwood natural/planted);
+small-diameter trees aggregate the four SDT classes; mill residues aggregate
+hardwood and softwood processing residues; other forest waste corresponds to
+``forest waste human generated.'' Wheat, oats, barley, and soybean straw are
+taken from USDA NASS 2022 Census of Agriculture county production data
+converted to theoretical residue tonnage (NASS Census residue estimates,
+archived in the project workbook sheet \texttt{02\_NASS\_Validation};
+Table~S1 gives the county corn grain/silage acreage split),
+because BT23 reports near-zero availability for these resources at \$70/t.
+State totals: near-term 6.97~Mt dry/yr; mature-market medium 13.53~Mt dry/yr
+(of which the nine modeled BT23 categories account for 12.54~Mt). BT23
+\emph{waste} resources are characterized but not yet modeled: the full
+Wisconsin wastes download (16 categories, 72 counties, five scenarios;
+archived as \texttt{bt23\_wastes\_WI\_summary.csv}) gives 2.27~Mt dry/yr at
+$\le$\$70/t in the near-term scenario, dominated by dairy manure
+(1.13~Mt), clean urban wood (0.34~Mt), textiles (0.27~Mt), and yard waste
+(0.25~Mt), with sludge, paper, plastics, and FOG at negligible $\le$\$70/t
+availability; these form a co-location extension for Wisconsin's dairy and
+paper economy (Section Limitations) and are an explicit model-boundary
+statement, not an oversight of data.
+
+\begin{table}[htbp]
+\centering
+\caption{\small USDA NASS 2022 Census of Agriculture, Wisconsin corn acreage split
+(archived \texttt{corn\_grain\_silage\_county\_2022.csv}). The BT23 grain-corn
+stover series excludes silage by construction; a silage-inclusive stover
+estimate would add roughly 25\%.}
+\label{tab:s1}
+\begin{tabular}{lcc}
+\toprule
+ & acres (M) & share of corn acreage\\
+\midrule
+Grain corn harvested & 3.23 & 79.9\%\\
+Corn silage & 0.81 & 20.1\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Feedstock characterization}
+
+Table~S2 gives, per feedstock: initial moisture content (12--45\%), drying
+yield to 10\% moisture $\eta=(100-\mathrm{MC})/90$, farmgate prices (\$40--60/dry
+t, wet-adjusted), 300$^\circ$C biochar yield (0.33--0.38 t/t), carbon content
+(0.41--0.50), and molar H/C (1.00--1.40 at 300$^\circ$C, 0.40--0.52 at
+500$^\circ$C). Moisture contents follow the
+feedstock-collection literature compiled in Roberts et al.\ \cite{roberts2010}
+(corn stover 15--30\%, woody biomass 45\%) and the forestry-drying review of
+Fagernas et al.\ \cite{fagernas2010}; char carbon contents are cross-checked
+against the feedstock-class means of Woolf et al.\ \cite{woolf2010} (SI Table
+S4: cereals 59.9\%, herbaceous crops 56.8\%, wood 75.0\%, green waste 67.5\%).
+Yields are expressed per tonne of 10\%-moisture dried
+feedstock (the model's dry product); if oven-dry-basis literature yields are
+preferred, all yield and per-dry GHG factors scale by 0.9.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{\small Feedstock characterization: moisture (MC), dry carbon content
+$C_{\mathrm{dry}}$, biochar mass yields $y_{300}/y_{500}$, molar H/C at
+300/500$^\circ$C, and farmgate price. H/C values follow the literature audit of
+Section~A.3 (300$^\circ$C: Rafiq et al.\ 2016 and the Ippolito et al.\ 2020
+meta-analysis band; 500$^\circ$C: Rafiq 2016, Enders 2012, Ippolito 2020): all
+300$^\circ$C chars exceed the VM0044 H/C$\le$0.7 gate (torrefaction-like, never
+credit-eligible), and all 500$^\circ$C chars satisfy it.}
+\label{tab:s2}
+\begin{tabular}{llcccccc cc}
+\toprule
+Feedstock & class & MC (\%) & $C_{\mathrm{dry}}$ & $y_{300}$ & $y_{500}$ & H/C$_{300}$ & H/C$_{500}$ & farmgate & Reference\\
+ & & & & & & & & (\$/dry t) & \\
+\midrule
+Corn stover & ag & 17.5 & 0.45 & 0.38 & 0.300 & 1.40 & 0.49 & 60 & \cite{rafiq2016,ippolito2020}\\
+Soybean straw & ag & 14.0 & 0.43 & 0.36 & 0.284 & 1.30 & 0.50 & 60 & \cite{ippolito2020}\\
+Wheat straw & ag & 12.5 & 0.42 & 0.35 & 0.276 & 1.25 & 0.51 & 60 & \cite{ippolito2020}\\
+Oats straw & ag & 13.0 & 0.41 & 0.34 & 0.268 & 1.25 & 0.52 & 60 & \cite{ippolito2020}\\
+Barley straw & ag & 12.0 & 0.41 & 0.34 & 0.268 & 1.25 & 0.51 & 60 & \cite{ippolito2020}\\
+Switchgrass & ag & 12.5 & 0.47 & 0.38 & 0.300 & 1.30 & 0.47 & 60 & \cite{ippolito2020}\\
+Miscanthus & ag & 15.0 & 0.48 & 0.37 & 0.292 & 1.30 & 0.45 & 60 & \cite{ippolito2020}\\
+Poplar & for & 45.0 & 0.50 & 0.35 & 0.276 & 1.10 & 0.40 & 60 & \cite{woolf2010,enders2012}\\
+Willow & for & 45.0 & 0.50 & 0.35 & 0.276 & 1.10 & 0.40 & 60 & \cite{woolf2010,enders2012}\\
+Logging residues & for & 42.5 & 0.49 & 0.33 & 0.261 & 1.05 & 0.42 & 40 & \cite{fagernas2010,enders2012}\\
+Small-diameter trees & for & 45.0 & 0.49 & 0.33 & 0.261 & 1.05 & 0.41 & 60 & \cite{roberts2010,enders2012}\\
+Mill residues & for & 35.0 & 0.50 & 0.34 & 0.268 & 1.00 & 0.40 & 50 & \cite{enders2012}\\
+Other forest waste & for & 20.0 & 0.47 & 0.35 & 0.276 & 1.15 & 0.45 & 50 & \cite{ippolito2020}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Technology economics}
+
+T1 dehydration: OPEX \$5.2--10.8/wet t (moisture-dependent), CAPEX
+\$0.8/2.5/7.0\,M for 33/165/660\,kt/yr plants \cite{yue2014,gebreegziabher2014}.
+T2 slow
+pyrolysis: OPEX \$30/dry t, CAPEX \$9/21.5/51\,M for 60/198/660\,kt/yr
+\cite{shabangu2014,roberts2010}. The 300$^\circ$C/500$^\circ$C yield and
+carbon-content pairs
+for corn stover (0.38/0.30~t/t; 0.45/0.55) are the advisor-confirmed
+technology-table values (V9 workbook, sheet 02); per-feedstock 500$^\circ$C
+values use the documented scaling
+$y_{500}=0.789\,y_{300}$, $C_{500}=1.222\,C_{300}$. Source audit: Roberts et
+al.\ \cite{roberts2010} is a 450$^\circ$C slow-pyrolysis LCA and contains no
+300$^\circ$C or 500$^\circ$C case; it supports $y_{500}=0.30$ indirectly, via
+its char-yield range of 28.8--33.0~wt\% (citing Antal and Gr{\o}nli 2003,
+\emph{Ind.\ Eng.\ Chem.\ Res.}\ 42:1619), it matches the Rafiq et al.\ corn-stover
+500$^\circ$C yield of 29.2\% \cite{rafiq2016}, and it supports
+$\rho_{500}=0.80$ through its 80\% stable-carbon assumption. Woolf et
+al.\ \cite{woolf2010} do not tabulate temperature-series yields or H/C
+ratios. The H/C values are taken from the temperature-series literature
+(Table~S2): 300$^\circ$C chars have H/C $=1.00$--$1.40$ (torrefaction-like;
+Rafiq et al.\ \cite{rafiq2016} measure 1.41 for corn stover at 300$^\circ$C,
+and the Ippolito et al.\ meta-analysis \cite{ippolito2020} places sub-400$^\circ$C
+chars in the ``partially thermochemically altered'' range), so
+\emph{no} 300$^\circ$C biochar meets the VM0044 H/C$\le$0.7 gate, and its
+credit rate is zero throughout. The 500$^\circ$C chars have H/C
+$=0.40$--$0.52$ (Rafiq et al.\ \cite{rafiq2016}: corn stover 0.49, benchmarked
+against Enders et al.\ \cite{enders2012}; the Ippolito et al.\ meta-analysis
+500--599$^\circ$C band mean is $\approx$0.54), comfortably below the gate, so
+all 500$^\circ$C biochar is credit-eligible. A $\pm$0.1 H/C perturbation
+changes no eligibility outcome (Section~A.7); the first flip of a 500$^\circ$C
+char requires $+0.25$, which is the stress test reported there. The
+$C_{500}=0.55$ value is conservative relative to the published 500$^\circ$C
+carbon contents of 62.5\% (Ippolito et al.\ \cite{ippolito2020} band mean)
+and 64.5\% (Rafiq et al.\ \cite{rafiq2016}), so 500$^\circ$C credit rates are
+conservative lower bounds.
+
+\subsection{Greenhouse gas factors}
+
+Transport 0.0902~kg CO$_2$e/t-km (32-t truck) \cite{wernet2016}; collection and
+baling
+35~kg/t dry \cite{yue2014}; drying 25~kg/t H$_2$O
+\cite{gebreegziabher2014,fagernas2010}; slow pyrolysis 150~kg/t dry net of a
+syngas electricity credit at 50--65~kWh/t and 0.57~kg/kWh Wisconsin grid
+intensity (Roberts et al.~\cite{roberts2010}); (the pyrolysis term is the dominant process
+emission and carries the largest parameter uncertainty). Carbon removal is
+defined as a positive quantity,
+$r^{\mathrm{seq}}_t=\rho_t\,C_t\,(44/12)\times 10^{3}$ kg CO$_2$e/t biochar,
+with permanence
+$\rho_{300}=0.65$, $\rho_{500}=0.80$ per VM0044 v1.2 Table 3 (IPCC 2019
+Table 4AP.2: 0.65 for 350--450$^\circ$C, 0.80 for 450--600$^\circ$C, 0.89 for
+$>$600$^\circ$C; the 300$^\circ$C value uses the lowest tabulated band,
+350--450$^\circ$C, and the permanence of sub-350$^\circ$C chars may be lower,
+so $\rho_{300}$ should be read as an upper-bound parameter); N$_2$O suppression
+$52$~kg/t \cite{cayuela2014};
+decomposition baseline $b_f=0.9\,C_f^{\mathrm{dry}}(44/12)\times 10^{3}$
+kg/t dry. Carbon credits are intangible certificates: they carry zero transport
+cost and are \emph{not} assigned transport emissions (the certificates are
+settled at the producing county).
+
+\subsection{Demand data pack}
+
+The three-segment biochar demand curve is calibrated to: (i) the U.S.\
+wholesale price band \$600--2{,}778/t (mode $\approx\$$1{,}000/t); (ii)
+production-side costs \$150--400/t; (iii) Wisconsin farmland of 14.2~M acres
+with application rates of 5--20~t/ha and adoption below 100\%, so that the
+4.16~Mt aggregate of the previous model version is treated as an optimistic
+peak; and (iv) a non-soil sink valued at \$30/t (construction/filtration media)
+with a landfill disposal sensitivity of $-\$45$ to $-\$84$/t. Segment
+capacities are allocated across counties in proportion to farmland area; the
+CDR-premium segment is interpreted as access to national corporate buyers
+through credit markets rather than local Wisconsin demand, and the farmland
+proportionality is a spatial proxy (county-specific adoption data are not
+available). The 0.8~Mt premium capacity is a national-market allocation:
+current U.S. biochar purchases reported by CDR.fyi are in the hundreds of
+thousands of tonnes per year \cite{cdrfyi2024}, so the segment assumes the
+several-fold market growth projected for biochar credits rather than today's
+volumes. The decomposition fraction $0.9$ is an upper bound (immediate,
+complete decay); a sensitivity to $0.7$/$0.5$ scales the Paradigm~A credit
+rates proportionally and is flagged in the Limitations section.
+
+\subsection{Solver settings}
+
+Gurobi 13.0.2 (academic license), 8 threads. Step 1 MIP: 1\% gap, 1{,}800~s,
+MIPFocus=1, NoRelHeurTime=60. Policy sweeps: 0.5\% gap target, 600~s
+warm-started from the previous layout (Paradigm~A credit prices
+$p_c=25/50$ re-solved with 1{,}800~s limits, improving the incumbents);
+sweep points that hit the time limit
+are feasible incumbents (reported gaps 0.5--4.7\%, Table~S3). All duals read
+from fixed-layout LPs
+solved with \emph{dual simplex} (exact vertex shadow prices). The cap's
+vertex dual is reported with Gurobi's sign convention for $\le$ constraints in
+maximization (the negative of the marginal value): $-\$374$/t at the first
+binding cap (near-term), inside the \$351--391/t finite-difference
+band of the first binding intervals; the endogenous carbon price is reported as both. The GHG LP
+(Step 3) pins
+demand quantities to the Step-2 equilibrium (file \texttt{dem\_star\_v2.csv}).
+Paradigm C1 is solved both with fixed facilities (LP) and with free facilities
+(MIP, C1-free), and Paradigm A and C2 use free-facility MIPs throughout. The
+mature-market $p_c=\$100$ point of the Paradigm~A sweep was additionally
+re-solved for 1{,}800~s at a 0.1\% gap target
+(\texttt{policy\_A\_recert\_v2.csv}); its 500$^\circ$C share improved from
+1.75 to 2.79~Mt at a 1.9\% gap.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{\small Optimality-gap report: free-facility MIPs solve at a 0.5\% gap target
+(Step~1 at 1\%); points that hit the time limit are feasible incumbents, so
+their reported surplus is a lower bound on the true optimum. v2b runs record
+termination status only ($^{\dagger}$), without gap percentages.}
+\label{tab:s3}
+\begin{tabular}{lcc}
+\toprule
+experiment (time limit) & near-term & mature-market medium\\
+\midrule
+Step 1 MIP (1{,}800~s, 1\% target) & OPTIMAL & OPTIMAL\\
+Paradigm A sweep (600~s; $p_c=25/50$ at 1{,}800~s) & 0.95--1.9\% & 0.5--3.2\%\\
+C1-free (600~s) & 1.1--1.2\% & OPTIMAL\\
+C2 sweep (600~s; extended points at 1{,}800~s) & 1.6--4.7\% & OPTIMAL--2.5\%\\
+\midrule
+\multicolumn{3}{l}{\emph{Quality-differentiated model (v2b)}}\\
+Step 1 MIP (1{,}800~s, 1\% target) & TIME\_LIMIT$^{\dagger}$ & OPTIMAL\\
+Paradigm A sweep (600~s) & TIME\_LIMIT$^{\dagger}$ & OPTIMAL--TIME\_LIMIT\\
+C2 sweep (600~s) & TIME\_LIMIT$^{\dagger}$ & OPTIMAL--TIME\_LIMIT\\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+{\footnotesize $^{\dagger}$Termination status only; gap percentages are not
+recorded for the v2b runs.}
+\end{table}
+
+\subsection{Eligibility sensitivity: H/C uncertainty and the gate}
+
+The VM0044 gate is applied to the literature-consistent H/C values of
+Table~S2. A $\pm$0.1 perturbation around those central values changes
+\emph{no} eligibility outcome: every 300$^\circ$C value remains above the gate
+($1.00$--$1.40$ minus $0.1$ is still $\ge0.90>0.7$), and every 500$^\circ$C
+value remains below it ($0.40$--$0.52$ plus $0.1$ is still
+$\le0.62<0.7$). The first flip of a 500$^\circ$C char therefore requires a
+$+0.25$ stress, well beyond the published 500$^\circ$C spread of
+0.40--0.55, which pushes the agricultural-residue chars (corn stover
+$0.49\rightarrow0.74$; soybean/wheat/oats/barley/switchgrass
+$\ge0.72$) over the gate while forestry and miscanthus chars
+($0.40$--$0.45\rightarrow0.65$--$0.70$) remain eligible. Table~S4 re-solves
+Paradigm C2 under that stress. At $p_c=\$50$ nothing changes in either
+scenario. At $p_c=\$200$ the canonical full conversion is curtailed: near-term
+production falls back to 2.30~Mt of which only 0.31~Mt is 500$^\circ$C
+(credits 0.55~Mt, surplus \$716~M versus \$1{,}141~M canonically), and
+mature-market production falls back to 2.30~Mt of which 1.59~Mt is
+500$^\circ$C (surplus \$1{,}018~M versus \$1{,}501~M). Two conclusions follow.
+First, the 300$^\circ$C exclusion is over-determined: the nearest measured
+value is 0.9, two tenths above the gate, so no plausible H/C measurement error
+re-qualifies torrefaction-like 300$^\circ$C chars. Second, the C2
+technology-conversion result is robust within the published 500$^\circ$C H/C
+band but degrades if agricultural-residue 500$^\circ$C chars were, contrary to
+every measurement we found, above 0.7, which is why VM0044 and IBI treat the
+gate as a per-batch measured property rather than a design assumption.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{\small Paradigm C2 under the $+0.25$ H/C stress (agricultural-residue
+500$^\circ$C chars ineligible): surplus, biochar, and 500$^\circ$C share at
+$p_c=\$50$ and \$200/tCO$_2$e, versus the canonical values (Table~S2 H/C).}
+\label{tab:s4}
+\begin{tabular}{llcccc}
+\toprule
+ & & surplus (M\$) & BC (Mt) & BC500 (Mt) & CC (Mt)\\
+\midrule
+\multirow{4}{*}{near-term} & canonical, \$50 & 653.3 & 2.30 & 0.00 & 0.00\\
+ & stress, \$50 & 653.4 & 2.30 & 0.00 & 0.00\\
+ & canonical, \$200 & 1{,}141.1 & 2.25 & 2.25 & 3.64\\
+ & stress, \$200 & 715.9 & 2.30 & 0.31 & 0.55\\
+\midrule
+\multirow{4}{*}{mature-market} & canonical, \$50 & 684.6 & 2.30 & 0.50 & 0.86\\
+ & stress, \$50 & 684.5 & 2.30 & 0.50 & 0.86\\
+ & canonical, \$200 & 1{,}501.0 & 4.25 & 4.25 & 7.03\\
+ & stress, \$200 & 1{,}018.1 & 2.30 & 1.59 & 2.76\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reproducibility}
+
+One-at-a-time sensitivity of the baseline surplus is reported in
+S-Figure~\ref{fig:tornado}: demand-price shocks dominate ($\pm$39\% of surplus
+for $\pm$20\% of price), farmgate and transport shocks are minor, and a $-40\%$
+feedstock-availability shock (a proxy for field-collection losses) costs 29\%
+of near-term surplus but only 4\% in the mature-market scenario.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.68\textwidth]{figures/fig10_tornado.png}
+\caption{\small One-at-a-time sensitivity of the baseline surplus to $\pm$20\%
+parameter changes (LP with the baseline facility layout, near-term scenario).
+Demand-side levers (price, capacity) dominate the response, farmgate and
+transport parameters are minor, and the $-40\%$ availability shock is the only
+supply-side perturbation of comparable size; the system is
+demand-constrained.}
+\label{fig:tornado}
+\end{figure}
+
+Data generation (\texttt{generate\_data\_v2.py}, \texttt{generate\_data\_v2b.py}),
+model (\texttt{01--07\_*.jl}), and figure (\texttt{fig*.py},
+\texttt{visualize\_v2.py}) scripts, together with all input data, are available
+at \url{https://github.com/YANGHanyu3/Biochar-Supply-Chain}. All optimization models are
+implemented in Julia 1.12 with JuMP and solved with Gurobi 13.0.2 (academic
+license) on an 8-thread machine; solve times are 1{,}800~s for the Step-1 MIP,
+600--1{,}800~s per policy sweep point, and seconds for the fixed-layout LPs.
+Figure scripts use matplotlib with the Calibri family at 400 DPI; county
+boundaries and the Great Lakes layer are drawn from U.S. Census Bureau and
+Natural Earth shapefiles.
+
+\subsection{Proof of Proposition 1}
+
+For the fixed-layout LP, the cap constraint $E^{+}(x)\le\mathrm{CAP}$ is
+appended to \eqref{eq:base} with the layout variables $z$ fixed. Strong
+duality (Assumption~1) and the differentiability of the LP value function
+give, by the standard parametric-LP sensitivity theorem,
+$\mu_{\mathrm{CAP}}=\partial\Pi^{*}/\partial\,\mathrm{CAP}$, where
+$\mu_{\mathrm{CAP}}$ is the optimal dual variable of the cap constraint.
+Gurobi reports the dual of a $\le$ constraint in a maximization with the
+opposite sign convention (it reports the reduction in objective per unit of
+constraint tightening), i.e., the reported value is
+$-\partial\Pi^{*}/\partial\,\mathrm{CAP}$. The endogenous carbon price
+(marginal abatement cost) is therefore the negative of the reported dual, and
+the finite-difference estimates
+$\Delta\Pi^{*}/\Delta\,\mathrm{CAP}$ in Table~S3 reproduce it to numerical
+tolerance ($-374$ vs. $\$351$--$391$~\$/t over the first binding intervals,
+near-term).
+
+\subsection{Proof of Proposition 2 (two-regime crossover)}
+
+Fix feedstock $f$ and a biochar market price $P$, and consider the two
+fixed-yield routes $r\in\{3,5\}$ with dry-biomass yields $\gamma^{r}_f$,
+credit rates $\rho^{r}_f$ (tCC/t dry), and chain cost $\omega$ independent of
+the route (farmgate is per dry tonne; the route-specific OPEX is already
+absorbed in $\omega$; results are unchanged if route-specific costs
+$\omega_3\ne\omega_5$ are used, with $\omega(1/\gamma^5-1/\gamma^3)$ replaced by
+$\omega_5/\gamma^5-\omega_3/\gamma^3$).
+
+\emph{Demand-bound.} When feedstock is abundant, the active constraint is the
+demand bid: the model serves a fixed biochar quantity $Q$, and the supply path
+with the higher surplus per tonne of biochar served wins. Per tonne served, the
+route-$r$ chain consumes $1/\gamma^{r}_f$ dry tonnes, paying
+$\omega/\gamma^{r}_f$ and earning credit revenue
+$(\rho^{r}_f/\gamma^{r}_f)\,p_c$, so
+\begin{equation}
+\Pi^{r}/Q = P - \omega/\gamma^{r}_f + \rho^{r}_f\,p_c/\gamma^{r}_f .
+\end{equation}
+Subtracting the $r=3$ expression gives
+$\Delta^{\mathrm{dem}}_f(p_c)$ as in the statement, which is affine in $p_c$
+with slope $\rho^{5}_f/\gamma^{5}_f-\rho^{3}_f/\gamma^{3}_f>0$ (the 500$^\circ$C
+credit rate per served tonne exceeds the 300$^\circ$C one; under the VM0044
+gate $\rho^3_f=0$ this is automatic). It crosses zero at
+$\bar{p}^{\mathrm{dem}}_f$, which is independent of $P$---$P$ cancels in the
+difference---and positive whenever the slope is positive. The crossing is
+unique because the difference is affine.
+
+\emph{Supply-bound.} When feedstock is scarce, the active constraint is the
+feedstock availability: a fixed dry mass $M$ is processed, and the route with
+the higher surplus per dry tonne wins. Per dry tonne, route $r$ yields
+$\gamma^{r}_f$ t biochar at price $P$ and earns credit revenue
+$\rho^{r}_f\,p_c$, so
+\begin{equation}
+\Pi^{r}/M = \gamma^{r}_f P + \rho^{r}_f p_c - \omega .
+\end{equation}
+Subtracting gives
+$\Delta^{\mathrm{sup}}_f(p_c)=(\gamma^{3}_f-\gamma^{5}_f)P-(\rho^{5}_f-\rho^{3}_f)p_c$,
+affine in $p_c$ with \emph{negative} slope, crossing zero at
+$\bar{p}^{\mathrm{sup}}_f$, strictly increasing in $P$ (the yield gap
+$\gamma^3_f-\gamma^5_f>0$ multiplies $P$), and unique. Note the sign
+asymmetry: in the demand-bound regime the credit slope is positive (500$^\circ$C
+wins at high $p_c$ because its lower yield per dry tonne concentrates credit
+revenue per served tonne), while in the supply-bound regime the credit slope
+is negative (the yield loss is a direct revenue loss at price $P$, and credits
+must compensate it per dry tonne).
+
+\emph{Numerical values.} Using the pooled feedstock averages of the
+LCFS-style baseline-and-credit rates adopted in Paradigm~A
+($\bar{\gamma}^{3}=0.352$, $\bar{\gamma}^{5}=0.278$ t/t dry;
+$\bar{\rho}^{3}=1.771$, $\bar{\rho}^{5}=1.849$ tCC/t dry, i.e.\ a
+credit-rate premium of $\bar{\rho}^{5}-\bar{\rho}^{3}\approx 0.077$ tCC/t
+dry; combined chain cost $\omega\approx\$130$/t dry) at the bulk-segment
+price $P=\$250$/t:
+\begin{equation}
+\bar{p}^{\mathrm{dem}}
+=\frac{130\,(1/0.278-1/0.352)}{1.849/0.278-1.771/0.352}
+\approx\$61/\mathrm{t},\qquad
+\bar{p}^{\mathrm{sup}}
+=\frac{(0.352-0.278)\,250}{1.849-1.771}
+\approx\$239/\mathrm{t}.
+\end{equation}
+Both values are confirmed by the paradigm-A sweep: the mature-market
+(demand-bound) case switches to 500$^\circ$C at $p_c\approx\$61$/t and the
+near-term (supply-bound) case stays on 300$^\circ$C through $p_c=\$200$/t with
+crossover indicated near $p_c\approx\$239$/t (Fig.~\ref{fig:creditbasis},
+which reports the same closed-form crossings with the feedstock averages).
+$\square$
+
+\subsection{Proof of Proposition 3 (tax invariance in the demand-constrained regime)}
+
+Write the fixed-layout LP in the compact form
+\begin{equation}
+\Pi^{*}=\max_{x\in X}\,c^{\top}x,\qquad
+X=\{x: Ax\le b,\ x\ge 0\},
+\end{equation}
+where the demand stack rows are $d\mapsto \mathrm{dem}_d\le \bar{d}_d$ with
+objective coefficient $\lambda^{\mathrm{dem}}_d$ in $c$, and the mass-balance
+rows carry duals $\pi$. Suppose $x^{*}$ is an optimal basic solution with the
+property that the active demand rows are exactly those with
+$\pi^{\mathrm{BC}}_{n}<\lambda^{\mathrm{dem}}_{d}$ (strict slack at the margin)
+in the terminology of the statement---the demand-constrained regime. Consider
+the perturbed problem
+\begin{equation}
+\Pi^{*}_{\tau}=\max_{x\in X}\,c^{\top}x-\tau\,e^{\top}x,
+\quad e\ge 0 \text{ (gross-emission rates per activity unit)}.
+\end{equation}
+The perturbed objective is $(c-\tau e)^{\top}x$. We show
+$\arg\max$ is unchanged. Write $x^{*}=\sum_{\text{basic } j} w_j x_j$; since
+$x^{*}$ is an LP vertex with basis $B$, $x_B^{*}=B^{-1}b$ is determined by the
+active constraints alone, so any perturbation of the objective---which does not
+change the constraint matrix $A$---cannot change the vertex $x_B^{*}$; it can
+only change \emph{whether} that vertex is optimal. Optimality persists iff the
+reduced costs of the nonbasic activities $j$ remain nonpositive for the
+current basis: $c^{\mathrm{red}}_j-\tau e^{\mathrm{red}}_j\le 0$ for all
+nonbasic $j$. For the binding-demand rows, the reduced cost of the
+corresponding supply path $q$ entering the basis is exactly
+$c^{\mathrm{red}}_q=\lambda^{\mathrm{dem}}_{d(q)}-\pi^{\mathrm{BC}}_{n(q)}>0$
+(the price gap at the margin); the path is already at its capacity bound and
+entering more of it is blocked. All other nonbasic activities have
+$c^{\mathrm{red}}_j\le 0$ (they are unprofitable at the current duals), so
+they remain unattractive as long as
+$\tau\,e^{\mathrm{red}}_j$ does not flip the sign of a positive reduced cost.
+Because the only positive reduced costs are the marginal supply paths with
+$\lambda^{\mathrm{dem}}-\pi^{\mathrm{BC}}>0$, the critical tax rate is
+\begin{equation}
+\tau_{\max}=\min_{q\ \text{marginal}}\frac{\lambda^{\mathrm{dem}}_{d(q)}-\pi^{\mathrm{BC}}_{n(q)}}{e^{+}_q}
+\end{equation}
+as stated; for $\tau<\tau_{\max}$ the optimal basis, and hence the material
+flows, technology mix, and cleared quantities, are identical to $x^{*}$, while
+the objective decreases by $\tau\,E^{+}(x^{*})$---the tax is a pure
+surplus-to-government transfer. Numerically, the marginal price gap is
+$\lambda^{\mathrm{M}}-\max_n\pi^{\mathrm{BC}}_n =
+500-344.85\approx\$155$/t biochar and the gross-emission intensity of the
+marginal supply path is $\approx0.44$~t CO$_2$e/t biochar
+($E^{+}=1{,}002.8$~kt over 2.30~Mt served; T1 $31$--$35$~kg/t wet,
+T2 $\approx121$~kg/t dry, plus transport), giving
+$\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested rate of
+\$200/t, consistent with the null dispatch response of C1 and
+C1-free (Table~\ref{tab:c1free}). The tiered slope does not matter: a
+convex piecewise-linear tax with positive slopes is, on the active paths,
+locally linear, so the argument applies tier by tier.
+$\square$
+
+\subsection{Nomenclature}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Nomenclature: sets, parameters, and variables of the base network
+model \eqref{eq:base}. Units: \$ = 2022 USD, t = metric tonne.}
+\label{tab:s5}
+\begin{tabular}{lll}
+\toprule
+Type & Notation & Description\\
+\midrule
+\multirow{9}{*}{Sets} & $\mathcal{N}$ & County nodes ($|\mathcal{N}|=72$) \\
+ & $\mathcal{F}$ & Feedstocks ($|\mathcal{F}|=13$: 7 agricultural, 6 forestry) \\
+ & $\mathcal{T}$ & Technologies (T1 dehydration; T2 slow pyrolysis at 300/500$^\circ$C; 39 total) \\
+ & $\mathcal{P}$ & Products (wet biomass, dry biomass, biochar, carbon credits) \\
+ & $\mathcal{S}$, $\mathcal{D}$ & Supply and demand bid rows (farmgate offers, demand segments) \\
+ & $\mathcal{A}$ & Transport arcs (radius-limited) \\
+ & $\mathcal{K}$ & Facility scale tiers ($k\in\{1,2,3\}$) \\
+ & $\mathrm{ref}(t)$ & Reference (input) product of technology $t$ \\
+ & $\mathcal{S}_n, \mathcal{D}_n$ & Supply/demand rows located at node $n$ \\
+\midrule
+\multirow{8}{*}{Parameters} & $\lambda^{\mathrm{dem}}_{d}, \lambda^{\mathrm{sup}}_{s}$ & Demand bid (\$/t) and farmgate offer (\$/t) \\
+ & $\omega_t$ & Technology OPEX (\$/t of reference product) \\
+ & $\alpha^{\mathrm{var}}_{p}, \alpha^{\mathrm{fix}}_{p}$ & Variable (\$/t-km) and fixed (\$/t) transport cost of product $p$ \\
+ & $\kappa_{t,k}$ & Annualized CAPEX of technology $t$ at scale $k$ (\$) \\
+ & $\bar{q}_{t,k}$ & Capacity of technology $t$ at scale $k$ (t/yr) \\
+ & $\gamma_{t,p}$ & Fixed-yield transformation coefficient of product $p$ by technology $t$ \\
+ & $\bar{d}_d, \bar{s}_s$ & Demand and supply capacities (t/yr) \\
+ & $\mathrm{AF}$ & Annualization factor ($0.1175$; 10\%, 20 yr) \\
+\midrule
+\multirow{7}{*}{Variables} & $z_{ntk}\in\{0,\dots,5\}$ & Number of facilities of technology $t$, scale $k$, at node $n$ \\
+ & $x_{n,p,t}$ & Net production of product $p$ by technology $t$ at node $n$ (t/yr) \\
+ & $f_{ijp}$ & Transport flow of product $p$ from $i$ to $j$ (t/yr) \\
+ & $\mathrm{dem}_{d}, \mathrm{sup}_{s}$ & Cleared demand and supply (t/yr) \\
+ & $d_{np}, s_{np}$ & Aggregated demand/supply at node $n$ for product $p$ \\
+ & $p_{np}$ & Aggregated production at node $n$ for product $p$ \\
+ & $\pi_{np}$ & Dual of the mass balance = inherent value of product $p$ at node $n$ (\$/t) \\
+\bottomrule
+\end{tabular}
+\end{table}
