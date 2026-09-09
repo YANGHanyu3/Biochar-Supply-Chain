@@ -188,8 +188,8 @@ The three-segment biochar demand curve is calibrated to: (i) production-side
 costs of \$150--400/t \cite{roberts2010,shabangu2014} plus the removal-credit
 value of \$100--250/tCO$_2$e \cite{cdrfyi2024,verraVM0044}, which places the
 durable-char tiers above the bulk soil-amendment tier; (ii) the
-soil-amendment, industrial-media, and carbon-removal market segmentation
-reviewed by Senadheera et al.~\cite{senadheera2025}, with wholesale prices in
+soil-amendment, industrial-media, and carbon-removal end uses that structure
+the biochar market, with wholesale prices in
 recent market surveys spanning more than an order of magnitude
 \cite{ibi2025}; (iii)
 Wisconsin farmland of 14.2~M acres
@@ -342,14 +342,15 @@ reported in the main text (Fig.~\ref{fig:sensitivity}): demand-price shocks
 dominate ($\pm$39\% of surplus for $\pm$20\% of price), farmgate and transport
 shocks are minor, and a $-40\%$ feedstock-availability shock (a proxy for
 field-collection losses) costs 29\% of near-term surplus but only 4\% in the
-mature-market scenario. Figures~\ref{fig:s1} and~\ref{fig:s2} give the
+mature-market scenario. Figures~\ref{fig:s1}--\ref{fig:s3} give the
 per-paradigm detail behind the consolidated policy figure: the
-baseline-and-credit sweep with credits and net GHG, and the tiered-tax and
-VM0044 technology response.
+baseline-and-credit sweep with credits and net GHG, the tiered-tax and VM0044
+technology response, and the cap-and-trade marginal abatement cost curve with
+surplus versus the emission cap.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.66\textwidth]{figures/fig6_policyA.png}
+\includegraphics[width=0.66\textwidth]{figures/sfig1_policyA.png}
 \caption{\small Paradigm A (baseline-and-credit) sweep, near-term: surplus,
 production by demand segment, and credits/net GHG as functions of the credit
 price. The \$250/t L segment activates at \$25/tCO$_2$e and essentially all
@@ -359,12 +360,23 @@ near-term feedstock is mobilized at \$200/tCO$_2$e, tripling surplus.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{figures/fig8_policyC_tech.png}
+\includegraphics[width=0.72\textwidth]{figures/sfig2_policyC.png}
 \caption{\small Paradigm C (tiered tax + VM0044 credit), near-term: technology
 choice (I) and surplus (II). The tiered tax leaves the dispatch unchanged, but
 the H/C$\le$0.7 gate converts the system to 500$^\circ$C pyrolysis as credit
 prices rise.}
 \label{fig:s2}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/sfig3_policyB.png}
+\caption{\small Paradigm B (cap-and-trade), near-term: (I) marginal abatement
+cost curve with the RGGI, EU ETS, and voluntary-market benchmark bands;
+(II) system surplus versus the gross-emission cap. The endogenous carbon price
+starts at $\approx$\$351/tCO$_2$e and rises to $\approx$\$599/t, above every
+observed allowance and voluntary-credit price.}
+\label{fig:s3}
 \end{figure}
 
 Data generation (\texttt{generate\_data\_v2.py}, \texttt{generate\_data\_v2b.py}),

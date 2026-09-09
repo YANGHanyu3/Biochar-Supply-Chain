@@ -112,8 +112,8 @@ def draw_demand(ax):
         ax.annotate(f"equilibrium Q = {bc:.2f} Mt/yr", xy=(bc, 500),
                     xytext=(bc + 0.5, 545), fontsize=10, color=C_GREY,
                     arrowprops=dict(arrowstyle="-", color=C_GREY, lw=1.1))
-    ax.text(0.42, 752, "H: CDR premium", fontsize=9.5, ha="center")
-    ax.text(1.55, 545, "M: quality ag / industrial", fontsize=9.5, ha="center")
+    ax.text(0.42, 845, "H: CDR premium", fontsize=9.5, ha="center")
+    ax.text(1.55, 445, "M: quality ag / industrial", fontsize=9.5, ha="center")
     ax.text(3.55, 130, "L: bulk agricultural", fontsize=9.5, ha="center")
     ax.set_xlim(0, 5.0)
     ax.set_ylim(0, 900)
@@ -188,7 +188,7 @@ def fig_policyA():
     axes[2].legend(fontsize=9)
     fig.suptitle(f"Paradigm A: baseline-and-credit sweep ({scen})", fontweight="bold")
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    fig.savefig(os.path.join(figdir, "fig6_policyA.png"))
+    fig.savefig(os.path.join(figdir, "sfig1_policyA.png"))
     plt.close(fig)
 
 
@@ -219,7 +219,7 @@ def fig_policyB():
     axes[0].set_title("Marginal abatement cost curve", fontweight="bold")
     FS.panel_label(axes[0], 0)
     axes[0].set_ylim(0, 680)
-    axes[0].legend(fontsize=9, loc="lower right")
+    axes[0].legend(fontsize=9, loc="upper left")
     axes[1].plot(b.cap_kt, b.profit_M, "s-", color=C_300, lw=2.2)
     axes[1].set_xlabel("Emission cap (kt CO2e/yr)")
     axes[1].set_ylabel("System surplus (M USD/yr)")
@@ -231,7 +231,7 @@ def fig_policyB():
     fig.suptitle(f"Paradigm B: cap-and-trade with endogenous price ({scen})",
                  fontweight="bold")
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    fig.savefig(os.path.join(figdir, "fig7_policyB_MAC.png"))
+    fig.savefig(os.path.join(figdir, "sfig3_policyB.png"))
     plt.close(fig)
 
 
@@ -255,7 +255,8 @@ def fig_policyC():
     axes[0].set_ylabel("Biochar (Mt/yr)")
     axes[0].set_title("Technology choice under credit", fontweight="bold")
     FS.panel_label(axes[0], 0)
-    axes[0].legend(fontsize=9.5)
+    axes[0].set_ylim(0, 2.9)
+    axes[0].legend(fontsize=9.5, loc="upper center", ncol=2)
     axes[1].plot(c.p_c, c.profit, "o-", color=C_BC, lw=2)
     axes[1].set_xlabel("Credit price (USD/tCO2e)")
     axes[1].set_ylabel("Surplus (M USD/yr)")
@@ -264,7 +265,7 @@ def fig_policyC():
     fig.suptitle(f"Paradigm C: tiered tax (25/50/100) + VM0044 credit ({scen})",
                  fontweight="bold")
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    fig.savefig(os.path.join(figdir, "fig8_policyC_tech.png"))
+    fig.savefig(os.path.join(figdir, "sfig2_policyC.png"))
     plt.close(fig)
 
 

@@ -24,7 +24,7 @@ this folder.
 |---|---|
 | `Code/` | Python data generation + figure scripts, Julia optimization models (v2 pooled and v2b quality-differentiated), PowerShell drivers, `requirements.txt`, `Project.toml`, `REPRODUCE.md`, generated data matrices and result CSVs |
 | `Data/` | raw inputs (Wisconsin biomass workbook, BT23 agricultural/forestry downloads, NASS, GIS shapefiles) |
-| `Graph/` | the 6 main figures (PNG 400 DPI) plus fig0 in PDF/SVG vector form |
+| `Graph/` | the 6 main figures and 3 supplementary figures (PNG 400 DPI), plus fig0 in PDF/SVG vector form |
 | `Paper/` | the manuscript source, bibliography, figures, and the Overleaf zip |
 | `PPT/` | two 11-slide advisor progress decks |
 | `References/` | the cited PDFs we hold locally (VM0044, Rafiq 2016, Ippolito 2020, Sampat 2019, Tominac 2022, BT23, ...) |
@@ -81,7 +81,12 @@ numbers without applying the patches.
 - Author block commented out (deliberate, see section 1).
 - Policy sweeps are reported at 0.5-4.7% MIP optimality gaps; TIME_LIMIT points
   are feasible incumbents and are labelled as lower bounds throughout.
-- One citation (`senadheera2025`, Renewable and Sustainable Energy Reviews) has
-  its full author list and DOI flagged for verification before submission.
+- Figure file names are not the same as the printed figure numbers. The main
+  text uses `fig2_baseline` ... `fig6_sensitivity` (Figures 2-6) and the SI uses
+  `sfig1_policyA`, `sfig2_policyC`, `sfig3_policyB` (S-Figures 1-3); LaTeX
+  numbers them automatically, so ignore the file-name prefixes.
+- The demand-curve price tiers are justified from production cost plus removal
+  credit value and a quality premium; they are calibrated, not estimated from a
+  willingness-to-pay survey (see Limitations).
 - N2O suppression, the decomposition fraction, and BT23 collectability are
   literature defaults, not locally calibrated (documented in Limitations).

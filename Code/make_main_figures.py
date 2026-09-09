@@ -58,7 +58,7 @@ def fig2_baseline():
     z["tech_class"] = np.where(z.tech <= 13, "T1 drying",
                        np.where(z.tech <= 26, "T2 300C", "T2 500C"))
     z = z.merge(nm[["node_id", "lat", "lon"]], left_on="node", right_on="node_id")
-    z["size"] = z.scale.map({1: 42, 2: 120, 3: 280}) * (0.6 + 0.4 * z["count"])
+    z["size"] = z.scale.map({1: 26, 2: 72, 3: 150}) * (0.6 + 0.4 * z["count"])
 
     gdf = gpd.read_file("WI_Counties.shp").to_crs(epsg=4326)
     gdf["GEOID"] = gdf["GEOID"].astype(str)
@@ -76,7 +76,11 @@ def fig2_baseline():
     g.plot(ax=ax, column="avail", cmap=CMAP, edgecolor="white", linewidth=0.4,
            legend=True, missing_kwds=dict(color="#E7E6E6"),
            legend_kwds=dict(shrink=0.6, label="Feedstock availability (Mt wet/yr)"))
-    lakes.plot(ax=ax, color="#EAF1F7", edgecolor="#C9D8E4", linewidth=0.5, zorder=1)
+    # zoom to the state boundary (v0.8: no lakes layer, tighter framing)
+    x0, y0, x1, y1 = gdf.total_bounds
+    mx, my = 0.03 * (x1 - x0), 0.03 * (y1 - y0)
+    ax.set_xlim(x0 - mx, x1 + mx)
+    ax.set_ylim(y0 - my, y1 + my)
     for cls, col, mk in [("T1 drying", CG, "o"), ("T2 300C", C1, "D")]:
         grp = z[z.tech_class == cls]
         if len(grp):
@@ -120,8 +124,8 @@ def fig3_inherent_values():
     ax = axes[2]
     im = ax.imshow(piv.values, aspect="auto", cmap=CMAP, interpolation="nearest")
     ax.set_xticks(range(len(piv.columns)))
-    ax.set_xticklabels([c.replace("_", " ")[:12] for c in piv.columns],
-                       rotation=45, ha="right", fontsize=7)
+    ax.set_xticklabels([c.replace("_", " ") for c in piv.columns],
+                       rotation=45, ha="right", fontsize=6.5)
     ax.set_ylabel("Counties (sorted by total availability)")
     ax.set_yticks([])
     ax.set_title("Feedstock availability (kt wet/yr)", fontweight="bold", fontsize=11)
@@ -173,7 +177,7 @@ def fig4_policy():
     ax.set_xlabel("Gross emission abatement (kt CO$_2$e/yr)")
     ax.set_ylabel("Marginal abatement cost (USD/tCO$_2$e)")
     ax.set_title("Marginal abatement cost", fontweight="bold")
-    ax.legend(fontsize=8, loc="lower right")
+    ax.legend(fontsize=8, loc="upper left")
     FS.panel_label(ax, 2)
 
     ax = axes[1, 1]
@@ -247,7 +251,7 @@ def fig5_credit_basis():
     ax.set_ylabel("Credit rate (tCC / t dry)")
     ax.set_title("Credit basis by feedstock", fontweight="bold")
     ax.legend(fontsize=7.5, loc="upper left")
-    ax.set_ylim(0, 2.3)
+    ax.set_ylim(0, 2.6)
     FS.panel_label(ax, 0)
 
     ax = axes[1]
@@ -258,7 +262,7 @@ def fig5_credit_basis():
             label="supply-bound: per dry t (L segment)")
     ax.scatter([pc_star_bc], [0], s=55, color=C1, zorder=5, edgecolors="white")
     ax.annotate(f"~{pc_star_bc:.0f}", (pc_star_bc, 0), textcoords="offset points",
-                xytext=(8, 10), fontsize=9.5, color=C1, fontweight="bold")
+                xytext=(8, -18), fontsize=9.5, color=C1, fontweight="bold")
     ax.scatter([pc_star_dry], [0], s=55, color=CG, zorder=5, edgecolors="white")
     ax.annotate(f"~{pc_star_dry:.0f}", (pc_star_dry, 0), textcoords="offset points",
                 xytext=(8, -16), fontsize=9.5, color=CG, fontweight="bold")
@@ -267,7 +271,7 @@ def fig5_credit_basis():
     ax.set_xlabel("Credit price (USD/tCO$_2$e)")
     ax.set_ylabel("500 C premium over 300 C (USD/t)")
     ax.set_title("Two-regime crossover", fontweight="bold")
-    ax.legend(fontsize=7.5, loc="upper left")
+    ax.legend(fontsize=7.5, loc="lower right")
     ax.set_xlim(0, 300); ax.set_ylim(-120, 160)
     FS.panel_label(ax, 1)
 

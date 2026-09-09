@@ -103,7 +103,7 @@ def draw_content(ax):
     # ---------------- node n1 (representative county) ----------------
     ax.add_patch(Ellipse((6.00, 4.90), 5.40, 4.80, fc="white", ec=INK,
                          lw=1.4, zorder=2))
-    ax.text(4.95, 6.60, r"$n_1$", fontsize=14, ha="center", va="center",
+    ax.text(4.78, 6.60, r"$n_1$", fontsize=14, ha="center", va="center",
             zorder=6, fontstyle="italic")
 
     techbox(ax, 5.95, 6.15, "T1 dehydration")
@@ -135,13 +135,13 @@ def draw_content(ax):
     swallow(ax, 7.85, 5.30, 9.05, 5.70)
     swallow(ax, 8.05, 4.85, 9.05, 4.70)
     swallow(ax, 7.30, 3.80, 9.05, 3.70)
-    ax.text(7.85, 6.35, r"$f^H$", fontsize=10, ha="center", va="center",
+    ax.text(7.68, 6.35, r"$f^H$", fontsize=10, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
-    ax.text(8.05, 5.62, r"$f^M$", fontsize=10, ha="center", va="center",
+    ax.text(7.88, 5.62, r"$f^M$", fontsize=10, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
     ax.text(8.20, 5.00, r"$f^L$", fontsize=10, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
-    ax.text(7.70, 3.58, r"$q^{sink}$", fontsize=9.5, ha="center", va="center",
+    ax.text(7.54, 3.44, r"$q^{sink}$", fontsize=9.5, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
     ax.text(9.45, 7.30, r"biochar $f$  ($d \leq 400$ km)", fontsize=8.5,
             ha="left", va="center", zorder=6)

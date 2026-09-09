@@ -42,7 +42,11 @@ def draw_iv(ax, product, title, cmap_name, label, annotate=False):
     g.plot(ax=ax, column="inherent_value", cmap=cmap_name, vmin=vmin, vmax=vmax,
            edgecolor="white", linewidth=0.45, legend=False, zorder=0,
            missing_kwds=dict(color="#E7E6E6"))
-    lakes.plot(ax=ax, color="#D6E4EE", edgecolor="#B8CAD8", linewidth=0.5, zorder=1)
+    # zoom to the state boundary (v0.8: no lakes layer, tighter framing)
+    x0, y0, x1, y1 = gdf.total_bounds
+    mx, my = 0.03 * (x1 - x0), 0.03 * (y1 - y0)
+    ax.set_xlim(x0 - mx, x1 + mx)
+    ax.set_ylim(y0 - my, y1 + my)
     if annotate:
         top = d.nlargest(3, "inherent_value")
         bot = d.nsmallest(3, "inherent_value")
