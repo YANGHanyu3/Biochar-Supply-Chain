@@ -18,8 +18,16 @@ using JuMP, Gurobi, CSV, DataFrames
 import Printf: @sprintf
 
 scen = length(ARGS) > 0 ? ARGS[1] : "near-term"
-datadir  = joinpath("biochar_data_v2", scen)
-resdir   = joinpath("results_v2", scen)
+# keyword overrides (v0.6): datadir=..., resdir=... (same convention as 04_policy_A.jl)
+kw = Dict{String,String}()
+for a in ARGS
+    if occursin("=", a) && startswith(a, r"[a-z]")
+        k, v = split(a, "=", limit=2)
+        kw[k] = v
+    end
+end
+datadir  = get(kw, "datadir", joinpath("biochar_data_v2", scen))
+resdir   = get(kw, "resdir", joinpath("results_v2", scen))
 mkpath(resdir)
 
 println("="^78)

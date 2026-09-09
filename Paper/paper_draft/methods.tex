@@ -144,12 +144,21 @@ county, allocated in proportion to farmland area:
 \$30/\mathrm{t}  & \text{sink (construction, filtration)}
 \end{cases}
 \end{equation}
-The step prices derive from the U.S.\ wholesale band of \$600--2{,}778/t and
-production costs of \$150--400/t (SI, demand data pack). The three soil
+The three segment prices are anchored to the observed U.S.\ wholesale biochar
+band of \$600--2{,}778/t (modal price $\approx$\$1{,}000/t) reported by
+Bandara et al.~\cite{bandara2025} and to production costs of \$150--400/t
+(SI, demand data pack): the \$800/t H tier represents durable, H/C-gated
+biochar sold to national corporate CDR buyers, the \$500/t M tier quality
+agricultural and industrial-media grades, and the \$250/t L tier bulk soil
+application. The three soil
 segments sum to a finite aggregate capacity of $0.8+1.5+2.5 = 4.8$~Mt/yr,
 which is the ceiling on price-responsive biochar sales; the sink is unbounded
 (open capacity) and absorbs any residual at the low \$30/t bid. All three
-capacities are allocated across counties in proportion to farmland area.
+capacities are allocated across counties in proportion to farmland area, a
+smooth spatial proxy rather than observed county-level demand; because every
+county then carries demand at the same bid, the binding constraint is the
+aggregate demand quantity and the equilibrium spatial pattern is
+feedstock-driven rather than demand-driven (SI, demand data pack).
 Because demand is
 price-responsive, the equilibrium quantity is endogenous; in the base model
 (v2) biochar is pooled, while the quality-differentiated extension (v2b,
@@ -175,7 +184,9 @@ sold at the policy price $p_c$. Credits are computed in LCFS style for
 every feedstock--temperature pair, without an eligibility gate; the
 VM0044 H/C gate is applied only in Paradigm~C2, so the two paradigms differ in
 both credit basis (avoided-baseline versus sequestered-carbon) and eligibility
-(Fig.~\ref{fig:creditbasis}).
+(Fig.~\ref{fig:creditbasis}). Paradigm~A is therefore an idealized
+throughput-scaled credit rather than a specific existing methodology; it is
+contrasted with the sequestration-only, H/C-gated VM0044 basis of Paradigm~C2.
 
 \subsubsection{Paradigm B: cap-and-trade with endogenous carbon price}
 
@@ -354,7 +365,10 @@ $\approx$0.44~t CO$_2$e/t biochar (1{,}003~kt gross over 2.30~Mt served;
 T1 $31$--$35$ kg/t wet, T2 $\approx$121 kg/t dry, plus transport), so
 $\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested tier of
 \$200/t; the tax's effect within the tested range is confined to surplus
-reallocation.
+reallocation. The neutrality itself is a structural property of any
+demand-constrained LP; the contribution here is the quantified boundary
+($\tau_{\max}\approx\$350$/t for this system) and the comparison it enables
+with observed carbon prices.
 
 \subsection{Quality-differentiated extension (v2b)}
 \label{sec:v2b}

@@ -55,6 +55,13 @@ python generate_data_v2b.py         # quality-differentiated model, both scenari
 # --- H/C eligibility stress test (optional; writes biochar_data_v2_hc+0.25/) ---
 HC_SHIFT=+0.25 python generate_data_v2.py
 
+# --- demand-geography sensitivity (optional; writes biochar_data_v2_dc<alpha>/) ---
+# w_n ∝ area_n^alpha; alpha=1 is the canonical farmland-proportional allocation.
+DEMAND_CONC=3  python generate_data_v2.py
+DEMAND_CONC=10 python generate_data_v2.py
+julia 01_MIP_v2.jl "near-term" "datadir=biochar_data_v2_dc10/near-term" "resdir=results_v2_dc10/near-term"
+julia 02_LP_duals_v2.jl "near-term" "datadir=biochar_data_v2_dc10/near-term" "resdir=results_v2_dc10/near-term"
+
 # --- models (per scenario) ---
 julia 01_MIP_v2.jl "near-term"                 # Step 1 facility location MIP (~15-30 min)
 julia 00_run_all_v2.jl "near-term" --skip-mip  # Steps 2-6 reusing z*

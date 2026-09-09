@@ -103,7 +103,7 @@ def draw_content(ax):
     # ---------------- node n1 (representative county) ----------------
     ax.add_patch(Ellipse((6.00, 4.90), 5.40, 4.80, fc="white", ec=INK,
                          lw=1.4, zorder=2))
-    ax.text(4.70, 6.90, r"$n_1$", fontsize=14, ha="center", va="center",
+    ax.text(4.95, 6.60, r"$n_1$", fontsize=14, ha="center", va="center",
             zorder=6, fontstyle="italic")
 
     techbox(ax, 5.95, 6.15, "T1 dehydration")
@@ -117,13 +117,13 @@ def draw_content(ax):
 
     # ---------------- node n2 (replication) ----------------
     ax.add_patch(Circle((1.55, 1.55), 1.00, fc="white", ec=INK, lw=1.4, zorder=2))
-    ax.text(1.00, 2.22, r"$n_2$", fontsize=11, ha="center", va="center",
+    ax.text(1.20, 2.05, r"$n_2$", fontsize=11, ha="center", va="center",
             zorder=6, fontstyle="italic")
-    box(ax, 1.00, 1.37, 1.50, 1.73, lw=1.1, r=0.06, z=4)
-    box(ax, 1.65, 1.37, 2.15, 1.73, lw=1.1, r=0.06, z=4)
-    ax.text(1.25, 1.55, "T1", fontsize=8.5, ha="center", va="center", zorder=6)
-    ax.text(1.90, 1.55, "T2", fontsize=8.5, ha="center", va="center", zorder=6)
-    swallow(ax, 1.53, 1.55, 1.62, 1.55, head=0.14)
+    box(ax, 0.90, 1.37, 1.35, 1.73, lw=1.1, r=0.06, z=4)
+    box(ax, 1.75, 1.37, 2.20, 1.73, lw=1.1, r=0.06, z=4)
+    ax.text(1.125, 1.55, "T1", fontsize=8.5, ha="center", va="center", zorder=6)
+    ax.text(1.975, 1.55, "T2", fontsize=8.5, ha="center", va="center", zorder=6)
+    swallow(ax, 1.37, 1.55, 1.73, 1.55, head=0.16)
     ax.text(1.55, 0.28, r"$\times$ 72 county nodes", fontsize=8.5,
             ha="center", va="center", zorder=6, fontstyle="italic")
 
@@ -135,13 +135,13 @@ def draw_content(ax):
     swallow(ax, 7.85, 5.30, 9.05, 5.70)
     swallow(ax, 8.05, 4.85, 9.05, 4.70)
     swallow(ax, 7.30, 3.80, 9.05, 3.70)
-    ax.text(7.85, 6.30, r"$f^H$", fontsize=10, ha="center", va="center",
+    ax.text(7.85, 6.35, r"$f^H$", fontsize=10, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
-    ax.text(8.05, 5.55, r"$f^M$", fontsize=10, ha="center", va="center",
+    ax.text(8.05, 5.62, r"$f^M$", fontsize=10, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
-    ax.text(8.15, 4.98, r"$f^L$", fontsize=10, ha="center", va="center",
+    ax.text(8.20, 5.00, r"$f^L$", fontsize=10, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
-    ax.text(8.02, 3.72, r"$q^{sink}$", fontsize=9.5, ha="center", va="center",
+    ax.text(7.70, 3.58, r"$q^{sink}$", fontsize=9.5, ha="center", va="center",
             zorder=7, fontstyle="italic", bbox=wb)
     ax.text(9.45, 7.30, r"biochar $f$  ($d \leq 400$ km)", fontsize=8.5,
             ha="left", va="center", zorder=6)

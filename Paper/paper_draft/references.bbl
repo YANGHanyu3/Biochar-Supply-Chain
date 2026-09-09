@@ -5,12 +5,18 @@
 % To regenerate with bibtex later: uncomment \bibliographystyle{abbrv} and
 % \bibliography{references} in main.tex and comment the \input{references.bbl}.
 % ============================================================================
-\begin{thebibliography}{31}
+\begin{thebibliography}{33}
 
 \bibitem{icvcm2025}
 Integrity Council for the Voluntary Carbon Market.
 \newblock ICVCM approves Biochar and Improved Forest Management methodologies.
 \newblock 2025.
+
+\bibitem{bandara2025}
+S.~Herath Bandara et al.
+\newblock Exploring the potential of biochar in enhancing U.S.\ agriculture.
+\newblock \emph{Regional Science and Environmental Economics} \textbf{2} (3),
+  23, 2025.
 
 \bibitem{belmonte2018}
 B.~A. Belmonte, M.~F.~D. Benjamin, and R.~R. Tan.
@@ -72,6 +78,13 @@ J.~A. Ippolito, L.~Cui, C.~Kammann, N.~Wrage-Monnig, J.~M. Estavillo,
 \newblock Feedstock choice, pyrolysis temperature and type influence biochar
   characteristics: a comprehensive meta-data analysis review.
 \newblock {\em Biochar} {\bf 2}, 421--438, 2020.
+
+\bibitem{jeffery2011}
+S.~Jeffery, F.~G.~A. Verheijen, M.~van der Velde, and A.~C. Bastos.
+\newblock A quantitative review of the effects of biochar application to soils
+  on crop productivity using meta-analysis.
+\newblock \emph{Agriculture, Ecosystems and Environment} \textbf{144} (1),
+  175--187, 2011.
 
 \bibitem{lehmann2021biochar}
 J.~Lehmann, A.~Cowie, C.~A. Masiello, et~al.

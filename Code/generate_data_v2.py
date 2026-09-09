@@ -121,6 +121,13 @@ WI_GRID = 0.57              # kg CO2e/kWh (US EIA WI 2022)
 # (corn stover 0.49->0.74). Default 0.0 = canonical data.
 HC_SHIFT = float(os.environ.get("HC_SHIFT", "0.0"))
 
+# Demand-geography sensitivity (v0.6 review): DEMAND_CONC concentrates the
+# county demand allocation as area**DEMAND_CONC. Default 1.0 = proportional to
+# farmland area (canonical). Larger values push demand into the largest
+# counties, testing whether facility siting is demand- or feedstock-driven.
+# Output is written to a separate data directory (biochar_data_v2_dc<alpha>).
+DEMAND_CONC = float(os.environ.get("DEMAND_CONC", "1.0"))
+
 # ═══════════════════════════════════════════════════
 # 1. FEEDSTOCK DEFINITIONS (verified vs workbook 04_Moisture_GHG_Factors + v1)
 # ═══════════════════════════════════════════════════
@@ -302,8 +309,9 @@ def write_scenario(dry, scenario, outdir):
     sup = pd.DataFrame(sup_rows)
     sup.to_csv(f"{outdir}/supply_matrix.csv", index=False)
     # --- demand: 3 segments x 72 + sink 72 ---
-    v1_dem = raw['Area_sqmi'] * 640 * 0.20 * 0.15 * 4.0
-    share = (v1_dem / v1_dem.sum()).values          # county allocation of farmland-based demand
+    # county allocation ∝ area**DEMAND_CONC (1.0 = farmland-area proportional)
+    w = raw['Area_sqmi'] ** DEMAND_CONC
+    share = (w / w.sum()).values
     dem_rows = []
     did = 1
     for seg, price, cap in DEMAND_SEGMENTS:
@@ -418,6 +426,9 @@ def write_scenario(dry, scenario, outdir):
 if __name__ == "__main__":
     scenarios = ['near-term', 'mature-market medium']
     basedir = f"biochar_data_v2" if HC_SHIFT == 0 else f"biochar_data_v2_hc{HC_SHIFT:+.2f}"
+    if DEMAND_CONC != 1.0:
+        basedir += f"_dc{DEMAND_CONC:g}"
+        print(f"[demand-geography sensitivity] DEMAND_CONC={DEMAND_CONC:g} -> {basedir}")
     for sc in scenarios:
         dry = build_dry(sc)
         write_scenario(dry, sc, f"{basedir}/{sc}")

@@ -365,12 +365,21 @@ county, allocated in proportion to farmland area:
 \$30/\mathrm{t}  & \text{sink (construction, filtration)}
 \end{cases}
 \end{equation}
-The step prices derive from the U.S.\ wholesale band of \$600--2{,}778/t and
-production costs of \$150--400/t (SI, demand data pack). The three soil
+The three segment prices are anchored to the observed U.S.\ wholesale biochar
+band of \$600--2{,}778/t (modal price $\approx$\$1{,}000/t) reported by
+Bandara et al.~\cite{bandara2025} and to production costs of \$150--400/t
+(SI, demand data pack): the \$800/t H tier represents durable, H/C-gated
+biochar sold to national corporate CDR buyers, the \$500/t M tier quality
+agricultural and industrial-media grades, and the \$250/t L tier bulk soil
+application. The three soil
 segments sum to a finite aggregate capacity of $0.8+1.5+2.5 = 4.8$~Mt/yr,
 which is the ceiling on price-responsive biochar sales; the sink is unbounded
 (open capacity) and absorbs any residual at the low \$30/t bid. All three
-capacities are allocated across counties in proportion to farmland area.
+capacities are allocated across counties in proportion to farmland area, a
+smooth spatial proxy rather than observed county-level demand; because every
+county then carries demand at the same bid, the binding constraint is the
+aggregate demand quantity and the equilibrium spatial pattern is
+feedstock-driven rather than demand-driven (SI, demand data pack).
 Because demand is
 price-responsive, the equilibrium quantity is endogenous; in the base model
 (v2) biochar is pooled, while the quality-differentiated extension (v2b,
@@ -396,7 +405,9 @@ sold at the policy price $p_c$. Credits are computed in LCFS style for
 every feedstock--temperature pair, without an eligibility gate; the
 VM0044 H/C gate is applied only in Paradigm~C2, so the two paradigms differ in
 both credit basis (avoided-baseline versus sequestered-carbon) and eligibility
-(Fig.~\ref{fig:creditbasis}).
+(Fig.~\ref{fig:creditbasis}). Paradigm~A is therefore an idealized
+throughput-scaled credit rather than a specific existing methodology; it is
+contrasted with the sequestration-only, H/C-gated VM0044 basis of Paradigm~C2.
 
 \subsubsection{Paradigm B: cap-and-trade with endogenous carbon price}
 
@@ -575,7 +586,10 @@ $\approx$0.44~t CO$_2$e/t biochar (1{,}003~kt gross over 2.30~Mt served;
 T1 $31$--$35$ kg/t wet, T2 $\approx$121 kg/t dry, plus transport), so
 $\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested tier of
 \$200/t; the tax's effect within the tested range is confined to surplus
-reallocation.
+reallocation. The neutrality itself is a structural property of any
+demand-constrained LP; the contribution here is the quantified boundary
+($\tau_{\max}\approx\$350$/t for this system) and the comparison it enables
+with observed carbon prices.
 
 \subsection{Quality-differentiated extension (v2b)}
 \label{sec:v2b}
@@ -1057,8 +1071,10 @@ picture. First, the decomposition-baseline assumption (0.9 decay fraction)
 enters only Paradigm~A's credit rates: halving it to 0.5 lowers the
 \$200/t surplus from \$3.36 to \$2.33~B/yr ($-31$\%) in the near-term and from
 \$5.87 to \$3.81~B/yr ($-35$\%) mature-market, while mobilized production stays
-near the feedstock potential; the qualitative response is robust, but the
-surplus level scales roughly one-for-one with the baseline assumption. Second,
+near the feedstock potential; the qualitative response and the paradigm
+ordering are robust, but the surplus level scales roughly one-for-one with the
+baseline assumption and A's magnitude advantage over the gated VM0044 credit
+narrows as the decomposition fraction falls. Second,
 the premium-segment capacity directly sets the scale of 500$^\circ$C
 deployment: halving H to 0.4~Mt halves BC500 to 0.40~Mt (total production
 1.90~Mt), and enlarging H by 50\% (1.2~Mt) raises BC500 to 1.20~Mt and total
@@ -1223,11 +1239,18 @@ meta-analysis mean (52~kg/t) are literature defaults; the decomposition
 fraction is flagged for local calibration, and a sensitivity halving it to
 0.5 lowers the \$200/t Paradigm~A surplus by 31--35\%
 (Section~\ref{sec:sensitivity}); the
-qualitative response is robust, the surplus level is not. (vi) \emph{VM0044 proxy.} Eligibility is
+qualitative response and the paradigm ordering are robust, but the surplus
+level is not, and A's magnitude advantage over the gated VM0044 credit narrows
+as the decomposition fraction falls. (vi) \emph{VM0044 proxy.} Eligibility is
 operationalized through the molar H/C gate only; additionality, leakage, and
 monitoring/verification costs are outside the model scope. (vii)
 \emph{Demand.} Demand segments are exogenous step functions calibrated to
-market evidence rather than estimated elasticities. (viii) \emph{Static
+market evidence rather than estimated elasticities, and their spatial
+allocation across counties is proportional to farmland area rather than
+observed demand locations. The binding demand constraint is therefore the
+aggregate quantity, and the equilibrium facility pattern is feedstock-driven;
+a demand-concentration sensitivity (SI, demand data pack) leaves the aggregate
+conclusions unchanged. (viii) \emph{Static
 structure.} The model is single-year with no seasonal inventory; the
 allocation-design result (C3) and facility-path dependencies point to a
 multi-period extension. (ix) \emph{Solver gaps.} Policy sweeps are reported at
@@ -1474,9 +1497,12 @@ settled at the producing county).
 \subsection{Demand data pack}
 
 The three-segment biochar demand curve is calibrated to: (i) the U.S.\
-wholesale price band \$600--2{,}778/t (mode $\approx\$$1{,}000/t); (ii)
+wholesale price band \$600--2{,}778/t (mode $\approx\$$1{,}000/t) reported for
+2024 by Bandara et al.~\cite{bandara2025}; (ii)
 production-side costs \$150--400/t; (iii) Wisconsin farmland of 14.2~M acres
-with application rates of 5--20~t/ha and adoption below 100\%, so that the
+with application rates of 5--20~t/ha, within the range of field studies
+reviewed by Jeffery et al.~\cite{jeffery2011}, and adoption below 100\%, so
+that the
 4.16~Mt aggregate of the previous model version is treated as an optimistic
 peak; and (iv) a non-soil sink valued at \$30/t (construction/filtration media)
 with a landfill disposal sensitivity of $-\$45$ to $-\$84$/t. Segment
@@ -1484,13 +1510,34 @@ capacities are allocated across counties in proportion to farmland area; the
 CDR-premium segment is interpreted as access to national corporate buyers
 through credit markets rather than local Wisconsin demand, and the farmland
 proportionality is a spatial proxy (county-specific adoption data are not
-available). The 0.8~Mt premium capacity is a national-market allocation:
+available). Because every county carries demand at the same bid, the binding
+demand constraint is aggregate and the equilibrium spatial pattern is
+feedstock-driven; the concentration sensitivity below tests this directly.
+The 0.8~Mt premium capacity is a national-market allocation:
 current U.S. biochar purchases reported by CDR.fyi are in the hundreds of
 thousands of tonnes per year \cite{cdrfyi2024}, so the segment assumes the
 several-fold market growth projected for biochar credits rather than today's
 volumes. The decomposition fraction $0.9$ is an upper bound (immediate,
 complete decay); a sensitivity to $0.7$/$0.5$ scales the Paradigm~A credit
 rates proportionally and is flagged in the Limitations section.
+
+\emph{Demand-geography sensitivity.} The baseline allocates each demand
+segment across counties in proportion to farmland area ($w_n \propto
+\mathrm{area}_n$). To test whether the equilibrium depends on this spatial
+proxy, we re-solve the Step-1 MIP and Step-2 LP with demand concentrated as
+$w_n \propto \mathrm{area}_n^{\alpha}$ for $\alpha \in \{3, 10\}$; at
+$\alpha=10$ the three largest counties carry 71\% of the H-segment capacity
+(versus 8\% at $\alpha=1$). Aggregate production (2.30~Mt/yr), wet-biomass
+use (6.91--6.96~Mt/yr), and system surplus (708.2, 701.8, and
+689.8~M\$/yr for $\alpha=1,3,10$) change by at most 2.6\%, and 94--95\% of the
+counties that host facilities are identical across the three cases (58/61 at
+$\alpha=3$, 59/63 at $\alpha=10$): the optimal spatial pattern is
+feedstock-driven and robust to demand geography. The biochar inherent values
+do shift (mean \$324, \$304, and \$476/t for $\alpha=1,3,10$), because they
+are nodal prices: at $\alpha=10$ the concentrated demand makes the \$500/t
+M-segment bid bind at the demand counties and the inherent value propagates to
+the transport-radius limit (\$500/t minus up to \$32/t of delivery cost),
+exactly as the market-clearing interpretation predicts.
 
 \subsection{Solver settings}
 
@@ -1824,12 +1871,18 @@ Type & Notation & Description\\
 % To regenerate with bibtex later: uncomment \bibliographystyle{abbrv} and
 % \bibliography{references} in main.tex and comment the \input{references.bbl}.
 % ============================================================================
-\begin{thebibliography}{31}
+\begin{thebibliography}{33}
 
 \bibitem{icvcm2025}
 Integrity Council for the Voluntary Carbon Market.
 \newblock ICVCM approves Biochar and Improved Forest Management methodologies.
 \newblock 2025.
+
+\bibitem{bandara2025}
+S.~Herath Bandara et al.
+\newblock Exploring the potential of biochar in enhancing U.S.\ agriculture.
+\newblock \emph{Regional Science and Environmental Economics} \textbf{2} (3),
+  23, 2025.
 
 \bibitem{belmonte2018}
 B.~A. Belmonte, M.~F.~D. Benjamin, and R.~R. Tan.
@@ -1891,6 +1944,13 @@ J.~A. Ippolito, L.~Cui, C.~Kammann, N.~Wrage-Monnig, J.~M. Estavillo,
 \newblock Feedstock choice, pyrolysis temperature and type influence biochar
   characteristics: a comprehensive meta-data analysis review.
 \newblock {\em Biochar} {\bf 2}, 421--438, 2020.
+
+\bibitem{jeffery2011}
+S.~Jeffery, F.~G.~A. Verheijen, M.~van der Velde, and A.~C. Bastos.
+\newblock A quantitative review of the effects of biochar application to soils
+  on crop productivity using meta-analysis.
+\newblock \emph{Agriculture, Ecosystems and Environment} \textbf{144} (1),
+  175--187, 2011.
 
 \bibitem{lehmann2021biochar}
 J.~Lehmann, A.~Cowie, C.~A. Masiello, et~al.
