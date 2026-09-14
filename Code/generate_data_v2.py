@@ -128,6 +128,19 @@ HC_SHIFT = float(os.environ.get("HC_SHIFT", "0.0"))
 # Output is written to a separate data directory (biochar_data_v2_dc<alpha>).
 DEMAND_CONC = float(os.environ.get("DEMAND_CONC", "1.0"))
 
+# Demand-family sensitivity (v0.9 review, E3): DEMAND_FAMILY variants
+#   "low":  capacities x0.7  (adoption below the calibrated baseline)
+#   "high": capacities x1.4  (adoption above the calibrated baseline)
+#   "pricestress": M price 450 $/t, L price 200 $/t (stress on the $25/t
+#                  activation threshold of the bulk segment)
+# Output is written to a separate data directory (biochar_data_v2_df<family>).
+DEMAND_FAMILY = os.environ.get("DEMAND_FAMILY", "").strip()
+
+# Policy-ablation sensitivity (v0.9 review, E1): GATE_OFF=1 makes every
+# feedstock-temperature pair credit-eligible (no H/C gate), isolating the
+# eligibility-gate effect inside Paradigm C2. Default "" = canonical gate.
+GATE_OFF = os.environ.get("GATE_OFF", "") == "1"
+
 # ═══════════════════════════════════════════════════
 # 1. FEEDSTOCK DEFINITIONS (verified vs workbook 04_Moisture_GHG_Factors + v1)
 # ═══════════════════════════════════════════════════
@@ -260,6 +273,9 @@ for name, fd in FEEDSTOCKS.items():
     # 500 C chars (H/C 0.40-0.52) -> eligible unless the shift stress test flips them
     fd['eligible_300'] = hc300_eff <= H_C_GATE
     fd['eligible_500'] = hc500_eff <= H_C_GATE
+    if GATE_OFF:   # E1 ablation: no H/C eligibility gate
+        fd['eligible_300'] = True
+        fd['eligible_500'] = True
     # CC per t dry: yield * cc_per_bc * eligible
     fd['cc_per_dry_300'] = fd['y300'] * fd['cc_per_bc_300'] if fd['eligible_300'] else 0.0
     fd['cc_per_dry_500'] = fd['y500'] * fd['cc_per_bc_500'] if fd['eligible_500'] else 0.0
@@ -315,10 +331,20 @@ def write_scenario(dry, scenario, outdir):
     dem_rows = []
     did = 1
     for seg, price, cap in DEMAND_SEGMENTS:
+        price_e, cap_e = price, cap
+        if DEMAND_FAMILY == "low":
+            cap_e = cap * 0.7
+        elif DEMAND_FAMILY == "high":
+            cap_e = cap * 1.4
+        elif DEMAND_FAMILY == "pricestress":
+            if seg == "M":
+                price_e = 450.0
+            if seg == "L":
+                price_e = 200.0
         for i, nid in enumerate(raw['n_id']):
             dem_rows.append(dict(dem_id=did, node=int(nid), product=2*N+1,
-                                 segment=seg, bid=price,
-                                 capacity=round(share[i]*cap*1e6, 2)))
+                                 segment=seg, bid=price_e,
+                                 capacity=round(share[i]*cap_e*1e6, 2)))
             did += 1
     for i, nid in enumerate(raw['n_id']):
         dem_rows.append(dict(dem_id=did, node=int(nid), product=2*N+1,
@@ -429,6 +455,12 @@ if __name__ == "__main__":
     if DEMAND_CONC != 1.0:
         basedir += f"_dc{DEMAND_CONC:g}"
         print(f"[demand-geography sensitivity] DEMAND_CONC={DEMAND_CONC:g} -> {basedir}")
+    if DEMAND_FAMILY:
+        basedir += f"_df{DEMAND_FAMILY}"
+        print(f"[demand-family sensitivity] DEMAND_FAMILY={DEMAND_FAMILY} -> {basedir}")
+    if GATE_OFF:
+        basedir += "_gateoff"
+        print(f"[policy ablation E1] GATE_OFF -> {basedir}")
     for sc in scenarios:
         dry = build_dry(sc)
         write_scenario(dry, sc, f"{basedir}/{sc}")

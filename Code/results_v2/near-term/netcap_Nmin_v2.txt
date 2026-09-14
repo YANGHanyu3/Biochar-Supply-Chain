@@ -1,0 +1,5 @@
+nmin_kt=-2601.5
+bc_Mt=2.257
+bc300_Mt=0.0
+bc500_Mt=2.257
+gap=0.0 runtime_s=1.1 status=OPTIMAL

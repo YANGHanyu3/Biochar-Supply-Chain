@@ -142,6 +142,13 @@ def fig4_policy():
     a = pd.read_csv(os.path.join(resdir, "policy_A_bnc_sweep_v2.csv"))
     b = pd.read_csv(os.path.join(resdir, "policy_B1_cap_sweep_MAC_v2.csv"))
     c2 = pd.read_csv(os.path.join(resdir, "policy_C2_tax_credit_v2.csv"))
+    # C2 zero-credit point = tiered tax only (C1-free MIP, rates 25/50/100):
+    # a matched no-credit baseline so both curves start from the same regime
+    c1f = pd.read_csv(os.path.join(resdir, "policy_C1_free_tax_v2.csv"))
+    zrow = c1f[(c1f.r1 == 25) & (c1f.r2 == 50) & (c1f.r3 == 100)].iloc[0]
+    c2 = pd.concat([pd.DataFrame([dict(p_c=0.0, bc=zrow.bc, bc300=zrow.bc,
+                                       bc500=0.0, profit=zrow.profit)]),
+                    c2], ignore_index=True)
 
     fig, axes = plt.subplots(2, 2, figsize=(10.6, 7.4))
 
@@ -173,7 +180,7 @@ def fig4_policy():
         ax.plot(E_base - dual.emis_kt, -dual.pi_dual, "D", color=CG, ms=6, lw=0,
                 label=r"vertex dual $-\mu_{\mathrm{CAP}}$")
     ax.axhspan(17, 25, color=FS.PALE, alpha=0.7, label="RGGI 17-25")
-    ax.axhspan(55, 100, color=FS.GRAY_L, alpha=0.6, label="EU ETS 50-90")
+    ax.axhspan(55, 100, color=FS.GRAY_L, alpha=0.6, label="EU ETS 55-100 (€50-90)")
     ax.set_xlabel("Gross emission abatement (kt CO$_2$e/yr)")
     ax.set_ylabel("Marginal abatement cost (USD/tCO$_2$e)")
     ax.set_title("Marginal abatement cost", fontweight="bold")
@@ -314,8 +321,9 @@ def fig6_sensitivity():
     for k, (lo, hi, lab) in params.items():
         rows.append((lab, s[s.case == lo]["profit_M"].values[0],
                      s[s.case == hi]["profit_M"].values[0]))
-    avail = s[s.case == "supply cap -40%"]["profit_M"].values[0]
-    rows.append(("Feedstock availability −40%", avail, base.profit_M))
+    avail = s[s.case == "supply cap -20%"]["profit_M"].values[0]
+    avail_hi = s[s.case == "supply cap +20%"]["profit_M"].values[0]
+    rows.append(("Feedstock availability", avail, avail_hi))
     rows.sort(key=lambda r: abs(r[1] - base.profit_M) + abs(r[2] - base.profit_M))
     labels = [r[0] for r in rows]
     lo_v = np.array([r[1] - base.profit_M for r in rows])

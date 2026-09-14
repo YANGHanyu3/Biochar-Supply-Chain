@@ -2,8 +2,8 @@
 generate_data_v2b.py — v2b: quality-differentiated biochar products
 ==================================================================
 Extension of v2: biochar split into TWO products:
-  BC300 (product 27): biochar from 300C pyrolysis (H/C ~0.65, bulk quality)
-  BC500 (product 28): biochar from 500C pyrolysis (H/C ~0.35, CDR premium)
+  BC300 (product 27): biochar from 300C pyrolysis (H/C 1.00-1.40, bulk quality)
+  BC500 (product 28): biochar from 500C pyrolysis (H/C 0.40-0.52, CDR premium)
   CC    (product 29): carbon credit
 Demand segments (quality-tiered bid stack):
   H ($800/t, 0.8 Mt): BC500 ONLY  (CDR premium market: low H/C, high permanence)

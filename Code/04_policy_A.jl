@@ -37,11 +37,14 @@ for a in ARGS
 end
 b_mult = frac_d / 0.9          # B(x) multiplier relative to the 0.9 default
 datadir = get(kw, "datadir", joinpath("biochar_data_v2", scen))
-resdir  = joinpath("results_v2", scen)
+resdir  = get(kw, "resdir", joinpath("results_v2", scen))
+mkpath(resdir)
 _tag    = get(kw, "tag", "")
 _plist  = haskey(kw, "prices") ? [parse(Float64, p) for p in split(kw["prices"], ",")] : Float64[]
 _tlimit = haskey(kw, "timelimit") ? parse(Float64, kw["timelimit"]) : 600.0
 _mgap   = haskey(kw, "gap") ? parse(Float64, kw["gap"]) : 0.005
+_perm   = haskey(kw, "perm") ? parse(Float64, kw["perm"]) : 1.0   # E4: permanence multiplier
+_seed   = haskey(kw, "seed") ? parse(Int, kw["seed"]) : nothing
 
 nm      = CSV.read(joinpath(datadir, "node_matrix.csv"), DataFrame)
 pm      = CSV.read(joinpath(datadir, "product_matrix.csv"), DataFrame)
@@ -67,6 +70,8 @@ tsz = Dict((TECHS[t],k) => tech_df[t,6+k] for t in 1:length(TECHS), k in SCL)
 tcs = Dict((TECHS[t],k) => tech_df[t,9+k] for t in 1:length(TECHS), k in SCL)
 pghg = Dict(zip(Int.(ghg_df[:,1]), ghg_df[:,3]))
 sghg = Dict(zip(Int.(ghg_df[:,1]), ghg_df[:,4] .+ ghg_df[:,5]))
+seqghg = Dict(zip(Int.(ghg_df[:,1]), ghg_df[:,4]))
+n2oghg = Dict(zip(Int.(ghg_df[:,1]), ghg_df[:,5]))
 bghg = Dict(zip(Int.(ghg_df[:,1]), ghg_df[:,8]))   # baseline_ghg_per_t_ref (col 8)
 gtv  = ghg_df[1,7]                                  # ghg_transport_per_tkm (col 7)
 
@@ -97,10 +102,10 @@ for row in eachrow(z_df)
 end
 fix_capex = sum(row.count * tcs[(row.tech, row.scale)] for row in eachrow(z_df))
 
-# ── B&C alpha rates: CC per t dry = (B - E+ - S)/1000 ──
-# B = bghg[t1]/eta (per t dry, stored per t wet ref -> divide by T1 wet->dry yield)
-# E+ = pghg[t1]/eta + pghg[t2]   (T1 stored per t wet ref)
-# S  = sghg[t2] * yield[t2]   (kg CO2e/t BC * t BC/t dry  -> kg/t dry, negative)
+# ── B&C alpha rates: CC per t dry = (B - E+ + |S|)/1000 ──
+# B   = bghg[t1]/eta   (per t dry; stored per t wet ref -> divide by T1 wet->dry yield)
+# E+  = pghg[t1]/eta + pghg[t2]   (T1 stored per t wet ref)
+# |S| = -sghg[t2] * yield[t2]   (sghg < 0: sequestration + N2O, so -sghg > 0)
 alpha = copy(alpha0)
 println("B&C carbon credit rates (tCC per t dry biomass):")
 for f in 1:N_FS
@@ -110,8 +115,8 @@ for f in 1:N_FS
         y = alpha0[t2x, BC_PROD]
         b = bghg[t1] / eta_f * b_mult      # baseline decomposition avoided, per t dry
         e = pghg[t1] / eta_f + pghg[t2x]  # process GHG per t dry
-        s = sghg[t2x] * y                 # seq+N2O per t dry (negative)
-        rate = (b - e - s) / 1000.0
+        s = -(seqghg[t2x] * _perm + n2oghg[t2x]) * y   # |S| per t dry (permanence scaled, E4)
+        rate = (b - e + s) / 1000.0       # = B - E+ + |S|, paper Eq. R = B - E+ + S
         alpha[t2x, CC_PROD] = rate
         if f <= 4
             println("  $(rpad(tn_df[t2x,:name],28)) $(round(rate, digits=3))")
@@ -146,8 +151,9 @@ function solve_bnc(p_c, z_warm; time_limit=_tlimit, mipgap=0.005, verbose=true)
     set_optimizer_attribute(m, "TimeLimit", time_limit)
     set_optimizer_attribute(m, "MIPGap", mipgap)
     set_optimizer_attribute(m, "MIPFocus", 1)
-    set_optimizer_attribute(m, "Threads", 8)
+    set_optimizer_attribute(m, "Threads", 7)   # 7/8 physical cores: thermal headroom
     set_optimizer_attribute(m, "OutputFlag", 0)
+    _seed === nothing || set_optimizer_attribute(m, "Seed", _seed)
 
     @variable(m, f[i in N, j in N, p in P; arc_ok[(i,j,p)]] >= 0)
     @variable(m, dem[DS] >= 0); @variable(m, sup[SS] >= 0)
@@ -202,6 +208,14 @@ function solve_bnc(p_c, z_warm; time_limit=_tlimit, mipgap=0.005, verbose=true)
                for i in N, j in N if any(arc_ok[(i,j,p)] for p in P))
     seqg = sum(value(x[i,BC_PROD,t]) * sghg[t] for i in N, t in TECHS if t > N_FS)
     basl = sum((-value(x[i,trp[t],t])) * bghg[t] for i in N, t in 1:N_FS)
+    # cost/transfer decomposition (E6 welfare accounting)
+    rev_bc    = sum(value(dem[dd]) * dbd[dd] for dd in DS if dpr[dd] == BC_PROD)
+    credit_rev = cc_sold * p_c
+    farmgate  = sum(value(sup[i]) * sbd[i] for i in SS)
+    opex      = sum((-value(x[i,trp[t],t])) * top[t] for i in N, t in TECHS)
+    transport = sum((tvc[p]*dists[(i,j)] + tfc[p]) * value(f[i,j,p])
+                    for i in N, j in N, p in P if arc_ok[(i,j,p)])
+    capex     = af * sum(value(z[i,t,k]) * tcs[(t,k)] for i in N, t in TECHS, k in SCL)
 
     # facility layout at this solution (for warm start of next p_c)
     z_layout = Dict{Tuple{Int,Int,Int}, Int}()
@@ -215,6 +229,8 @@ function solve_bnc(p_c, z_warm; time_limit=_tlimit, mipgap=0.005, verbose=true)
     (; p_c, profit_M=objective_value(m)/1e6, bc_Mt=total_bc/1e6, cc_Mt=total_cc/1e6,
        cc_sold_Mt=cc_sold/1e6, wet_Mt=wet/1e6, bc_300_Mt=bc_300/1e6, bc_500_Mt=bc_500/1e6,
        seg=bc_by_seg, ghg_Mt=(proc+tran+seqg)/1e9, baseline_Mt=basl/1e9,
+       rev_bc_M=rev_bc/1e6, credit_rev_M=credit_rev/1e6, farmgate_M=farmgate/1e6,
+       opex_M=opex/1e6, transport_M=transport/1e6, capex_M=capex/1e6,
        gap=relative_gap(m),
        status=string(termination_status(m)), z_layout=z_layout)
 end
@@ -256,6 +272,9 @@ df = DataFrame(
     seg_L = [r.seg["L"] for r in results], sink_Mt = [r.seg["sink"] for r in results],
     bc_300_Mt = [r.bc_300_Mt for r in results], bc_500_Mt = [r.bc_500_Mt for r in results],
     ghg_Mt = [r.ghg_Mt for r in results], baseline_Mt = [r.baseline_Mt for r in results],
+    rev_bc_M = [r.rev_bc_M for r in results], credit_rev_M = [r.credit_rev_M for r in results],
+    farmgate_M = [r.farmgate_M for r in results], opex_M = [r.opex_M for r in results],
+    transport_M = [r.transport_M for r in results], capex_M = [r.capex_M for r in results],
     gap = [r.gap for r in results],
     status = [r.status for r in results])
 outfile = isempty(_tag) ? (frac_d == 0.9 ? "policy_A_bnc_sweep_v2.csv" : "policy_A_decomp_frac$(frac_d)_v2.csv") :

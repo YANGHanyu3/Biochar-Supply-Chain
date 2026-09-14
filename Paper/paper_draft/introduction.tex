@@ -33,7 +33,7 @@ stable carbon rather than per unit of energy sold. This coupling raises
 questions that existing models do not answer: ``How should carbon policies be
 formulated inside a supply chain optimization model so that they genuinely
 change facility locations, technology choices, and production volumes?'' and
-``What is the endogenous price of carbon that emerges from such a system, and
+``What is the shadow price of carbon that emerges from such a system, and
 how does it compare with observed market prices?''
 
 Three strands of literature frame these questions. First, biochar techno-economic
@@ -59,7 +59,7 @@ shift of the objective.
 This paper addresses the gap between these strands: no existing
 study (i) embeds carbon policy inside a multi-product, price-responsive
 supply chain network for biochar in the market-clearing/dual framework, (ii)
-derives the endogenous carbon price of the system as the dual of an
+derives the shadow carbon price of the system as the dual of an
 emission constraint and benchmarks it against real market prices, and (iii)
 compares three canonical policy architectures (baseline-and-credit,
 cap-and-trade, and a tiered tax with removal crediting and allowance
@@ -76,9 +76,11 @@ which facility locations are integer decisions and market clearing yields
 spatially resolved inherent values from LP duals. Second, we integrate three
 carbon policy architectures into this model: (A) a baseline-and-credit mechanism
 whose credits scale with throughput; (B) a cap-and-trade scheme in which the
-carbon price is the endogenous dual of the emission cap, tracing the
+carbon price is the shadow dual of the emission cap, tracing the
 system's marginal abatement cost curve; and (C) a tiered carbon tax combined with
-Verra VM0044-compliant removal crediting (molar H/C $\leq$ 0.7) and
+Verra VM0044-inspired removal crediting with a molar H/C $\leq$ 0.7
+eligibility gate (additionality, leakage, and MRV requirements are outside the
+model scope) and
 grandfathering versus benchmarking allowance allocation. Third, using DOE
 Billion-Ton 2023 (including its USFS FIA-based forestry module) and USDA NASS
 2022 Census data, we quantify how each
@@ -86,9 +88,10 @@ policy reshapes facility location, technology selection, biochar production
 (2.25--2.85 Mt/yr across the policies studied in the near-term scenario),
 carbon removal (1.60--1.96 Mt
 CO$_2$e/yr), and system surplus (\$0.7--3.4 billion/yr), and we show that net
-emission caps alone are blind to negative emissions while removal crediting
+emission caps looser than the system's baseline flux do not bind while removal
+crediting
 activates the low-price agricultural segment of demand at credit prices as low as
-\$25/tCO$_2$e.
+\$25/tCO$_2$e under the calibrated demand.
 
 The paper is structured as follows. In Section~\ref{sec:model} we present the
 mathematical formulation, including the base network model and the three policy

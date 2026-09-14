@@ -100,6 +100,9 @@ def draw_demand(ax):
         ys += [price, price]
         cum += cap
     ax.step(xs, ys, where="post", color=C_BC, lw=2.4)
+    for bx, tag in [(0.8, "0.8"), (2.3, "2.3"), (4.8, "4.8")]:
+        ax.axvline(bx, color=C_GREY, ls=":", lw=0.8, alpha=0.55)
+        ax.text(bx, 52, f"{tag} Mt", fontsize=8.5, color=C_GREY, ha="center")
     s2f = os.path.join(resdir, "S2_summary.txt")
     if os.path.exists(s2f):
         s2 = parse_summary(s2f)
@@ -178,14 +181,18 @@ def fig_policyA():
     axes[1].set_title("Production by segment", fontweight="bold")
     FS.panel_label(axes[1], 1)
     axes[1].legend(fontsize=9, ncol=2, loc="upper left")
-    axes[2].plot(a.p_c, a.cc_Mt, "o-", color=C_500, lw=2, label="Credits produced")
-    axes[2].plot(a.p_c, a.ghg_Mt, "s-", color=C_300, lw=2, label="Net GHG")
+    axes[2].plot(a.p_c, a.cc_Mt, "o-", color=C_500, lw=2, label="Creditable quantity")
     axes[2].axhline(0, color="k", lw=0.7)
     axes[2].set_xlabel("Credit price (USD/tCO2e)")
-    axes[2].set_ylabel("Mt CO2e / yr")
-    axes[2].set_title("Credits and net GHG", fontweight="bold")
+    axes[2].set_ylabel("Creditable quantity (Mt CO2e / yr)", color=C_500)
+    axes[2].set_title("Creditable quantity and net GHG", fontweight="bold")
     FS.panel_label(axes[2], 2)
-    axes[2].legend(fontsize=9)
+    ax2r = axes[2].twinx()
+    ax2r.plot(a.p_c, a.ghg_Mt, "s-", color=C_300, lw=2, label="Net GHG")
+    ax2r.set_ylabel("Net GHG (Mt CO2e / yr)", color=C_300)
+    lines1, labels1 = axes[2].get_legend_handles_labels()
+    lines2, labels2 = ax2r.get_legend_handles_labels()
+    axes[2].legend(lines1 + lines2, labels1 + labels2, fontsize=9, loc="lower left")
     fig.suptitle(f"Paradigm A: baseline-and-credit sweep ({scen})", fontweight="bold")
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     fig.savefig(os.path.join(figdir, "sfig1_policyA.png"))

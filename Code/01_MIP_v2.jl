@@ -99,7 +99,7 @@ set_optimizer_attribute(m, "MIPGap", 0.01)        # 1% (tighten later on HPC)
 set_optimizer_attribute(m, "TimeLimit", 1800)
 set_optimizer_attribute(m, "MIPFocus", 1)         # prioritize feasible solutions
 set_optimizer_attribute(m, "NoRelHeurTime", 60)
-set_optimizer_attribute(m, "Threads", 8)
+set_optimizer_attribute(m, "Threads", 7)   # 7/8 physical cores: thermal headroom
 set_optimizer_attribute(m, "OutputFlag", 0)
 
 @variable(m, f[i in N, j in N, p in P; arc_ok[(i,j,p)]] >= 0)

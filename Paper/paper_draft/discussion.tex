@@ -15,7 +15,8 @@ the primal optimum does not move, precisely the failure mode characterized by
 \cite{benjaafar2013}. Proposition~\ref{prop:taxinv} states the boundary
 condition precisely: the tax is dispatch-neutral up to a threshold whose
 denominator is the marginal price gap divided by the path emission intensity,
-which we compute at $\approx$\$350/t CO$_2$e, above every tested rate
+which we compute at $\approx$\$321/t CO$_2$e with route-specific marginal
+intensities of the LP basis (SI Section~A.11), above every tested rate
 (\$25--200/t) but close enough that substantially higher taxes could bite. The
 free-facility re-solve (C1-free, Section~\ref{sec:policyC})
 confirms that this null response is economic rather than an artifact of the
@@ -26,33 +27,42 @@ statement should not be read as tax-neutrality of biochar systems in general.
 Our formulation shows that policy instruments which
 scale with throughput (baseline-and-credit) or which act as
 constraints (gross emission caps) do change the solution: credits
-activate the \$250/t bulk-agricultural demand segment at $p_c=\$25$/tCO$_2$e and
+activate the \$250/t bulk-agricultural demand segment at $p_c=\$25$/tCO$_2$e
+under the calibrated step demand and
 mobilize essentially all near-term biomass at \$200/tCO$_2$e, while caps reshape
 production along the marginal abatement cost curve. The net-flux cap
-experiment completes the picture: because the system is intrinsically
-net-negative, $\mathrm{CAP}^{\mathrm{net}}$ never binds and provides zero
-incentive. Policy design for negative-emission supply chains must therefore
+experiment completes the picture: every tested cap
+($\mathrm{CAP}^{\mathrm{net}}\ge-1{,}000$~kt) is looser than the baseline flux
+of $-1{,}595$~kt and therefore does not bind; the frontier sweep of SI
+Fig.~S2 shows that caps tightened below the baseline flux bind in two
+stages---expansion into the L segment at $\approx$\$110/tCO$_2$e, then
+500$^\circ$C conversion at $\approx$\$150--330/tCO$_2$e. Policy
+design for negative-emission supply chains must therefore
 explicitly value removal, not merely penalize emissions.
 
-\subsection{Endogenous carbon prices versus real markets}
+\subsection{Shadow carbon prices versus real markets}
 
-The endogenous marginal abatement cost traced by the gross-emission cap sweep
+The conditional fixed-layout shadow marginal abatement cost traced by the
+gross-emission cap sweep
 is $\approx$ \$351--391/t CO$_2$e over the first binding intervals and rises to
 $\approx$ \$599/t as the cap tightens; the cap's vertex dual reproduces it
-exactly (the reported value is the negative of the marginal value under
-Gurobi's sign convention), validating the endogenous-price
+to numerical tolerance (the reported value is the negative of the marginal
+value under
+Gurobi's sign convention), validating the shadow-price
 interpretation on a full supply chain network. This places the Wisconsin
 biochar
-system's gross-emission abatement above RGGI allowance prices
-(\$17--25/t), EU ETS prices (\texteuro 50--90/t), and the voluntary removal
+system's gross-emission abatement above 2024--2025 RGGI allowance prices
+(\$17--25/t), EU ETS prices (\texteuro 50--90/t, $\approx$\$55--100/t), and the
+voluntary removal
 credit band (\$100--250/tCO$_2$e for VM0044/Puro.earth credits). Two
 implications follow. First, at any observed carbon price, a cap-and-trade
 program alone would induce little gross abatement in this system, because
 gross emissions are intrinsic to drying and pyrolysis and abating them means
 forgoing biochar sales; reaching the \$800/t-market equilibrium required no
 policy at all, but expanding to the bulk agricultural segment requires credit
-prices above roughly \$25/tCO$_2$e, well within observed voluntary-market
-prices. Second, the comparison of the system's endogenous abatement cost with
+prices above roughly \$25/tCO$_2$e under the calibrated demand, well within
+observed voluntary-market
+prices. Second, the comparison of the system's shadow abatement cost with
 administered market prices shows that removal crediting, not
 gross-emission pricing, is the mechanism that can profitably expand biochar
 CDR, a quantitative argument for designing negative-emission policies around
@@ -97,8 +107,8 @@ and 500$^\circ$C's lower yield becomes an asset: each tonne of biochar
 served requires more dry tonnes, each earning credits, so 500$^\circ$C overtakes
 300$^\circ$C at $p_c\approx\$61$/t for every segment; the model switches
 $\approx$2.8~Mt of production at \$100--\$200/t (the \$100/t point from a
-dedicated 1{,}800~s re-solve at a 1.9\% gap, archived as
-\texttt{policy\_A\_recert\_v2.csv}). Third, quality-differentiated
+dedicated 3{,}600~s re-solve at a 1.9\% gap, archived as
+\texttt{policy\_A\_recert2\_v2.csv}). Third, quality-differentiated
 demand (v2b) adds a structural floor: the \$800/t premium segment is BC500-only,
 so the no-policy baseline already builds 0.80~Mt/yr of BC500 capacity, and
 varying the premium capacity moves BC500 one-for-one (0.40~Mt at half capacity,
@@ -168,10 +178,12 @@ conclusions unchanged. (viii) \emph{Static
 structure.} The model is single-year with no seasonal inventory; the
 allocation-design result (C3) and facility-path dependencies point to a
 multi-period extension. (ix) \emph{Solver gaps.} Policy sweeps are reported at
-0.5--4.7\% MIP optimality gaps (Table~S3); the points with the largest gaps are
-re-solved with 1{,}800~s time limits; free-facility responses (Paradigms A, C1-free, C2)
-will be re-solved to tighter gaps on high-performance infrastructure for the
-final version. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
+0.5--4.7\% MIP optimality gaps (Table~S3). The largest-gap points were
+re-solved at a 0.1\% target with 3{,}600~s limits and multiple seeds: the
+near-term C2 $p_c=\$150$ point improved from a 4.7\% to a 2.5\% gap (surplus
+$+1.9\%$), and forward versus reverse sweep orders reproduce every point
+within 0.2\%, so the reported structural responses are stable across
+warm-start paths; TIME\_LIMIT points remain feasible incumbents. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
 verbatim to other Midwest states (feedstock mix, demand, and dairy waste
 streams differ); the qualitative policy mechanisms are the transferable
 findings.

@@ -1,0 +1,31 @@
+{
+  "scenario": "near-term",
+  "feedstocks": 13,
+  "technologies": 39,
+  "products": 28,
+  "total_dry_Mt": 6.969,
+  "bc_potential_300C_Mt": 2.573,
+  "demand_segments": [
+    [
+      "H",
+      800.0,
+      0.8
+    ],
+    [
+      "M",
+      500.0,
+      1.5
+    ],
+    [
+      "L",
+      250.0,
+      2.5
+    ]
+  ],
+  "sink_price": 30.0,
+  "perm_300": 0.65,
+  "perm_500": 0.8,
+  "hc_gate": 0.7,
+  "hc_shift": 0.0,
+  "notes": "CC= C*perm*44/12*yield, eligibility H/C<=0.7; 300C never eligible (H/C 0.9-1.4, torrefaction-like, Rafiq 2016/Ippolito 2020); 500C eligible (H/C 0.40-0.52, Rafiq 2016/Enders 2012/Ippolito 2020); see SI A.3"
+}

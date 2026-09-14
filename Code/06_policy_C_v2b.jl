@@ -203,7 +203,7 @@ function solve_c2(p_c, z_warm; time_limit=900, mipgap=0.005)
     end
     (; p_c, profit_M=objective_value(m)/1e6, bc300_Mt=bc300/1e6, bc500_Mt=bc500/1e6,
        bc_Mt=(bc300+bc500)/1e6, cc_Mt=cc/1e6, emis_kt=value(Egross)/1e6,
-       status=string(termination_status(m)), z_layout=z_layout)
+       status=string(termination_status(m)), gap=relative_gap(m), z_layout=z_layout)
 end
 
 println("\n" * "="^100)
@@ -231,6 +231,7 @@ df = DataFrame(
     p_c = [r.p_c for r in results], profit_M = [r.profit_M for r in results],
     bc_Mt = [r.bc_Mt for r in results], bc300_Mt = [r.bc300_Mt for r in results],
     bc500_Mt = [r.bc500_Mt for r in results], cc_Mt = [r.cc_Mt for r in results],
-    emis_kt = [r.emis_kt for r in results], status = [r.status for r in results])
+    emis_kt = [r.emis_kt for r in results], status = [r.status for r in results],
+    gap = [r.gap for r in results])
 CSV.write(joinpath(resdir, "policy_C2_tax_credit_v2b.csv"), df)
 println("\nSaved: policy_C2_tax_credit_v2b.csv")

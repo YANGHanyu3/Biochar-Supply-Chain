@@ -1,0 +1,5 @@
+02_LP_duals_v2 scenario=near-term status=OPTIMAL
+profit_M = 500.72
+bc_Mt = 1.610 (ag 1.610, sink 0.000)
+iv_wet_min=-0.00 iv_wet_max=63.37 iv_wet_mean=3.68
+iv_bc_min=259.13 iv_bc_max=297.42 iv_bc_mean=277.60

@@ -1,0 +1,12 @@
+# System-level carbon reconciliation (mature-market medium)
+03_LP_GHG_v2 scenario=mature-market medium status=OPTIMAL
+net_ghg_kt = -1648.2 (proc 966.8, trans 16.4, seq -2631.4)
+bc_Mt = 2.300
+  p_c   BC(Mt)  CC_A(Mt)   B(Mt)  E+(kt)  |S|(kt)   N(Mt)     identity
+    0    2.300    10.918   9.249       -        -  -1.651           OK
+   25    4.787    22.990  19.523       -        -  -3.431           OK
+   50    4.800    23.145  19.658       -        -  -3.451           OK
+  100    4.801    27.669  22.909       -        -  -4.703   DIFF 0.057
+  150    4.800    27.706  22.935       -        -  -4.714   DIFF 0.058
+  200    4.800    27.708  22.935       -        -  -4.716   DIFF 0.057
+IDENTITY cc = B - N: FAIL

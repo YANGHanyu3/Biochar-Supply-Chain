@@ -30,10 +30,12 @@ for a in ARGS
     end
 end
 datadir = get(kw, "datadir", joinpath("biochar_data_v2", scen))
-resdir  = joinpath("results_v2", scen)
+resdir  = get(kw, "resdir", joinpath("results_v2", scen))
+mkpath(resdir)
 _tag    = get(kw, "tag", "")
 _plist  = haskey(kw, "prices") ? [parse(Float64, p) for p in split(kw["prices"], ",")] : Float64[]
 _tlimit = haskey(kw, "timelimit") ? parse(Float64, kw["timelimit"]) : 600.0
+_seed   = haskey(kw, "seed") ? parse(Int, kw["seed"]) : nothing
 sens_only = !isempty(_tag) || haskey(kw, "datadir")   # skip C1/C1-free/C3 (unchanged by H/C shift)
 
 nm      = CSV.read(joinpath(datadir, "node_matrix.csv"), DataFrame)
@@ -53,6 +55,9 @@ lat = Dict(zip(N, nm[:,3])); lon = Dict(zip(N, nm[:,4]))
 tvc = Dict(zip(P, pm[:,3])); tfc = Dict(zip(P, pm[:,4]))
 snd = Dict(zip(SS, Int.(sup_df[:,2]))); spr = Dict(zip(SS, Int.(sup_df[:,3])))
 sbd = Dict(zip(SS, sup_df[:,5])); scp = Dict(zip(SS, sup_df[:,6]))
+dnd0 = Dict(zip(DS0, Int.(dem_df[:,2]))); dpr0 = Dict(zip(DS0, Int.(dem_df[:,3])))
+dbd0 = Dict(zip(DS0, dem_df[:,5])); dcp0 = Dict(zip(DS0, dem_df[:,6]))
+seg0 = Dict(zip(DS0, [String(s) for s in dem_df[:,4]]))
 trp = Dict(zip(TECHS, Int.(tech_df[:,3])))
 top = Dict(zip(TECHS, tech_df[:,5]))
 tsz = Dict((TECHS[t],k) => tech_df[t,6+k] for t in 1:length(TECHS), k in SCL)
@@ -168,8 +173,9 @@ function build_mip(p_credit, z_warm; time_limit=_tlimit, mipgap=0.005)
     set_optimizer_attribute(m, "TimeLimit", time_limit)
     set_optimizer_attribute(m, "MIPGap", mipgap)
     set_optimizer_attribute(m, "MIPFocus", 1)
-    set_optimizer_attribute(m, "Threads", 8)
+    set_optimizer_attribute(m, "Threads", 7)   # 7/8 physical cores: thermal headroom
     set_optimizer_attribute(m, "OutputFlag", 0)
+    _seed === nothing || set_optimizer_attribute(m, "Seed", _seed)
     @variable(m, f[i in N, j in N, p in P; arc_ok[(i,j,p)]] >= 0)
     @variable(m, dem[DS] >= 0); @variable(m, sup[SS] >= 0)
     @variable(m, d[N,P] >= 0);  @variable(m, s[N,P] >= 0)
@@ -333,6 +339,20 @@ for p_c in (isempty(_plist) ? [50.0, 100.0, 150.0, 200.0] : _plist)
     total_cc = sum(value(m[:x][i,CC_PROD,t]) for i in N, t in TECHS if t > N_FS)
     bc300 = sum(value(m[:x][i,BC_PROD,t]) for i in N, t in (N_FS+1):(2*N_FS))
     bc500 = sum(value(m[:x][i,BC_PROD,t]) for i in N, t in (2*N_FS+1):(3*N_FS))
+    # cost/transfer decomposition (E6 welfare accounting)
+    cc_sold = sum(value(m[:dem][dd]) for dd in DS0 if dpr0[dd] == CC_PROD)
+    rev_bc  = sum(value(m[:dem][dd]) * dbd0[dd] for dd in DS0 if dpr0[dd] == BC_PROD)
+    credit_rev = cc_sold * p_c
+    farmgate  = sum(value(m[:sup][i]) * sbd[i] for i in SS)
+    opex      = sum((-value(m[:x][i,trp[t],t])) * top[t] for i in N, t in TECHS)
+    transport = sum((tvc[p]*dists[(i,j)] + tfc[p]) * value(m[:f][i,j,p])
+                    for i in N, j in N, p in P if arc_ok[(i,j,p)])
+    capex     = af * sum(value(m[:z][i,t,k]) * tcs[(t,k)] for i in N, t in TECHS, k in SCL)
+    tax_M     = value(tax) / 1e6
+    segH = sum(value(m[:dem][dd]) for dd in DS0 if dpr0[dd] == BC_PROD && seg0[dd] == "H")
+    segM = sum(value(m[:dem][dd]) for dd in DS0 if dpr0[dd] == BC_PROD && seg0[dd] == "M")
+    segL = sum(value(m[:dem][dd]) for dd in DS0 if dpr0[dd] == BC_PROD && seg0[dd] == "L")
+    segS = sum(value(m[:dem][dd]) for dd in DS0 if dpr0[dd] == BC_PROD && seg0[dd] == "sink")
     # update warm start
     for i in N, t in TECHS, k in SCL
         zi = round(Int, value(m[:z][i,t,k]))
@@ -340,6 +360,11 @@ for p_c in (isempty(_plist) ? [50.0, 100.0, 150.0, 200.0] : _plist)
     end
     push!(rows2, (p_c=p_c, profit=objective_value(m)/1e6, emis=value(Eg)/1e6,
                   bc=total_bc/1e6, cc=total_cc/1e6, bc300=bc300/1e6, bc500=bc500/1e6,
+                  net_Mt=value(Eg + Sg)/1e9,
+                  seg_H=segH/1e6, seg_M=segM/1e6, seg_L=segL/1e6, sink_Mt=segS/1e6,
+                  rev_bc_M=rev_bc/1e6, credit_rev_M=credit_rev/1e6, tax_M=tax_M,
+                  farmgate_M=farmgate/1e6, opex_M=opex/1e6, transport_M=transport/1e6,
+                  capex_M=capex/1e6,
                   gap=relative_gap(m),
                   status=string(termination_status(m))))
     println(@sprintf("%-8.0f %-11.2f %-11.1f %-9.3f %-9.3f %-9.3f %-9.3f %s",

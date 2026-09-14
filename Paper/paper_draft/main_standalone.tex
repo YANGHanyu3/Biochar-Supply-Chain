@@ -49,7 +49,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{assumption}{Assumption}
 
-\title{Designing Carbon Policy for a Biochar Supply Chain: Market Clearing, Endogenous Carbon Prices, and Technology Choice in Wisconsin}
+\title{Designing Carbon Policy for a Biochar Supply Chain: Market Clearing, Shadow Carbon Prices, and Technology Choice in Wisconsin}
 % Author block commented out per author request (2026-09-09): not shown until
 % final submission. Correct affiliation recorded here for easy restoration:
 %   Hanyu YANG, first-year PhD student, Department of Systems Engineering,
@@ -73,36 +73,39 @@
 \begin{abstract}
 Biochar is among the most scalable engineered carbon dioxide removal (CDR)
 pathways, but its economics depend on carbon accounting rather than energy
-sales, and existing models treat carbon policy as exogenous. We present a
-multi-product biochar supply chain model for Wisconsin (72 county nodes, 13
-feedstocks, drying plus slow pyrolysis at 300/500~$^\circ$C, price-responsive
-demand) in the market-clearing framework of Sampat et al.~\cite{sampat2019},
-where mass-balance duals are spatial equilibrium prices. We embed three policy
-architectures: baseline-and-credit, cap-and-trade with an endogenous carbon
-price, and a tiered tax with Verra VM0044 removal crediting. The no-policy
+sales, while existing models treat carbon policy as exogenous. We present a
+multi-product biochar supply chain model for Wisconsin (72 counties, 13
+feedstocks, two pyrolysis temperatures, price-responsive demand) in the
+market-clearing framework of Sampat et al.~\cite{sampat2019}, with
+mass-balance duals as spatial equilibrium prices. We embed
+baseline-and-credit, cap-and-trade, and tiered-tax policy architectures, the
+last with H/C-gated VM0044-inspired removal crediting. The no-policy
 equilibrium yields 2.30~Mt biochar/yr, \$708~M/yr surplus, and 1.60~Mt
-CO$_2$e/yr net removal. A linear carbon tax leaves this optimum unchanged and
-net emission caps never bind, because the system is demand-constrained and
-net-negative; removal credits instead activate the \$250/t bulk market at
-\$25/tCO$_2$e and mobilize nearly all near-term biomass at \$200/tCO$_2$e
-(surplus \$3.36~B/yr). The cap's endogenous marginal abatement cost
-(\$351--599/tCO$_2$e) exceeds EU ETS and voluntary credit prices, and the
-VM0044 H/C gate reshapes temperature selection. Policy design, not stringency,
-determines the scale, technology, and spatial structure of biochar CDR.
+CO$_2$e/yr net removal. A linear carbon tax leaves this optimum unchanged,
+and net emission caps bind only below the system's own net flux---then
+mandating production expansion and 500$^\circ$C conversion at
+\$110--330/tCO$_2$e; removal credits instead activate the \$250/t bulk
+market at \$25/tCO$_2$e under the calibrated step demand and mobilize most
+near-term biomass at \$200/tCO$_2$e (surplus \$3.36~B/yr). The cap's shadow
+abatement cost (fixed-layout LP dual,
+\$351--599/tCO$_2$e) exceeds observed allowance and credit prices, and the
+VM0044 H/C gate reshapes temperature selection. Under the calibrated demand,
+policy design---not stringency---sets the scale, technology, and spatial
+structure of biochar CDR.
 \end{abstract}
 
 \paragraph{Keywords} biochar supply chain; carbon dioxide removal; market
-clearing; inherent values; endogenous carbon price; baseline-and-credit;
+clearing; inherent values; shadow carbon price; baseline-and-credit;
 cap-and-trade; tiered carbon tax; VM0044; mixed-integer programming
 
 \section*{Highlights}
 \begin{itemize}
 \item Show that a linear carbon tax leaves the demand-constrained optimum
 unchanged.
-\item Trace an endogenous abatement cost of \$351--599/tCO$_2$e, above market
+\item Trace a shadow abatement cost of \$351--599/tCO$_2$e, above market
 prices.
-\item Show that net emission caps never bind for a net-negative system.
-\item Find that removal credits activate the bulk market at \$25/tCO$_2$e.
+\item Show that net caps bind below the baseline flux as durability mandates.
+\item Find that removal credits activate the calibrated bulk market at \$25/tCO$_2$e.
 \item Show the VM0044 H/C gate converts the system to 500$^\circ$C pyrolysis.
 \end{itemize}
 
@@ -144,7 +147,7 @@ stable carbon rather than per unit of energy sold. This coupling raises
 questions that existing models do not answer: ``How should carbon policies be
 formulated inside a supply chain optimization model so that they genuinely
 change facility locations, technology choices, and production volumes?'' and
-``What is the endogenous price of carbon that emerges from such a system, and
+``What is the shadow price of carbon that emerges from such a system, and
 how does it compare with observed market prices?''
 
 Three strands of literature frame these questions. First, biochar techno-economic
@@ -170,7 +173,7 @@ shift of the objective.
 This paper addresses the gap between these strands: no existing
 study (i) embeds carbon policy inside a multi-product, price-responsive
 supply chain network for biochar in the market-clearing/dual framework, (ii)
-derives the endogenous carbon price of the system as the dual of an
+derives the shadow carbon price of the system as the dual of an
 emission constraint and benchmarks it against real market prices, and (iii)
 compares three canonical policy architectures (baseline-and-credit,
 cap-and-trade, and a tiered tax with removal crediting and allowance
@@ -187,9 +190,11 @@ which facility locations are integer decisions and market clearing yields
 spatially resolved inherent values from LP duals. Second, we integrate three
 carbon policy architectures into this model: (A) a baseline-and-credit mechanism
 whose credits scale with throughput; (B) a cap-and-trade scheme in which the
-carbon price is the endogenous dual of the emission cap, tracing the
+carbon price is the shadow dual of the emission cap, tracing the
 system's marginal abatement cost curve; and (C) a tiered carbon tax combined with
-Verra VM0044-compliant removal crediting (molar H/C $\leq$ 0.7) and
+Verra VM0044-inspired removal crediting with a molar H/C $\leq$ 0.7
+eligibility gate (additionality, leakage, and MRV requirements are outside the
+model scope) and
 grandfathering versus benchmarking allowance allocation. Third, using DOE
 Billion-Ton 2023 (including its USFS FIA-based forestry module) and USDA NASS
 2022 Census data, we quantify how each
@@ -197,9 +202,10 @@ policy reshapes facility location, technology selection, biochar production
 (2.25--2.85 Mt/yr across the policies studied in the near-term scenario),
 carbon removal (1.60--1.96 Mt
 CO$_2$e/yr), and system surplus (\$0.7--3.4 billion/yr), and we show that net
-emission caps alone are blind to negative emissions while removal crediting
+emission caps looser than the system's baseline flux do not bind while removal
+crediting
 activates the low-price agricultural segment of demand at credit prices as low as
-\$25/tCO$_2$e.
+\$25/tCO$_2$e under the calibrated demand.
 
 The paper is structured as follows. In Section~\ref{sec:model} we present the
 mathematical formulation, including the base network model and the three policy
@@ -348,7 +354,10 @@ biomass from natural decay,
 B(x)=\sum_{f\in\mathcal{F}} b_f \sum_{n}\bigl(-x_{n,f,\mathrm{T1}_f}\bigr),
 \qquad b_f = 0.9\,C_f^{\mathrm{dry}}\,\frac{44}{12}\times 10^{3}\ \text{kg/t dry},
 \end{equation}
-with $b_f \approx 1350$--$1650$~kg/t dry. Throughout the paper, reported
+with $b_f \approx 1350$--$1650$~kg/t dry. The decay fraction $0.9$ is a
+scenario assumption (immediate, complete decay of uncollected residues, an
+upper bound on the avoided-emission credit); a sensitivity halving it to 0.5 is
+reported in Section~\ref{sec:sensitivity}. Throughout the paper, reported
 ``net GHG'' figures are the direct flux $N(x)$, not abatement relative to
 the decay counterfactual; $B(x)$ enters only the credit calculation of
 Paradigm~A below.
@@ -389,6 +398,20 @@ price-responsive, the equilibrium quantity is endogenous; in the base model
 Section~\ref{sec:v2b}) splits biochar into BC300 and BC500 products with the
 CDR premium segment restricted to BC500.
 
+\emph{Price concepts.} Four distinct price-like objects appear throughout the
+paper, and they are not the same quantity. (i) \emph{Demand bid}
+$\lambda^{\mathrm{dem}}_d$: the buyer's willingness-to-pay anchor for one tonne
+of biochar in segment $d$, not an equilibrium price. (ii) \emph{Nodal inherent
+value} $\pi_{np}$: the dual of the node mass balance, the conditional marginal
+value of one more tonne of product $p$ at node $n$ under the fixed facility
+layout. (iii) \emph{Shadow carbon price} (conditional fixed-layout marginal
+abatement cost): the negative of the cap dual, $-\mu_{\mathrm{CAP}}$, the
+marginal opportunity cost of tightening the emission cap under the fixed
+layout; it is a coordinating-entity shadow price, not a price from a
+decentralized allowance market (Section~\ref{sec:limitations}).
+(iv) \emph{Administered market benchmarks}: observed RGGI/EU ETS allowance and
+voluntary removal-credit prices, used only as external comparisons.
+
 \subsection{Carbon policy modules}
 \label{sec:policy}
 
@@ -412,7 +435,7 @@ both credit basis (avoided-baseline versus sequestered-carbon) and eligibility
 throughput-scaled credit rather than a specific existing methodology; it is
 contrasted with the sequestration-only, H/C-gated VM0044 basis of Paradigm~C2.
 
-\subsubsection{Paradigm B: cap-and-trade with endogenous carbon price}
+\subsubsection{Paradigm B: cap-and-trade with shadow carbon price}
 
 B1 imposes a gross-emission cap and sweeps it to trace the system's marginal
 abatement cost (MAC) curve $\Pi^{*}(\mathrm{CAP})$:
@@ -420,7 +443,7 @@ abatement cost (MAC) curve $\Pi^{*}(\mathrm{CAP})$:
 \max\ \Pi \quad \text{s.t.}\quad E^{+}(x)\le \mathrm{CAP},
 \qquad \mathrm{MAC}=\frac{\partial \Pi^{*}}{\partial\,\mathrm{CAP}}
 \end{equation}
-The endogenous-price interpretation is formalized as follows.
+The shadow-price interpretation is formalized as follows.
 \begin{proposition}
 \label{prop:mac_dual}
 For the fixed-layout LP \eqref{eq:base} with an added gross-emission cap
@@ -428,8 +451,8 @@ $E^{+}(x)\le\mathrm{CAP}$, let $\mu_{\mathrm{CAP}}$ be the optimal dual
 variable of the cap constraint under Gurobi's sign convention for a $\le$
 constraint in a maximization. Then
 $\mu_{\mathrm{CAP}}=-\partial\Pi^{*}/\partial\,\mathrm{CAP}$: the reported dual
-is the negative of the marginal abatement cost, so the endogenous carbon price
-is $-\mu_{\mathrm{CAP}}$.
+is the negative of the marginal abatement cost, so the shadow carbon price
+(conditional on the fixed layout) is $-\mu_{\mathrm{CAP}}$.
 \end{proposition}
 \begin{proof}
 The identity is the standard parametric-LP sensitivity theorem applied to the
@@ -437,13 +460,18 @@ cap's right-hand side; the full argument is in the SI (Section~A.9).
 \end{proof}
 The proposition is verified numerically: the reported dual matches the
 finite-difference MAC to numerical tolerance ($-374$ vs.\ \$351--391\$/t over
-the first binding intervals in the near-term scenario). We benchmark the resulting MAC against RGGI
-(\$17--25/t) and EU ETS (\texteuro 50--90/t) allowance prices and the
+the first binding intervals in the near-term scenario). We benchmark the
+resulting MAC against 2024--2025 RGGI
+(\$17--25/t) and EU ETS (\texteuro 50--90/t, $\approx$\$55--100/t) allowance
+prices and the
 voluntary removal-credit band (\$100--250/t, VM0044/Puro). B2 replaces the
 constraint by a net-flux cap
-$E^{+}(x)-S(x)\le\mathrm{CAP}^{\mathrm{net}}$; since the system is net-negative,
-the constraint never binds, demonstrating that net caps are blind to negative
-emissions.
+$E^{+}(x)-S(x)\le\mathrm{CAP}^{\mathrm{net}}$. At every tested cap
+($\mathrm{CAP}^{\mathrm{net}}\ge-1{,}000$~kt, all looser than the baseline
+flux of $-1{,}595$~kt) the constraint does not bind; a frontier sweep that
+tightens the cap below the baseline flux (free-facility MIP, SI Fig.~S2)
+locates the first binding point and traces the response, which is reported in
+Section~\ref{sec:results}.
 
 \subsubsection{Which resource binds: demand-bound versus supply-bound regimes}
 
@@ -527,8 +555,9 @@ calibrated inside the feasible emission range ($T_1=0.4E^{+}_0$, $T_2=0.7E^{+}_0
 rates \$25/50/100 and \$50/100/200 per tCO$_2$e); the flat rate set
 (25/25/25) isolates the linear-tax case. To rule out the possibility that the
 fixed-layout approximation drives the tax results, C1 is also re-solved as a
-free-facility MIP (C1-free). C2 adds Verra VM0044-compliant removal crediting,
-operationalized through the molar H/C~$\le$~0.7 eligibility gate as a proxy:
+free-facility MIP (C1-free). C2 adds removal crediting operationalized through
+the molar H/C~$\le$~0.7 eligibility gate as an H/C-gated VM0044-inspired
+proxy:
 only biochar with molar H/C~$\le$~0.7 generates credits. Measured 300$^\circ$C
 chars are torrefaction-like with H/C $\approx$0.9--1.4
 \cite{rafiq2016,ippolito2020}, so no 300$^\circ$C biochar qualifies and
@@ -584,14 +613,17 @@ is bounded relative to their surplus, the pre-tax ordering of the bid stack is
 preserved. In our data, the marginal price gap is
 $\lambda^{\mathrm{dem}}-\pi^{\mathrm{BC}} \approx \$155$/t
 biochar (the \$500/t M bid minus the largest served-node inherent value,
-\$344.85/t) and the gross-emission intensity of the marginal supply path is
-$\approx$0.44~t CO$_2$e/t biochar (1{,}003~kt gross over 2.30~Mt served;
-T1 $31$--$35$ kg/t wet, T2 $\approx$121 kg/t dry, plus transport), so
-$\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested tier of
+\$344.85/t). Evaluating \eqref{eq:taumax} with the route-specific marginal
+intensities of the LP basis (SI Section~A.11 reports every served demand row
+individually), the binding rows are the M-segment rows served by the
+corn-stover 300$^\circ$C chain with $e^{+}_q\approx0.48$~t CO$_2$e/t biochar,
+so $\tau_{\max}\approx\$321$/t CO$_2$e; the H-segment rows are far looser
+($\approx$\$1{,}100/t). The route-specific threshold exceeds the top tested
+tier of
 \$200/t; the tax's effect within the tested range is confined to surplus
 reallocation. The neutrality itself is a structural property of any
 demand-constrained LP; the contribution here is the quantified boundary
-($\tau_{\max}\approx\$350$/t for this system) and the comparison it enables
+($\tau_{\max}\approx\$321$/t for this system) and the comparison it enables
 with observed carbon prices.
 
 \subsection{Quality-differentiated extension (v2b)}
@@ -614,13 +646,15 @@ yield to access the premium market and higher removal credits.
 \subsection{Solution strategy}
 
 Facility-location decisions are integer, so Steps 1 (MIP) and the policy sweeps
-use Gurobi 13 with a 1--3\% optimality gap, 600--1{,}800~s time limits, and
+use Gurobi 13 with 0.5--1\% optimality gap targets, 600--3{,}600~s time limits, and
 feasibility-focused branching (MIPFocus=1) with 60~s of zero-objective
 heuristics; successive policy prices are warm-started from the previous
-facility layout. All dual-based analyses (inherent values, GHG shadow prices,
-endogenous carbon prices) are performed on LPs with the facility layout fixed
-and solved with dual simplex, so that reported duals are exact vertex
-shadow prices; interior-point (barrier) duals of the cap constraint are not
+facility layout. All dual-based analyses (inherent values, GHG shadow prices, shadow
+carbon prices) are performed on LPs with the facility layout fixed
+and solved with dual simplex, so that reported duals are vertex
+shadow prices; where degeneracy is detected we report the dual range instead
+of a point value (SI Section~A.9), and interior-point (barrier) duals of the
+cap constraint are not
 vertex shadow prices on this LP and are not used. The GHG LP (Step 3) pins demand quantities to the
 Step-2 equilibrium, so its duals are marginal GHG values at the market
 equilibrium rather than at the GHG-minimal dispatch. The near-term scenario
@@ -630,9 +664,11 @@ are provided in the SI.
 
 \begin{assumption}
 \label{ass:duality}
-Throughout our study we assume that strong duality holds for the fixed-layout
-LPs, so that all reported dual variables are unique vertex shadow prices of the
-corresponding constraints.
+For the fixed-layout LPs, strong duality holds: the reported primal and dual
+objective values coincide. Dual solutions need not be unique at degenerate
+vertices, so we do not assume uniqueness; throughout, the reported shadow
+prices are verified against finite-difference perturbations, and dual ranges
+(SI Section~A.9) are reported wherever degeneracy is detected.
 \end{assumption}
 
 %% ===== end inlined: methods =====
@@ -649,8 +685,8 @@ corresponding constraints.
 
 \subsection{Baseline facility locations and economics}
 
-Without carbon policy, the optimal network serves exactly the two
-highest-value demand segments and nothing else (Table~\ref{tab:s0};
+Without carbon policy, the optimal network serves the two
+highest-value demand segments in full and nothing else (Table~\ref{tab:s0};
 Fig.~\ref{fig:baseline}). The equilibrium
 quantity is 2.30~Mt of biochar per year: the H segment
 (\$800/t, 0.80~Mt) and M segment (\$500/t, 1.50~Mt) are fully served, while the
@@ -677,7 +713,9 @@ short. (II) Revenue and cost decomposition, leaving a net surplus of
 \$708~M/yr. (III) Step demand curve and equilibrium: the marginal supply cost
 crosses demand inside the \$500/t M segment, so the H and M segments are fully
 served (0.80 and 1.50~Mt) while the \$250/t L segment and the \$30/t sink
-remain unserved, the demand-constrained regime that policy must overcome.}
+remain unserved, the demand-constrained regime that policy must overcome.
+Breakpoints at 0.8, 2.3, and 4.8~Mt are marked on the quantity axis; at the
+boundary the bid of the marginal served segment (\$500/t at 2.3~Mt) applies.}
 \label{fig:baseline}
 \end{figure}
 
@@ -747,8 +785,11 @@ additional biochar tonne at a county. (II) Wet corn stover inherent value,
 \$39--77/t, the most valuable biomass series; other wet feedstocks carry
 near-zero values (mean \$9/t), confirming the demand-constrained regime in
 which marginal biomass supply is nearly worthless without additional biochar
-demand. (III) County-level feedstock availability (counties sorted by total
-availability, feedstocks by abundance): corn stover dominates the supply
+demand. (III) County-level feedstock availability for the nine of 13
+feedstocks with nonzero near-term supply (counties sorted by total
+availability, feedstocks by abundance; miscanthus, switchgrass, poplar, and
+willow have zero near-term supply and are omitted): corn stover dominates the
+supply
 surface, which is why the optimal network concentrates in the corn belt.}
 \label{fig:iv}
 \end{figure}
@@ -759,7 +800,8 @@ surface, which is why the optimal network concentrates in the corn belt.}
 \label{sec:policyA}
 
 Credits that scale with throughput transform the system (Fig.~\ref{fig:policy}).
-At $p_c=\$25$/tCO$_2$e the L segment activates (0.42~Mt served) and production
+At $p_c=\$25$/tCO$_2$e the L segment activates under the calibrated step
+demand (0.42~Mt served) and production
 rises to 2.72~Mt; at $p_c=\$200$/tCO$_2$e the system saturates its feedstock
 potential (2.85~Mt, i.e., essentially 100\% of near-term biomass) and surplus
 reaches \$3.36~B/yr. In the
@@ -773,10 +815,10 @@ incumbents); reported
 gaps are 0.95--1.9\% (near-term) and 0.5--3.2\% (mature-market, SI
 Table~S3), and TIME\_LIMIT points are feasible incumbents rather than proven
 optima, so their production and surplus figures are lower bounds on
-the true policy response. A dedicated 1{,}800~s re-solve of the mature
-$p_c=\$100$ point at a 0.1\% gap target (archived as
-\texttt{policy\_A\_recert\_v2.csv}) raised its 500$^\circ$C share from
-1.75 to 2.79~Mt at a 1.9\% gap, matching the $p_c=\$150$--\$200 points
+the true policy response. A dedicated re-solve of the mature
+$p_c=\$100$ point at a 0.1\% gap target (3{,}600~s, archived as
+\texttt{policy\_A\_recert2\_v2.csv}) raised its 500$^\circ$C share from
+1.75 to 2.81~Mt at a 1.9\% gap, matching the $p_c=\$150$--\$200 points
 (2.81~Mt at 1.0--1.7\% gaps).
 Whether credits change the system's technology mix is decided by
 which resource binds, not by the credit price alone (Fig.~\ref{fig:creditbasis};
@@ -803,7 +845,7 @@ and C differ in credit basis as well as eligibility
 deepens from $-1.60$ to $-1.96$~Mt CO$_2$e/yr as credit prices rise, i.e., net
 removal grows with mobilization.
 
-\subsection{Paradigm B: cap-and-trade with endogenous carbon price}
+\subsection{Paradigm B: cap-and-trade and the shadow carbon price}
 
 The gross-emission cap sweep traces the system's marginal abatement cost curve
 (Fig.~\ref{fig:policy}). Tightening the cap from the baseline 1{,}003~kt to
@@ -812,23 +854,37 @@ The gross-emission cap sweep traces the system's marginal abatement cost curve
 The finite-difference marginal abatement cost is
 $\approx$ \$351--391/t CO$_2$e over the first binding intervals and rises to
 $\approx$ \$599/t as the cap tightens (mature-market $\approx$ \$468--484
-$\rightarrow$ \$603/t), above both EU ETS
-(\texteuro 50--90/t) and the voluntary removal-credit band (\$100--250/t).
-The cap's vertex dual reproduces these values exactly: with Gurobi's sign
+$\rightarrow$ \$603/t), above both 2024--2025 EU ETS allowance prices
+(\texteuro 50--90/t, $\approx$\$55--100/t) and the voluntary removal-credit
+band (\$100--250/t).
+The cap's vertex dual reproduces these values to numerical tolerance: with
+Gurobi's sign
 convention the reported dual is the negative of the marginal value, i.e.,
 $-\$374$/t at the first binding cap (near-term), inside the
 \$351--391/t finite-difference band of the first binding intervals, validating the
-endogenous-price interpretation. Gross emissions are
+shadow-price interpretation. Gross emissions are
 intrinsic to drying and pyrolysis, so abating them means forgoing biochar
 sales, whereas carbon removal is a co-benefit of production; pricing
 gross emissions is therefore an expensive lever for this system. The net-flux cap
 experiment completes the picture: for $\mathrm{CAP}^{\mathrm{net}}\in[-1{,}000, +1{,}000]$~kt the
 constraint $E^{+}(x)-S(x)\le\mathrm{CAP}^{\mathrm{net}}$
-never binds ($\pi=0$) and surplus stays at \$708~M/yr, while a cap of
-$-2{,}000$~kt is infeasible (the GHG-minimal dispatch already exceeds it).
-Because the system is intrinsically net-negative, a net cap
-provides zero incentive; negative emissions must be valued explicitly through
-credits.
+does not bind ($\pi=0$) and surplus stays at \$708~M/yr, while a cap of
+$-2{,}000$~kt is infeasible under the incumbent dispatch. Every tested cap is
+looser than the baseline flux of $-1{,}595$~kt, so this experiment only
+establishes that \emph{loose} net caps provide no incentive. A frontier sweep
+that tightens the cap below the baseline flux shows where the constraint first
+binds and how the system responds (SI Fig.~S2): from $-1{,}600$ to
+$-1{,}800$~kt the system deepens its net flux by expanding production into the
+unprofitable L segment (2.30$\rightarrow$2.61~Mt, all 300$^\circ$C) at a
+finite-difference marginal cost of $\approx$\$110/tCO$_2$e; below
+$-1{,}900$~kt further deepening requires converting production to 500$^\circ$C
+pyrolysis (0.13$\rightarrow$1.12~Mt over $-1{,}900$ to $-2{,}200$~kt) at
+$\approx$\$150--330/tCO$_2$e (finite-difference estimates between
+TIME\_LIMIT incumbents), and the minimum feasible net flux is
+$-2{,}602$~kt (all-500$^\circ$C, 2.26~Mt, solved to optimality). A net cap is
+therefore not blind to negative emissions: it binds once tightened below the
+system's own flux, first as an expansion mandate and then as a durability
+mandate, with a shadow cost comparable to gross-emission abatement.
 
 \subsection{Paradigm C: tiered tax, VM0044 eligibility, and allocation}
 \label{sec:policyC}
@@ -854,12 +910,13 @@ torrefaction-like (H/C $\approx$0.9--1.4), while 500$^\circ$C chars
 (H/C $\approx$0.40--0.52) qualify for every feedstock. At $p_c=\$50$ the
 near-term system is unchanged (2.30~Mt, all 300$^\circ$C), but the
 mature-market system already routes 0.50~Mt to 500$^\circ$C; at
-$p_c=\$100$ the conversion is complete in both scenarios: 2.22~Mt
-(near-term) and 2.71~Mt (mature-market), entirely 500$^\circ$C. At
+$p_c=\$100$ the incumbent solutions route all production through 500$^\circ$C
+in both scenarios: 2.22~Mt
+(near-term) and 2.71~Mt (mature-market). At
 $p_c=\$200$ production is 2.25~Mt (near-term, surplus \$1{,}141~M/yr, 3.64~Mt
 of removal credits) and 4.25~Mt (mature-market, surplus \$1{,}501~M/yr,
 7.03~Mt credits), entirely 500$^\circ$C (Fig.~\ref{fig:policy}). Two features
-of this result are notable. First, the gate never subsidizes
+of this result are notable. First, the gate does not subsidize
 low-durability biochar: every credited tonne satisfies H/C$\le$0.7, and the
 credits purchase durability rather than tonnes. The near-term system's
 2.25~Mt falls below the 2.30~Mt H+M demand target because 500$^\circ$C
@@ -869,7 +926,12 @@ the 4.80~Mt achieved under ungated baseline-and-credit crediting
 (E$^{+}$ grows from 1{,}003 to 1{,}204~kt near-term and from 983 to
 2{,}239~kt mature-market) because each delivered biochar tonne now requires
 more drying and pyrolysis throughput, exactly the interaction a tiered
-emission tax is designed to price. The
+emission tax is designed to price. A decomposition experiment isolates the
+gate's contribution: with the eligibility gate removed (every char
+credit-eligible), the \$200/t near-term system keeps 99\% of production on
+300$^\circ$C (2.75 of 2.77~Mt), i.e., the technology conversion is driven by
+the eligibility gate rather than by the sequestration credit basis alone (SI
+Table~S8). The
 allowance-allocation comparison (C3) shows no difference between grandfathering
 and benchmarking under fixed facilities: with the layout fixed, gross
 emissions are pinned by the demand-constrained dispatch, the allowance budget
@@ -903,11 +965,11 @@ rates (r1,r2,r3) & surplus (M\$) & E$^{+}$ (kt) & surplus (M\$) & E$^{+}$ (kt)\\
 
 Splitting biochar into BC300 and BC500 with the \$800/t CDR premium segment
 restricted to BC500 changes the baseline itself: the optimal no-policy network
-builds 14~T2-500$^\circ$C facilities and produces 0.80~Mt of BC500, exactly
-the premium segment, alongside 1.50~Mt of BC300
+builds 14~T2-500$^\circ$C facilities and produces 0.80~Mt of BC500, the full
+premium segment, alongside 1.50~Mt of BC300
 (Fig.~\ref{fig:creditbasis}, Table~\ref{tab:v2b}); the
 premium market alone justifies high-temperature pyrolysis. The v2b no-policy
-surplus (\$636~M/yr near-term, \$674~M/yr mature-market) is lower than the
+surplus (\$637~M/yr near-term, \$675~M/yr mature-market) is lower than the
 pooled-baseline surplus
 (\$708~M/yr) because serving the premium segment with BC500 incurs the higher
 energy cost and lower yield of 500$^\circ$C pyrolysis; the two models therefore
@@ -920,7 +982,7 @@ entirely by BC300 (1.50$\rightarrow$1.84~Mt), and BC500 stays pinned at the
 optimal for the bulk segment up to $p_c\approx\$239$/t
 (Fig.~\ref{fig:creditbasis}). In the
 feedstock-abundant mature-market scenario the demand-bound regime takes over:
-BC500 rises from 0.80 to 2.74--2.82~Mt at $p_c=\$100$--\$200, roughly 60\% of
+BC500 rises from 0.80 to 2.77--2.83~Mt at $p_c=\$100$--\$200, roughly 60\% of
 the 4.8~Mt total, as 500$^\circ$C's lower yield multiplies credit revenue per
 tonne of biochar served above $p_c\approx\$61$/t. Technology selection is
 therefore jointly driven by the credit price and the resource regime,
@@ -933,17 +995,21 @@ premium-segment floor on BC500.
 \includegraphics[width=\textwidth]{figures/fig4_policy.png}
 \caption{\small Policy response across paradigms A/B/C (near-term). (I) Biochar
 production and (II) system surplus against the credit price for
-baseline-and-credit (A) and the H/C-gated VM0044 credit (C2): throughput-scaled
+baseline-and-credit (A) and the H/C-gated VM0044-inspired credit (C2), both
+shown from their zero-credit point (for C2, the tiered tax alone):
+throughput-scaled
 crediting expands the system, whereas the gated credit converts it to durable
 500$^\circ$C char without expanding tonnage. (III) Marginal abatement cost
 traced by the gross-emission cap sweep (finite differences, circles) with the
-cap's vertex dual $-\mu_{\mathrm{CAP}}$ (diamonds) and the RGGI and EU ETS
-benchmark bands; the endogenous price rises from $\approx$\$351/tCO$_2$e to
+cap's vertex dual $-\mu_{\mathrm{CAP}}$ (diamonds) and the 2024--2025 RGGI and
+EU ETS allowance benchmark bands; the shadow price rises from
+$\approx$\$351/tCO$_2$e to
 $\approx$\$599/tCO$_2$e, above every observed allowance and voluntary-credit
-price. (IV) Technology mix under VM0044: the tiered tax leaves the dispatch
+price. (IV) Technology mix under the H/C gate: the tiered tax leaves the
+dispatch
 unchanged, but the H/C$\le$0.7 gate excludes every torrefaction-like
-300$^\circ$C char and converts the system to 500$^\circ$C pyrolysis as credit
-prices rise (complete at \$100/t).}
+300$^\circ$C char and routes all production through 500$^\circ$C pyrolysis as
+credit prices rise (all-500$^\circ$C at \$100/t in the incumbent solutions).}
 \label{fig:policy}
 \end{figure}
 
@@ -954,36 +1020,40 @@ prices rise (complete at \$100/t).}
 \includegraphics[width=\textwidth]{figures/fig5_credit_basis.png}
 \caption{\small Technology choice and credit basis. (I) Carbon credit rates per
 tonne dry biomass under the two credit bases (baseline-and-credit, LCFS-style,
-$B-E^{+}-S$, versus VM0044, sequestration-based and H/C-gated) for
+$B-E^{+}+S$, versus VM0044, sequestration-based and H/C-gated) for
 representative feedstocks and both pyrolysis temperatures; the VM0044 rate of
 every torrefaction-like 300$^\circ$C char is zero. (II) The 500$^\circ$C margin
 premium over 300$^\circ$C against the credit price in the two resource regimes
 (feedstock averages): in the demand-bound regime the binding resource is
 biochar demand, so 500$^\circ$C's lower yield multiplies credits per tonne
 served and the crossover is at $\approx$\$61/tCO$_2$e for every segment; in the
-supply-bound regime per-dry-tonne margins rule and the bulk (L) segment
-crosses at $\approx$\$239/tCO$_2$e. (III) Quality-differentiated model (v2b):
+supply-bound regime per-dry-tonne margins rule and the premium \emph{declines}
+with $p_c$ (credits must compensate the yield loss at price $P$), with the bulk
+(L) segment
+crossing at $\approx$\$239/tCO$_2$e. (III) Quality-differentiated model (v2b):
 BC300/BC500 mix under baseline-and-credit in both scenarios; near-term the
 premium segment keeps BC500 at 0.80~Mt while expansion runs on BC300, whereas
-mature-market BC500 captures 2.74--2.81~Mt.}
+mature-market BC500 captures 2.77--2.83~Mt.}
 \label{fig:creditbasis}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
 \caption{\small Quality-differentiated model (v2b): technology mix under
-baseline-and-credit. BC300/BC500 in Mt/yr.}
+baseline-and-credit. BC300/BC500 in Mt/yr; surplus in M\$/yr, defined as the
+producer objective including credit revenue (policy transfers are decomposed
+separately in Table~S7).}
 \label{tab:v2b}
 \begin{tabular}{lcccccccc}
 \toprule
  & \multicolumn{4}{c}{near-term} & \multicolumn{4}{c}{mature-market medium}\\
 \cmidrule(lr){2-5}\cmidrule(lr){6-9}
-$p_c$ (\$/tCO$_2$e) & BC300 & BC500 & total & profit & BC300 & BC500 & total & profit\\
+$p_c$ (\$/tCO$_2$e) & BC300 & BC500 & total & surplus & BC300 & BC500 & total & surplus\\
 \midrule
-0   & 1.50 & 0.80 & 2.30 & 636 & 1.50 & 0.80 & 2.30 & 675\\
-50  & 1.82 & 0.80 & 2.62 & 1{,}283 & 4.00 & 0.80 & 4.80 & 1{,}729\\
-100 & 1.84 & 0.80 & 2.64 & 1{,}972 & 2.06 & 2.74 & 4.80 & 3{,}097\\
-200 & 1.84 & 0.80 & 2.64 & 3{,}350 & 1.99 & 2.81 & 4.80 & 5{,}861\\
+0   & 1.50 & 0.80 & 2.30 & 637 & 1.50 & 0.80 & 2.30 & 675\\
+50  & 1.82 & 0.80 & 2.62 & 1{,}283 & 4.00 & 0.80 & 4.80 & 1{,}731\\
+100 & 1.84 & 0.80 & 2.64 & 1{,}972 & 2.03 & 2.77 & 4.80 & 3{,}092\\
+200 & 1.84 & 0.80 & 2.64 & 3{,}350 & 1.97 & 2.83 & 4.80 & 5{,}866\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1006,13 +1076,13 @@ $\pm$1\%; the sink price has no effect because the sink is not activated.
 \includegraphics[width=\textwidth]{figures/fig6_sensitivity.png}
 \caption{\small Sensitivity of the baseline surplus (near-term, fixed facility
 layout). (I) One-at-a-time $\pm$20\% perturbations: demand-side parameters
-dominate, farmgate and transport are minor, and the $-40\%$ feedstock-availability
+dominate, farmgate and transport are minor, and the feedstock-availability
 shock is the only supply-side perturbation of comparable size. (II) Joint
 demand sensitivity: system surplus over a grid of demand-price and
 demand-capacity multipliers, from \$67~M/yr at $0.6\times$ to \$1{,}406~M/yr at
 $1.4\times$; surplus responds smoothly and monotonically to both, with demand
 price the larger lever at every capacity level. The baseline $(1.0,1.0)$ cell
-reproduces the \$708~M/yr equilibrium exactly.}
+reproduces the \$708~M/yr equilibrium.}
 \label{fig:sensitivity}
 \end{figure}
 
@@ -1038,7 +1108,15 @@ enters only Paradigm~A's credit rates: halving it to 0.5 lowers the
 near the feedstock potential; the qualitative response and the paradigm
 ordering are robust, but the surplus level scales roughly one-for-one with the
 baseline assumption and A's magnitude advantage over the gated VM0044 credit
-narrows as the decomposition fraction falls. Second,
+narrows as the decomposition fraction falls. A joint carbon-parameter grid
+(decomposition fraction $\{0.5,0.7,0.9\}\times$ permanence multipliers
+$\{0.8,1.0,1.2\}$, nine free-facility MIP re-solves at $p_c=\$200$/t, gaps
+1.2--1.7\%) shows the two parameters act nearly additively: halving the
+decomposition fraction lowers the \$200/t surplus by 31--34\% at every
+permanence level, a $\pm$20\% permanence perturbation moves the surplus by
+only $\mp$3--5\%, and the near-term technology mix remains essentially
+all-300$^\circ$C (at most 0.22~Mt of 500$^\circ$C) in every cell (SI,
+carbon-parameter scenarios). Second,
 the premium-segment capacity directly sets the scale of 500$^\circ$C
 deployment: halving H to 0.4~Mt halves BC500 to 0.40~Mt (total production
 1.90~Mt), and enlarging H by 50\% (1.2~Mt) raises BC500 to 1.20~Mt and total
@@ -1065,7 +1143,8 @@ the primal optimum does not move, precisely the failure mode characterized by
 \cite{benjaafar2013}. Proposition~\ref{prop:taxinv} states the boundary
 condition precisely: the tax is dispatch-neutral up to a threshold whose
 denominator is the marginal price gap divided by the path emission intensity,
-which we compute at $\approx$\$350/t CO$_2$e, above every tested rate
+which we compute at $\approx$\$321/t CO$_2$e with route-specific marginal
+intensities of the LP basis (SI Section~A.11), above every tested rate
 (\$25--200/t) but close enough that substantially higher taxes could bite. The
 free-facility re-solve (C1-free, Section~\ref{sec:policyC})
 confirms that this null response is economic rather than an artifact of the
@@ -1076,33 +1155,42 @@ statement should not be read as tax-neutrality of biochar systems in general.
 Our formulation shows that policy instruments which
 scale with throughput (baseline-and-credit) or which act as
 constraints (gross emission caps) do change the solution: credits
-activate the \$250/t bulk-agricultural demand segment at $p_c=\$25$/tCO$_2$e and
+activate the \$250/t bulk-agricultural demand segment at $p_c=\$25$/tCO$_2$e
+under the calibrated step demand and
 mobilize essentially all near-term biomass at \$200/tCO$_2$e, while caps reshape
 production along the marginal abatement cost curve. The net-flux cap
-experiment completes the picture: because the system is intrinsically
-net-negative, $\mathrm{CAP}^{\mathrm{net}}$ never binds and provides zero
-incentive. Policy design for negative-emission supply chains must therefore
+experiment completes the picture: every tested cap
+($\mathrm{CAP}^{\mathrm{net}}\ge-1{,}000$~kt) is looser than the baseline flux
+of $-1{,}595$~kt and therefore does not bind; the frontier sweep of SI
+Fig.~S2 shows that caps tightened below the baseline flux bind in two
+stages---expansion into the L segment at $\approx$\$110/tCO$_2$e, then
+500$^\circ$C conversion at $\approx$\$150--330/tCO$_2$e. Policy
+design for negative-emission supply chains must therefore
 explicitly value removal, not merely penalize emissions.
 
-\subsection{Endogenous carbon prices versus real markets}
+\subsection{Shadow carbon prices versus real markets}
 
-The endogenous marginal abatement cost traced by the gross-emission cap sweep
+The conditional fixed-layout shadow marginal abatement cost traced by the
+gross-emission cap sweep
 is $\approx$ \$351--391/t CO$_2$e over the first binding intervals and rises to
 $\approx$ \$599/t as the cap tightens; the cap's vertex dual reproduces it
-exactly (the reported value is the negative of the marginal value under
-Gurobi's sign convention), validating the endogenous-price
+to numerical tolerance (the reported value is the negative of the marginal
+value under
+Gurobi's sign convention), validating the shadow-price
 interpretation on a full supply chain network. This places the Wisconsin
 biochar
-system's gross-emission abatement above RGGI allowance prices
-(\$17--25/t), EU ETS prices (\texteuro 50--90/t), and the voluntary removal
+system's gross-emission abatement above 2024--2025 RGGI allowance prices
+(\$17--25/t), EU ETS prices (\texteuro 50--90/t, $\approx$\$55--100/t), and the
+voluntary removal
 credit band (\$100--250/tCO$_2$e for VM0044/Puro.earth credits). Two
 implications follow. First, at any observed carbon price, a cap-and-trade
 program alone would induce little gross abatement in this system, because
 gross emissions are intrinsic to drying and pyrolysis and abating them means
 forgoing biochar sales; reaching the \$800/t-market equilibrium required no
 policy at all, but expanding to the bulk agricultural segment requires credit
-prices above roughly \$25/tCO$_2$e, well within observed voluntary-market
-prices. Second, the comparison of the system's endogenous abatement cost with
+prices above roughly \$25/tCO$_2$e under the calibrated demand, well within
+observed voluntary-market
+prices. Second, the comparison of the system's shadow abatement cost with
 administered market prices shows that removal crediting, not
 gross-emission pricing, is the mechanism that can profitably expand biochar
 CDR, a quantitative argument for designing negative-emission policies around
@@ -1147,8 +1235,8 @@ and 500$^\circ$C's lower yield becomes an asset: each tonne of biochar
 served requires more dry tonnes, each earning credits, so 500$^\circ$C overtakes
 300$^\circ$C at $p_c\approx\$61$/t for every segment; the model switches
 $\approx$2.8~Mt of production at \$100--\$200/t (the \$100/t point from a
-dedicated 1{,}800~s re-solve at a 1.9\% gap, archived as
-\texttt{policy\_A\_recert\_v2.csv}). Third, quality-differentiated
+dedicated 3{,}600~s re-solve at a 1.9\% gap, archived as
+\texttt{policy\_A\_recert2\_v2.csv}). Third, quality-differentiated
 demand (v2b) adds a structural floor: the \$800/t premium segment is BC500-only,
 so the no-policy baseline already builds 0.80~Mt/yr of BC500 capacity, and
 varying the premium capacity moves BC500 one-for-one (0.40~Mt at half capacity,
@@ -1218,10 +1306,12 @@ conclusions unchanged. (viii) \emph{Static
 structure.} The model is single-year with no seasonal inventory; the
 allocation-design result (C3) and facility-path dependencies point to a
 multi-period extension. (ix) \emph{Solver gaps.} Policy sweeps are reported at
-0.5--4.7\% MIP optimality gaps (Table~S3); the points with the largest gaps are
-re-solved with 1{,}800~s time limits; free-facility responses (Paradigms A, C1-free, C2)
-will be re-solved to tighter gaps on high-performance infrastructure for the
-final version. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
+0.5--4.7\% MIP optimality gaps (Table~S3). The largest-gap points were
+re-solved at a 0.1\% target with 3{,}600~s limits and multiple seeds: the
+near-term C2 $p_c=\$150$ point improved from a 4.7\% to a 2.5\% gap (surplus
+$+1.9\%$), and forward versus reverse sweep orders reproduce every point
+within 0.2\%, so the reported structural responses are stable across
+warm-start paths; TIME\_LIMIT points remain feasible incumbents. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
 verbatim to other Midwest states (feedstock mix, demand, and dairy waste
 streams differ); the qualitative policy mechanisms are the transferable
 findings.
@@ -1238,14 +1328,19 @@ findings.
 
 We presented a multi-product, market-clearing supply chain model for a
 Wisconsin biochar CDR system and embedded three carbon policy architectures in
-it. We report three findings. First, policy design dominates policy
-stringency for negative-emission systems: a linear carbon tax and a net
-emission cap both fail to move the optimum of a demand-constrained,
-net-negative network, while throughput-scaled removal credits activate the bulk
-biochar market at \$25/tCO$_2$e and mobilize essentially all near-term biomass
+it. We report three findings. First, for this demand-constrained, net-negative
+network, policy design matters more than stringency within the tested ranges:
+a linear carbon tax and net
+emission caps looser than the baseline flux leave the optimum unchanged---
+tightened below it, the cap binds first as an expansion mandate and then as a
+500$^\circ$C durability mandate at \$110--330/tCO$_2$e---
+while throughput-scaled removal credits activate the bulk
+biochar market at \$25/tCO$_2$e under the calibrated step demand and mobilize
+essentially all near-term biomass
 at \$200/tCO$_2$e, increasing system surplus from \$0.71~B to \$3.36~B/yr and
-deepening net removal from 1.60 to 1.96~Mt CO$_2$e/yr. Second, the endogenous
-marginal abatement cost traced by the cap-and-trade sweep ($\approx$ \$351--391/t CO$_2$e
+deepening net removal from 1.60 to 1.96~Mt CO$_2$e/yr. Second, the shadow
+marginal abatement cost (fixed-layout LP dual) traced by the cap-and-trade
+sweep ($\approx$ \$351--391/t CO$_2$e
 over the first binding intervals, rising to $\approx$ \$599/t) lies above
 EU ETS allowance prices and the voluntary removal-credit band, quantifying how
 expensive gross-emission abatement is for a pyrolysis-based system, and why
@@ -1510,7 +1605,8 @@ exactly as the market-clearing interpretation predicts.
 
 \subsection{Solver settings}
 
-Gurobi 13.0.2 (academic license), 8 threads. Step 1 MIP: 1\% gap, 1{,}800~s,
+Gurobi 13.0.2 (academic license), 7 of 8 physical cores (one core reserved to
+bound sustained thermal load). Step 1 MIP: 1\% gap, 1{,}800~s,
 MIPFocus=1, NoRelHeurTime=60. Policy sweeps: 0.5\% gap target, 600~s
 warm-started from the previous layout (Paradigm~A credit prices
 $p_c=25/50$ re-solved with 1{,}800~s limits, improving the incumbents);
@@ -1521,23 +1617,23 @@ solved with \emph{dual simplex} (exact vertex shadow prices). The cap's
 vertex dual is reported with Gurobi's sign convention for $\le$ constraints in
 maximization (the negative of the marginal value): $-\$374$/t at the first
 binding cap (near-term), inside the \$351--391/t finite-difference
-band of the first binding intervals; the endogenous carbon price is reported as both. The GHG LP
+band of the first binding intervals; the shadow carbon price is reported as both. The GHG LP
 (Step 3) pins
 demand quantities to the Step-2 equilibrium (file \texttt{dem\_star\_v2.csv}).
 Paradigm C1 is solved both with fixed facilities (LP) and with free facilities
 (MIP, C1-free), and Paradigm A and C2 use free-facility MIPs throughout. The
 mature-market $p_c=\$100$ point of the Paradigm~A sweep was additionally
-re-solved for 1{,}800~s at a 0.1\% gap target
-(\texttt{policy\_A\_recert\_v2.csv}); its 500$^\circ$C share improved from
-1.75 to 2.79~Mt at a 1.9\% gap.
+re-solved for 3{,}600~s at a 0.1\% gap target
+(\texttt{policy\_A\_recert2\_v2.csv}); its 500$^\circ$C share improved from
+1.75 to 2.81~Mt at a 1.9\% gap.
 
 \begin{table}[htbp]
 \centering
 \small
 \caption{\small Optimality-gap report: free-facility MIPs solve at a 0.5\% gap target
 (Step~1 at 1\%); points that hit the time limit are feasible incumbents, so
-their reported surplus is a lower bound on the true optimum. v2b runs record
-termination status only ($^{\dagger}$), without gap percentages.}
+their reported surplus is a lower bound on the true optimum. All v2b gap
+percentages are from the recorded 2026-09-14 re-runs.}
 \label{tab:s3}
 \begin{tabular}{lcc}
 \toprule
@@ -1548,16 +1644,20 @@ Paradigm A sweep (600~s; $p_c=25/50$ at 1{,}800~s) & 0.95--1.9\% & 0.5--3.2\%\\
 C1-free (600~s) & 1.1--1.2\% & OPTIMAL\\
 C2 sweep (600~s; extended points at 1{,}800~s) & 1.6--4.7\% & OPTIMAL--2.5\%\\
 \midrule
+\multicolumn{3}{l}{\emph{Certified re-solves (0.1\% target, 3{,}600~s)}}\\
+Paradigm A near-term $p_c=25$ & 1.8\% & --\\
+Paradigm C2 near-term $p_c=150$ (seeds 0/1) & 2.46 / 2.50\% & --\\
+Paradigm C2 mature $p_c=150$ / $p_c=200$ & -- & 1.6\% / 2.2\%\\
+Paradigm A mature $p_c=100$ (recert) & -- & 1.9\%\\
+Forward vs.\ reverse sweep orders & all points within 0.2\% & all points within 0.2\%\\
+\midrule
 \multicolumn{3}{l}{\emph{Quality-differentiated model (v2b)}}\\
-Step 1 MIP (1{,}800~s, 1\% target) & TIME\_LIMIT$^{\dagger}$ & OPTIMAL\\
-Paradigm A sweep (600~s) & TIME\_LIMIT$^{\dagger}$ & OPTIMAL--TIME\_LIMIT\\
-C2 sweep (600~s) & TIME\_LIMIT$^{\dagger}$ & OPTIMAL--TIME\_LIMIT\\
+Step 1 MIP (1{,}800~s, 1\% target) & TIME\_LIMIT & OPTIMAL\\
+Paradigm A sweep (600~s) & 1.1--3.3\% & OPTIMAL--3.3\%\\
+C2 sweep (600~s) & 2.8--4.2\% & OPTIMAL--3.0\%\\
 \bottomrule
 \end{tabular}
 
-\vspace{2pt}
-{\footnotesize $^{\dagger}$Termination status only; gap percentages are not
-recorded for the v2b runs.}
 \end{table}
 
 \subsection{Eligibility sensitivity: H/C uncertainty and the gate}
@@ -1618,41 +1718,65 @@ reported in the main text (Fig.~\ref{fig:sensitivity}): demand-price shocks
 dominate ($\pm$39\% of surplus for $\pm$20\% of price), farmgate and transport
 shocks are minor, and a $-40\%$ feedstock-availability shock (a proxy for
 field-collection losses) costs 29\% of near-term surplus but only 4\% in the
-mature-market scenario. Figures~\ref{fig:s1}--\ref{fig:s3} give the
-per-paradigm detail behind the consolidated policy figure: the
-baseline-and-credit sweep with credits and net GHG, the tiered-tax and VM0044
-technology response, and the cap-and-trade marginal abatement cost curve with
-surplus versus the emission cap.
+mature-market scenario. Figure~\ref{fig:s1} gives the baseline-and-credit sweep
+detail (creditable quantity and net GHG on separate axes); Figures~\ref{fig:s2}--\ref{fig:s4}
+are diagnostics that support the main-text claims: the net-cap frontier, the
+solver-certification results, and the demand-family scenarios.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.66\textwidth]{figures/sfig1_policyA.png}
 \caption{\small Paradigm A (baseline-and-credit) sweep, near-term: surplus,
-production by demand segment, and credits/net GHG as functions of the credit
-price. The \$250/t L segment activates at \$25/tCO$_2$e and essentially all
+production by demand segment, and creditable quantity (left axis) with net GHG
+(right axis) as functions of the credit
+price. Creditable quantity is a potential certificate volume and is reported
+even at $p_c=0$, where credits carry no value. The \$250/t L segment activates
+at \$25/tCO$_2$e under the calibrated step demand and essentially all
 near-term feedstock is mobilized at \$200/tCO$_2$e, tripling surplus.}
 \label{fig:s1}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{figures/sfig2_policyC.png}
-\caption{\small Paradigm C (tiered tax + VM0044 credit), near-term: technology
-choice (I) and surplus (II). The tiered tax leaves the dispatch unchanged, but
-the H/C$\le$0.7 gate converts the system to 500$^\circ$C pyrolysis as credit
-prices rise.}
+\includegraphics[width=\textwidth]{figures/sfig2_netcap_frontier.png}
+\caption{\small Net-emission cap frontier (near-term). (I) System surplus
+against the net cap: the fixed-layout LP is feasible only down to
+$-1{,}600$~kt (the baseline layout holds zero 500$^\circ$C capacity and
+saturated 300$^\circ$C capacity, so it cannot deepen its net flux; its cap dual
+at $-1{,}600$~kt is $-\$9{,}107$/t), whereas the free-facility MIP responds
+down to the minimum feasible net flux $N_{\min}=-2{,}602$~kt. (II) Technology
+response of the free-facility MIP: production expands on 300$^\circ$C first,
+and 500$^\circ$C conversion sets in below $-1{,}900$~kt. (III) Finite-difference
+shadow cost: $\approx$\$110/tCO$_2$e in the expansion regime, then
+$\approx$\$150--330/tCO$_2$e once durability conversion begins.}
 \label{fig:s2}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/sfig3_policyB.png}
-\caption{\small Paradigm B (cap-and-trade), near-term: (I) marginal abatement
-cost curve with the RGGI, EU ETS, and voluntary-market benchmark bands;
-(II) system surplus versus the gross-emission cap. The endogenous carbon price
-starts at $\approx$\$351/tCO$_2$e and rises to $\approx$\$599/t, above every
-observed allowance and voluntary-credit price.}
+\includegraphics[width=\textwidth]{figures/sfig3_certificates.png}
+\caption{\small Solver certification. (I) Incumbent improvement at the
+largest-gap points after 0.1\%-target, 3{,}600~s re-solves (the near-term C2
+$p_c=\$150$ point improves from a 4.7\% to a 2.5\% gap, surplus $+1.9\%$).
+(II) Warm-start path independence: forward and reverse sweep orders reproduce
+every tested point within 0.2\%. The mature-market Paradigm~A $p_c=\$100$
+re-certification gives 3{,}094~M\$/yr with 2.81~Mt of 500$^\circ$C biochar
+(1.9\% gap).}
 \label{fig:s3}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/sfig4_demand_family.png}
+\caption{\small Demand-family scenarios (near-term): capacities $\times$0.7
+(low adoption), calibrated, $\times$1.4 (high adoption), and a price-stress
+variant (M \$450/t, L \$200/t). (I) The no-policy equilibrium follows the
+H+M capacity boundary (1.61 / 2.30 / 2.30 / 2.83~Mt). (II) The \$25/t
+activation of the L segment is scenario-conditional: 1.01~Mt under low
+adoption, 0.42~Mt calibrated, 0.12~Mt under price stress, and zero under high
+adoption---the calibrated \$25 threshold is a property of the calibrated
+demand, not a universal policy constant.}
+\label{fig:s4}
 \end{figure}
 
 Data generation (\texttt{generate\_data\_v2.py}, \texttt{generate\_data\_v2b.py}),
@@ -1666,18 +1790,138 @@ Figure scripts use matplotlib with the Calibri family at 400 DPI; county
 boundaries and the Great Lakes layer are drawn from U.S. Census Bureau and
 Natural Earth shapefiles.
 
+\subsection{Net-emission cap frontier (E2)}
+
+The B2 sweep of the main text only tests caps at or above $-1{,}000$~kt, all
+looser than the baseline net flux ($-1{,}595$~kt); non-binding there is built
+into the experimental range. To locate where a net cap actually binds, we sweep
+$\mathrm{CAP}^{\mathrm{net}}$ downward from $-1{,}600$ to $-2{,}200$~kt in
+100-kt steps, twice: once on the fixed-layout LP and once on the
+free-facility MIP (Fig.~\ref{fig:s2}; archived as
+\texttt{netcap\_frontier\_fixedz\_v2.csv} and
+\texttt{netcap\_frontier\_v2.csv}). The fixed-layout LP is feasible only at
+$-1{,}600$~kt: the baseline layout installs zero 500$^\circ$C capacity and
+saturates its 300$^\circ$C capacity at the H+M demand, so it cannot deepen its
+net flux; its cap dual there is $-\$9{,}107$/t CO$_2$e (with the bracket
+$[-\$9{,}107, 0]$ across a $\pm$50-kt perturbation, the degenerate vertex
+interval of Section~A.9). The free-facility MIP, in contrast, responds along
+the entire sweep. From $-1{,}600$ to $-1{,}800$~kt it deepens the net flux by
+expanding production into the unprofitable L segment (2.30 to 2.61~Mt, all
+300$^\circ$C) at a finite-difference marginal cost of $\approx$\$110/tCO$_2$e
+(surplus falls from 708.5 to 686.0~M\$/yr). Below $-1{,}900$~kt the binding
+cap mandates 500$^\circ$C conversion: 0.13~Mt at $-1{,}900$, 0.55~Mt at
+$-2{,}000$, 0.78~Mt at $-2{,}100$, and 1.12~Mt at $-2{,}200$~kt, at marginal
+costs of $\approx$\$150--330/tCO$_2$e (finite differences between TIME\_LIMIT
+incumbents with 0.6--8.6\% gaps, so these point estimates are approximate).
+The minimum feasible net flux is $N_{\min}=-2{,}602$~kt, attained by an
+all-500$^\circ$C dispatch (2.26~Mt biochar), solved to optimality. A net cap
+is therefore not blind to negative emissions: it binds once tightened below
+the system's own flux, first as an expansion mandate and then as a durability
+mandate, with shadow costs in the same order as gross-emission abatement. In the
+mature-market scenario the expansion regime dominates the swept range: the
+frontier is feasible to $-2{,}200$~kt with production expanding from 2.30 to
+3.06~Mt (all 300$^\circ$C) at marginal costs of $\$14$--57/tCO$_2$e, and
+$N_{\min}=-5{,}203$~kt (all-500$^\circ$C, 4.38~Mt, optimal), so durability
+conversion would set in only deeper than $-2{,}200$~kt where feedstock
+remains abundant (archived in the mature-market results directory).
+
+\subsection{Policy decomposition: isolating the H/C gate (E1)}
+
+Paradigms A, B, and C differ in more than one module at a time, so the policy
+responses of Section~3 cannot be attributed to a single design element by
+inspection. Table~S8 decomposes the six experiments by module (carbon basis,
+eligibility gate, tax, cap instrument, allocation rule). The only module
+combination not covered by the canonical runs is a sequestration-basis credit
+\emph{without} the H/C gate; we re-solved Paradigm C2 on gate-off data
+(every feedstock--temperature pair credit-eligible,
+\texttt{biochar\_data\_v2\_gateoff}, tagged \texttt{policy\_C2\_gateoff\_v2.csv}).
+Comparing the gate-on and gate-off C2 sweeps isolates the gate: at
+$p_c=\$200$/t the gated system converts to 500$^\circ$C entirely (2.25~Mt,
+zero 300$^\circ$C), while the gate-off system keeps 99\% of production on
+300$^\circ$C (2.75 of 2.77~Mt) and earns only slightly more surplus
+(\$1{,}184 vs.\ \$1{,}141~M/yr). The technology conversion reported in
+Section~3.6 is therefore driven by the eligibility gate, not by the
+sequestration credit basis alone; likewise, comparing A (throughput basis) with
+the gate-off C2 (sequestration basis) isolates the credit-basis effect, and
+comparing C1-free with C2 isolates the credit mechanism at fixed tax
+(Table~\ref{tab:s8}).
+
+\subsection{Demand-family sensitivity (E3)}
+
+The calibrated demand curve is a scenario, not an estimated willingness-to-pay
+surface; the \$25/t activation threshold and the claim that ``demand is the
+binding constraint'' must therefore be tested against alternative demand
+families. We re-solve the Step-1 MIP, the LP duals, and the Paradigm~A sweep
+at $\{25, 100, 200\}$~\$/t for three variants (Fig.~\ref{fig:s4}; archived
+under \texttt{results\_v2\_df*}): capacities $\times$0.7 (low adoption),
+$\times$1.4 (high adoption), and a price stress (M \$450/t, L \$200/t). The
+no-policy equilibrium follows the H+M capacity boundary (1.61 / 2.30 / 2.30 /
+2.83~Mt), confirming that the aggregate output level is demand-determined. The
+\$25/t activation of the L segment is scenario-conditional: 1.01~Mt under low
+adoption (the smaller L capacity binds), 0.42~Mt calibrated, 0.12~Mt under
+price stress (the lower \$200/t bid needs more credit support), and zero under
+high adoption (the enlarged H+M capacity absorbs the profitable expansion and
+the marginal cost of further L production exceeds \$250 plus \$25/t credits).
+The \$25 threshold is thus a property of the calibrated demand, not a
+universal policy constant; the paper's statements are bounded accordingly.
+
+\subsection{Carbon-parameter joint scenarios (E4)}
+
+The decomposition fraction and the permanence factors enter the credit rate
+$R=B-E^{+}+|S|$ independently (decomposition scales $B$; permanence scales the
+sequestration part of $|S|$). We re-solve the Paradigm~A point $p_c=\$200$/t
+with free facilities on the $3\times3$ grid decomposition
+$\{0.5,0.7,0.9\}\times$ permanence multipliers $\{0.8,1.0,1.2\}$
+(archived as \texttt{policy\_A\_e4\_*\_v2.csv}; gaps 1.2--1.7\%). The baseline
+cell (0.9, 1.0) reproduces the canonical \$200/t surplus to 0.1\%
+(3{,}358 vs.\ 3{,}362~M\$/yr). Halving the decomposition fraction lowers the
+\$200/t surplus by 31--34\% at every permanence level (\$2{,}203--2{,}451~M\$),
+extending the one-at-a-time result of Section~\ref{sec:sensitivity} to the
+joint grid; a $\pm$20\% permanence perturbation moves the surplus by
+$\mp$3--5\% (e.g., 3{,}224 / 3{,}358 / 3{,}473~M\$ at decomposition 0.9).
+The near-term technology mix stays essentially all-300$^\circ$C in every cell
+(at most 0.22~Mt of 500$^\circ$C at decomposition 0.9, permanence 1.2),
+consistent with the supply-bound regime: carbon-parameter uncertainty scales
+the credit economics but does not flip the near-term technology choice.
+
+\subsection{Carbon ledger and cash-flow decomposition}
+
+Table~S6 is the per-dry-tonne carbon ledger: carbon in (kg C/t dry), char
+carbon at 300/500$^\circ$C, gas/liquid carbon (residual), process emissions
+$E^{+}$, durable storage $|S|$ (sequestration plus N$_2$O), the avoided-decay
+baseline $B$, the direct net flux $N=E^{+}-|S|$, and the credit rates of the
+two bases (A: $B-E^{+}+|S|$; C2: $|S|$, H/C-gated). Table~S7 decomposes the
+policy cash flows per point: consumer payment (demand-bid revenue), credit
+revenue, tax payment, resource cost (farmgate, OPEX, transport, annualized
+CAPEX), and the resulting surplus. Two identities close the ledger. First, at
+the system level, the creditable quantity equals the baseline minus the net
+flux, $\mathrm{cc}=B-N$ (e.g., 10.77~Mt $=$ 9.15~Mt $- (-1.60)$~Mt at
+$p_c=0$; 13.56~Mt $=$ 11.57~Mt $- (-1.96)$~Mt at $p_c=\$200$/t; verified for
+every sweep point to $<$0.05~Mt). This is why creditable quantity (up to
+13.6~Mt) so far exceeds the physical net removal (1.60--1.96~Mt): the
+throughput basis pays for the avoided baseline $B$, which is not a direct
+atmospheric flux. Second, surplus equals consumer payment plus credit revenue
+minus tax minus resource cost at every point (the decomposition columns sum
+exactly). Credit revenue and tax are transfers between the operator and the
+policy authority, not social welfare; the surplus figures of the main text
+include them by definition and should be read as producer-side surpluses under
+the policy instruments (Table~\ref{tab:s6}, Table~\ref{tab:s7}).
+
 \subsection{Proof of Proposition 1}
 
 For the fixed-layout LP, the cap constraint $E^{+}(x)\le\mathrm{CAP}$ is
-appended to \eqref{eq:base} with the layout variables $z$ fixed. Strong
-duality (Assumption~1) and the differentiability of the LP value function
-give, by the standard parametric-LP sensitivity theorem,
+appended to \eqref{eq:base} with the layout variables $z$ fixed. By the
+standard parametric-LP sensitivity theorem (with strong duality per
+Assumption~1),
 $\mu_{\mathrm{CAP}}=\partial\Pi^{*}/\partial\,\mathrm{CAP}$, where
-$\mu_{\mathrm{CAP}}$ is the optimal dual variable of the cap constraint.
+$\mu_{\mathrm{CAP}}$ is the optimal dual variable of the cap constraint; at
+degenerate vertices the left and right derivatives can differ, and the dual
+ranges reported at the end of this section are the basis for the reported
+interval.
 Gurobi reports the dual of a $\le$ constraint in a maximization with the
 opposite sign convention (it reports the reduction in objective per unit of
 constraint tightening), i.e., the reported value is
-$-\partial\Pi^{*}/\partial\,\mathrm{CAP}$. The endogenous carbon price
+$-\partial\Pi^{*}/\partial\,\mathrm{CAP}$. The shadow carbon price
 (marginal abatement cost) is therefore the negative of the reported dual, and
 the finite-difference estimates
 $\Delta\Pi^{*}/\Delta\,\mathrm{CAP}$ in Table~S3 reproduce it to numerical
@@ -1797,11 +2041,15 @@ flows, technology mix, and cleared quantities, are identical to $x^{*}$, while
 the objective decreases by $\tau\,E^{+}(x^{*})$---the tax is a pure
 surplus-to-government transfer. Numerically, the marginal price gap is
 $\lambda^{\mathrm{M}}-\max_n\pi^{\mathrm{BC}}_n =
-500-344.85\approx\$155$/t biochar and the gross-emission intensity of the
-marginal supply path is $\approx0.44$~t CO$_2$e/t biochar
-($E^{+}=1{,}002.8$~kt over 2.30~Mt served; T1 $31$--$35$~kg/t wet,
-T2 $\approx121$~kg/t dry, plus transport), giving
-$\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested rate of
+500-344.85\approx\$155$/t biochar. The route-specific marginal intensities
+$e^{+}_q$ are evaluated from the LP basis by a $+1$~kt cap perturbation on each
+fully-served demand row (\texttt{prop3\_basis\_check.jl}, archived as
+\texttt{prop3\_basis\_check\_v2.csv}): the binding rows are the M-segment rows
+served by the corn-stover 300$^\circ$C chain with
+$e^{+}_q=0.475$--$0.488$~t CO$_2$e/t biochar (T1 dehydration, T2-300
+pyrolysis, plus delivery), giving $\tau_q=0.32$~\$/kg CO$_2$e, i.e.,
+$\tau_{\max}\approx\$321$/t CO$_2$e; H-segment rows give
+$\approx$\$1{,}100/t. The threshold exceeds the top tested rate of
 \$200/t, consistent with the null dispatch response of C1 and
 C1-free (Table~\ref{tab:c1free}). The tiered slope does not matter: a
 convex piecewise-linear tax with positive slopes is, on the active paths,
@@ -1846,6 +2094,54 @@ Type & Notation & Description\\
  & $d_{np}, s_{np}$ & Aggregated demand/supply at node $n$ for product $p$ \\
  & $p_{np}$ & Aggregated production at node $n$ for product $p$ \\
  & $\pi_{np}$ & Dual of the mass balance = inherent value of product $p$ at node $n$ (\$/t) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Carbon ledger per tonne dry feedstock (kg CO$_2$e or kg C as
+labeled): $C^{in}$ carbon content, $S$ durable storage (sequestration plus
+N$_2$O, positive), $E^{+}$ process emissions, $B$ avoided-decay baseline,
+$N=E^{+}-S$ direct net flux, $R^{A}_{500}$ the Paradigm-A credit rate of the
+500$^\circ$C route (tCC/t dry). Generated by \texttt{carbon\_accounting.py}.}
+\label{tab:s6}
+\input{table_S6_carbon.tex}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Cash-flow decomposition per policy point (M\$/yr, near-term):
+consumer payment is demand-bid revenue, resource cost is farmgate plus OPEX
+plus transport plus annualized CAPEX, and surplus $=$ consumer payment $+$
+credit revenue $-$ tax $-$ resource cost. Generated by
+\texttt{carbon\_accounting.py}; C2 rows use the certified re-solves where
+available.}
+\label{tab:s7}
+\input{table_S7_cashflow.tex}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Policy-module decomposition across the six experiments (near-term).
+``B\&C'' = baseline-and-credit basis $B-E^{+}+|S|$; ``seq'' = sequestration
+basis $|S|$ only.}
+\label{tab:s8}
+\begin{tabular}{llcccccc}
+\toprule
+Experiment & carbon basis & H/C gate & tax & credit & cap & alloc. & BC at \$200/t (Mt; \% 500$^\circ$C)\\
+\midrule
+Baseline (S0) & -- & -- & -- & -- & -- & -- & 2.30 (0\%)\\
+A (throughput) & B\&C & none & -- & yes & -- & -- & 2.85 (near-term mix 300$^\circ$C)\\
+C1-free & -- & -- & tiered & -- & -- & -- & 2.30 (0\%)\\
+C2 (gated) & seq & H/C$\le$0.7 & tiered & yes & -- & -- & 2.25 (100\%)\\
+C2 gate-off (E1) & seq & none & tiered & yes & -- & -- & 2.77 (1\%)\\
+B1 & -- & -- & -- & -- & gross & -- & (cap sweep; MAC \$351--599/t)\\
+B2 & -- & -- & -- & -- & net & -- & (frontier; binds below $-1{,}595$~kt)\\
+C3 & -- & -- & tiered & -- & -- & grand.\/bench. & (no difference at fixed layout)\\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -191,7 +191,7 @@ function solve(p_c, z_warm; time_limit = something(tl_override, 900),
     (; p_c, profit_M=objective_value(m)/1e6, bc300_Mt=bc300/1e6, bc500_Mt=bc500/1e6,
        bc_Mt=(bc300+bc500)/1e6, cc_Mt=cc/1e6, seg=seg,
        ghg_Mt=(proc+tran+seqg)/1e9, status=string(termination_status(m)),
-       gap=termination_status(m)==MOI.OPTIMAL ? relative_gap(m) : NaN,
+       gap=relative_gap(m),
        z_layout=z_layout)
 end
 

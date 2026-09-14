@@ -1,0 +1,5 @@
+02_LP_duals_v2 scenario=mature-market medium status=OPTIMAL
+profit_M = 1026.90
+bc_Mt = 3.220 (ag 3.220, sink 0.000)
+iv_wet_min=-0.00 iv_wet_max=63.34 iv_wet_mean=7.98
+iv_bc_min=268.17 iv_bc_max=305.78 iv_bc_mean=287.12

@@ -1,0 +1,12 @@
+# System-level carbon reconciliation (near-term)
+03_LP_GHG_v2 scenario=near-term status=OPTIMAL
+net_ghg_kt = -1595.1 (proc 979.3, trans 23.5, seq -2597.9)
+bc_Mt = 2.300
+  p_c   BC(Mt)  CC_A(Mt)   B(Mt)  E+(kt)  |S|(kt)   N(Mt)     identity
+    0    2.300    10.773   9.154       -        -  -1.595           OK
+   25    2.719    12.837  10.942       -        -  -1.869           OK
+   50    2.837    13.456  11.481       -        -  -1.947           OK
+  100    2.850    13.535  11.548       -        -  -1.956           OK
+  150    2.856    13.557  11.568       -        -  -1.959           OK
+  200    2.854    13.559  11.568       -        -  -1.961           OK
+IDENTITY cc = B - N: PASS

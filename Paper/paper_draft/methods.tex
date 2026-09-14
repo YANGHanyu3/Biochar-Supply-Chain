@@ -127,7 +127,10 @@ biomass from natural decay,
 B(x)=\sum_{f\in\mathcal{F}} b_f \sum_{n}\bigl(-x_{n,f,\mathrm{T1}_f}\bigr),
 \qquad b_f = 0.9\,C_f^{\mathrm{dry}}\,\frac{44}{12}\times 10^{3}\ \text{kg/t dry},
 \end{equation}
-with $b_f \approx 1350$--$1650$~kg/t dry. Throughout the paper, reported
+with $b_f \approx 1350$--$1650$~kg/t dry. The decay fraction $0.9$ is a
+scenario assumption (immediate, complete decay of uncollected residues, an
+upper bound on the avoided-emission credit); a sensitivity halving it to 0.5 is
+reported in Section~\ref{sec:sensitivity}. Throughout the paper, reported
 ``net GHG'' figures are the direct flux $N(x)$, not abatement relative to
 the decay counterfactual; $B(x)$ enters only the credit calculation of
 Paradigm~A below.
@@ -168,6 +171,20 @@ price-responsive, the equilibrium quantity is endogenous; in the base model
 Section~\ref{sec:v2b}) splits biochar into BC300 and BC500 products with the
 CDR premium segment restricted to BC500.
 
+\emph{Price concepts.} Four distinct price-like objects appear throughout the
+paper, and they are not the same quantity. (i) \emph{Demand bid}
+$\lambda^{\mathrm{dem}}_d$: the buyer's willingness-to-pay anchor for one tonne
+of biochar in segment $d$, not an equilibrium price. (ii) \emph{Nodal inherent
+value} $\pi_{np}$: the dual of the node mass balance, the conditional marginal
+value of one more tonne of product $p$ at node $n$ under the fixed facility
+layout. (iii) \emph{Shadow carbon price} (conditional fixed-layout marginal
+abatement cost): the negative of the cap dual, $-\mu_{\mathrm{CAP}}$, the
+marginal opportunity cost of tightening the emission cap under the fixed
+layout; it is a coordinating-entity shadow price, not a price from a
+decentralized allowance market (Section~\ref{sec:limitations}).
+(iv) \emph{Administered market benchmarks}: observed RGGI/EU ETS allowance and
+voluntary removal-credit prices, used only as external comparisons.
+
 \subsection{Carbon policy modules}
 \label{sec:policy}
 
@@ -191,7 +208,7 @@ both credit basis (avoided-baseline versus sequestered-carbon) and eligibility
 throughput-scaled credit rather than a specific existing methodology; it is
 contrasted with the sequestration-only, H/C-gated VM0044 basis of Paradigm~C2.
 
-\subsubsection{Paradigm B: cap-and-trade with endogenous carbon price}
+\subsubsection{Paradigm B: cap-and-trade with shadow carbon price}
 
 B1 imposes a gross-emission cap and sweeps it to trace the system's marginal
 abatement cost (MAC) curve $\Pi^{*}(\mathrm{CAP})$:
@@ -199,7 +216,7 @@ abatement cost (MAC) curve $\Pi^{*}(\mathrm{CAP})$:
 \max\ \Pi \quad \text{s.t.}\quad E^{+}(x)\le \mathrm{CAP},
 \qquad \mathrm{MAC}=\frac{\partial \Pi^{*}}{\partial\,\mathrm{CAP}}
 \end{equation}
-The endogenous-price interpretation is formalized as follows.
+The shadow-price interpretation is formalized as follows.
 \begin{proposition}
 \label{prop:mac_dual}
 For the fixed-layout LP \eqref{eq:base} with an added gross-emission cap
@@ -207,8 +224,8 @@ $E^{+}(x)\le\mathrm{CAP}$, let $\mu_{\mathrm{CAP}}$ be the optimal dual
 variable of the cap constraint under Gurobi's sign convention for a $\le$
 constraint in a maximization. Then
 $\mu_{\mathrm{CAP}}=-\partial\Pi^{*}/\partial\,\mathrm{CAP}$: the reported dual
-is the negative of the marginal abatement cost, so the endogenous carbon price
-is $-\mu_{\mathrm{CAP}}$.
+is the negative of the marginal abatement cost, so the shadow carbon price
+(conditional on the fixed layout) is $-\mu_{\mathrm{CAP}}$.
 \end{proposition}
 \begin{proof}
 The identity is the standard parametric-LP sensitivity theorem applied to the
@@ -216,13 +233,18 @@ cap's right-hand side; the full argument is in the SI (Section~A.9).
 \end{proof}
 The proposition is verified numerically: the reported dual matches the
 finite-difference MAC to numerical tolerance ($-374$ vs.\ \$351--391\$/t over
-the first binding intervals in the near-term scenario). We benchmark the resulting MAC against RGGI
-(\$17--25/t) and EU ETS (\texteuro 50--90/t) allowance prices and the
+the first binding intervals in the near-term scenario). We benchmark the
+resulting MAC against 2024--2025 RGGI
+(\$17--25/t) and EU ETS (\texteuro 50--90/t, $\approx$\$55--100/t) allowance
+prices and the
 voluntary removal-credit band (\$100--250/t, VM0044/Puro). B2 replaces the
 constraint by a net-flux cap
-$E^{+}(x)-S(x)\le\mathrm{CAP}^{\mathrm{net}}$; since the system is net-negative,
-the constraint never binds, demonstrating that net caps are blind to negative
-emissions.
+$E^{+}(x)-S(x)\le\mathrm{CAP}^{\mathrm{net}}$. At every tested cap
+($\mathrm{CAP}^{\mathrm{net}}\ge-1{,}000$~kt, all looser than the baseline
+flux of $-1{,}595$~kt) the constraint does not bind; a frontier sweep that
+tightens the cap below the baseline flux (free-facility MIP, SI Fig.~S2)
+locates the first binding point and traces the response, which is reported in
+Section~\ref{sec:results}.
 
 \subsubsection{Which resource binds: demand-bound versus supply-bound regimes}
 
@@ -306,8 +328,9 @@ calibrated inside the feasible emission range ($T_1=0.4E^{+}_0$, $T_2=0.7E^{+}_0
 rates \$25/50/100 and \$50/100/200 per tCO$_2$e); the flat rate set
 (25/25/25) isolates the linear-tax case. To rule out the possibility that the
 fixed-layout approximation drives the tax results, C1 is also re-solved as a
-free-facility MIP (C1-free). C2 adds Verra VM0044-compliant removal crediting,
-operationalized through the molar H/C~$\le$~0.7 eligibility gate as a proxy:
+free-facility MIP (C1-free). C2 adds removal crediting operationalized through
+the molar H/C~$\le$~0.7 eligibility gate as an H/C-gated VM0044-inspired
+proxy:
 only biochar with molar H/C~$\le$~0.7 generates credits. Measured 300$^\circ$C
 chars are torrefaction-like with H/C $\approx$0.9--1.4
 \cite{rafiq2016,ippolito2020}, so no 300$^\circ$C biochar qualifies and
@@ -363,14 +386,17 @@ is bounded relative to their surplus, the pre-tax ordering of the bid stack is
 preserved. In our data, the marginal price gap is
 $\lambda^{\mathrm{dem}}-\pi^{\mathrm{BC}} \approx \$155$/t
 biochar (the \$500/t M bid minus the largest served-node inherent value,
-\$344.85/t) and the gross-emission intensity of the marginal supply path is
-$\approx$0.44~t CO$_2$e/t biochar (1{,}003~kt gross over 2.30~Mt served;
-T1 $31$--$35$ kg/t wet, T2 $\approx$121 kg/t dry, plus transport), so
-$\tau_{\max}\approx\$350$/t CO$_2$e, above the top tested tier of
+\$344.85/t). Evaluating \eqref{eq:taumax} with the route-specific marginal
+intensities of the LP basis (SI Section~A.11 reports every served demand row
+individually), the binding rows are the M-segment rows served by the
+corn-stover 300$^\circ$C chain with $e^{+}_q\approx0.48$~t CO$_2$e/t biochar,
+so $\tau_{\max}\approx\$321$/t CO$_2$e; the H-segment rows are far looser
+($\approx$\$1{,}100/t). The route-specific threshold exceeds the top tested
+tier of
 \$200/t; the tax's effect within the tested range is confined to surplus
 reallocation. The neutrality itself is a structural property of any
 demand-constrained LP; the contribution here is the quantified boundary
-($\tau_{\max}\approx\$350$/t for this system) and the comparison it enables
+($\tau_{\max}\approx\$321$/t for this system) and the comparison it enables
 with observed carbon prices.
 
 \subsection{Quality-differentiated extension (v2b)}
@@ -393,13 +419,15 @@ yield to access the premium market and higher removal credits.
 \subsection{Solution strategy}
 
 Facility-location decisions are integer, so Steps 1 (MIP) and the policy sweeps
-use Gurobi 13 with a 1--3\% optimality gap, 600--1{,}800~s time limits, and
+use Gurobi 13 with 0.5--1\% optimality gap targets, 600--3{,}600~s time limits, and
 feasibility-focused branching (MIPFocus=1) with 60~s of zero-objective
 heuristics; successive policy prices are warm-started from the previous
-facility layout. All dual-based analyses (inherent values, GHG shadow prices,
-endogenous carbon prices) are performed on LPs with the facility layout fixed
-and solved with dual simplex, so that reported duals are exact vertex
-shadow prices; interior-point (barrier) duals of the cap constraint are not
+facility layout. All dual-based analyses (inherent values, GHG shadow prices, shadow
+carbon prices) are performed on LPs with the facility layout fixed
+and solved with dual simplex, so that reported duals are vertex
+shadow prices; where degeneracy is detected we report the dual range instead
+of a point value (SI Section~A.9), and interior-point (barrier) duals of the
+cap constraint are not
 vertex shadow prices on this LP and are not used. The GHG LP (Step 3) pins demand quantities to the
 Step-2 equilibrium, so its duals are marginal GHG values at the market
 equilibrium rather than at the GHG-minimal dispatch. The near-term scenario
@@ -409,7 +437,9 @@ are provided in the SI.
 
 \begin{assumption}
 \label{ass:duality}
-Throughout our study we assume that strong duality holds for the fixed-layout
-LPs, so that all reported dual variables are unique vertex shadow prices of the
-corresponding constraints.
+For the fixed-layout LPs, strong duality holds: the reported primal and dual
+objective values coincide. Dual solutions need not be unique at degenerate
+vertices, so we do not assume uniqueness; throughout, the reported shadow
+prices are verified against finite-difference perturbations, and dual ranges
+(SI Section~A.9) are reported wherever degeneracy is detected.
 \end{assumption}
