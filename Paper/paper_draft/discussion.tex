@@ -15,7 +15,8 @@ the primal optimum does not move, precisely the failure mode characterized by
 \cite{benjaafar2013}. Proposition~\ref{prop:taxinv} states the boundary
 condition precisely: the tax is dispatch-neutral up to a threshold whose
 denominator is the marginal price gap divided by the path emission intensity,
-which we compute at $\approx$\$321/t CO$_2$e with route-specific marginal
+which we compute at $\approx$\$318/t CO$_2$e ($\approx$\$464/t in the
+mature-market scenario) with route-specific marginal
 intensities of the LP basis (SI Section~A.11), above every tested rate
 (\$25--200/t) but close enough that substantially higher taxes could bite. The
 free-facility re-solve (C1-free, Section~\ref{sec:policyC})
@@ -178,12 +179,15 @@ conclusions unchanged. (viii) \emph{Static
 structure.} The model is single-year with no seasonal inventory; the
 allocation-design result (C3) and facility-path dependencies point to a
 multi-period extension. (ix) \emph{Solver gaps.} Policy sweeps are reported at
-0.5--4.7\% MIP optimality gaps (Table~S3). The largest-gap points were
-re-solved at a 0.1\% target with 3{,}600~s limits and multiple seeds: the
-near-term C2 $p_c=\$150$ point improved from a 4.7\% to a 2.5\% gap (surplus
-$+1.9\%$), and forward versus reverse sweep orders reproduce every point
-within 0.2\%, so the reported structural responses are stable across
-warm-start paths; TIME\_LIMIT points remain feasible incumbents. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
+0.5--4.7\% MIP optimality gaps (Table~S3). Every point whose original gap
+exceeded 2\% was re-solved at a 0.1\% target with 3{,}600--7{,}200~s limits
+(the near-term C2 $p_c=\$150$ point improved from a 4.7\% to a 2.5\% gap,
+surplus $+1.9\%$; the v2b points improved to 1.4--2.7\%), forward versus
+reverse sweep orders reproduce every point within 0.2\%, and the v2b Step-1
+gaps are now recorded (2.6\% near-term, 1.0\% mature-market). The reported
+structural responses are therefore stable across warm-start paths; TIME\_LIMIT
+points remain feasible incumbents and their per-point gap, runtime, and status
+are archived in the certificate CSVs. (x) \emph{Scope.} Wisconsin-specific magnitudes do not transfer
 verbatim to other Midwest states (feedstock mix, demand, and dairy waste
 streams differ); the qualitative policy mechanisms are the transferable
 findings.

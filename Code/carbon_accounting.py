@@ -17,7 +17,7 @@
 #   carbon_balance_v2.csv, system_reconciliation_v2.txt,
 #   cashflow_decomposition_v2.csv, table_S6_carbon.tex, table_S7_cashflow.tex
 # =============================================================================
-import os, sys
+import os, sys, re
 import numpy as np
 import pandas as pd
 
@@ -184,7 +184,88 @@ def cashflow_decomposition(scen, resdir=None, a_csv="policy_A_regen_v2.csv",
                     break
     return pd.DataFrame(rows)
 
-def write_latex_tables(ledger, cash, outdir):
+def build_policy_accounting(scen, resdir=None):
+    """Common-accounting table across every policy experiment (review R2-M4).
+
+    Reports policy transfers (credit revenue, tax, allowance settlement)
+    separately from producer surplus, so transfers are not read as welfare.
+    Resource cost is decomposed in the detailed A/C2 table.
+    """
+    r = resdir or os.path.join("results_v2", scen)
+    rows = []
+
+    def add(exp, instr, key, credit=0.0, tax=0.0, allow=0.0, surplus=None,
+            net=None, cc=None):
+        rows.append(dict(experiment=exp, instrument=instr, key=key,
+                         credit_rev=credit, tax=tax, allowance=allow,
+                         surplus=surplus, net=net, cc=cc))
+
+    # baseline
+    s0 = open(os.path.join(r, "S0_summary.txt")).read()
+    b_sur = float(re.search(r"objective_M\s*=\s*([-\d.]+)", s0).group(1))
+    b_net = float(re.search(r"net_ghg_Mt\s*=\s*([-\d.]+)", s0).group(1))
+    add("S0 baseline", "none", "--", surplus=b_sur, net=b_net, cc=0.0)
+
+    # gross-emission cap sweep (no transfers; cap is a quantity instrument)
+    p = os.path.join(r, "policy_B1_cap_sweep_v2.csv")
+    if os.path.exists(p):
+        b = pd.read_csv(p).sort_values("cap")
+        for _, x in b.iterrows():
+            # net flux is not recoverable per-point from the B1 sweep (it holds
+            # no sequestration term); the B2 frontier carries it instead
+            add("B1 gross cap", "cap", "{:.0f} kt".format(x.cap),
+                surplus=x.profit)
+
+    # net-emission cap frontier
+    p = os.path.join(r, "netcap_frontier_v2.csv")
+    if os.path.exists(p):
+        f = pd.read_csv(p).dropna(subset=["profit"])
+        for _, x in f.iterrows():
+            add("B2 net cap", "net cap", "{:.0f} kt".format(x.cap_net),
+                surplus=x.profit, net=x.net / 1e3)
+
+    # tiered tax, no credit
+    p = os.path.join(r, "policy_C1_tiered_tax_v2.csv")
+    if os.path.exists(p):
+        c1 = pd.read_csv(p)
+        for _, x in c1.iterrows():
+            taxM = (x.r1 * x.t1 + x.r2 * x.t2 + x.r3 * x.t3) / 1e3
+            add("C1 tiered tax", "tax",
+                "{:.0f}/{:.0f}/{:.0f}".format(x.r1, x.r2, x.r3),
+                tax=-taxM, surplus=x.profit)
+
+    # allowance allocation
+    p = os.path.join(r, "policy_C3_allocation_v2.csv")
+    if os.path.exists(p):
+        c3 = pd.read_csv(p)
+        for _, x in c3.iterrows():
+            add("C3 allocation", "allowance",
+                "{}, {:.0f} USD/t".format(x["mode"], x["p_allow"]),
+                allow=x.surplus, surplus=x.profit)
+
+    # Paradigm A (throughput credit)
+    p = os.path.join(r, "policy_A_regen_v2.csv")
+    if os.path.exists(p):
+        a = pd.read_csv(p)
+        for _, x in a.iterrows():
+            add("A baseline-credit", "credit",
+                "{:.0f} USD/t".format(x.p_c),
+                credit=x.credit_rev_M, surplus=x.profit_M,
+                net=x.ghg_Mt, cc=x.cc_Mt)
+
+    # Paradigm C2 (tax + gated credit)
+    p = os.path.join(r, "policy_C2_regen_v2.csv")
+    if os.path.exists(p):
+        c2 = pd.read_csv(p)
+        for _, x in c2.iterrows():
+            add("C2 tax + gated credit", "tax + credit",
+                "{:.0f} USD/t".format(x.p_c),
+                credit=x.credit_rev_M, tax=-x.tax_M, surplus=x.profit,
+                net=x.net_Mt, cc=x.cc)
+    return pd.DataFrame(rows)
+
+
+def write_latex_tables(ledger, cash, outdir, acct=None):
     os.makedirs(outdir, exist_ok=True)
     # Table S6: carbon ledger (rows = feedstocks; 300/500 columns)
     with open(os.path.join(outdir, "table_S6_carbon.tex"), "w") as f:
@@ -195,14 +276,19 @@ def write_latex_tables(ledger, cash, outdir):
             f.write(f"{r.feedstock.replace('_',' ')} & {r.c_in:.0f} & {r.s_300:.0f} & {r.s_500:.0f} & "
                     f"{r.e_300:.0f} & {r.e_500:.0f} & {r.b:.0f} & {r.n_300:.0f} & {r.n_500:.0f} & {r.credit_A_500:.3f}\\\\\n")
         f.write("\\bottomrule\n\\end{tabular}\n")
-    # Table S7: cash-flow decomposition
+    # Table S7: policy accounting on a common boundary (all experiments)
+    if acct is None:
+        acct = pd.DataFrame()
     with open(os.path.join(outdir, "table_S7_cashflow.tex"), "w") as f:
-        f.write("% Auto-generated cash-flow decomposition (M$/yr)\n")
-        f.write("\\begin{tabular}{lrrrrrrr}\n\\toprule\n")
-        f.write("Policy & $p_c$ & Consumer payment & Credit revenue & Tax & Resource cost & Surplus & Net removal (Mt)\\\\\n\\midrule\n")
-        for _, r in cash.iterrows():
-            f.write(f"{r.policy} & {r.p_c:.0f} & {r.consumer_M:.1f} & {r.credit_rev_M:.1f} & {r.tax_M:.1f} & "
-                    f"{r.resource_M:.1f} & {r.surplus_M:.1f} & {r.net_Mt:.3f}\\\\\n")
+        f.write("% Auto-generated policy accounting table (M USD/yr)\n")
+        f.write("\\begin{tabular}{llrrrrrr}\n\\toprule\n")
+        f.write("Experiment & Instrument & Price / key & Credit rev. & Tax & Allow. & Surplus & Net flux (Mt)\\\\\n\\midrule\n")
+        for _, r in acct.iterrows():
+            def fmt(v, nd=1):
+                return "--" if (v is None or (isinstance(v, float) and pd.isna(v))) else f"{v:.{nd}f}"
+            f.write(f"{r.experiment} & {r.instrument} & {r.key} & "
+                    f"{fmt(r.credit_rev)} & {fmt(r.tax)} & {fmt(r.allowance)} & "
+                    f"{fmt(r.surplus)} & {fmt(r.net, 3)}\\\\\n")
         f.write("\\bottomrule\n\\end{tabular}\n")
 
 if __name__ == "__main__":
@@ -215,8 +301,11 @@ if __name__ == "__main__":
     open(os.path.join(resdir, "system_reconciliation_v2.txt"), "w").write(recon + "\n")
     cash = cashflow_decomposition(scen)
     cash.to_csv(os.path.join(resdir, "cashflow_decomposition_v2.csv"), index=False)
-    print("\nCash-flow decomposition (M$/yr):")
-    print(cash.to_string(index=False, float_format=lambda x: f"{x:.1f}"))
-    write_latex_tables(ledger, cash, resdir)
+    acct = build_policy_accounting(scen, resdir)
+    acct.to_csv(os.path.join(resdir, "policy_accounting_v2.csv"), index=False)
+    print("\nPolicy accounting on a common boundary (M USD/yr; transfers shown separately):")
+    print(acct.to_string(index=False, float_format=lambda x: f"{x:.1f}"))
+    write_latex_tables(ledger, cash, resdir, acct=acct)
     print(f"\nSaved: carbon_balance_v2.csv, system_reconciliation_v2.txt, "
-          f"cashflow_decomposition_v2.csv, table_S6_carbon.tex, table_S7_cashflow.tex -> {resdir}")
+          f"cashflow_decomposition_v2.csv, policy_accounting_v2.csv, "
+          f"table_S6_carbon.tex, table_S7_cashflow.tex -> {resdir}")

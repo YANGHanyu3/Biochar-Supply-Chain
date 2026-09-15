@@ -16,6 +16,19 @@ using JuMP, Gurobi, CSV, DataFrames
 import Printf: @sprintf
 
 scen = length(ARGS) > 0 ? ARGS[1] : "near-term"
+# keyword overrides: tag=..., prices=100,150 (comma list), timelimit=..., gap=..., seed=...
+kw = Dict{String,String}()
+for a in ARGS
+    if occursin("=", a) && startswith(a, r"[a-z]")
+        k, v = split(a, "=", limit=2)
+        kw[k] = v
+    end
+end
+_tag    = get(kw, "tag", "")
+_plist  = haskey(kw, "prices") ? [parse(Float64, p) for p in split(kw["prices"], ",")] : Float64[]
+_tlimit = haskey(kw, "timelimit") ? parse(Float64, kw["timelimit"]) : 900.0
+_mgap   = haskey(kw, "gap") ? parse(Float64, kw["gap"]) : 0.005
+_seed   = haskey(kw, "seed") ? parse(Int, kw["seed"]) : nothing
 datadir = joinpath("biochar_data_v2b", scen)
 resdir  = joinpath("results_v2b", scen)
 
@@ -118,7 +131,7 @@ E_base = build_lp_fixed()
 println("Baseline gross emissions (v2b, $scen): ", round(E_base/1e6, digits=1), " kt")
 tier_lims = [0.40 * E_base, 0.70 * E_base]
 
-function solve_c2(p_c, z_warm; time_limit=900, mipgap=0.005)
+function solve_c2(p_c, z_warm; time_limit=_tlimit, mipgap=_mgap)
     dem_rows = DataFrame(dem_id=Int[], node=Int[], product=Int[], segment=String[],
                          bid=Float64[], capacity=Float64[])
     for row in eachrow(dem_df)
@@ -142,8 +155,9 @@ function solve_c2(p_c, z_warm; time_limit=900, mipgap=0.005)
     set_optimizer_attribute(m, "TimeLimit", time_limit)
     set_optimizer_attribute(m, "MIPGap", mipgap)
     set_optimizer_attribute(m, "MIPFocus", 1)
-    set_optimizer_attribute(m, "Threads", 8)
+    set_optimizer_attribute(m, "Threads", 7)   # 7/8 physical cores: thermal headroom
     set_optimizer_attribute(m, "OutputFlag", 0)
+    _seed === nothing || set_optimizer_attribute(m, "Seed", _seed)
     @variable(m, f[i in N, j in N, p in P; arc_ok[(i,j,p)]] >= 0)
     @variable(m, dem[DS] >= 0); @variable(m, sup[SS] >= 0)
     @variable(m, d[N,P] >= 0);  @variable(m, s[N,P] >= 0)
@@ -217,7 +231,7 @@ function run_c2_sweep()
     for row in eachrow(z_df)
         z_warm[(row.node, row.tech, row.scale)] = row.count
     end
-    for pc in [50.0, 100.0, 150.0, 200.0]
+    for pc in (isempty(_plist) ? [50.0, 100.0, 150.0, 200.0] : _plist)
         r = solve_c2(pc, z_warm)
         push!(results, r)
         z_warm = r.z_layout
@@ -233,5 +247,6 @@ df = DataFrame(
     bc500_Mt = [r.bc500_Mt for r in results], cc_Mt = [r.cc_Mt for r in results],
     emis_kt = [r.emis_kt for r in results], status = [r.status for r in results],
     gap = [r.gap for r in results])
-CSV.write(joinpath(resdir, "policy_C2_tax_credit_v2b.csv"), df)
-println("\nSaved: policy_C2_tax_credit_v2b.csv")
+CSV.write(joinpath(resdir, isempty(_tag) ? "policy_C2_tax_credit_v2b.csv" :
+                   "policy_C2_$(_tag)_v2b.csv"), df)
+println("\nSaved: " * (isempty(_tag) ? "policy_C2_tax_credit_v2b.csv" : "policy_C2_$(_tag)_v2b.csv"))

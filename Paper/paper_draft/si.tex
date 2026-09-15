@@ -240,7 +240,10 @@ MIPFocus=1, NoRelHeurTime=60. Policy sweeps: 0.5\% gap target, 600~s
 warm-started from the previous layout (Paradigm~A credit prices
 $p_c=25/50$ re-solved with 1{,}800~s limits, improving the incumbents);
 sweep points that hit the time limit
-are feasible incumbents (reported gaps 0.5--4.7\%, Table~S3). All duals read
+are feasible incumbents (reported gaps 0.5--4.7\%, Table~S3). Every point whose
+original gap exceeded 2\% was subsequently re-solved at a 0.1\% target; Table~S9
+itemizes those certificates (incumbent, derived best bound, gap, time limit,
+and termination status), and no certified point exceeds a 2.8\% gap. All duals read
 from fixed-layout LPs
 solved with \emph{dual simplex} (exact vertex shadow prices). The cap's
 vertex dual is reported with Gurobi's sign convention for $\le$ constraints in
@@ -261,8 +264,11 @@ re-solved for 3{,}600~s at a 0.1\% gap target
 \small
 \caption{\small Optimality-gap report: free-facility MIPs solve at a 0.5\% gap target
 (Step~1 at 1\%); points that hit the time limit are feasible incumbents, so
-their reported surplus is a lower bound on the true optimum. All v2b gap
-percentages are from the recorded 2026-09-14 re-runs.}
+their reported surplus is a lower bound on the true optimum. Every point whose
+original gap exceeded 2\% was re-solved at a 0.1\% target with 3{,}600--7{,}200~s
+limits and, where noted, multiple seeds; the per-point incumbent, runtime,
+termination status, and seed are archived in the certificate CSVs
+(\texttt{policy\_*\_cert*.csv}). No certified gap exceeds 2.8\%.}
 \label{tab:s3}
 \begin{tabular}{lcc}
 \toprule
@@ -273,15 +279,19 @@ Paradigm A sweep (600~s; $p_c=25/50$ at 1{,}800~s) & 0.95--1.9\% & 0.5--3.2\%\\
 C1-free (600~s) & 1.1--1.2\% & OPTIMAL\\
 C2 sweep (600~s; extended points at 1{,}800~s) & 1.6--4.7\% & OPTIMAL--2.5\%\\
 \midrule
-\multicolumn{3}{l}{\emph{Certified re-solves (0.1\% target, 3{,}600~s)}}\\
-Paradigm A near-term $p_c=25$ & 1.8\% & --\\
-Paradigm C2 near-term $p_c=150$ (seeds 0/1) & 2.46 / 2.50\% & --\\
-Paradigm C2 mature $p_c=150$ / $p_c=200$ & -- & 1.6\% / 2.2\%\\
-Paradigm A mature $p_c=100$ (recert) & -- & 1.9\%\\
-Forward vs.\ reverse sweep orders & all points within 0.2\% & all points within 0.2\%\\
+\multicolumn{3}{l}{\emph{Certified re-solves (0.1\% target, 3{,}600--7{,}200~s; original $\to$ certified gap)}}\\
+Paradigm A, $p_c=\$25$ & 1.9\% $\to$ 1.8\% & --\\
+Paradigm A, $p_c=\$100$ (recertification) & -- & 1.9\% $\to$ 1.9\%\\
+Paradigm C2, $p_c=\$100$ & 3.9\% $\to$ 2.8\% & --\\
+Paradigm C2, $p_c=\$150$ (seeds 0/1) & 4.7\% $\to$ 2.5 / 2.5\% & --\\
+Paradigm C2, $p_c=\$150$ / $\$200$ & -- & 1.7\% $\to$ 1.6\% / 2.5\% $\to$ 2.2\%\\
+v2b Paradigm A, $p_c=\$0$ & 3.3\% $\to$ 2.3\% & --\\
+v2b Paradigm A, $p_c=\$50$ & -- & 3.3\% $\to$ 1.4\%\\
+v2b Paradigm C2, $p_c=\$100$ / $\$150$ & 4.2\% $\to$ 2.7\% / 3.3\% $\to$ 2.3\% & --\\
+Forward vs.\ reverse sweep orders & within 0.2\% & within 0.2\%\\
 \midrule
 \multicolumn{3}{l}{\emph{Quality-differentiated model (v2b)}}\\
-Step 1 MIP (1{,}800~s, 1\% target) & TIME\_LIMIT & OPTIMAL\\
+Step 1 MIP (1{,}800~s, 1\% target) & 2.6\% & 1.0\%\\
 Paradigm A sweep (600~s) & 1.1--3.3\% & OPTIMAL--3.3\%\\
 C2 sweep (600~s) & 2.8--4.2\% & OPTIMAL--3.0\%\\
 \bottomrule
@@ -411,13 +421,24 @@ demand, not a universal policy constant.}
 Data generation (\texttt{generate\_data\_v2.py}, \texttt{generate\_data\_v2b.py}),
 model (\texttt{01--07\_*.jl}), and figure (\texttt{fig*.py},
 \texttt{visualize\_v2.py}) scripts, together with all input data, are available
-at \url{https://github.com/YANGHanyu3/Biochar-Supply-Chain}. All optimization models are
+at \url{https://github.com/YANGHanyu3/Biochar-Supply-Chain}. The complete
+command sequence and the patch chain applied to the archived result CSVs are
+documented in \texttt{REPRODUCE.md} in the same repository; the diagnostic
+experiments reported in this SI are driven by the archived script
+\texttt{run\_v09\_experiments.sh}, with the corresponding solver log
+(\texttt{v09\_experiments.log}) and certificate CSVs
+(\texttt{policy\_*\_cert*.csv}) deposited alongside. All optimization models are
 implemented in Julia 1.12 with JuMP and solved with Gurobi 13.0.2 (academic
-license) on an 8-thread machine; solve times are 1{,}800~s for the Step-1 MIP,
-600--1{,}800~s per policy sweep point, and seconds for the fixed-layout LPs.
+license) on 7 of the machine's 8 physical cores (one core reserved to bound
+sustained thermal load); solve times are 1{,}800~s for the Step-1 MIP,
+600--3{,}600~s per policy sweep point, and seconds for the fixed-layout LPs.
 Figure scripts use matplotlib with the Calibri family at 400 DPI; county
 boundaries and the Great Lakes layer are drawn from U.S. Census Bureau and
-Natural Earth shapefiles.
+Natural Earth shapefiles. An archived consistency checker
+(\texttt{consistency\_check.py}) re-derives every headline number quoted in
+the abstract, results text, and captions from the result CSVs and exits
+non-zero if any of them disagrees, so table/figure/caption drift is caught
+mechanically rather than by inspection.
 
 \subsection{Net-emission cap frontier (E2)}
 
@@ -494,6 +515,22 @@ the marginal cost of further L production exceeds \$250 plus \$25/t credits).
 The \$25 threshold is thus a property of the calibrated demand, not a
 universal policy constant; the paper's statements are bounded accordingly.
 
+\emph{Continuous-elasticity demand.} The three capacity variants above retain
+the step-function shape; to check that the step boundaries themselves are not
+driving the results we also replace the curve with a continuous one, dividing
+each tier into eight declining sub-steps so that the inverse demand falls
+smoothly from \$800/t to \$100/t across the same 4.8~Mt
+(\texttt{biochar\_data\_v2\_dfelastic}). The no-policy equilibrium falls to
+2.10~Mt and \$483~M/yr (versus 2.30~Mt and \$708~M/yr for the flat steps),
+because a smooth curve pays less for the marginal tonne than a step that
+jumps from \$800 to \$500; net removal falls to $-1.46$~Mt correspondingly.
+The qualitative responses are unchanged: baseline-and-credit expands the
+system to 2.85~Mt (the feedstock ceiling) and raises the surplus to
+\$3{,}128~M/yr at $p_c=\$200$/t, activating the bulk segment at
+$p_c=\$25$/t (0.39~Mt served). The level of the equilibrium is therefore a
+property of the demand curve's shape, but every mechanism the paper reports
+survives its replacement by a continuous analogue.
+
 \subsection{Carbon-parameter joint scenarios (E4)}
 
 The decomposition fraction and the permanence factors enter the credit rate
@@ -513,28 +550,55 @@ The near-term technology mix stays essentially all-300$^\circ$C in every cell
 consistent with the supply-bound regime: carbon-parameter uncertainty scales
 the credit economics but does not flip the near-term technology choice.
 
-\subsection{Carbon ledger and cash-flow decomposition}
+The N$_2$O suppression factor (52~kg/t, \cite{cayuela2014}) is the third
+carbon parameter but is not part of that grid, because it enters the credit
+rate additively rather than multiplicatively. Table~\ref{tab:s11} therefore
+scales it by $\{0.5,1.0,1.5\}$ on the fixed-layout LP at $p_c=\$200$/t under
+the ungated Paradigm-A basis (the gated C2 basis would screen out the
+baseline layout's 300$^\circ$C credits entirely, making the test
+uninformative). A $\pm$50\% perturbation moves the creditable quantity by
+$\pm$0.6\% and the surplus by $\pm$0.4\%, with the net flux essentially
+unchanged ($-1.596$~Mt in every cell), because N$_2$O contributes at most
+6.7~\% of the durable-removal term. This is one of the smallest sensitivities
+in the study and does not affect any conclusion.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{N$_2$O suppression factor sensitivity (review R1-M1) under the
+ungated Paradigm-A credit basis, fixed layout, $p_c=\$200$/t.}
+\label{tab:s11}
+\input{table_S11_n2o.tex}
+\end{table}
+
+\subsection{Carbon ledger and policy accounting}
 
 Table~S6 is the per-dry-tonne carbon ledger: carbon in (kg C/t dry), char
 carbon at 300/500$^\circ$C, gas/liquid carbon (residual), process emissions
 $E^{+}$, durable storage $|S|$ (sequestration plus N$_2$O), the avoided-decay
 baseline $B$, the direct net flux $N=E^{+}-|S|$, and the credit rates of the
-two bases (A: $B-E^{+}+|S|$; C2: $|S|$, H/C-gated). Table~S7 decomposes the
-policy cash flows per point: consumer payment (demand-bid revenue), credit
-revenue, tax payment, resource cost (farmgate, OPEX, transport, annualized
-CAPEX), and the resulting surplus. Two identities close the ledger. First, at
-the system level, the creditable quantity equals the baseline minus the net
-flux, $\mathrm{cc}=B-N$ (e.g., 10.77~Mt $=$ 9.15~Mt $- (-1.60)$~Mt at
-$p_c=0$; 13.56~Mt $=$ 11.57~Mt $- (-1.96)$~Mt at $p_c=\$200$/t; verified for
-every sweep point to $<$0.05~Mt). This is why creditable quantity (up to
-13.6~Mt) so far exceeds the physical net removal (1.60--1.96~Mt): the
-throughput basis pays for the avoided baseline $B$, which is not a direct
-atmospheric flux. Second, surplus equals consumer payment plus credit revenue
-minus tax minus resource cost at every point (the decomposition columns sum
-exactly). Credit revenue and tax are transfers between the operator and the
-policy authority, not social welfare; the surplus figures of the main text
-include them by definition and should be read as producer-side surpluses under
-the policy instruments (Table~\ref{tab:s6}, Table~\ref{tab:s7}).
+two bases (A: $B-E^{+}+|S|$; C2: $|S|$, H/C-gated). Table~S7 places all six
+experiments on a \emph{common accounting boundary}: for each policy point it
+reports the instruments' fiscal transfers (credit revenue received, tax paid,
+allowance settlement) in separate columns from the producer surplus, together
+with the physical net flux and creditable quantity. Two identities close the
+ledger. First, at the system level, the creditable quantity equals the baseline
+minus the net flux, $\mathrm{cc}=B-N$ (e.g., 10.77~Mt $=$ 9.15~Mt
+$- (-1.60)$~Mt at $p_c=0$; 13.56~Mt $=$ 11.57~Mt $- (-1.96)$~Mt at
+$p_c=\$200$/t; verified for every sweep point to $<$0.05~Mt). This is why
+creditable quantity (up to 13.6~Mt) so far exceeds the physical net removal
+(1.60--1.96~Mt): the throughput basis pays for the avoided baseline $B$, which
+is not a direct atmospheric flux. Second, for the two policies whose full cost
+components are archived (A and C2, \texttt{cashflow\_decomposition\_v2.csv}),
+surplus equals consumer payment plus credit revenue minus tax minus resource
+cost, where resource cost is farmgate plus OPEX plus transport plus annualized
+CAPEX; the columns sum exactly at every point. Credit revenue, tax, and
+allowance settlement are transfers between the operator and the policy
+authority, not social welfare, which is why Table~S7 reports them in their own
+columns: the surplus figures of the main text include them by definition and
+should be read as producer-side surpluses under the policy instruments, not as
+a welfare measure (Table~\ref{tab:s6}, Table~\ref{tab:s7}).
 
 \subsection{Proof of Proposition 1}
 
@@ -556,6 +620,32 @@ the finite-difference estimates
 $\Delta\Pi^{*}/\Delta\,\mathrm{CAP}$ in Table~S3 reproduce it to numerical
 tolerance ($-374$ vs. $\$351$--$391$~\$/t over the first binding intervals,
 near-term).
+
+\emph{Dual ranges.} Because the fixed-layout LP is degenerate at several caps,
+the cap dual is an interval rather than a point, so we report it directly:
+Table~\ref{tab:s10} gives, at each cap on the B1 grid, the reported dual and
+the re-solved duals at $\mathrm{CAP}\pm50$~kt. At the first binding cap
+(982.7~kt near-term) the reported value is $-\$374$/t with a wide interval
+$[-\$434, \$0]$/t---the upper end is the non-binding side of the perturbation,
+where the cap stops biting---and the interval narrows monotonically as the cap
+tightens, from 116\% of $|\pi|$ to 6.7\% at 702~kt. The mature-market scenario
+behaves the same way ($-\$478$/t at its first binding cap, 963.6~kt, interval
+narrowing from 104\% to 3.0\%). The reported point duals are therefore
+representative of a contracting interval, and the Proposition-1 identity holds
+at every cap on the grid.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Gross-emission cap duals and their degenerate-vertex intervals
+(review R1-M4): the reported dual $-\mu_{\mathrm{CAP}}$, the dual re-solved at
+$\mathrm{CAP}-50$~kt and $\mathrm{CAP}+50$~kt, and the interval width relative
+to the reported value (n/a where the cap does not bind and the dual is zero).
+Generated by \texttt{v091\_extras.jl}.}
+\label{tab:s10}
+\input{table_S10_dualrange.tex}
+\end{table}
 
 \subsection{Proof of Proposition 2 (two-regime crossover)}
 
@@ -677,7 +767,8 @@ fully-served demand row (\texttt{prop3\_basis\_check.jl}, archived as
 served by the corn-stover 300$^\circ$C chain with
 $e^{+}_q=0.475$--$0.488$~t CO$_2$e/t biochar (T1 dehydration, T2-300
 pyrolysis, plus delivery), giving $\tau_q=0.32$~\$/kg CO$_2$e, i.e.,
-$\tau_{\max}\approx\$321$/t CO$_2$e; H-segment rows give
+$\tau_{\max}\approx\$318$/t CO$_2$e (the minimum over all 144 served rows;
+the mature-market scenario gives $\approx$\$464/t); H-segment rows give
 $\approx$\$1{,}100/t. The threshold exceeds the top tested rate of
 \$200/t, consistent with the null dispatch response of C1 and
 C1-free (Table~\ref{tab:c1free}). The tiered slope does not matter: a
@@ -741,36 +832,54 @@ $N=E^{+}-S$ direct net flux, $R^{A}_{500}$ the Paradigm-A credit rate of the
 
 \begin{table}[htbp]
 \centering
-\small
-\caption{Cash-flow decomposition per policy point (M\$/yr, near-term):
-consumer payment is demand-bid revenue, resource cost is farmgate plus OPEX
-plus transport plus annualized CAPEX, and surplus $=$ consumer payment $+$
-credit revenue $-$ tax $-$ resource cost. Generated by
-\texttt{carbon\_accounting.py}; C2 rows use the certified re-solves where
-available.}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Policy accounting on a common boundary (M\$/yr, near-term), all six
+experiments. Credit revenue, tax, and allowance settlement are fiscal
+transfers, reported separately from the producer surplus; net flux is the
+physical $N=E^{+}-|S|$. Dashes mark unused instruments. Credit revenue and tax
+are not welfare: read surplus as a producer-side surplus.
+Generated by \texttt{carbon\_accounting.py}.}
 \label{tab:s7}
 \input{table_S7_cashflow.tex}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\small
+\footnotesize
+\setlength{\tabcolsep}{3pt}
 \caption{Policy-module decomposition across the six experiments (near-term).
 ``B\&C'' = baseline-and-credit basis $B-E^{+}+|S|$; ``seq'' = sequestration
 basis $|S|$ only.}
 \label{tab:s8}
 \begin{tabular}{llcccccc}
 \toprule
-Experiment & carbon basis & H/C gate & tax & credit & cap & alloc. & BC at \$200/t (Mt; \% 500$^\circ$C)\\
+Experiment & basis & H/C gate & tax & credit & cap & alloc. & BC at 200 (Mt; \% 500C)\\
 \midrule
 Baseline (S0) & -- & -- & -- & -- & -- & -- & 2.30 (0\%)\\
-A (throughput) & B\&C & none & -- & yes & -- & -- & 2.85 (near-term mix 300$^\circ$C)\\
+A (throughput) & B\&C & none & -- & yes & -- & -- & 2.85 (all 300C)\\
 C1-free & -- & -- & tiered & -- & -- & -- & 2.30 (0\%)\\
 C2 (gated) & seq & H/C$\le$0.7 & tiered & yes & -- & -- & 2.25 (100\%)\\
 C2 gate-off (E1) & seq & none & tiered & yes & -- & -- & 2.77 (1\%)\\
-B1 & -- & -- & -- & -- & gross & -- & (cap sweep; MAC \$351--599/t)\\
-B2 & -- & -- & -- & -- & net & -- & (frontier; binds below $-1{,}595$~kt)\\
-C3 & -- & -- & tiered & -- & -- & grand.\/bench. & (no difference at fixed layout)\\
+B1 & -- & -- & -- & -- & gross & -- & MAC \$351--599/t\\
+B2 & -- & -- & -- & -- & net & -- & binds below $-1595$ kt\\
+C3 & -- & -- & tiered & -- & -- & grand.\/bench. & no difference\\
 \bottomrule
 \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Solver certificates for every point whose original gap exceeded 2\%
+(review R1-M7). The best bound is derived from the incumbent and Gurobi's
+relative MIP gap ($\mathrm{bound}=\mathrm{incumbent}\times(1+\mathrm{gap})$ for
+a maximization), so it is a derived rather than a directly reported quantity;
+the certificate CSVs record the incumbent, gap, and termination status per run.
+The time limit enforced for each re-solve is given in place of wall-clock
+runtime, which the sweep scripts do not record; Step-1 runtimes are archived in
+the \texttt{S0\_summary.txt} files. No certified point exceeds a 2.8\% gap.}
+\label{tab:s9}
+\input{table_S9_certificates.tex}
 \end{table}

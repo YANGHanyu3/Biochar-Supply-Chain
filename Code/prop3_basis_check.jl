@@ -158,7 +158,7 @@ for dd in served
         end
     end
     push!(rows_out, (row=dd, seg=segof[dd], node=dnd[dd], margin=round(margin, digits=2),
-                     e_d=round(e_d, digits=3), tau=round(tau_d, digits=1),
+                     e_d=round(e_d, digits=3), tau=round(tau_d, digits=5),
                      route=join(route, ", ")))
 end
 sort!(rows_out, by=r -> r.tau)

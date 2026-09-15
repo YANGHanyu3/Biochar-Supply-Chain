@@ -11,13 +11,22 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig0_superstructure.png}
-\caption{\small Supply chain superstructure: 13 feedstocks gathered at 72 county
-nodes, T1 dehydration, T2 slow pyrolysis at 300/500$^\circ$C, biochar, carbon
-credits, and the price-responsive step demand. Deep-blue elements mark the
-carbon-accounting layer: 500$^\circ$C chars (H/C 0.40--0.52) carry VM0044
-credits while torrefaction-like 300$^\circ$C chars (H/C 0.9--1.4) do not, and
-the three policy modules (A baseline-and-credit, B cap-and-trade, C tiered tax
-+ VM0044) act on the credit and emission flows.}
+\caption{\small Biochar supply chain superstructure and policy architecture.
+(I) Material and carbon flows: 13 feedstocks gathered at 72 county nodes
+(representative nodes $n_1$, $n_2$), T1 dehydration, T2 slow pyrolysis at
+300/500$^\circ$C, biochar delivered to the price-responsive step demand
+($f^{H},f^{M},f^{L}$) and to the non-soil sink ($q^{\mathrm{sink}}$), and the
+carbon-crediting layer: 500$^\circ$C chars (H/C 0.40--0.52) are
+credit-eligible while torrefaction-like 300$^\circ$C chars (H/C 0.9--1.4) are
+not. (II) The three policy architectures differ in accounting basis,
+eligibility rule, and instrument, so they are shown as separate modules rather
+than a single flow: (A) a throughput-scaled baseline-and-credit whose credit
+$R=B-E^{+}+|S|$ is paid per dry tonne with no eligibility gate; (B) a
+gross-emission cap $E^{+}\leq\mathrm{CAP}$ whose shadow price $-\mu$ is the
+marginal abatement cost; and (C) a tiered tax combined with an H/C-gated
+VM0044-inspired credit. In (II), italic row labels give the material, carbon,
+and cash flows of each module, dashed rules mark the constraint boundary, and
+the symbol key defines all notation.}
 \label{fig:super}
 \end{figure}
 
@@ -361,6 +370,7 @@ the next, unserved, bid is strictly unprofitable; this is the demand-constrained
 regime with a strict gap at the margin). Then for any tax rate
 $\tau \in [0, \tau_{\max})$ with
 \begin{equation}
+\label{eq:taumax}
 \tau_{\max} =
 \min_{q\in\mathcal{Q}(x^{*})}
 \frac{\lambda^{\mathrm{dem}}_{d(q)}-\pi^{\mathrm{BC}}_{n(q)}}{e^{+}_q},
@@ -390,13 +400,15 @@ biochar (the \$500/t M bid minus the largest served-node inherent value,
 intensities of the LP basis (SI Section~A.11 reports every served demand row
 individually), the binding rows are the M-segment rows served by the
 corn-stover 300$^\circ$C chain with $e^{+}_q\approx0.48$~t CO$_2$e/t biochar,
-so $\tau_{\max}\approx\$321$/t CO$_2$e; the H-segment rows are far looser
-($\approx$\$1{,}100/t). The route-specific threshold exceeds the top tested
+so $\tau_{\max}\approx\$318$/t CO$_2$e; the H-segment rows are far looser
+($\approx$\$1{,}100/t). In the mature-market scenario the marginal gap is
+wider and $\tau_{\max}\approx\$464$/t, so the neutrality result strengthens
+with feedstock abundance. The route-specific threshold exceeds the top tested
 tier of
 \$200/t; the tax's effect within the tested range is confined to surplus
 reallocation. The neutrality itself is a structural property of any
 demand-constrained LP; the contribution here is the quantified boundary
-($\tau_{\max}\approx\$321$/t for this system) and the comparison it enables
+($\tau_{\max}\approx\$318$/t for this system) and the comparison it enables
 with observed carbon prices.
 
 \subsection{Quality-differentiated extension (v2b)}

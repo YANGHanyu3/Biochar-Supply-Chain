@@ -176,11 +176,93 @@ def draw_content(ax):
             ha="center", va="center", zorder=6)
     swallow(ax, 7.46, 1.35, 7.74, 1.35)
 
+# ---------------- policy module bands (lower row) ----------------
+# Addresses the review's R3-M1: A/B/C carry different accounting bases,
+# eligibility rules and instruments, so a single flowchart conflates them.
+# Each band states its instrument, its material/carbon/cash flows, and its
+# constraint boundary.
+BANDS = [
+    dict(tag="A", title="baseline-and-credit", instrument="throughput-scaled credit",
+         rows=[("material", "biomass $\\rightarrow$ biochar"),
+               ("carbon", "$R=B-E^{+}+|S|$"),
+               ("cash", "$\\Pi + p_c R$")],
+         boundary=["no eligibility gate;", "$R\\geq 0$ paid per t dry"]),
+    dict(tag="B", title="cap-and-trade", instrument="gross-emission cap",
+         rows=[("material", "output cut on MAC"),
+               ("carbon", "$E^{+}\\leq\\mathrm{CAP}$"),
+               ("cash", "shadow price $-\\mu$")],
+         boundary=["allowance market implicit;", "binds only below baseline"]),
+    dict(tag="C", title="tiered tax + H/C", instrument="tax + VM0044 proxy",
+         rows=[("material", "300/500 $^\\circ$C choice"),
+               ("carbon", "H/C $\\leq 0.7$ gate"),
+               ("cash", "tax tiers $+\\ p_c\\mathrm{CC}$")],
+         boundary=["per-batch measured;", "gate drives conversion"]),
+]
+SYMBOL_ROWS = [
+    ("$n_1,n_2$", "county nodes"),
+    ("$f^{H}\\!\\ldots f^{L}$", "demand tiers"),
+    ("$q^{\\mathrm{sink}}$", "non-soil sink"),
+    ("RE", "replicates $\\times$72"),
+    ("T1, T2", "dry; pyrolyze"),
+    ("$p^{CC}$", "credit price $p_c$"),
+]
+W2, H2 = 13.2, 3.9
+
+def draw_policy_bands(ax):
+    """Three policy panels (wide) + a narrower symbol key."""
+    # explicit x-ranges: policy bands need room for their flow text, the key does not
+    XR = [(0.45, 3.70), (3.81, 7.06), (7.17, 10.42), (10.53, 13.15)]
+    y0, y1 = 0.10, 3.80
+    ax.text(0.05, y1 - 0.28, "II", fontsize=12, fontweight="bold",
+            ha="left", va="center", zorder=6)
+    panels = [(b["tag"] + "  " + b["title"], b["instrument"], b["rows"], b["boundary"])
+              for b in BANDS]
+    panels.append(("Symbols", "", SYMBOL_ROWS, []))
+    for i, (title, instrument, rows, boundary) in enumerate(panels):
+        x0, x1 = XR[i]
+        box(ax, x0, y0, x1, y1, lw=1.3, r=0.10)
+        ax.text(x0 + 0.12, y1 - 0.28, title, fontsize=9.2, fontweight="bold",
+                ha="left", va="center", zorder=6)
+        if instrument:
+            ax.text(x0 + 0.12, y1 - 0.58, instrument, fontsize=7.8,
+                    ha="left", va="center", color="#404040", zorder=6)
+        ax.plot([x0 + 0.12, x1 - 0.12], [y1 - 0.76, y1 - 0.76], color=INK,
+                lw=0.8, zorder=5)
+        for j, (lab, txt) in enumerate(rows):
+            yy = y1 - 1.08 - j * 0.42
+            if instrument:   # policy band: italic label + content column
+                ax.text(x0 + 0.12, yy, lab, fontsize=7.2, style="italic",
+                        ha="left", va="center", color="#404040", zorder=6)
+                ax.text(x0 + 1.10, yy, txt, fontsize=7.3,
+                        ha="left", va="center", zorder=6)
+            else:            # symbol key: symbol + description column
+                ax.text(x0 + 0.12, yy, lab, fontsize=7.4,
+                        ha="left", va="center", zorder=6)
+                ax.text(x0 + 0.80, yy, txt, fontsize=7.2,
+                        ha="left", va="center", color="#404040", zorder=6)
+        if boundary:
+            ax.plot([x0 + 0.12, x1 - 0.12], [y0 + 0.80, y0 + 0.80], color=INK,
+                    lw=0.9, ls=(0, (3, 2)), zorder=5)
+            for k, line in enumerate(boundary):
+                ax.text(x0 + 0.12, y0 + 0.56 - k * 0.26, line, fontsize=7.0,
+                        style="italic", ha="left", va="center", zorder=6)
+
+
 # ---------------- render + export ----------------
-fig, ax = plt.subplots(figsize=(FIGW, FIGH))
-ax.set_xlim(0, W); ax.set_ylim(0, H); ax.axis("off")
-draw_content(ax)
+import matplotlib.gridspec as gridspec
+FIGH = FIGW * (H + H2) / W
+fig = plt.figure(figsize=(FIGW, FIGH))
+gs = gridspec.GridSpec(2, 1, height_ratios=[H, H2], hspace=0.10, figure=fig)
+ax_top = fig.add_subplot(gs[0])
+ax_top.set_xlim(0, W); ax_top.set_ylim(0, H); ax_top.axis("off")
+draw_content(ax_top)
+ax_top.text(0.02, 7.18, "I", fontsize=12, fontweight="bold",
+            ha="left", va="center", zorder=6)
+ax_bot = fig.add_subplot(gs[1])
+ax_bot.set_xlim(0, W2); ax_bot.set_ylim(0, H2); ax_bot.axis("off")
+draw_policy_bands(ax_bot)
 for ext in ("png", "pdf", "svg"):
-    fig.savefig(os.path.join(outdir, f"fig0_superstructure.{ext}"), dpi=400)
+    fig.savefig(os.path.join(outdir, f"fig0_superstructure.{ext}"), dpi=400,
+                bbox_inches="tight")
 plt.close(fig)
 print("saved fig0_superstructure.{png,pdf,svg} ->", outdir)

@@ -82,7 +82,7 @@ set_optimizer_attribute(m, "MIPGap", 0.01)
 set_optimizer_attribute(m, "TimeLimit", 1800)
 set_optimizer_attribute(m, "MIPFocus", 1)
 set_optimizer_attribute(m, "NoRelHeurTime", 60)
-set_optimizer_attribute(m, "Threads", 8)
+set_optimizer_attribute(m, "Threads", 7)   # 7/8 physical cores: thermal headroom
 set_optimizer_attribute(m, "OutputFlag", 0)
 
 @variable(m, f[i in N, j in N, p in P; arc_ok[(i,j,p)]] >= 0)
@@ -184,5 +184,7 @@ open(joinpath(resdir, "S0_summary.txt"), "w") do io
     println(io, @sprintf("nT1 = %d, nT2_300 = %d, nT2_500 = %d", n_t1, n_t2_300, n_t2_500))
     println(io, @sprintf("revenue_M=%.1f farm_M=%.1f opex_M=%.1f trans_M=%.1f capex_M=%.1f",
         bc_rev/1e6, farm_c/1e6, opex_c/1e6, trn_c/1e6, cap_c/1e6))
+    println(io, @sprintf("gap = %.6f", relative_gap(m)))
+    println(io, @sprintf("runtime_s = %.1f", solve_time(m)))
 end
 println("\nSaved: $(joinpath(resdir, "z_star_MIP_v2b.csv")) | S0_summary.txt")

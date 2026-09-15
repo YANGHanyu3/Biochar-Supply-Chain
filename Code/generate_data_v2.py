@@ -330,20 +330,39 @@ def write_scenario(dry, scenario, outdir):
     share = (w / w.sum()).values
     dem_rows = []
     did = 1
-    for seg, price, cap in DEMAND_SEGMENTS:
-        price_e, cap_e = price, cap
-        if DEMAND_FAMILY == "low":
-            cap_e = cap * 0.7
-        elif DEMAND_FAMILY == "high":
-            cap_e = cap * 1.4
-        elif DEMAND_FAMILY == "pricestress":
-            if seg == "M":
-                price_e = 450.0
-            if seg == "L":
-                price_e = 200.0
+    # Build the demand segments. The canonical curve is 3 flat steps; the
+    # "elastic" variant subdivides each tier into 8 declining sub-steps, which
+    # approximates a continuous inverse-demand curve while keeping the tier
+    # names H/M/L so downstream reporting code is unchanged.
+    if DEMAND_FAMILY == "elastic":
+        n_sub = 8
+        anchors = [("H", 800.0, 550.0, 0.8),
+                   ("M", 550.0, 275.0, 1.5),
+                   ("L", 275.0, 100.0, 2.5)]
+        segments = []
+        for name, p_hi, p_lo, cap in anchors:
+            for k in range(n_sub):
+                segments.append((name, p_hi - (p_hi - p_lo) * (k + 0.5) / n_sub,
+                                 cap / n_sub))
+    else:
+        segments = []
+        for seg, price, cap in DEMAND_SEGMENTS:
+            price_e, cap_e = price, cap
+            if DEMAND_FAMILY == "low":
+                cap_e = cap * 0.7
+            elif DEMAND_FAMILY == "high":
+                cap_e = cap * 1.4
+            elif DEMAND_FAMILY == "pricestress":
+                if seg == "M":
+                    price_e = 450.0
+                if seg == "L":
+                    price_e = 200.0
+            segments.append((seg, price_e, cap_e))
+
+    for seg, price_e, cap_e in segments:
         for i, nid in enumerate(raw['n_id']):
             dem_rows.append(dict(dem_id=did, node=int(nid), product=2*N+1,
-                                 segment=seg, bid=price_e,
+                                 segment=seg, bid=round(price_e, 2),
                                  capacity=round(share[i]*cap_e*1e6, 2)))
             did += 1
     for i, nid in enumerate(raw['n_id']):

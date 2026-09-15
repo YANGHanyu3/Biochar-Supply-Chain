@@ -1,0 +1,8 @@
+01_MIP_v2 scenario=near-term status=OPTIMAL
+objective_M = 482.81
+wet_Mt = 6.134
+bc_Mt = 2.098 (ag 2.098, sink 0.000)
+net_ghg_Mt = -1.460
+nT1 = 55, nT2_300 = 29, nT2_500 = 0
+revenue_M=1099.2 farm_M=296.2 opex_M=203.4 trans_M=34.0 capex_M=82.8
+feedstock_wet_kt = Corn_Stover=5852.2, Soybean_Straw=-0.0, Wheat_Straw=-0.0, Oats_Straw=-0.0, Barley_Straw=-0.0, Switchgrass=-0.0, Miscanthus=-0.0, Poplar=-0.0, Willow=-0.0, Logging_Residues=282.0, SmallDiameter_Trees=-0.0, Mill_Residues=-0.0, Other_Forest_Waste=-0.0

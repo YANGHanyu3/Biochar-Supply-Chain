@@ -87,6 +87,16 @@ def fig2_baseline():
             ax.scatter(grp.lon, grp.lat, s=grp["size"], c=col, marker=mk,
                        edgecolors="white", linewidths=0.5, alpha=0.9,
                        zorder=5, label=cls)
+    # county index: label the largest facility counties so the spatial pattern
+    # can be identified without printing all 72 names (review R3-M2)
+    zc = z.groupby("node")["count"].sum().sort_values(ascending=False)
+    top_nodes = list(zc.index[:6])
+    lab = nm.set_index("node_id").loc[top_nodes, ["lat", "lon", "alias"]]
+    for _, r in lab.iterrows():
+        ax.annotate(str(r.alias), xy=(r.lon, r.lat), xytext=(5, 4),
+                    textcoords="offset points", fontsize=7.2, color=FS.INK,
+                    zorder=7,
+                    bbox=dict(fc="white", ec="none", alpha=0.72, pad=0.6))
     ax.legend(loc="lower left", fontsize=8, frameon=True, facecolor="white",
               edgecolor="#BFBFBF")
     ax.axis("off")
@@ -247,12 +257,20 @@ def fig5_credit_basis():
     idx = [names.index(r) for r in reps]
     x = np.arange(len(reps)); w = 0.2
     ax = axes[0]
-    ax.bar(x - 1.5 * w, [rate_bc[(f, 3)] for f in idx], w, color=C1, label="B&C, 300 C")
-    ax.bar(x - 0.5 * w, [rate_bc[(f, 5)] for f in idx], w, color=C3, label="B&C, 500 C")
+    ax.bar(x - 1.5 * w, [rate_bc[(f, 3)] for f in idx], w, color=C1,
+           label="A: $B-E^{+}+|S|$, 300 C")
+    ax.bar(x - 0.5 * w, [rate_bc[(f, 5)] for f in idx], w, color=C3,
+           label="A: $B-E^{+}+|S|$, 500 C")
     ax.bar(x + 0.5 * w, [rate_v44[(f, 3)] for f in idx], w, color=FS.GRAY_L,
-           edgecolor=CG, linewidth=0.4, label="VM0044, 300 C")
+           edgecolor=CG, linewidth=0.4, label="C2: $|S|$ gated, 300 C")
     ax.bar(x + 1.5 * w, [rate_v44[(f, 5)] for f in idx], w, color=CG,
-           label="VM0044, 500 C")
+           label="C2: $|S|$ gated, 500 C")
+    # the C2 300 C bar is exactly zero (H/C gate): flag it so the empty slot is
+    # not read as missing data
+    ax.axhline(0, color="k", lw=0.7)
+    ax.annotate("C2 300 $^\\circ$C $=0$ (gate)", xy=(x[-1] + 0.5 * w, 0.02),
+                xytext=(1.75, 0.34), fontsize=7.4, color=CG,
+                arrowprops=dict(arrowstyle="->", color=CG, lw=0.8))
     ax.set_xticks(x)
     ax.set_xticklabels(["corn", "wheat", "poplar", "log. res."], fontsize=8.5)
     ax.set_ylabel("Credit rate (tCC / t dry)")
@@ -283,14 +301,14 @@ def fig5_credit_basis():
     FS.panel_label(ax, 1)
 
     ax = axes[2]
-    for sc, off in [("near-term", -0.19), ("mature-market medium", 0.19)]:
+    for sc, off, tag in [("near-term", -0.19, "near"), ("mature-market medium", 0.19, "mature")]:
         v = pd.read_csv(os.path.join("results_v2b", sc, "policy_A_bnc_sweep_v2b.csv"))
         xx = np.arange(len(v)) + off
         col = C1 if sc == "near-term" else C3
-        ax.bar(xx, v.bc300_Mt, 0.36, color=col, label=f"BC300 ({sc[:9]})")
+        ax.bar(xx, v.bc300_Mt, 0.36, color=col, label=f"BC300, {tag}")
         ax.bar(xx, v.bc500_Mt, 0.36, bottom=v.bc300_Mt, color=col, alpha=0.45,
                hatch="///", edgecolor="white", linewidth=0.3,
-               label=f"BC500 ({sc[:9]})")
+               label=f"BC500, {tag}")
     ax.set_xticks(np.arange(4))
     ax.set_xticklabels(["0", "50", "100", "200"])
     ax.set_xlabel("Credit price (USD/tCO$_2$e)")

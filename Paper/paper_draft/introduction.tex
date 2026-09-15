@@ -93,6 +93,47 @@ crediting
 activates the low-price agricultural segment of demand at credit prices as low as
 \$25/tCO$_2$e under the calibrated demand.
 
+% contribution typology table (review R2-M1): literature x capability x this work
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Model capabilities of the closest prior work versus this study:
+(1)~spatially explicit network, (2)~multi-product, (3)~endogenous
+price-responsive demand clearing, (4)~carbon policy embedded in the model,
+(5)~carbon price obtained as a dual, (6)~multiple policy architectures compared.
+A checkmark marks a capability the cited study explicitly demonstrates; a dash
+marks one outside its stated scope (classification follows each work's own
+framing, not an exhaustive re-analysis). No prior study embeds a carbon policy
+whose price is an endogenous dual of the policy constraint.}
+\label{tab:novelty}
+\begin{tabular}{lcccccc}
+\toprule
+Study & (1) & (2) & (3) & (4) & (5) & (6)\\
+\midrule
+Tan ~\cite{tan2016biochar}          & \checkmark & --         & --         & --         & --         & --\\
+Belmonte et al.~\cite{belmonte2018} & \checkmark & --         & --         & --         & --         & --\\
+Negri et al.~\cite{negri2021}       & \checkmark & \checkmark & --         & --         & --         & --\\
+Sampat et al.~\cite{sampat2019}     & \checkmark & \checkmark & \checkmark & --         & --         & --\\
+Tominac et al.~\cite{tominac2022}   & \checkmark & \checkmark & \checkmark & --         & --         & --\\
+\midrule
+\textbf{This study} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This framing separates three kinds of contribution. The
+\emph{integration} contribution is the embedding of carbon policy modules
+inside a spatially explicit, price-responsive, multi-product network, so that
+the policy price is a model output (a dual) rather than an exogenous
+parameter. The \emph{case findings} are Wisconsin-specific: the demand-bound
+equilibrium at 2.30~Mt, the two-regime crossover that decides whether
+crediting upgrades the pyrolysis temperature, and the two-stage response of a
+net-emission cap tightened below the system's own flux. The \emph{theoretical}
+contribution is the quantified boundary conditions under which a linear
+emission tax is dispatch-neutral (Proposition~\ref{prop:taxinv}, evaluated
+with route-specific marginal intensities in SI Section~A.11).
+
 The paper is structured as follows. In Section~\ref{sec:model} we present the
 mathematical formulation, including the base network model and the three policy
 modules, together with three propositions that are proved in the

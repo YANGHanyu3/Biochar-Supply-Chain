@@ -132,7 +132,7 @@ function solve(p_c, z_warm; time_limit = something(tl_override, 900),
     set_optimizer_attribute(m, "TimeLimit", time_limit)
     set_optimizer_attribute(m, "MIPGap", mipgap)
     set_optimizer_attribute(m, "MIPFocus", 1)
-    set_optimizer_attribute(m, "Threads", 8)
+    set_optimizer_attribute(m, "Threads", 7)   # 7/8 physical cores: thermal headroom
     set_optimizer_attribute(m, "OutputFlag", 0)
     @variable(m, f[i in N, j in N, p in P; arc_ok[(i,j,p)]] >= 0)
     @variable(m, dem[DS] >= 0); @variable(m, sup[SS] >= 0)

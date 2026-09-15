@@ -1,8 +1,10 @@
 01_MIP_v2b scenario=mature-market medium status=OPTIMAL
-objective_M = 674.46
-wet_Mt = 7.206
+objective_M = 674.67
+wet_Mt = 7.210
 bc_Mt = 2.300 (bc300 1.500, bc500 0.800)
 seg_H=0.800 seg_M=1.500 seg_L=0.000 sink=0.000
-net_ghg_Mt = -2.118
-nT1 = 40, nT2_300 = 16, nT2_500 = 10
-revenue_M=1390.0 farm_M=359.5 opex_M=241.2 trans_M=24.2 capex_M=90.7
+net_ghg_Mt = -2.015
+nT1 = 40, nT2_300 = 14, nT2_500 = 10
+revenue_M=1390.0 farm_M=359.5 opex_M=241.3 trans_M=26.7 capex_M=87.9
+gap = 0.009802
+runtime_s = 255.7

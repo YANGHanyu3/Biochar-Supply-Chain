@@ -36,6 +36,7 @@ _tag    = get(kw, "tag", "")
 _plist  = haskey(kw, "prices") ? [parse(Float64, p) for p in split(kw["prices"], ",")] : Float64[]
 _tlimit = haskey(kw, "timelimit") ? parse(Float64, kw["timelimit"]) : 600.0
 _seed   = haskey(kw, "seed") ? parse(Int, kw["seed"]) : nothing
+_mgap   = haskey(kw, "gap") ? parse(Float64, kw["gap"]) : 0.005
 sens_only = !isempty(_tag) || haskey(kw, "datadir")   # skip C1/C1-free/C3 (unchanged by H/C shift)
 
 nm      = CSV.read(joinpath(datadir, "node_matrix.csv"), DataFrame)
@@ -153,7 +154,7 @@ function build(tier_lims, rates, p_credit, alloc_mode, p_allow, beta)
 end
 
 # ── FREE-Z MIP builder (for C2: policy can change facility layout & tech) ──
-function build_mip(p_credit, z_warm; time_limit=_tlimit, mipgap=0.005)
+function build_mip(p_credit, z_warm; time_limit=_tlimit, mipgap=_mgap)
     dem_rows = DataFrame(dem_id=Int[], node=Int[], product=Int[], segment=String[],
                          bid=Float64[], capacity=Float64[])
     for row in eachrow(dem_df)

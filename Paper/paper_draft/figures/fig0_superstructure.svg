@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="388.26pt" height="228.264pt" viewBox="0 0 388.26 228.264" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="388.26pt" height="338.01pt" viewBox="0 0 388.26 338.01" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-09T23:18:11.949491</dc:date>
+    <dc:date>2026-09-15T05:38:39.248262</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,8 +21,8 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 228.264 
-L 388.26 228.264 
+   <path d="M 0 338.01 
+L 388.26 338.01 
 L 388.26 0 
 L 0 0 
 z
@@ -30,326 +30,326 @@ z
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 177.136364 150.714 
-C 197.416806 150.714 216.869345 143.597981 231.209783 130.933164 
-C 245.550222 118.268346 253.607727 101.088757 253.607727 83.178 
-C 253.607727 65.267243 245.550222 48.087654 231.209783 35.422836 
-C 216.869345 22.758019 197.416806 15.642 177.136364 15.642 
-C 156.855921 15.642 137.403382 22.758019 123.062944 35.422836 
-C 108.722505 48.087654 100.665 65.267243 100.665 83.178 
-C 100.665 101.088757 108.722505 118.268346 123.062944 130.933164 
-C 137.403382 143.597981 156.855921 150.714 177.136364 150.714 
+    <path d="M 177.136364 143.88 
+C 197.416806 143.88 216.869345 137.102839 231.209783 125.041108 
+C 245.550222 112.979377 253.607727 96.617863 253.607727 79.56 
+C 253.607727 62.502137 245.550222 46.140623 231.209783 34.078892 
+C 216.869345 22.017161 197.416806 15.24 177.136364 15.24 
+C 156.855921 15.24 137.403382 22.017161 123.062944 34.078892 
+C 108.722505 46.140623 100.665 62.502137 100.665 79.56 
+C 100.665 96.617863 108.722505 112.979377 123.062944 125.041108 
+C 137.403382 137.102839 156.855921 143.88 177.136364 143.88 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
-    <path d="M 51.100227 205.587 
-C 58.611502 205.587 65.816146 202.621992 71.12742 197.344985 
-C 76.438693 192.067978 79.422955 184.909815 79.422955 177.447 
-C 79.422955 169.984185 76.438693 162.826022 71.12742 157.549015 
-C 65.816146 152.272008 58.611502 149.307 51.100227 149.307 
-C 43.588952 149.307 36.384308 152.272008 31.073035 157.549015 
-C 25.761761 162.826022 22.7775 169.984185 22.7775 177.447 
-C 22.7775 184.909815 25.761761 192.067978 31.073035 197.344985 
-C 36.384308 202.621992 43.588952 205.587 51.100227 205.587 
+    <path d="M 51.100227 196.14 
+C 58.611502 196.14 65.816146 193.316183 71.12742 188.290462 
+C 76.438693 183.264741 79.422955 176.447443 79.422955 169.34 
+C 79.422955 162.232557 76.438693 155.415259 71.12742 150.389538 
+C 65.816146 145.363817 58.611502 142.54 51.100227 142.54 
+C 43.588952 142.54 36.384308 145.363817 31.073035 150.389538 
+C 25.761761 155.415259 22.7775 162.232557 22.7775 169.34 
+C 22.7775 176.447443 25.761761 183.264741 31.073035 188.290462 
+C 36.384308 193.316183 43.588952 196.14 51.100227 196.14 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.4; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.4; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
-    <path d="M 264.936818 25.491 
-L 271.167818 25.491 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.4; stroke-linecap: square"/>
+    <path d="M 264.936818 24.62 
+L 271.167818 24.62 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.4; stroke-linecap: square"/>
    </g>
    <g id="line2d_2">
-    <path d="M 271.167818 25.491 
-L 271.167818 125.388 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.4; stroke-linecap: square"/>
+    <path d="M 271.167818 24.62 
+L 271.167818 119.76 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.4; stroke-linecap: square"/>
    </g>
    <g id="line2d_3">
-    <path d="M 264.936818 125.388 
-L 271.167818 125.388 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.4; stroke-linecap: square"/>
+    <path d="M 264.936818 119.76 
+L 271.167818 119.76 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.4; stroke-linecap: square"/>
    </g>
    <g id="patch_4">
-    <path d="M 19.095545 50.817 
-L 105.763091 50.817 
-Q 109.161818 50.817 109.161818 47.4402 
-L 109.161818 17.6118 
-Q 109.161818 14.235 105.763091 14.235 
-L 19.095545 14.235 
-Q 15.696818 14.235 15.696818 17.6118 
-L 15.696818 47.4402 
-Q 15.696818 50.817 19.095545 50.817 
+    <path d="M 19.095545 48.74 
+L 105.763091 48.74 
+Q 109.161818 48.74 109.161818 45.524 
+L 109.161818 17.116 
+Q 109.161818 13.9 105.763091 13.9 
+L 19.095545 13.9 
+Q 15.696818 13.9 15.696818 17.116 
+L 15.696818 45.524 
+Q 15.696818 48.74 19.095545 48.74 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
-    <path d="M 19.095545 107.097 
-L 95.850136 107.097 
-Q 99.248864 107.097 99.248864 103.7202 
-L 99.248864 65.4498 
-Q 99.248864 62.073 95.850136 62.073 
-L 19.095545 62.073 
-Q 15.696818 62.073 15.696818 65.4498 
-L 15.696818 103.7202 
-Q 15.696818 107.097 19.095545 107.097 
+    <path d="M 19.095545 102.34 
+L 95.850136 102.34 
+Q 99.248864 102.34 99.248864 99.124 
+L 99.248864 62.676 
+Q 99.248864 59.46 95.850136 59.46 
+L 19.095545 59.46 
+Q 15.696818 59.46 15.696818 62.676 
+L 15.696818 99.124 
+Q 15.696818 102.34 19.095545 102.34 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
-    <path d="M 106.896 206.994 
-L 213.389455 206.994 
-Q 216.788182 206.994 216.788182 203.6172 
-L 216.788182 162.5328 
-Q 216.788182 159.156 213.389455 159.156 
-L 106.896 159.156 
-Q 103.497273 159.156 103.497273 162.5328 
-L 103.497273 203.6172 
-Q 103.497273 206.994 106.896 206.994 
+    <path d="M 106.896 197.48 
+L 213.389455 197.48 
+Q 216.788182 197.48 216.788182 194.264 
+L 216.788182 155.136 
+Q 216.788182 151.92 213.389455 151.92 
+L 106.896 151.92 
+Q 103.497273 151.92 103.497273 155.136 
+L 103.497273 194.264 
+Q 103.497273 197.48 106.896 197.48 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
-    <path d="M 231.516 206.994 
-L 315.351273 206.994 
-Q 318.75 206.994 318.75 203.6172 
-L 318.75 162.5328 
-Q 318.75 159.156 315.351273 159.156 
-L 231.516 159.156 
-Q 228.117273 159.156 228.117273 162.5328 
-L 228.117273 203.6172 
-Q 228.117273 206.994 231.516 206.994 
+    <path d="M 231.516 197.48 
+L 315.351273 197.48 
+Q 318.75 197.48 318.75 194.264 
+L 318.75 155.136 
+Q 318.75 151.92 315.351273 151.92 
+L 231.516 151.92 
+Q 228.117273 151.92 228.117273 155.136 
+L 228.117273 194.264 
+Q 228.117273 197.48 231.516 197.48 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
-    <path d="M 148.475455 55.8822 
-L 202.965 55.8822 
-Q 205.797273 55.8822 205.797273 53.0682 
-L 205.797273 42.9378 
-Q 205.797273 40.1238 202.965 40.1238 
-L 148.475455 40.1238 
-Q 145.643182 40.1238 145.643182 42.9378 
-L 145.643182 53.0682 
-Q 145.643182 55.8822 148.475455 55.8822 
+    <path d="M 148.475455 53.564 
+L 202.965 53.564 
+Q 205.797273 53.564 205.797273 50.884 
+L 205.797273 41.236 
+Q 205.797273 38.556 202.965 38.556 
+L 148.475455 38.556 
+Q 145.643182 38.556 145.643182 41.236 
+L 145.643182 50.884 
+Q 145.643182 53.564 148.475455 53.564 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
-    <path d="M 192.597614 109.3482 
-L 229.649659 109.3482 
-Q 232.481932 109.3482 232.481932 106.5342 
-L 232.481932 96.4038 
-Q 232.481932 93.5898 229.649659 93.5898 
-L 192.597614 93.5898 
-Q 189.765341 93.5898 189.765341 96.4038 
-L 189.765341 106.5342 
-Q 189.765341 109.3482 192.597614 109.3482 
+    <path d="M 192.597614 104.484 
+L 229.649659 104.484 
+Q 232.481932 104.484 232.481932 101.804 
+L 232.481932 92.156 
+Q 232.481932 89.476 229.649659 89.476 
+L 192.597614 89.476 
+Q 189.765341 89.476 189.765341 92.156 
+L 189.765341 101.804 
+Q 189.765341 104.484 192.597614 104.484 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
-    <path d="M 121.790795 109.3482 
-L 158.842841 109.3482 
-Q 161.675114 109.3482 161.675114 106.5342 
-L 161.675114 96.4038 
-Q 161.675114 93.5898 158.842841 93.5898 
-L 121.790795 93.5898 
-Q 118.958523 93.5898 118.958523 96.4038 
-L 118.958523 106.5342 
-Q 118.958523 109.3482 121.790795 109.3482 
+    <path d="M 121.790795 104.484 
+L 158.842841 104.484 
+Q 161.675114 104.484 161.675114 101.804 
+L 161.675114 92.156 
+Q 161.675114 89.476 158.842841 89.476 
+L 121.790795 89.476 
+Q 118.958523 89.476 118.958523 92.156 
+L 118.958523 101.804 
+Q 118.958523 104.484 121.790795 104.484 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
-    <path d="M 34.389818 182.5122 
-L 43.736318 182.5122 
-Q 45.435682 182.5122 45.435682 180.8238 
-L 45.435682 174.0702 
-Q 45.435682 172.3818 43.736318 172.3818 
-L 34.389818 172.3818 
-Q 32.690455 172.3818 32.690455 174.0702 
-L 32.690455 180.8238 
-Q 32.690455 182.5122 34.389818 182.5122 
+    <path d="M 34.389818 174.164 
+L 43.736318 174.164 
+Q 45.435682 174.164 45.435682 172.556 
+L 45.435682 166.124 
+Q 45.435682 164.516 43.736318 164.516 
+L 34.389818 164.516 
+Q 32.690455 164.516 32.690455 166.124 
+L 32.690455 172.556 
+Q 32.690455 174.164 34.389818 174.164 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
-    <path d="M 58.464136 182.5122 
-L 67.810636 182.5122 
-Q 69.51 182.5122 69.51 180.8238 
-L 69.51 174.0702 
-Q 69.51 172.3818 67.810636 172.3818 
-L 58.464136 172.3818 
-Q 56.764773 172.3818 56.764773 174.0702 
-L 56.764773 180.8238 
-Q 56.764773 182.5122 58.464136 182.5122 
+    <path d="M 58.464136 174.164 
+L 67.810636 174.164 
+Q 69.51 174.164 69.51 172.556 
+L 69.51 166.124 
+Q 69.51 164.516 67.810636 164.516 
+L 58.464136 164.516 
+Q 56.764773 164.516 56.764773 166.124 
+L 56.764773 172.556 
+Q 56.764773 174.164 58.464136 174.164 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_13">
-    <path d="M 144.565227 59.259 
-L 134.658859 59.036152 
-L 140.283059 61.682473 
-L 139.705499 67.838651 
+    <path d="M 144.565227 56.78 
+L 134.658859 56.567764 
+L 140.283059 59.088069 
+L 139.705499 64.951096 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_4">
-    <path d="M 99.815318 84.585 
-L 140.283059 61.682473 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 99.815318 80.9 
+L 140.283059 59.088069 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_14">
-    <path d="M 205.459091 93.027 
-L 205.919473 83.192653 
-L 203.122654 88.715897 
-L 196.942029 87.995473 
+    <path d="M 205.459091 88.94 
+L 205.919473 79.573955 
+L 203.122654 84.834187 
+L 196.942029 84.14807 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_5">
-    <path d="M 185.633182 56.445 
-L 203.122654 88.715897 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 185.633182 54.1 
+L 203.122654 84.834187 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_15">
-    <path d="M 145.981364 93.027 
-L 154.498425 87.995473 
-L 148.317801 88.715897 
-L 145.520982 83.192653 
+    <path d="M 145.981364 88.94 
+L 154.498425 84.14807 
+L 148.317801 84.834187 
+L 145.520982 79.573955 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_6">
-    <path d="M 165.807273 56.445 
-L 148.317801 88.715897 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 165.807273 54.1 
+L 148.317801 84.834187 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_16">
-    <path d="M 56.198318 177.447 
-L 51.666682 174.74556 
-L 53.569969 177.447 
-L 51.666682 180.14844 
+    <path d="M 56.198318 169.34 
+L 51.666682 166.7672 
+L 53.569969 169.34 
+L 51.666682 171.9128 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_7">
-    <path d="M 46.002136 177.447 
-L 53.569969 177.447 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 46.002136 169.34 
+L 53.569969 169.34 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_17">
-    <path d="M 263.520682 32.526 
-L 253.61229 32.425546 
-L 259.269173 35.002185 
-L 258.768698 41.165022 
+    <path d="M 263.520682 31.32 
+L 253.61229 31.22433 
+L 259.269173 33.678271 
+L 258.768698 39.54764 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_8">
-    <path d="M 222.452727 56.445 
-L 259.269173 35.002185 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 222.452727 54.1 
+L 259.269173 33.678271 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_18">
-    <path d="M 263.520682 60.666 
-L 253.847734 58.530324 
-L 258.845424 62.214365 
-L 257.07205 68.140865 
+    <path d="M 263.520682 58.12 
+L 253.847734 56.086023 
+L 258.845424 59.594633 
+L 257.07205 65.238919 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_9">
-    <path d="M 229.533409 71.922 
-L 258.845424 62.214365 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 229.533409 68.84 
+L 258.845424 59.594633 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_19">
-    <path d="M 263.520682 88.806 
-L 255.874123 82.544549 
-L 258.647051 88.079672 
-L 254.361616 92.56287 
+    <path d="M 263.520682 84.92 
+L 255.874123 78.956714 
+L 258.647051 84.228259 
+L 254.361616 88.497972 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_10">
-    <path d="M 235.197955 84.585 
-L 258.647051 88.079672 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 235.197955 80.9 
+L 258.647051 84.228259 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_20">
-    <path d="M 263.520682 116.946 
-L 255.328547 111.407435 
-L 258.600554 116.666664 
-L 254.746857 121.521336 
+    <path d="M 263.520682 111.72 
+L 255.328547 106.445176 
+L 258.600554 111.453965 
+L 254.746857 116.077463 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_11">
-    <path d="M 213.955909 114.132 
-L 258.600554 116.666664 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 213.955909 109.04 
+L 258.600554 111.453965 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_21">
-    <path d="M 140.316818 158.0304 
-L 145.414909 149.5884 
-L 140.316818 153.13404 
-L 135.218727 149.5884 
+    <path d="M 140.316818 150.848 
+L 145.414909 142.808 
+L 140.316818 146.1848 
+L 135.218727 142.808 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_12">
-    <path d="M 140.316818 109.911 
-L 140.316818 153.13404 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 140.316818 105.02 
+L 140.316818 146.1848 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="patch_22">
-    <path d="M 226.417909 183.075 
-L 222.056209 180.474864 
-L 223.888123 183.075 
-L 222.056209 185.675136 
+    <path d="M 226.417909 174.7 
+L 222.056209 172.22368 
+L 223.888123 174.7 
+L 222.056209 177.17632 
 z
-" clip-path="url(#p18754beb0d)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf677d7c734)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_13">
-    <path d="M 218.487545 183.075 
-L 223.888123 183.075 
-" clip-path="url(#p18754beb0d)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
+    <path d="M 218.487545 174.7 
+L 223.888123 174.7 
+" clip-path="url(#pf677d7c734)" style="fill: none; stroke: #000000; stroke-width: 1.2"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 10px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="22.363" transform="rotate(-0 62.429318 22.363)">Policy modules</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="21.76" transform="rotate(-0 62.429318 21.76)">Policy modules</text>
    </g>
    <g id="text_2">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="31.2742" transform="rotate(-0 62.429318 31.2742)">A baseline-and-credit</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="30.229" transform="rotate(-0 62.429318 30.229)">A baseline-and-credit</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="39.1534" transform="rotate(-0 62.429318 39.1534)">B cap-and-trade</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="37.733" transform="rotate(-0 62.429318 37.733)">B cap-and-trade</text>
    </g>
    <g id="text_4">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="47.0326" transform="rotate(-0 62.429318 47.0326)">C tiered tax + VM0044</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="62.429318" y="45.237" transform="rotate(-0 62.429318 45.237)">C tiered tax + VM0044</text>
    </g>
    <g id="text_5">
-    <text style="font-weight: 700; font-size: 10px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="70.201" transform="rotate(-0 57.472841 70.201)">RE (dashed)</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="67.32" transform="rotate(-0 57.472841 67.32)">RE (dashed)</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="78.8308" transform="rotate(-0 57.472841 78.8308)">13 feedstocks</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="75.521" transform="rotate(-0 57.472841 75.521)">13 feedstocks</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="86.71" transform="rotate(-0 57.472841 86.71)">(7 ag + 6 forestry)</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="83.025" transform="rotate(-0 57.472841 83.025)">(7 ag + 6 forestry)</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="94.5892" transform="rotate(-0 57.472841 94.5892)">farmgate 40–60 USD/t</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="90.529" transform="rotate(-0 57.472841 90.529)">farmgate 40–60 USD/t</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="102.4684" transform="rotate(-0 57.472841 102.4684)">wet biomass</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="57.472841" y="98.033" transform="rotate(-0 57.472841 98.033)">wet biomass</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="119.074773" y="65.0422" transform="rotate(-0 119.074773 65.0422)">wet</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="119.074773" y="62.389" transform="rotate(-0 119.074773 62.389)">wet</text>
    </g>
    <g id="text_11">
     <!-- $n_1$ -->
-    <g style="fill: #262626" transform="translate(136.212636 38.84)">
+    <g style="fill: #262626" transform="translate(136.212636 37.5)">
      <text>
       <tspan x="0" y="-0.375" style="font-style: italic; font-size: 14px; font-family: 'Calibri'; fill: #262626">n</tspan>
       <tspan x="7.332227" y="1.724993" style="font-style: italic; font-size: 9.8px; font-family: 'Calibri'; fill: #262626">1</tspan>
@@ -357,20 +357,20 @@ L 223.888123 183.075
     </g>
    </g>
    <g id="text_12">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="175.720227" y="50.253" transform="rotate(-0 175.720227 50.253)">T1 dehydration</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="175.720227" y="48.31" transform="rotate(-0 175.720227 48.31)">T1 dehydration</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="211.123636" y="103.719" transform="rotate(-0 211.123636 103.719)">T2-300 °C</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="211.123636" y="99.23" transform="rotate(-0 211.123636 99.23)">T2-300 °C</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="140.316818" y="103.719" transform="rotate(-0 140.316818 103.719)">T2-500 °C</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="140.316818" y="99.23" transform="rotate(-0 140.316818 99.23)">T2-500 °C</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="175.720227" y="81.082" transform="rotate(-0 175.720227 81.082)">dry</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="175.720227" y="77.665" transform="rotate(-0 175.720227 77.665)">dry</text>
    </g>
    <g id="text_16">
     <!-- $n_2$ -->
-    <g style="fill: #262626" transform="translate(36.182273 166.127)">
+    <g style="fill: #262626" transform="translate(36.182273 158.69)">
      <text>
       <tspan x="0" y="-0.796875" style="font-style: italic; font-size: 11px; font-family: 'Calibri'; fill: #262626">n</tspan>
       <tspan x="5.761035" y="0.85312" style="font-style: italic; font-size: 7.7px; font-family: 'Calibri'; fill: #262626">2</tspan>
@@ -378,14 +378,14 @@ L 223.888123 183.075
     </g>
    </g>
    <g id="text_17">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="39.063068" y="179.572" transform="rotate(-0 39.063068 179.572)">T1</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="39.063068" y="171.465" transform="rotate(-0 39.063068 171.465)">T1</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="63.137386" y="179.572" transform="rotate(-0 63.137386 179.572)">T2</text>
+    <text style="font-size: 8.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="63.137386" y="171.465" transform="rotate(-0 63.137386 171.465)">T2</text>
    </g>
    <g id="text_19">
     <!-- $\times$ 72 county nodes -->
-    <g style="fill: #262626" transform="translate(19.905227 215.3098)">
+    <g style="fill: #262626" transform="translate(19.905227 205.501)">
      <text>
       <tspan x="0" y="-0.234375" style="font-style: italic; font-size: 8.5px; font-family: 'Calibri'; fill: #262626">×</tspan>
       <tspan x="4.233398" y="-0.234375" style="font-style: italic; font-size: 8.5px; font-family: 'Calibri'; fill: #262626"> </tspan>
@@ -409,7 +409,7 @@ L 223.888123 183.075
    </g>
    <g id="text_20">
     <!-- biochar $f$  ($d \leq 400$ km) -->
-    <g style="fill: #262626" transform="translate(274.849773 17.767)">
+    <g style="fill: #262626" transform="translate(274.849773 17.365)">
      <text>
       <tspan x="0" y="-0.109375" style="font-size: 8.5px; font-family: 'Calibri'; fill: #262626">b</tspan>
       <tspan x="4.46582" y="-0.109375" style="font-size: 8.5px; font-family: 'Calibri'; fill: #262626">i</tspan>
@@ -436,38 +436,38 @@ L 223.888123 183.075
     </g>
    </g>
    <g id="text_21">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="34.776" transform="rotate(-0 274.849773 34.776)">H: premium (CDR)</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="33.57" transform="rotate(-0 274.849773 33.57)">H: premium (CDR)</text>
    </g>
    <g id="text_22">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="41.8924" transform="rotate(-0 274.849773 41.8924)">800 USD/t   0.80 Mt</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="40.338" transform="rotate(-0 274.849773 40.338)">800 USD/t   0.80 Mt</text>
    </g>
    <g id="text_23">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="62.916" transform="rotate(-0 274.849773 62.916)">M: quality ag/industrial</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="60.37" transform="rotate(-0 274.849773 60.37)">M: quality ag/industrial</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="70.0324" transform="rotate(-0 274.849773 70.0324)">500 USD/t   1.50 Mt</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="67.138" transform="rotate(-0 274.849773 67.138)">500 USD/t   1.50 Mt</text>
    </g>
    <g id="text_25">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="91.056" transform="rotate(-0 274.849773 91.056)">L: bulk agricultural</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="87.17" transform="rotate(-0 274.849773 87.17)">L: bulk agricultural</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="98.1724" transform="rotate(-0 274.849773 98.1724)">250 USD/t   2.50 Mt</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="93.938" transform="rotate(-0 274.849773 93.938)">250 USD/t   2.50 Mt</text>
    </g>
    <g id="text_27">
-    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="119.196" transform="rotate(-0 274.849773 119.196)">sink (non-soil)</text>
+    <text style="font-size: 9px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="274.849773" y="113.97" transform="rotate(-0 274.849773 113.97)">sink (non-soil)</text>
    </g>
    <g id="text_28">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="126.3124" transform="rotate(-0 274.849773 126.3124)">30 USD/t</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="274.849773" y="120.738" transform="rotate(-0 274.849773 120.738)">30 USD/t</text>
    </g>
    <g id="text_29">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="146.547818" y="135.88" transform="rotate(-0 146.547818 135.88)">credits</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="146.547818" y="129.85" transform="rotate(-0 146.547818 129.85)">credits</text>
    </g>
    <g id="text_30">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="160.142727" y="169.973" transform="rotate(-0 160.142727 169.973)">Carbon credits (VM0044)</text>
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="160.142727" y="162.335" transform="rotate(-0 160.142727 162.335)">Carbon credits (VM0044)</text>
    </g>
    <g id="text_31">
     <!-- CC $= C\cdot perm\cdot(44/12)\cdot yield$ -->
-    <g style="fill: #262626" transform="translate(111.475727 180.904)">
+    <g style="fill: #262626" transform="translate(111.475727 172.73)">
      <text>
       <tspan x="0" y="-0.125" style="font-size: 8.2px; font-family: 'Calibri'; fill: #262626">C</tspan>
       <tspan x="4.365601" y="-0.125" style="font-size: 8.2px; font-family: 'Calibri'; fill: #262626">C</tspan>
@@ -497,14 +497,14 @@ L 223.888123 183.075
     </g>
    </g>
    <g id="text_32">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="160.142727" y="190.753" transform="rotate(-0 160.142727 190.753)">only 500 °C chars eligible</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="160.142727" y="182.11" transform="rotate(-0 160.142727 182.11)">only 500 °C chars eligible</text>
    </g>
    <g id="text_33">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="273.433636" y="169.973" transform="rotate(-0 273.433636 169.973)">Carbon market</text>
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="273.433636" y="162.335" transform="rotate(-0 273.433636 162.335)">Carbon market</text>
    </g>
    <g id="text_34">
     <!-- credit price $p^{CC}$ -->
-    <g style="fill: #262626" transform="translate(247.296136 181.489)">
+    <g style="fill: #262626" transform="translate(247.296136 173.315)">
      <text>
       <tspan x="0" y="-0.68325" style="font-size: 8.5px; font-family: 'Calibri'; fill: #262626">c</tspan>
       <tspan x="3.594238" y="-0.68325" style="font-size: 8.5px; font-family: 'Calibri'; fill: #262626">r</tspan>
@@ -526,70 +526,73 @@ L 223.888123 183.075
     </g>
    </g>
    <g id="text_35">
-    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="273.433636" y="190.753" transform="rotate(-0 273.433636 190.753)">Paradigms A | B | C</text>
+    <text style="font-size: 8.2px; font-family: 'Calibri'; text-anchor: middle; fill: #262626" x="273.433636" y="182.11" transform="rotate(-0 273.433636 182.11)">Paradigms A | B | C</text>
    </g>
    <g id="text_36">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="7.766455" y="21.456" transform="rotate(-0 7.766455 21.456)">I</text>
+   </g>
+   <g id="text_37">
     <g id="patch_23">
-     <path d="M 220.018545 48.725 
-L 229.418545 48.725 
-L 229.418545 36.025 
-L 220.018545 36.025 
+     <path d="M 220.018545 47.05 
+L 229.418545 47.05 
+L 229.418545 34.35 
+L 220.018545 34.35 
 z
 " style="fill: #ffffff"/>
     </g>
     <!-- $f^H$ -->
-    <g style="fill: #262626" transform="translate(220.818545 45.425)">
+    <g style="fill: #262626" transform="translate(220.818545 43.75)">
      <text>
       <tspan x="0" y="-0.429375" style="font-style: italic; font-size: 10px; font-family: 'Calibri'; fill: #262626">f</tspan>
       <tspan x="3.147461" y="-4.559375" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">H</tspan>
      </text>
     </g>
    </g>
-   <g id="text_37">
+   <g id="text_38">
     <g id="patch_24">
-     <path d="M 224.833091 69.2672 
-L 235.933091 69.2672 
-L 235.933091 56.5672 
-L 224.833091 56.5672 
+     <path d="M 224.833091 66.614 
+L 235.933091 66.614 
+L 235.933091 53.914 
+L 224.833091 53.914 
 z
 " style="fill: #ffffff"/>
     </g>
     <!-- $f^M$ -->
-    <g style="fill: #262626" transform="translate(225.633091 65.9672)">
+    <g style="fill: #262626" transform="translate(225.633091 63.314)">
      <text>
       <tspan x="0" y="-0.45125" style="font-style: italic; font-size: 10px; font-family: 'Calibri'; fill: #262626">f</tspan>
       <tspan x="3.147461" y="-4.58125" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">M</tspan>
      </text>
     </g>
    </g>
-   <g id="text_38">
+   <g id="text_39">
     <g id="patch_25">
-     <path d="M 235.446364 86.714 
-L 243.446364 86.714 
-L 243.446364 74.014 
-L 235.446364 74.014 
+     <path d="M 235.446364 83.23 
+L 243.446364 83.23 
+L 243.446364 70.53 
+L 235.446364 70.53 
 z
 " style="fill: #ffffff"/>
     </g>
     <!-- $f^L$ -->
-    <g style="fill: #262626" transform="translate(236.246364 83.414)">
+    <g style="fill: #262626" transform="translate(236.246364 79.93)">
      <text>
       <tspan x="0" y="-0.429375" style="font-style: italic; font-size: 10px; font-family: 'Calibri'; fill: #262626">f</tspan>
       <tspan x="3.147461" y="-4.559375" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">L</tspan>
      </text>
     </g>
    </g>
-   <g id="text_39">
+   <g id="text_40">
     <g id="patch_26">
-     <path d="M 212.060864 130.4374 
-L 229.445864 130.4374 
-L 229.445864 118.0874 
-L 212.060864 118.0874 
+     <path d="M 212.060864 124.863 
+L 229.445864 124.863 
+L 229.445864 112.513 
+L 212.060864 112.513 
 z
 " style="fill: #ffffff"/>
     </g>
     <!-- $q^{sink}$ -->
-    <g style="fill: #262626" transform="translate(212.820864 127.3024)">
+    <g style="fill: #262626" transform="translate(212.820864 121.728)">
      <text>
       <tspan x="0" y="-0.548375" style="font-style: italic; font-size: 9.5px; font-family: 'Calibri'; fill: #262626">q</tspan>
       <tspan x="4.975439" y="-4.471875" style="font-style: italic; font-size: 6.65px; font-family: 'Calibri'; fill: #262626">s</tspan>
@@ -600,10 +603,457 @@ z
     </g>
    </g>
   </g>
+  <g id="axes_2">
+   <g id="patch_27">
+    <path d="M 22.7775 328.13 
+L 109.161818 328.13 
+Q 111.994091 328.13 111.994091 325.45 
+L 111.994091 231.65 
+Q 111.994091 228.97 109.161818 228.97 
+L 22.7775 228.97 
+Q 19.945227 228.97 19.945227 231.65 
+L 19.945227 325.45 
+Q 19.945227 328.13 22.7775 328.13 
+z
+" clip-path="url(#p30066c71b9)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 117.941864 328.13 
+L 204.326182 328.13 
+Q 207.158455 328.13 207.158455 325.45 
+L 207.158455 231.65 
+Q 207.158455 228.97 204.326182 228.97 
+L 117.941864 228.97 
+Q 115.109591 228.97 115.109591 231.65 
+L 115.109591 325.45 
+Q 115.109591 328.13 117.941864 328.13 
+z
+" clip-path="url(#p30066c71b9)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 213.106227 328.13 
+L 299.490545 328.13 
+Q 302.322818 328.13 302.322818 325.45 
+L 302.322818 231.65 
+Q 302.322818 228.97 299.490545 228.97 
+L 213.106227 228.97 
+Q 210.273955 228.97 210.273955 231.65 
+L 210.273955 325.45 
+Q 210.273955 328.13 213.106227 328.13 
+z
+" clip-path="url(#p30066c71b9)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 308.270591 328.13 
+L 376.811591 328.13 
+Q 379.643864 328.13 379.643864 325.45 
+L 379.643864 231.65 
+Q 379.643864 228.97 376.811591 228.97 
+L 308.270591 228.97 
+Q 305.438318 228.97 305.438318 231.65 
+L 305.438318 325.45 
+Q 305.438318 328.13 308.270591 328.13 
+z
+" clip-path="url(#p30066c71b9)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 23.343955 249.338 
+L 108.595364 249.338 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 23.343955 306.69 
+L 108.595364 306.69 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke-dasharray: 2.7,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 118.508318 249.338 
+L 203.759727 249.338 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 118.508318 306.69 
+L 203.759727 306.69 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke-dasharray: 2.7,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_18">
+    <path d="M 213.672682 249.338 
+L 298.924091 249.338 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_19">
+    <path d="M 213.672682 306.69 
+L 298.924091 306.69 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke-dasharray: 2.7,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_20">
+    <path d="M 308.837045 249.338 
+L 376.245136 249.338 
+" clip-path="url(#p30066c71b9)" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="8.616136" y="239.474" transform="rotate(-0 8.616136 239.474)">II</text>
+   </g>
+   <g id="text_42">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="23.343955" y="238.774" transform="rotate(-0 23.343955 238.774)">A  baseline-and-credit</text>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 7.8px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="23.343955" y="246.464" transform="rotate(-0 23.343955 246.464)">throughput-scaled credit</text>
+   </g>
+   <g id="text_44">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="23.343955" y="259.714" transform="rotate(-0 23.343955 259.714)">material</text>
+   </g>
+   <g id="text_45">
+    <!-- biomass $\rightarrow$ biochar -->
+    <g style="fill: #262626" transform="translate(51.100227 259.739)">
+     <text>
+      <tspan x="0" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">b</tspan>
+      <tspan x="3.83371" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">i</tspan>
+      <tspan x="5.508286" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">o</tspan>
+      <tspan x="9.356247" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">m</tspan>
+      <tspan x="15.185196" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">a</tspan>
+      <tspan x="18.680435" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">s</tspan>
+      <tspan x="21.534348" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">s</tspan>
+      <tspan x="24.38826" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="27.459512" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">→</tspan>
+      <tspan x="35.486789" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="37.136432" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">b</tspan>
+      <tspan x="40.970142" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">i</tspan>
+      <tspan x="42.644717" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">o</tspan>
+      <tspan x="46.492679" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">c</tspan>
+      <tspan x="49.578174" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">h</tspan>
+      <tspan x="53.411884" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">a</tspan>
+      <tspan x="56.907123" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">r</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_46">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="23.343955" y="270.97" transform="rotate(-0 23.343955 270.97)">carbon</text>
+   </g>
+   <g id="text_47">
+    <!-- $R=B-E^{+}+|S|$ -->
+    <g style="fill: #262626" transform="translate(51.100227 271.1045)">
+     <text>
+      <tspan x="0" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">R</tspan>
+      <tspan x="5.383585" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">=</tspan>
+      <tspan x="10.43938" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">B</tspan>
+      <tspan x="15.83009" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">−</tspan>
+      <tspan x="20.885886" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">E</tspan>
+      <tspan x="28.683825" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">+</tspan>
+      <tspan x="33.73962" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">|</tspan>
+      <tspan x="37.099468" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">S</tspan>
+      <tspan x="40.452191" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">|</tspan>
+      <tspan x="24.518676" y="-3.385937" style="font-size: 5.11px; font-family: 'Calibri'; fill: #262626">+</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_48">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="23.343955" y="282.226" transform="rotate(-0 23.343955 282.226)">cash</text>
+   </g>
+   <g id="text_49">
+    <!-- $\Pi + p_c R$ -->
+    <g style="fill: #262626" transform="translate(51.100227 282.251)">
+     <text>
+      <tspan x="0" y="-0.390625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">Π</tspan>
+      <tspan x="5.967905" y="-0.390625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">+</tspan>
+      <tspan x="11.0237" y="-0.390625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">p</tspan>
+      <tspan x="17.286729" y="-0.390625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">R</tspan>
+      <tspan x="14.927273" y="0.704371" style="font-size: 5.11px; font-family: 'Calibri'; fill: #262626">c</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_50">
+    <text style="font-style: italic; font-size: 7px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="23.343955" y="314.872" transform="rotate(-0 23.343955 314.872)">no eligibility gate;</text>
+   </g>
+   <g id="text_51">
+    <!-- $R\geq 0$ paid per t dry -->
+    <g style="fill: #262626" transform="translate(23.343955 321.84)">
+     <text>
+      <tspan x="0" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">R</tspan>
+      <tspan x="5.164551" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">≥</tspan>
+      <tspan x="10.014648" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">0</tspan>
+      <tspan x="13.5625" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="15.14502" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">p</tspan>
+      <tspan x="18.744141" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">a</tspan>
+      <tspan x="22.343262" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">i</tspan>
+      <tspan x="23.949707" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">d</tspan>
+      <tspan x="27.548828" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="29.131348" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">p</tspan>
+      <tspan x="32.730469" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">e</tspan>
+      <tspan x="36.073242" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">r</tspan>
+      <tspan x="38.472656" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="40.055176" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">t</tspan>
+      <tspan x="42.399902" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="43.982422" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">d</tspan>
+      <tspan x="47.581543" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">r</tspan>
+      <tspan x="49.980957" y="-0.25" style="font-style: italic; font-size: 7px; font-family: 'Calibri'; fill: #262626">y</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_52">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="118.508318" y="238.774" transform="rotate(-0 118.508318 238.774)">B  cap-and-trade</text>
+   </g>
+   <g id="text_53">
+    <text style="font-size: 7.8px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="118.508318" y="246.464" transform="rotate(-0 118.508318 246.464)">gross-emission cap</text>
+   </g>
+   <g id="text_54">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="118.508318" y="259.714" transform="rotate(-0 118.508318 259.714)">material</text>
+   </g>
+   <g id="text_55">
+    <text style="font-size: 7.3px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="146.264591" y="259.739" transform="rotate(-0 146.264591 259.739)">output cut on MAC</text>
+   </g>
+   <g id="text_56">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="118.508318" y="270.97" transform="rotate(-0 118.508318 270.97)">carbon</text>
+   </g>
+   <g id="text_57">
+    <!-- $E^{+}\leq\mathrm{CAP}$ -->
+    <g style="fill: #262626" transform="translate(146.264591 271.1045)">
+     <text>
+      <tspan x="0" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">E</tspan>
+      <tspan x="7.797939" y="-0.371037" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">≤</tspan>
+      <tspan x="3.632791" y="-3.385937" style="font-size: 5.11px; font-family: 'Calibri'; fill: #262626">+</tspan>
+      <tspan x="12.853735" y="-0.371037" style="font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #262626">C</tspan>
+      <tspan x="17.948721" y="-0.371037" style="font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #262626">A</tspan>
+      <tspan x="22.940389" y="-0.371037" style="font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #262626">P</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_58">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="118.508318" y="282.226" transform="rotate(-0 118.508318 282.226)">cash</text>
+   </g>
+   <g id="text_59">
+    <!-- shadow price $-\mu$ -->
+    <g style="fill: #262626" transform="translate(146.264591 282.251)">
+     <text>
+      <tspan x="0" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">s</tspan>
+      <tspan x="2.853912" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">h</tspan>
+      <tspan x="6.687622" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">a</tspan>
+      <tspan x="10.182861" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">d</tspan>
+      <tspan x="14.016571" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">o</tspan>
+      <tspan x="17.864532" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">w</tspan>
+      <tspan x="23.080658" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="24.730301" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">p</tspan>
+      <tspan x="28.564011" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">r</tspan>
+      <tspan x="31.107941" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">i</tspan>
+      <tspan x="32.782516" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">c</tspan>
+      <tspan x="35.868011" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">e</tspan>
+      <tspan x="39.498642" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="41.148285" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">−</tspan>
+      <tspan x="44.782471" y="-0.03125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">μ</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_60">
+    <text style="font-style: italic; font-size: 7px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="118.508318" y="314.872" transform="rotate(-0 118.508318 314.872)">allowance market implicit;</text>
+   </g>
+   <g id="text_61">
+    <text style="font-style: italic; font-size: 7px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="118.508318" y="321.84" transform="rotate(-0 118.508318 321.84)">binds only below baseline</text>
+   </g>
+   <g id="text_62">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="213.672682" y="238.774" transform="rotate(-0 213.672682 238.774)">C  tiered tax + H/C</text>
+   </g>
+   <g id="text_63">
+    <text style="font-size: 7.8px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="213.672682" y="246.464" transform="rotate(-0 213.672682 246.464)">tax + VM0044 proxy</text>
+   </g>
+   <g id="text_64">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="213.672682" y="259.714" transform="rotate(-0 213.672682 259.714)">material</text>
+   </g>
+   <g id="text_65">
+    <!-- 300/500 $^\circ$C choice -->
+    <g style="fill: #262626" transform="translate(241.428955 259.739)">
+     <text>
+      <tspan x="0" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">3</tspan>
+      <tspan x="3.698318" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">0</tspan>
+      <tspan x="7.396637" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">0</tspan>
+      <tspan x="11.094955" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">/</tspan>
+      <tspan x="13.913239" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">5</tspan>
+      <tspan x="17.611557" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">0</tspan>
+      <tspan x="21.309875" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">0</tspan>
+      <tspan x="25.008194" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="30.705278" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">C</tspan>
+      <tspan x="34.595995" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="36.245638" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">c</tspan>
+      <tspan x="39.331133" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">h</tspan>
+      <tspan x="43.164842" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">o</tspan>
+      <tspan x="47.012804" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">i</tspan>
+      <tspan x="48.687379" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">c</tspan>
+      <tspan x="51.772874" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">e</tspan>
+      <tspan x="27.722827" y="-3.780525" style="font-size: 5.11px; font-family: 'STIXGeneral'; fill: #262626">∘</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_66">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="213.672682" y="270.97" transform="rotate(-0 213.672682 270.97)">carbon</text>
+   </g>
+   <g id="text_67">
+    <!-- H/C $\leq 0.7$ gate -->
+    <g style="fill: #262626" transform="translate(241.428955 270.995)">
+     <text>
+      <tspan x="0" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">H</tspan>
+      <tspan x="4.546295" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">/</tspan>
+      <tspan x="7.364578" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">C</tspan>
+      <tspan x="11.255295" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="14.326547" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">≤</tspan>
+      <tspan x="19.382343" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">0</tspan>
+      <tspan x="23.080661" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">.</tspan>
+      <tspan x="24.922702" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">7</tspan>
+      <tspan x="28.621021" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="30.270663" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">g</tspan>
+      <tspan x="33.705325" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">a</tspan>
+      <tspan x="37.200565" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">t</tspan>
+      <tspan x="39.644733" y="-0.765625" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">e</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_68">
+    <text style="font-style: italic; font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="213.672682" y="282.226" transform="rotate(-0 213.672682 282.226)">cash</text>
+   </g>
+   <g id="text_69">
+    <!-- tax tiers $+\ p_c\mathrm{CC}$ -->
+    <g style="fill: #262626" transform="translate(241.428955 282.251)">
+     <text>
+      <tspan x="0" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">t</tspan>
+      <tspan x="2.444168" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">a</tspan>
+      <tspan x="5.939407" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">x</tspan>
+      <tspan x="9.099731" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="10.749374" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">t</tspan>
+      <tspan x="13.193542" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">i</tspan>
+      <tspan x="14.868118" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">e</tspan>
+      <tspan x="18.498749" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">r</tspan>
+      <tspan x="21.042679" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">s</tspan>
+      <tspan x="23.896591" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626"> </tspan>
+      <tspan x="25.546234" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">+</tspan>
+      <tspan x="31.549745" y="-0.578125" style="font-size: 7.3px; font-family: 'Calibri'; fill: #262626">p</tspan>
+      <tspan x="35.453318" y="0.516871" style="font-size: 5.11px; font-family: 'Calibri'; fill: #262626">c</tspan>
+      <tspan x="37.812774" y="-0.578125" style="font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #262626">C</tspan>
+      <tspan x="42.90776" y="-0.578125" style="font-size: 7.3px; font-family: 'DejaVu Sans'; fill: #262626">C</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_70">
+    <text style="font-style: italic; font-size: 7px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="213.672682" y="314.872" transform="rotate(-0 213.672682 314.872)">per-batch measured;</text>
+   </g>
+   <g id="text_71">
+    <text style="font-style: italic; font-size: 7px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="213.672682" y="321.84" transform="rotate(-0 213.672682 321.84)">gate drives conversion</text>
+   </g>
+   <g id="text_72">
+    <text style="font-weight: 700; font-size: 9.2px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="308.837045" y="238.774" transform="rotate(-0 308.837045 238.774)">Symbols</text>
+   </g>
+   <g id="text_73">
+    <!-- $n_1,n_2$ -->
+    <g style="fill: #262626" transform="translate(308.837045 259.764)">
+     <text>
+      <tspan x="0" y="-0.5" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">n</tspan>
+      <tspan x="6.778213" y="-0.5" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">,</tspan>
+      <tspan x="10.062143" y="-0.5" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">n</tspan>
+      <tspan x="3.953785" y="0.609996" style="font-size: 5.18px; font-family: 'Calibri'; fill: #262626">1</tspan>
+      <tspan x="14.015928" y="0.609996" style="font-size: 5.18px; font-family: 'Calibri'; fill: #262626">2</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_74">
+    <text style="font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="328.0965" y="259.714" transform="rotate(-0 328.0965 259.714)">county nodes</text>
+   </g>
+   <g id="text_75">
+    <!-- $f^{H}\!\ldots f^{L}$ -->
+    <g style="fill: #262626" transform="translate(308.837045 271.427)">
+     <text>
+      <tspan x="0" y="-0.66255" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">f</tspan>
+      <tspan x="4.551986" y="-0.66255" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">…</tspan>
+      <tspan x="9.654693" y="-0.66255" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">f</tspan>
+      <tspan x="2.326268" y="-3.71875" style="font-size: 5.18px; font-family: 'Calibri'; fill: #262626">H</tspan>
+      <tspan x="11.980961" y="-3.71875" style="font-size: 5.18px; font-family: 'Calibri'; fill: #262626">L</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_76">
+    <text style="font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="328.0965" y="270.97" transform="rotate(-0 328.0965 270.97)">demand tiers</text>
+   </g>
+   <g id="text_77">
+    <!-- $q^{\mathrm{sink}}$ -->
+    <g style="fill: #262626" transform="translate(308.837045 283.016)">
+     <text>
+      <tspan x="0" y="-0.017238" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">q</tspan>
+      <tspan x="3.953785" y="-3.073438" style="font-size: 5.18px; font-family: 'DejaVu Sans'; fill: #262626">s</tspan>
+      <tspan x="6.649131" y="-3.073438" style="font-size: 5.18px; font-family: 'DejaVu Sans'; fill: #262626">i</tspan>
+      <tspan x="8.086483" y="-3.073438" style="font-size: 5.18px; font-family: 'DejaVu Sans'; fill: #262626">n</tspan>
+      <tspan x="11.365352" y="-3.073438" style="font-size: 5.18px; font-family: 'DejaVu Sans'; fill: #262626">k</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_78">
+    <text style="font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="328.0965" y="282.226" transform="rotate(-0 328.0965 282.226)">non-soil sink</text>
+   </g>
+   <g id="text_79">
+    <text style="font-size: 7.4px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="308.837045" y="293.532" transform="rotate(-0 308.837045 293.532)">RE</text>
+   </g>
+   <g id="text_80">
+    <!-- replicates $\times$72 -->
+    <g style="fill: #404040" transform="translate(328.0965 293.482)">
+     <text>
+      <tspan x="0" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">r</tspan>
+      <tspan x="2.505798" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">e</tspan>
+      <tspan x="6.082001" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">p</tspan>
+      <tspan x="9.858246" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">l</tspan>
+      <tspan x="11.507721" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">i</tspan>
+      <tspan x="13.157196" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">c</tspan>
+      <tspan x="16.196442" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">a</tspan>
+      <tspan x="19.639282" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">t</tspan>
+      <tspan x="22.046814" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">e</tspan>
+      <tspan x="25.623016" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">s</tspan>
+      <tspan x="28.434143" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040"> </tspan>
+      <tspan x="30.059052" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">×</tspan>
+      <tspan x="33.638763" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">7</tspan>
+      <tspan x="37.281647" y="-0.109375" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">2</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_81">
+    <text style="font-size: 7.4px; font-family: 'Calibri'; text-anchor: start; fill: #262626" x="308.837045" y="304.788" transform="rotate(-0 308.837045 304.788)">T1, T2</text>
+   </g>
+   <g id="text_82">
+    <text style="font-size: 7.2px; font-family: 'Calibri'; text-anchor: start; fill: #404040" x="328.0965" y="304.738" transform="rotate(-0 328.0965 304.738)">dry; pyrolyze</text>
+   </g>
+   <g id="text_83">
+    <!-- $p^{CC}$ -->
+    <g style="fill: #262626" transform="translate(308.837045 316.488)">
+     <text>
+      <tspan x="0" y="-0.629738" style="font-size: 7.4px; font-family: 'Calibri'; fill: #262626">p</tspan>
+      <tspan x="3.953785" y="-3.685938" style="font-size: 5.18px; font-family: 'Calibri'; fill: #262626">C</tspan>
+      <tspan x="6.712278" y="-3.685938" style="font-size: 5.18px; font-family: 'Calibri'; fill: #262626">C</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_84">
+    <!-- credit price $p_c$ -->
+    <g style="fill: #404040" transform="translate(328.0965 315.994)">
+     <text>
+      <tspan x="0" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">c</tspan>
+      <tspan x="3.039246" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">r</tspan>
+      <tspan x="5.545044" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">e</tspan>
+      <tspan x="9.121246" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">d</tspan>
+      <tspan x="12.897491" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">i</tspan>
+      <tspan x="14.546967" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">t</tspan>
+      <tspan x="16.954498" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040"> </tspan>
+      <tspan x="18.579407" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">p</tspan>
+      <tspan x="22.355652" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">r</tspan>
+      <tspan x="24.86145" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">i</tspan>
+      <tspan x="26.510925" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">c</tspan>
+      <tspan x="29.550171" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">e</tspan>
+      <tspan x="33.126373" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040"> </tspan>
+      <tspan x="34.751282" y="-0.125" style="font-size: 7.2px; font-family: 'Calibri'; fill: #404040">p</tspan>
+      <tspan x="38.596433" y="0.954996" style="font-size: 5.04px; font-family: 'Calibri'; fill: #404040">c</tspan>
+     </text>
+    </g>
+   </g>
+  </g>
  </g>
  <defs>
-  <clipPath id="p18754beb0d">
-   <rect x="7.2" y="7.2" width="373.86" height="213.864"/>
+  <clipPath id="pf677d7c734">
+   <rect x="7.2" y="7.2" width="373.86" height="203.68"/>
+  </clipPath>
+  <clipPath id="p30066c71b9">
+   <rect x="7.2" y="226.29" width="373.86" height="104.52"/>
   </clipPath>
  </defs>
 </svg>
